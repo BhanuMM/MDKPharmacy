@@ -1,0 +1,178 @@
+body {
+	  margin-top: 0px; 
+    margin-bottom: 0px;
+    padding-bottom: -10%; 
+    margin-left: 0px; 
+    margin-right: 0px;
+}
+
+h1 {
+   padding-top:15px;
+   margin: 0px;
+   font-family: Trebuchet MS,Helvetica Neu,Helvetica, Arial, sans-serif;
+   font-size:43px;
+   color:#0086bf;
+   
+}
+
+.left {
+	position: absolute;
+/*	float: left;*/
+    text-align:left;
+	/*width: 100%;*/
+	height:100%;
+}
+
+.right {
+  position: absolute;
+  margin-left: 100px;
+  border: none;
+  padding: 0px;
+}
+
+
+.bottom{
+  position: absolute;
+  float: bottom;
+  right: 0px;
+  width: 55%;
+  border: none;
+  padding: 0px;
+}
+
+input[type=text], input[type=password] {
+  width:95%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  display: inline-block;
+  text-align: left;
+  border-radius: 0px;
+  box-sizing: border-box;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  outline: none;
+}
+
+ 
+input[type=submit], input[type=reset]{
+  width: 30%;
+  background-color: #3D7AF5;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  font-family: Trebuchet MS;
+  font-size:15px;
+  cursor: pointer;
+  text-align:center;
+}
+
+
+input[type=submit]:hover {
+  background-color: #adadad;
+}
+
+input[type=reset]:hover {
+  background-color: #adadad;
+}
+
+
+.checkbox {
+    display: inline-flex;
+    cursor: pointer;
+    position: relative;
+    font-size:15px;
+	 text-align:center;
+}
+
+
+tr, td{
+	font-family:Trebuchet MS;
+	font-weight: bold;
+}
+
+/*Navigation bar styles*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #0086bf;
+  font-family:Trebuchet MS;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #adadad;
+}
+
+/*delete button in account settings*/
+
+.delete:hover{
+	background-color: #adadad;
+}
+
+/* Style the footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 7%;
+  width: 100%;
+  background-color:#2a2b2b;
+  background-attachment: fixed;
+  padding: 10px;
+  text-align: center;
+  font-family:Trebuchet MS;
+}
+
+/*Footer*/
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 98.5%;
+  background-color: #2a2b2b;
+  color: white;
+  text-align: center;
+  top: 115%;
+  padding-bottom: 3.5%;
+}
+
+.vl {
+  border-left: 1px solid black;
+  height: 500px;
+  position: absolute;
+  left: 38%;
+  margin-left: -3px;
+  top: 12%;
+}
+
+.vl1 {
+  border-left: 1px solid black;
+  height: 500px;
+  position: absolute;
+  left: 68%;
+  margin-left: -3px;
+  top: 12%;
+}
