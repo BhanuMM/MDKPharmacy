@@ -9,7 +9,7 @@
     define('APPROOT', dirname(dirname(__FILE__)));
 
     //URLROOT (Dynamic links)
-    define('URLROOT', 'http://localhost/mdk');
+    define('URLROOT', 'http://localhost/Pharmacy_MIS');
 
     //Sitename
     define('SITENAME', 'MDK Hospitals');
