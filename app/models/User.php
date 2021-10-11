@@ -6,13 +6,17 @@ class User {
     }
 
     public function register($data) {
-        $this->db->query('INSERT INTO users (username, email, password) VALUES(:username, :email, :password)');
-        //insert into (username,email) values ('gihan', 'gihan@gmail.com);
+        $this->db->query('INSERT INTO staff (nic, sname, email,telno,uname,upswrd,srole) VALUES(:nic,:fname,:email,:telno,:username, :password,:urole)');
+
 
         //Bind values
-        $this->db->bind(':username', $data['username']);
+        $this->db->bind(':fname', $data['name']);
+        $this->db->bind(':nic', $data['nic']);
         $this->db->bind(':email', $data['email']);
+        $this->db->bind(':telno', $data['telno']);
+        $this->db->bind(':username', $data['username']);
         $this->db->bind(':password', $data['password']);
+        $this->db->bind(':urole', $data['role']);
 
         //Execute function
         if ($this->db->execute()) {
