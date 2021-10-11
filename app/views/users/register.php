@@ -7,6 +7,18 @@
                     User Details
                 </h2>
                 <h5>
+                    User Role
+                </h5>
+                <select name="Rrole">
+                    <option value="" disabled selected>Choose option</option>
+                    <option value="admin">Administrator</option>
+                    <option value="pharmacist">Pharmacist</option>
+                    <option value="counsellor">Counsellor</option>
+                    <option value="cashier">Cashier</option>
+                    <option value="receptionist">Receptionist</option>
+                    <option value="doctor">Doctor</option>
+                </select>
+                <h5>
                     Name
                 </h5>
                 <input type="text" id="Rfname" name="Rfname" size=15 placeholder="Name..." required>
@@ -28,15 +40,22 @@
                 <input type="text" id="Runame" name="Runame" size=40 placeholder="Username..." required> 
                 <span class="invalidFeedback">
                 <?php echo $data['usernameError']; ?>
-            </span>
+                </span>
                 <h5>
                    Password
                 </h5>
                 <input type="password" id="Rpass" name="Rpass" minlength="4" placeholder="***********" required>
+                <span class="invalidFeedback">
+                <?php echo $data['passwordError']; ?>
+                </span>
+
                 <h5>
                     Re-enter Password
                 </h5>
-                <input type="password" id="Rpass" name="Rpass" minlength="4" placeholder="***********" required>
+                <input type="password" id="Repass" name="Repass" minlength="4" placeholder="***********" required>
+                <span class="invalidFeedback">
+                <?php echo $data['confirmPasswordError']; ?>
+                </span>
                 <br><br>
                 <input type="reset" value="Refresh">
                 <input type="submit" name="submitbutton1" Value="Register">

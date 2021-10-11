@@ -11,7 +11,10 @@ public function admin(){
         $data = [
             'username' => '',
             'email' => '',
-            'password' => '',
+            'role' => '',
+            'name' => '',
+            'nic' => '',
+            'telno' => '',
             'confirmPassword' => '',
             'usernameError' => '',
             'emailError' => '',
@@ -25,10 +28,14 @@ public function admin(){
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
               $data = [
-                'username' => trim($_POST['username']),
-                'email' => trim($_POST['email']),
-                'password' => trim($_POST['password']),
-                'confirmPassword' => trim($_POST['confirmPassword']),
+                'username' => trim($_POST['Runame']),
+                'email' => trim($_POST['Remail']),
+                'password' => trim($_POST['Rpass']),
+                'confirmPassword' => trim($_POST['Repass']),
+                  'name' => trim($_POST['Rfname']),
+                  'nic' => trim($_POST['Rnic']),
+                  'role' => $_POST['Rrole'],
+                  'telno' => trim($_POST['Rtelno']),
                 'usernameError' => '',
                 'emailError' => '',
                 'passwordError' => '',
@@ -45,17 +52,7 @@ public function admin(){
                 $data['usernameError'] = 'Name can only contain letters and numbers.';
             }
 
-            //Validate email
-            if (empty($data['email'])) {
-                $data['emailError'] = 'Please enter email address.';
-            } elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-                $data['emailError'] = 'Please enter the correct format.';
-            } else {
-                //Check if email exists.
-                if ($this->userModel->findUserByEmail($data['email'])) {
-                $data['emailError'] = 'Email is already taken.';
-                }
-            }
+
 
            // Validate password on length, numeric values,
             if(empty($data['password'])){
@@ -76,7 +73,7 @@ public function admin(){
             }
 
             // Make sure that errors are empty
-            if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])) {
+            if (empty($data['usernameError'])  && empty($data['passwordError']) && empty($data['confirmPasswordError'])) {
 
                 // Hash password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
