@@ -6,7 +6,7 @@ class User {
     }
 
     public function register($data) {
-        $this->db->query('INSERT INTO staff (nic, sname, email,telno,uname,upswrd,srole) VALUES(:nic,:fname,:email,:telno,:username, :password,:urole)');
+        $this->db->query('INSERT INTO staff (snic, sname, semail,stelno,uname,upswrd,urole) VALUES(:nic,:fname,:email,:telno,:username, :password,:urole)');
 
 
         //Bind values
