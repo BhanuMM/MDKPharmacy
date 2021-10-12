@@ -18,7 +18,7 @@
 
 </head>
 <body>
-    <section class="header"> 
+    <div class="header"> 
         <!--top bar ( time/contact) -->
         <div class="top-header">
             <div class="text-left">
@@ -45,7 +45,7 @@
             <ul>
                 <li><a href="">Home</a></li>
                 <li><a href="">Facilities</a></li>
-                <li><a href="">Pharmacy</a></li>
+                <li><a href="<?php echo URLROOT; ?>/pages/product">Pharmacy</a></li>
                 <li><a href="">Surgeries</a></li>
                 <li><a href="">Services</a></li>
                 <li><a href="">About Us</a></li>
@@ -61,4 +61,4 @@
 
     </nav>
 
-    </section>
+</div>

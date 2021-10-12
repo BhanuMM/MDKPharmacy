@@ -2,7 +2,19 @@
    require APPROOT . '/views/includes/indexhead.php';
 ?>
 
-
+<section>
+  <div class="slide-show-container">
+    <div class="wrapper-one">
+      <div class="wrapper-text">Providing the Best Health Care Facilities</div>
+    </div>
+    <div class="wrapper-two">
+      <div class="wrapper-text">Full Body Checkups at a considerable rates</div>
+    </div>
+    <div class="wrapper-three">
+      <div class="wrapper-text">First Ever MRC scanner in the Private Sector</div>
+    </div>
+  </div>
+</section>
 
     <!-- About Us -->
 
@@ -72,26 +84,68 @@
     </section>
 
     
-    <!-- facilities -->
-    <section class= "footer">
+    <!-- footer -->
+    <!-- <section class= "footer">
         <div class="footer-row">
-            <h1>MDK Hospitals</h1>
+            <div class="logo">
+                <a href = "index.html"><img src="<?php echo URLROOT ?>/public/images/logo1.png"> </a>
+            </div>
+            <br>
+           <h1>MDK Hospitals</h1>
             <p>committed to provide compassionate care <br>and excellent service that transcends <br>conventional healthcare.
             </p>
-            <!-- <ul>
+            <div class="footer-menu">
+             <ul>
                 <li><a href="">Home</a></li>
                 <li><a href="">Facilities</a></li>
                 <li><a href="">Pharmacy</a></li>
                 <li><a href="">Surgeries</a></li>
                 <li><a href="">Services</a></li>
                 <li><a href="">About Us</a></li>
-                <li><a href="">History</a></li>
-            </ul> -->
+                <li><a href="">Staff Login</a></li>
+             </ul> 
+            </div>
         </div>
-       
-    
-    
+    </section> -->
+
+    <section class= "footer">
+
+    <div class="footer-row">
+    <div class="footer-col">
+            <div class="logo">
+                <a href = "index.html"><img src="<?php echo URLROOT ?>/public/images/logo1.png"> </a>
+            </div>
+              <h3>MDK Hospital</i></h3>
+        <p>Providing the best <br> health care <br> since 1999</p>
+    </div>
+
+    <div class="footer-col">
+               <p><ul>
+                <li><a href="">Facilities</a></li>
+                <li><a href="">Pharmacy</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Staff Login</a></li>
+             </ul> </p>
+    </div>
+
+    <div class="footer-col">
+        <h3>Contact Us</h3>
+        <br>
+        <p>No 149, Sri Ariyavilasa Rd, <br> Horana 12400</p>
+        <p> TEL : 0347 888 888 </p>
+
+
+    </div>
+
+
+  
+   
+    </div>
+
+
     </section>
+
     
     
     
