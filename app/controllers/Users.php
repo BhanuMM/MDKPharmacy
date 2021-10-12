@@ -81,6 +81,7 @@ public function admin(){
                 //Register user from model function
                 if ($this->userModel->register($data)) {
                     //Redirect to the login page
+
                     header('location: ' . URLROOT . '/users/login');
                 } else {
                     die('Something went wrong.');
