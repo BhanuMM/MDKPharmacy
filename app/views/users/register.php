@@ -1,5 +1,5 @@
 <?php
-   require APPROOT . '/views/includes/nav.php';
+   require APPROOT . '/views/includes/Registerhead.php';
 ?>
             <div style="margin-left:17%; padding:1px 16px; width: 40%">
             <form method="post" class="data" action="<?php echo URLROOT; ?>/users/register" style="background-color: white; "> 
