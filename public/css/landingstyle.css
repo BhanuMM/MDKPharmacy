@@ -34,16 +34,16 @@ section {
   /* Just add the image as background attribute and add some animation */
   
   .wrapper-one {
-      background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(../images/c3.jpg);
+      background-image: url(../images/banner_new1\ \(2\).png)
   }
   
   .wrapper-two {
-      background-image:  linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(../images/c1.jpg);
+      background-image:   url(../images/banner_new02.png);
     animation: slideTwoAnim 20s infinite;
   }
   
   .wrapper-three {
-      background-image:  linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(../images/c2.jpg);
+      background-image:  url(../images/banner_new03.png);
     animation: slideThreeAnim 20s infinite;
   }
   
@@ -421,6 +421,9 @@ nav.fas{
 }
 
 
+.location{
+  height: 450px;
+}
 /* footer */
 /* 
 .footer{

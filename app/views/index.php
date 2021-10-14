@@ -5,13 +5,13 @@
 <section>
   <div class="slide-show-container">
     <div class="wrapper-one">
-      <div class="wrapper-text">Providing the Best Health Care Facilities</div>
+      <div class="wrapper-text"></div>
     </div>
     <div class="wrapper-two">
-      <div class="wrapper-text">Full Body Checkups at a considerable rates</div>
+      <div class="wrapper-text"></div>
     </div>
     <div class="wrapper-three">
-      <div class="wrapper-text">First Ever MRC scanner in the Private Sector</div>
+      <div class="wrapper-text"></div>
     </div>
   </div>
 </section>
@@ -40,13 +40,13 @@
 
 
     
-    <section class="op">
+    <section id=#op class="op">
         <div class="op-right">
             <h1>Online Pharmacy</h1><br><br>
             <h2>Order your medicine to the doorsteps during <br>the pandemic</h2><br>
             <p>MDK Hospitals is the most accredited hospital in the Sri Lankan<br> healthcare sector. Since 2002, Lanka Hospitals has revolutionized<br> the healthcare industry through infrastructure development <br>and advancement of products and services, with a view to deliver<br> healthcare that is on par with global medical standards.<br><br>
 
-                <button class="button"><span>Visit now</span></button>
+            <a href="<?php echo URLROOT; ?>/pages/product"><button class="button"><span>Visit now</span></button></a>
             </p>
             
 
@@ -54,7 +54,7 @@
         </div>
 
         <div class="op-left">
-            <img src="<?php echo URLROOT ?>/public/images/c2.jpg">
+            <img src="<?php echo URLROOT ?>/public/images/deliveryman.jpg">
         </div>
 
     </section>
@@ -85,28 +85,14 @@
 
     
     <!-- footer -->
-    <!-- <section class= "footer">
-        <div class="footer-row">
-            <div class="logo">
-                <a href = "index.html"><img src="<?php echo URLROOT ?>/public/images/logo1.png"> </a>
-            </div>
-            <br>
-           <h1>MDK Hospitals</h1>
-            <p>committed to provide compassionate care <br>and excellent service that transcends <br>conventional healthcare.
-            </p>
-            <div class="footer-menu">
-             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Facilities</a></li>
-                <li><a href="">Pharmacy</a></li>
-                <li><a href="">Surgeries</a></li>
-                <li><a href="">Services</a></li>
-                <li><a href="">About Us</a></li>
-                <li><a href="">Staff Login</a></li>
-             </ul> 
-            </div>
-        </div>
-    </section> -->
+    <section id=location class= "location">
+    <center>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.4554387451667!2d80.06169371460474!3d6.714141722780812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24b7291210f21%3A0xac1a58f519a84bf2!2sMDK%20Hospital!5e0!3m2!1sen!2slk!4v1634207145593!5m2!1sen!2slk" width="1500" height="450"  style="border:0;" allowfullscreen="" loading="lazy"></iframe></center>
+    </section>
+    <br>
+    <br>
+    <BR>
+
 
     <section class= "footer">
 
@@ -125,7 +111,7 @@
                 <li><a href="">Pharmacy</a></li>
                 <li><a href="">Services</a></li>
                 <li><a href="">About Us</a></li>
-                <li><a href="">Staff Login</a></li>
+                <li><a href="<?php echo URLROOT; ?>/users/login">Staff Login</a></li>
              </ul> </p>
     </div>
 
