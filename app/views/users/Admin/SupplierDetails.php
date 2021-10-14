@@ -12,14 +12,12 @@ require APPROOT . '/views/includes/Adminhead.php';
                 
                 <table id="customers">
                     <tr>
-                      <th>Patient ID</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Country</th>
+                      <th>Agency Name</th>
+                      <th>Address</th>
+                      <th>Phone Number</th>
+                      <th>Email</th>
                       <th>Update</th>
+                      <th>Delete</th>
                     </tr>
                     <tr>
                       <td></td>
@@ -28,8 +26,6 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <td></td>
                       <td></td>
                       <td></td>
-                      <td></td>
-                      <td></td>
                     </tr>
                     <tr>
                       <td></td>
@@ -38,12 +34,8 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <td></td>
                       <td></td>
                       <td></td>
-                      <td></td>
-                      <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
