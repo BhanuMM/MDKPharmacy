@@ -15,17 +15,20 @@
 <div class="sidebar">
     <header>MDK HOSPITALS</header>
     <ul style="list-style-type: none; padding-left: 0px;">
+
         <li><a href = "../Admin/AdminDashboard.html">Dashboard</a></li>
         <li><a href = "<?php echo URLROOT ?>/admins/viewuser"> Users</a></li>
         <li><a href = "../Admin/ReportDetails.html">Reports </a></li>
         <li><a href = "../Admin/SupplierDetails.html">Suppliers</a></li>
         <li><a href = "../Admin/StockDetails.html">Stocks</a></li>
+
     </ul>
 </div>
 
 <div style="box-shadow: 1px 1px 5px #888888; background-color: #ffffff; padding-left: 10%; padding-top:0px; padding-bottom: 0px; height: 4.7%; ">
     <ul id="list2">
-        <li style="padding-left: 4%; padding-right: 60%; float: left;"><button class="button"><img src="<?php echo URLROOT ?>/public/images/Back.png" alt="Return to Dashboard" height="15px" style="opacity: 0.5;">Back to Dashboard</button></li>
+        <a href="<?php echo URLROOT ?>/admins/admindashboard">
+        <li style="padding-left: 4%; padding-right: 60%; float: left;"><button class="button"><img src="<?php echo URLROOT ?>/public/images/Back.png" alt="Return to Dashboard" height="15px" style="opacity: 0.5;">Back to Dashboard</button></li></a>
         <li><img src="<?php echo URLROOT ?>/public/images/Settings.png" alt="Settings" height="15px" style="opacity: 0.5;"></li>
         <li><img src="<?php echo URLROOT ?>/public/images/Notification.png" alt="Notifications" height="15px" style="opacity: 0.5;"></li>
         <li><img src="<?php echo URLROOT ?>/public/images/Message.png" alt="messages" height="15px" style="opacity: 0.5;"></li>
