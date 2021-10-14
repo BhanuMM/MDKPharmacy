@@ -21,6 +21,7 @@
         <li><a href = "../Admin/ReportDetails.html">Reports </a></li>
         <li><a href = "../Admin/SupplierDetails.html">Suppliers</a></li>
         <li><a href = "../Admin/StockDetails.html">Stocks</a></li>
+        <li><a href = "../Admin/StockDetails.html">Medicine</a></li>
 
     </ul>
 </div>
