@@ -16,7 +16,9 @@ class Pages extends Controller {
         $this->view('about');
     }
 
-    public function uicheck() {
-        $this->view('users/Admin/AdminDashboard');
+
+    public function product(){
+        $this->view('product');
+
     }
 }

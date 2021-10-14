@@ -18,7 +18,7 @@
 
 </head>
 <body>
-    <section class="header"> 
+    <div class="header"> 
         <!--top bar ( time/contact) -->
         <div class="top-header">
             <div class="text-left">
@@ -43,12 +43,14 @@
 
            
             <ul>
-                <li><a href="">Home</a></li>
+
+                <li><a href="./index/LinkId=location">Home</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href=>Pharmacy</a></li>
+                <!-- <li><a href="">Surgeries</a></li> -->
                 <li><a href="">Facilities</a></li>
-                <li><a href="">Pharmacy</a></li>
-                <li><a href="">Surgeries</a></li>
-                <li><a href="">Services</a></li>
-                <li><a href="<?php echo URLROOT; ?>/pages/uicheck">About Us</a></li>
+                <li><a href="">Location</a></li>
+
                 <li><a href="<?php echo URLROOT; ?>/users/login">Log In</a></li>
             </ul>
             
@@ -58,7 +60,6 @@
         <!--font awesome for bars-->
         <i class="fas fa-bars" onclick="showMenu()"></i>
 
-
     </nav>
 
-    </section>
+</div>
