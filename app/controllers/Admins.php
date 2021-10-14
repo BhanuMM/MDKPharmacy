@@ -16,4 +16,8 @@ class Admins extends Controller {
     public function admindashboard() {
         $this->view('users/Admin/AdminDashboard');
     }
+
+    public function viewmed() {
+        $this->view('users/Admin/MedicineDetails');
+    }
 }
