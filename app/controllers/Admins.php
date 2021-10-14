@@ -13,7 +13,7 @@ class Admins extends Controller {
         $this->view('users/Admin/UserDetails',$data);
     }
 
-    public function about() {
-        $this->view('about');
+    public function admindashboard() {
+        $this->view('users/Admin/AdminDashboard');
     }
 }
