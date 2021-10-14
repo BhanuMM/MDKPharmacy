@@ -4,9 +4,12 @@ class Users extends Controller {
         $this->userModel = $this->model('User');
     }
 public function admin(){
-    $this->view('users/admin');
+    $this->view('users/Admin/AdminDashboard');
 }
-   
+ public function pharmacist(){
+        $this->view('users/Pharmacist/PatientDetails');
+    }
+
     public function register() {
         $data = [
             'username' => '',
@@ -126,9 +129,19 @@ public function admin(){
                 $loggedInUser = $this->userModel->login($data['username'], $data['password']);
 
                 if ($loggedInUser) {
-                    header('location:' . URLROOT . '/users/admin');
-                    // $this->view('users/admin');
                     $this->createUserSession($loggedInUser);
+                    switch ($loggedInUser->urole){
+                        case "admin":
+                            header('location:' . URLROOT . '/users/admin');
+
+                            break;
+                        case "pharmacist":
+                            header('location:' . URLROOT . '/users/pharmacist');
+                            break;
+                    }
+
+                    // $this->view('users/admin');
+
                 } else {
                     $data['passwordError'] = 'Password or username is incorrect. Please try again.';
 
@@ -149,9 +162,8 @@ public function admin(){
 
     public function createUserSession($user) {
         $_SESSION['user_id'] = $user->id;
-        $_SESSION['username'] = $user->username;
+        $_SESSION['username'] = $user->uname;
         $_SESSION['email'] = $user->email;
-        header('location:' . URLROOT . '/users/admin');
         
     }
 
