@@ -18,9 +18,10 @@
 
         <li><a href = "../Admin/AdminDashboard.html">Dashboard</a></li>
         <li><a href = "<?php echo URLROOT ?>/admins/viewuser"> Users</a></li>
-        <li><a href = "../Admin/ReportDetails.html">Reports </a></li>
-        <li><a href = "../Admin/SupplierDetails.html">Suppliers</a></li>
-        <li><a href = "../Admin/StockDetails.html">Stocks</a></li>
+        <li><a href = "<?php echo URLROOT ?>/admins/viewreport">Reports </a></li>
+        <li><a href = "<?php echo URLROOT ?>/admins/viewsupplier">Suppliers</a></li>
+        <li><a href = "<?php echo URLROOT ?>/admins/viewstock">Stocks</a></li>
+        <li><a href = "<?php echo URLROOT ?>/admins/viewmed">Medicine</a></li>
 
     </ul>
 </div>

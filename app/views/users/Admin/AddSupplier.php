@@ -8,21 +8,21 @@ require APPROOT . '/views/includes/Adminhead.php';
             Supplier Details
         </h2>
         <h5>
-            Name
+            Agency Name
         </h5>
         <input class="input1" type="text" placeholder="A. K. Perera">
         <h5>
-            NIC
+            Address
         </h5>
-        <input class="input1" type="text" placeholder="123456789 V">
+        <input class="input1" type="text" placeholder="222/B, Bakers' Street, Colombo 07.">
         <h5>
             Phone Number
         </h5>
         <input class="input1" type="text" placeholder="+94 75 222 3576">
         <h5>
-            Address
+            Email
         </h5>
-        <input type="text" class="input2" style="width: 100%;" placeholder="222/B, Bakers' Street, Colombo 07.">
+        <input type="text" class="input1"  placeholder="abc@gmail.com">
                 
         <br><br>
         <button class="button button1">Submit</button>

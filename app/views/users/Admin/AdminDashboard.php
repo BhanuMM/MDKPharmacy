@@ -14,7 +14,7 @@ require APPROOT . '/views/includes/Adminhead.php';
     </div>
 <!-- --------------------------------------------------------------------------------------------- -->
         
-            <div style="margin-left:10%; margin-right:20%; padding:1px 16px; width: 1000px; ">
+            <div style="margin-left:5%; margin-right:10%; padding:1px 16px; width: 1000px; ">
                 <div class="row">
                     <div class="column">
                         <div class="card">
@@ -43,7 +43,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                         <div class="welcome">
                           <img src="<?php echo URLROOT ?>/public/images/suppliermanagementicon.png" />
                           <div class="welcome-names">
-                           Supplier Management       
+                                Supplier Management       
                           </div>
                         </div>
                         <button class="button button1">View</button></a>
@@ -59,6 +59,17 @@ require APPROOT . '/views/includes/Adminhead.php';
                             </div>
                                 <button class="button button1">View</button></a>
                         </div>
+                    <div class="column">
+                        <div class="card"><a href="../Admin/SupplierDetails.html">
+                            <div class="welcome">
+                                <img src="<?php echo URLROOT ?>/public/images/suppliermanagementicon.png" />
+                                <div class="welcome-names">
+                                    Medicine Management
+                                </div>
+                            </div>
+                                <button class="button button1">View</button></a>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
