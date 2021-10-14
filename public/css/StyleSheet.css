@@ -52,6 +52,7 @@ ul li a:hover{
     position: fixed;
     height: 100%;
     overflow: auto;
+      text-decoration: none;
   }
   
   #list a {

@@ -6,7 +6,7 @@ require APPROOT . '/views/includes/Adminhead.php';
 <div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: 1175px; ">
     <div class="card">
         <div class="welcome">
-                <img src="https://randomuser.me/api/portraits/men/20.jpg" /></li>
+                <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
             <div class="welcome-names">
                 Welcome <br> Mr.Admin       
             </div>
@@ -17,14 +17,14 @@ require APPROOT . '/views/includes/Adminhead.php';
             <div style="margin-left:10%; margin-right:20%; padding:1px 16px; width: 1000px; ">
                 <div class="row">
                     <div class="column">
-                        <div class="card"><a href="../Admin/UserDetails.html">
+                        <div class="card">
                             <div class="welcome">
                                 <img src="<?php echo URLROOT ?>/public/images/usermanagementicon.png" />
                                 <div class="welcome-names">
                                     User Management         
                                 </div>
                             </div>
-                                <button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/admins/viewuser"><button class="button button1">View</button></a>
                         </div>
                     </div>
                     <div class="column">

@@ -132,11 +132,11 @@ public function admin(){
                     $this->createUserSession($loggedInUser);
                     switch ($loggedInUser->urole){
                         case "admin":
-                            header('location:' . URLROOT . '/users/admin');
+                            header('location:' . URLROOT . '/admins/admindashboard');
 
                             break;
                         case "pharmacist":
-                            header('location:' . URLROOT . '/users/pharmacist');
+                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
                             break;
                     }
 
