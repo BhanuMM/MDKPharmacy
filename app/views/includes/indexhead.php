@@ -48,7 +48,7 @@
                 <li><a href="">Pharmacy</a></li>
                 <li><a href="">Surgeries</a></li>
                 <li><a href="">Services</a></li>
-                <li><a href="">About Us</a></li>
+                <li><a href="<?php echo URLROOT; ?>/pages/uicheck">About Us</a></li>
                 <li><a href="<?php echo URLROOT; ?>/users/login">Log In</a></li>
             </ul>
             

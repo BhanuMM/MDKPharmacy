@@ -1,0 +1,54 @@
+.right-body {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+  .scroll-cards {
+    width: 370px;
+    height: 100%;
+    overflow: auto;
+  
+    padding: 20px 0px 5px 0px;
+  }
+  .card {
+    background-color: white;
+    border-radius: 4px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    padding: 25px 25px 15px 25px;
+    transition: 0.3s;
+  }
+  .card:hover {
+    box-shadow: 5px 1px 20px 1px #ddd;
+    transform: scale(0.96);
+  }
+  
+  .welcome-names {
+    color: grey;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 10px;
+  }
+  
+  .welcome {
+    display: flex;
+    align-items: center;
+  }
+  .welcome > img {
+    width: 35px;
+    border-radius: 10px;
+  }
+  .welcome-info {
+    margin: 10px 65px;
+    margin-right: 100px;
+    line-height: 2.0;
+    font-weight: 600;
+    
+  }
+
+  .column {
+    float: left;
+    width: 20%;
+    padding: 0 10px;
+  }
+  .row {margin: 0 -5px;}
