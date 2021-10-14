@@ -24,4 +24,28 @@ class Admins extends Controller {
     public function addmed() {
         $this->view('users/Admin/AddMedicine');
     }
+
+    public function viewstock() {
+        $this->view('users/Admin/StockDetails');
+    }
+
+    public function addstock() {
+        $this->view('users/Admin/AddStock');
+    }
+
+    public function viewsupplier() {
+        $this->view('users/Admin/SupplierDetails');
+    }
+
+    public function addsupplier() {
+        $this->view('users/Admin/AddSupplier');
+    }
+
+    public function viewreport() {
+        $this->view('users/Admin/ReportDetails');
+    }
+
+    public function addreport() {
+        $this->view('users/Admin/AddReport');
+    }
 }
