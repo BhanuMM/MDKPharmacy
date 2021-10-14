@@ -20,4 +20,8 @@ class Admins extends Controller {
     public function viewmed() {
         $this->view('users/Admin/MedicineDetails');
     }
+
+    public function addmed() {
+        $this->view('users/Admin/AddMedicine');
+    }
 }

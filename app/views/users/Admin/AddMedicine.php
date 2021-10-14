@@ -26,7 +26,7 @@ require APPROOT . '/views/includes/Adminhead.php';
             <h5>
                 Purchase Price
             </h5>
-            <input class="input1" type="date" placeholder="Rs.10">
+            <input class="input1" type="text" placeholder="Rs.10">
             <h5>
                 Selling Price
             </h5>
