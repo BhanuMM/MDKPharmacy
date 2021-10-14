@@ -4,7 +4,7 @@ class Receptionists extends Controller {
 //        $this->pharmacistModel = $this->model('Pharmacist');
     }
 
-    public function priscriptiondetails() {
-        $this->view('users/Pharmacist/PriscriptionDetails');
+    public function receptionistdashboard() {
+        $this->view('users/Receptionist/ReciptionistDashboard');
     }
 }

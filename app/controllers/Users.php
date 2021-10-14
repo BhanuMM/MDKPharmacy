@@ -135,25 +135,25 @@ public function admin(){
                             header('location:' . URLROOT . '/admins/admindashboard');
                             break;
                         case "cashier":
-                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
+                            header('location:' . URLROOT . '/cashiers/cashierdashboard');
                             break;
                         case "counsellor":
-                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
+                            header('location:' . URLROOT . '/counsellors/counsellordashboard');
                             break;
                         case "delivery":
-                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
+                            header('location:' . URLROOT . '/deliverys/deliverydashboard');
                             break;
                         case "Doctor":
-                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
+                            header('location:' . URLROOT . '/doctors/doctordashboard');
                             break;
                         case "owner":
-                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
+                            header('location:' . URLROOT . '/owners/ownerdashboard');
                             break;
                         case "pharmacist":
-                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
+                            header('location:' . URLROOT . '/pharmacists/pharmacistdashboard');
                             break;
                         case "receptionist":
-                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
+                            header('location:' . URLROOT . '/receptionists/receptionistdashboard');
                             break;
                     }
 

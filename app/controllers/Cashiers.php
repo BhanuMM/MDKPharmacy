@@ -4,7 +4,7 @@ class Cashiers extends Controller {
 //        $this->adminModel = $this->model('Admin');
     }
 
-    public function admindashboard() {
-        $this->view('users/Admin/AdminDashboard');
+    public function cashierdashboard() {
+        $this->view('users/Cashier/PriscriptionDetails');
     }
 }
