@@ -91,7 +91,7 @@ public function admin(){
                 }
             }
         }
-        $this->view('users/register', $data);
+        $this->view('users/Admin/AddUser', $data);
     }
 
     public function login() {
@@ -133,9 +133,26 @@ public function admin(){
                     switch ($loggedInUser->urole){
                         case "admin":
                             header('location:' . URLROOT . '/admins/admindashboard');
-
+                            break;
+                        case "cashier":
+                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
+                            break;
+                        case "counsellor":
+                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
+                            break;
+                        case "delivery":
+                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
+                            break;
+                        case "Doctor":
+                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
+                            break;
+                        case "owner":
+                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
                             break;
                         case "pharmacist":
+                            header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
+                            break;
+                        case "receptionist":
                             header('location:' . URLROOT . '/pharmacists/priscriptiondetails');
                             break;
                     }
