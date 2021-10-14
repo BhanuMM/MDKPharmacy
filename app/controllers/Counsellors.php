@@ -4,7 +4,7 @@ class Counsellors extends Controller {
 //        $this->pharmacistModel = $this->model('Pharmacist');
     }
 
-    public function priscriptiondetails() {
-        $this->view('users/Pharmacist/PriscriptionDetails');
+    public function counsellordashboard() {
+        $this->view('users/Counsellor/PrescriptionDetails');
     }
 }
