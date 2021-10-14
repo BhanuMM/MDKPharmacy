@@ -1,29 +1,18 @@
 <?php
-class User {
+class Admin {
     private $db;
     public function __construct() {
         $this->db = new Database;
     }
 
-    public function register($data) {
-        $this->db->query('INSERT INTO staff (snic, sname, semail,stelno,uname,upswrd,urole) VALUES(:nic,:fname,:email,:telno,:username, :password,:urole)');
+    public function viewusers() {
 
+        $this->db->query('SELECT * FROM staff WHERE urole != "admin"');
 
-        //Bind values
-        $this->db->bind(':fname', $data['name']);
-        $this->db->bind(':nic', $data['nic']);
-        $this->db->bind(':email', $data['email']);
-        $this->db->bind(':telno', $data['telno']);
-        $this->db->bind(':username', $data['username']);
-        $this->db->bind(':password', $data['password']);
-        $this->db->bind(':urole', $data['role']);
+        $results = $this->db->resultSet();
 
-        //Execute function
-        if ($this->db->execute()) {
-            return true;
-        } else {
-            return false;
-        }
+        return $results;
+
     }
 
     public function login($username, $password) {
