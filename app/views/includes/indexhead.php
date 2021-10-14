@@ -45,11 +45,12 @@
             <ul>
 
                 <li><a href="./index/LinkId=location">Home</a></li>
-                <li><a href="">About Us</a></li>
-                <li><a href=>Pharmacy</a></li>
+                <li><a href="#about" onclick="return hashNoHistory(this)">About Us</a></li>
+                <li><a href="#op" onclick="return hashNoHistory(this)">Pharmacy</a></li>
                 <!-- <li><a href="">Surgeries</a></li> -->
-                <li><a href="">Facilities</a></li>
-                <li><a href="">Location</a></li>
+                <li><a href="#fac" onclick="return hashNoHistory(this)">Facilities</a></li>
+                <li><a href="#location" onclick="return hashNoHistory(this)"
+>Location</a></li>
 
                 <li><a href="<?php echo URLROOT; ?>/users/login">Log In</a></li>
             </ul>
