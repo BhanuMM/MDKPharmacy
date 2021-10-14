@@ -14,6 +14,11 @@ class Admins extends Controller {
     }
 
     public function admindashboard() {
-        $this->view('users/Admin/AdminDashboard');
+        if($_SESSION['urole']=="admin") {
+            $this->view('users/Admin/AdminDashboard');
+        }
+        else{
+            $this->view('users/login');
+        }
     }
 }

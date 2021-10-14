@@ -18,9 +18,6 @@
                 <p>Password:</p>
                 <input type="password" id="Rpass" style="border: none; " name="Rpass" placeholder="Enter the password">
                 <hr />
-                <ul style="width: 100%; padding-left: 0%; list-style-type: none; overflow: auto;">
-                    <li Style="float: right; vertical-align: middle; display: inline;"><a href="<?php echo URLROOT; ?>/users/register">Register Now</a></li>
-                </ul>
 				<input type="submit" name="submitbutton4" value="Sign In" class="button button1" style="margin-top: 3%;" >
             </form>
         </div>

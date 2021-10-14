@@ -95,6 +95,7 @@ public function admin(){
     }
 
     public function login() {
+
         $data = [
             'title' => 'Login page',
             'username' => '',
@@ -180,7 +181,7 @@ public function admin(){
     public function createUserSession($user) {
         $_SESSION['user_id'] = $user->id;
         $_SESSION['username'] = $user->uname;
-        $_SESSION['email'] = $user->email;
+        $_SESSION['urole'] = $user->urole;
         
     }
 
