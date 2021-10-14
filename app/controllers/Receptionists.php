@@ -7,4 +7,7 @@ class Receptionists extends Controller {
     public function receptionistdashboard() {
         $this->view('users/Receptionist/ReciptionistDashboard');
     }
+    public function addpatient() {
+        $this->view('users/Receptionist/PatientRegistration');
+    }
 }
