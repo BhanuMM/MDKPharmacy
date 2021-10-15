@@ -19,4 +19,8 @@ class Doctors extends Controller {
     public function viewmedicineavailability() {
         $this->view('users/Doctor/MedicineDetails');
     }
+
+    public function createprescription() {
+        $this->view('users/Doctor/CreatePrescription');
+    }
 }

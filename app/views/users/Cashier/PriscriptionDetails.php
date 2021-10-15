@@ -8,12 +8,12 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     
                     <div class="card">
                         <div class="welcome">
-                                <img src="https://randomuser.me/api/portraits/men/20.jpg" /></li>
+                                <img src="https://randomuser.me/api/portraits/men/20.jpg" />
                             <div class="welcome-names">
-                                Welcome <br> Mr.Ranjith Perera         
+                                Welcome <br> Mr.<?php echo $_SESSION['username'] ?>
                             </div>
                         </div>
-                    </div> 
+                    </div>
 
 
                 <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">

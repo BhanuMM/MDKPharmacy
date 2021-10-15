@@ -3,12 +3,12 @@ class Users extends Controller {
     public function __construct() {
         $this->userModel = $this->model('User');
     }
-public function admin(){
-    $this->view('users/Admin/AdminDashboard');
-}
- public function pharmacist(){
-        $this->view('users/Pharmacist/PatientDetails');
-    }
+//public function admin(){
+//    $this->view('users/Admin/AdminDashboard');
+//}
+// public function pharmacist(){
+//        $this->view('users/Pharmacist/PatientDetails');
+//    }
 
     public function register() {
         $data = [

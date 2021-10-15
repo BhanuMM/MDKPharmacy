@@ -35,57 +35,58 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <!-- Report Management Card -->
 
                     <div class="column">
-                        <div class="card"><a href="../Admin/ReportDetails.html">
+                        <div class="card">
                             <div class="welcome">
                             <img src="<?php echo URLROOT ?>/public/images/reportmanagementicon.png" />
                           <div class="welcome-names">
                              Report Management 
                           </div>
                         </div>
-                        <button class="button button1">View</button></a>
+                            <a href="../Admin/ReportDetails.html"><button class="button button1">View</button></a>
                       </div>
                     </div>
 
                 <!-- Supplier Management Card -->
 
                     <div class="column">
-                      <div class="card"><a href="../Admin/SupplierDetails.html">
+                      <div class="card">
                         <div class="welcome">
                           <img src="<?php echo URLROOT ?>/public/images/suppliermanagementicon.png" />
                           <div class="welcome-names">
                                 Supplier Management       
                           </div>
                         </div>
-                        <button class="button button1">View</button></a>
+                          <a href="../Admin/SupplierDetails.html"><button class="button button1">View</button></a>
                       </div>
                     </div>
 
                 <!-- Stock Management Card -->
 
                     <div class="column">
-                        <div class="card"><a href="../Admin/StockDetails.html">
+                        <div class="card">
                             <div class="welcome">
                                 <img src="<?php echo URLROOT ?>/public/images/stockmanagementicon.png" />
                                 <div class="welcome-names">
                                     Stock Management         
                                 </div>
                             </div>
-                                <button class="button button1">View</button></a>
+                            <a href="../Admin/StockDetails.html">  <button class="button button1">View</button></a>
                         </div>
+                    </div>
+               
+            </div>
+            <div class="row">
+              <!-- Medicine Management Card -->
+                <div class="column">
+                    <div class="card">
 
-                <!-- Medicine Management Card -->
-
-                    <div class="column">
-                        <div class="card"><a href="../Admin/SupplierDetails.html">
                             <div class="welcome">
                                 <img src="<?php echo URLROOT ?>/public/images/suppliermanagementicon.png" />
                                 <div class="welcome-names">
                                     Medicine Management
                                 </div>
                             </div>
-                                <button class="button button1">View</button></a>
-                        </div>
-                    </div>
+                        <a href="../Admin/SupplierDetails.html"> <button class="button button1">View</button></a>
                     </div>
                 </div>
             </div>
