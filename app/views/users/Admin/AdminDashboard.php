@@ -3,7 +3,7 @@ require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
 
-<div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: 1175px; ">
+<div style="margin-left:15%; margin-right:0%; padding:1px 16px; width: 80%; ">
     <div class="card">
         <div class="welcome">
                 <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
@@ -14,7 +14,9 @@ require APPROOT . '/views/includes/Adminhead.php';
     </div>
 <!-- --------------------------------------------------------------------------------------------- -->
         
-            <div style="margin-left:10%; margin-right:20%; padding:1px 16px; width: 1000px; ">
+
+            <div style="margin-left:0%; margin-right:0%; padding:1px 16px; width: 100%; ">
+
                 <div class="row">
                     <div class="column">
                         <div class="card">
@@ -43,7 +45,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                         <div class="welcome">
                           <img src="<?php echo URLROOT ?>/public/images/suppliermanagementicon.png" />
                           <div class="welcome-names">
-                           Supplier Management       
+                                Supplier Management       
                           </div>
                         </div>
                         <button class="button button1">View</button></a>
@@ -59,6 +61,17 @@ require APPROOT . '/views/includes/Adminhead.php';
                             </div>
                                 <button class="button button1">View</button></a>
                         </div>
+                    <div class="column">
+                        <div class="card"><a href="../Admin/SupplierDetails.html">
+                            <div class="welcome">
+                                <img src="<?php echo URLROOT ?>/public/images/suppliermanagementicon.png" />
+                                <div class="welcome-names">
+                                    Medicine Management
+                                </div>
+                            </div>
+                                <button class="button button1">View</button></a>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>

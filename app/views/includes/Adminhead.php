@@ -18,9 +18,10 @@
 
         <li><a href = "../Admin/AdminDashboard.html">Dashboard</a></li>
         <li><a href = "<?php echo URLROOT ?>/admins/viewuser"> Users</a></li>
-        <li><a href = "../Admin/ReportDetails.html">Reports </a></li>
-        <li><a href = "../Admin/SupplierDetails.html">Suppliers</a></li>
-        <li><a href = "../Admin/StockDetails.html">Stocks</a></li>
+        <li><a href = "<?php echo URLROOT ?>/admins/viewreport">Reports </a></li>
+        <li><a href = "<?php echo URLROOT ?>/admins/viewsupplier">Suppliers</a></li>
+        <li><a href = "<?php echo URLROOT ?>/admins/viewstock">Stocks</a></li>
+        <li><a href = "<?php echo URLROOT ?>/admins/viewmed">Medicine</a></li>
 
     </ul>
 </div>
@@ -33,8 +34,15 @@
         <li><img src="<?php echo URLROOT ?>/public/images/Notification.png" alt="Notifications" height="15px" style="opacity: 0.5;"></li>
         <li><img src="<?php echo URLROOT ?>/public/images/Message.png" alt="messages" height="15px" style="opacity: 0.5;"></li>
         <li style="color: #afafaf;"> | </li>
+<!--        <li><div class="dropdown">-->
+<!--                <span> <img src="--><?php //echo URLROOT ?><!--/public/images/Drop.png" alt="View" height="8px" style="opacity: 0.5;"></span>-->
+<!--                <div class="dropdown-content">-->
+<!--                    <p><button class="btn-ddc">Settings</button></p>-->
+<!--                    <p><button class="btn-ddc">Logout</button></p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
         <li style="color: #888888;"><?php echo $_SESSION['username'] ?></li>
-        <li><img src="<?php echo URLROOT ?>/public/images/Drop.png" alt="View" height="8px" style="opacity: 0.5;"> </li>
         <li><img src="<?php echo URLROOT ?>/public/images/Profile.png" alt="Profile" height="35px" style="opacity: 0.5;"></li>
 
     </ul>
