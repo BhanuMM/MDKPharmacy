@@ -7,4 +7,8 @@ class Cashiers extends Controller {
     public function cashierdashboard() {
         $this->view('users/Cashier/PriscriptionDetails');
     }
+
+    public function prescriptionview() {
+        $this->view('users/Cashier/CashierPrescription');
+    }
 }

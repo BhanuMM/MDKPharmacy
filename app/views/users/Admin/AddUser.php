@@ -9,7 +9,7 @@ require APPROOT . '/views/includes/Adminhead.php';
         <h5>
             User Role
         </h5>
-        <select name="Rrole" required>
+        <select class="input1" name="Rrole" required>
             <option value="" disabled selected>Choose option</option>
             <option value="admin">Administrator</option>
             <option value="cashier">Cashier</option>
@@ -24,30 +24,30 @@ require APPROOT . '/views/includes/Adminhead.php';
         <h5>
             Name
         </h5>
-        <input type="text" id="Rfname" name="Rfname" size=15 placeholder="Name..." required>
+        <input class="input1" type="text" id="Rfname" name="Rfname" size=15 placeholder="Name..." required>
         <h5>
             NIC
         </h5>
-        <input type="text" id="Rnic" name="Rnic" size=12 placeholder="NIC number..." required>
+        <input class="input1" type="text" id="Rnic" name="Rnic" size=12 placeholder="NIC number..." required>
         <h5>
             Phone Number
         </h5>
-        <input type="text" id="Rtelno" name="Rtelno" size=10 placeholder="Contact number..." required>
+        <input class="input1" type="text" id="Rtelno" name="Rtelno" size=10 placeholder="Contact number..." required>
         <h5>
             Email
         </h5>
-        <input type="text" id="Remail" name="Remail" size=40 placeholder="Email address..." >
+        <input class="input1" type="text" id="Remail" name="Remail" size=40 placeholder="Email address..." >
         <h5>
             Username
         </h5>
-        <input type="text" id="Runame" name="Runame" size=40 placeholder="Username..." required>
+        <input class="input1" type="text" id="Runame" name="Runame" size=40 placeholder="Username..." required>
         <span class="invalidFeedback">
                 <?php echo $data['usernameError']; ?>
                 </span>
         <h5>
             Password
         </h5>
-        <input type="password" id="Rpass" name="Rpass" minlength="4" placeholder="***********" required>
+        <input class="input1" type="password" id="Rpass" name="Rpass" minlength="4" placeholder="***********" required>
         <span class="invalidFeedback">
                 <?php echo $data['passwordError']; ?>
                 </span>
@@ -55,13 +55,13 @@ require APPROOT . '/views/includes/Adminhead.php';
         <h5>
             Re-enter Password
         </h5>
-        <input type="password" id="Repass" name="Repass" minlength="4" placeholder="***********" required>
+        <input class="input1" type="password" id="Repass" name="Repass" minlength="4" placeholder="***********" required>
         <span class="invalidFeedback">
                 <?php echo $data['confirmPasswordError']; ?>
                 </span>
         <br><br>
-        <input type="reset" value="Refresh">
-        <input type="submit" name="submitbutton1" Value="Register">
+        <input class="button button1" type="reset" value="Refresh">
+        <input class="button button1" type="submit" name="submitbutton1" Value="Register">
     </form>
 </div>
 
