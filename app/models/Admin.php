@@ -5,6 +5,16 @@ class Admin {
         $this->db = new Database;
     }
 
+    public function viewusers() {
+
+        $this->db->query('SELECT * FROM staff  ');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
     public function viewsupplier() {
 
         $this->db->query('SELECT * FROM supplier');
@@ -32,6 +42,7 @@ class Admin {
             return false;
         }
     }
+
 
     //Find user by email. Email is passed in by the Controller.
 //    public function findUserByEmail($email) {
