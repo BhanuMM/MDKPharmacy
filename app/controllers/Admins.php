@@ -42,9 +42,45 @@ class Admins extends Controller {
         $this->view('users/Admin/SupplierDetails');
     }
 
-    public function addsupplier() {
-        $this->view('users/Admin/AddSupplier');
-    }
+    public function addsupplier() 
+        {
+            $data = [
+                'suppliername' => '',
+                'supplieraddress' => '',
+                'suppliertelno' => '',
+                'suppliermail' => '',
+                'nameError' => ''
+            ];
+    
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Process form
+                // Sanitize POST data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+                $data = [
+                    'suppliername' => trim($_POST['supname']),
+                    'supplieraddress' => trim($_POST['supadrs']),
+                    'suppliertelno' => trim($_POST['suptelno']),
+                    'suppliermail' => trim($_POST['supmail'])
+                ];
+                // Make sure that errors are empty
+                if (empty($data['nameError'])) {
+    
+    
+                    //Register user from model function
+                    if ($this->receptionistModel->registerpatient($data)) {
+                        //Redirect to the login page
+    
+                        header('location: ' . URLROOT . '/Receptionist/ReciptionistDashboard');
+                    } else {
+                        die('Something went wrong.');
+                    }
+                }
+            }
+            $this->view('users/Admin/AddSupplier');
+        
+       
+        }
 
     public function viewreport() {
         $this->view('users/Admin/ReportDetails');
