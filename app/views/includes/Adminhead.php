@@ -17,7 +17,7 @@
     
     <ul style="list-style-type: none; padding-left: 0px;">
 
-        <li><a href = "../Admin/AdminDashboard.html">Dashboard</a></li>
+        <li><a href = "<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
         <li><a href = "<?php echo URLROOT ?>/admins/viewuser"> Users</a></li>
         <li><a href = "<?php echo URLROOT ?>/admins/viewreport">Reports </a></li>
         <li><a href = "<?php echo URLROOT ?>/admins/viewsupplier">Suppliers</a></li>
