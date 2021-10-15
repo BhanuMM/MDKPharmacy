@@ -144,7 +144,7 @@ public function admin(){
                         case "delivery":
                             header('location:' . URLROOT . '/deliverys/deliverydashboard');
                             break;
-                        case "Doctor":
+                        case "doctor":
                             header('location:' . URLROOT . '/doctors/doctordashboard');
                             break;
                         case "owner":
