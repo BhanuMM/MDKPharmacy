@@ -18,6 +18,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <th>Email</th>
                       <th>Tel.No</th>
                       <th>UserName</th>
+                      <th>User Role</th>
                     </tr>
                     <?php foreach($data['users'] as $allusers): ?>
 
@@ -28,6 +29,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                             <td><?php echo $allusers->semail; ?></td>
                             <td><?php echo $allusers->stelno; ?></td>
                             <td><?php echo $allusers->uname; ?></td>
+                            <td><?php echo $allusers->urole; ?></td>
                         </tr>
 
                     <?php endforeach; ?>

@@ -21,4 +21,10 @@ class Pages extends Controller {
         $this->view('product');
 
     }
+
+    
+    public function upload(){
+        $this->view('upload');
+
+    }
 }

@@ -3,7 +3,7 @@ require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
 <div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: ">
-                <a href="../Admin/AddStock.html"><button style="margin-top: 10%;" class="button button1">Add New Stock +</button></a>
+                <a href="<?php echo URLROOT ?>/Admins/addstock"><button style="margin-top: 10%;" class="button button1">Add New Stock +</button></a>
                 <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> Stock Details</h3></li>
                     <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" height="15px" style="opacity: 0.5;"></li>
@@ -12,14 +12,14 @@ require APPROOT . '/views/includes/Adminhead.php';
                 
                 <table id="customers">
                     <tr>
-                      <th>Patient ID</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Country</th>
+                      <th>Item Code</th>
+                      <th>Quantity</th>
+                      <th>Purchase unit price</th>
+                      <th>Selling unit price</th>
+                      <th>Purchase Date</th>
+                      <th>Expiry Date</th>
                       <th>Update</th>
+                      <th>Delete</th>
                     </tr>
                     <tr>
                       <td></td>
