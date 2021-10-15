@@ -7,7 +7,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 <div class="welcome">
                         <img src="https://randomuser.me/api/portraits/men/20.jpg" /></li>
                 <div class="welcome-names">
-                        Welcome <br> Mr.Doctor         
+                        Welcome <br> Mr.<?php echo $_SESSION['username'] ?>
                 </div>
             </div>
         </div>
