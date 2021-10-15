@@ -38,7 +38,7 @@
                 <span> <img src="<?php echo URLROOT ?>/public/images/Drop.png" alt="View" height="8px" style="opacity: 0.5;"></span>
                 <div class="dropdown-content">
                     <p><button class="btn-ddc">Settings</button></p>
-                    <p><button class="btn-ddc">Logout</button></p>
+                    <p> <a href="<?php echo URLROOT ?>/users/logout"> <button class="btn-ddc">Logout</button> </a></p>
                 </div>
             </div>
         </li>

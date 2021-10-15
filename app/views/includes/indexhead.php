@@ -52,7 +52,7 @@
                 <li><a href="#location" onclick="return hashNoHistory(this)"
 >Location</a></li>
 
-                <li><a href="<?php echo URLROOT; ?>/users/login">Log In</a></li>
+<!--                <li><a href="--><?php //echo URLROOT; ?><!--/users/login">Log In</a></li>-->
             </ul>
             
           </div>

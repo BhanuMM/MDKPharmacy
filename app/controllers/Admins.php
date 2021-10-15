@@ -27,7 +27,7 @@ class Admins extends Controller {
     }
 
     public function addmed() {
-        {
+
             $data = [
                 'medicinename' => '',
                 'brandname' => '',
@@ -67,10 +67,6 @@ class Admins extends Controller {
                     }
                 }
             }
-            $this->view('users/Admin/AddSupplier');
-        
-       
-        }
         $this->view('users/Admin/AddMedicine');
     }
 

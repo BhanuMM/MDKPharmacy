@@ -14,7 +14,7 @@
 <div class="sidebar">
     <header>MDK HOSPITALS</header>
     <ul style="list-style-type: none; padding-left: 0px;">
-        <li><a href = "#">Dashboard</a></li>
+        <li><a href = "<?php echo URLROOT ?>/receptionists/receptionistdashboard">Dashboard</a></li>
         <li><a href = "#">Prescriptions </a></li>
         <li><a href = "#">Patients </a></li>
         <li><a href = "#">Profile Settings</a></li>

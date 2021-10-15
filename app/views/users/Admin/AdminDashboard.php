@@ -42,7 +42,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                              Report Management 
                           </div>
                         </div>
-                            <a href="../Admin/ReportDetails.html"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/admins/viewreport"><button class="button button1">View</button></a>
                       </div>
                     </div>
 
@@ -56,7 +56,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                                 Supplier Management       
                           </div>
                         </div>
-                          <a href="../Admin/SupplierDetails.html"><button class="button button1">View</button></a>
+                          <a href="<?php echo URLROOT ?>/admins/viewsupplier"><button class="button button1">View</button></a>
                       </div>
                     </div>
 
@@ -70,7 +70,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                                     Stock Management         
                                 </div>
                             </div>
-                            <a href="../Admin/StockDetails.html">  <button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/admins/viewstock">  <button class="button button1">View</button></a>
                         </div>
                     </div>
                
@@ -86,7 +86,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                                     Medicine Management
                                 </div>
                             </div>
-                        <a href="../Admin/SupplierDetails.html"> <button class="button button1">View</button></a>
+                        <a href="<?php echo URLROOT ?>/admins/viewmed"> <button class="button button1">View</button></a>
                     </div>
                 </div>
             </div>
