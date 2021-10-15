@@ -8,7 +8,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                 Stock Details
             </h2>
             <h5>
-                Item Name
+                Item Code
             </h5>
             <input class="input1" type="text" placeholder="Med Stock 01">
             <h5>
@@ -16,13 +16,21 @@ require APPROOT . '/views/includes/Adminhead.php';
             </h5>
             <input class="input1" type="text" placeholder="18">
             <h5>
-                Attachment
+                Purchasing unit price
             </h5>
-            <input class="input1" type="text" placeholder="123456789 V">
+            <input class="input1" type="text" placeholder="Rs.10">
             <h5>
-                Description
+                Selling unit price
             </h5>
-            <input type="text" class="input2" style="width: 100%;" placeholder="Sample text...">
+            <input class="input1" type="text" placeholder="Rs.13">
+            <h5>
+                Purchase Date
+            </h5>
+            <input class="input1" type="date" placeholder="2021-01-02">
+            <h5>
+                Expiry Date
+            </h5>
+            <input class="input1" type="date" placeholder="2023-01-02">
                 
             <br><br>
             <button class="button button1">Submit</button>
