@@ -12,45 +12,30 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                
                 <table id="customers">
                     <tr>
-                      <th>Patient ID</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Country</th>
-                      <th>Update</th>
+                        <th>Patient ID</th>
+                        <th>Patient Name</th>
+                        <th>NIC</th>
+                        <th>Tel.No</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+
                     </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
+                    <?php foreach($data['patients'] as $allpatients): ?>
+
+                        <tr>
+                            <td><?php echo $allpatients->patid; ?></td>
+                            <td><?php echo $allpatients->patname; ?></td>
+                            <td><?php echo $allpatients->patnic; ?></td>
+                            <td><?php echo $allpatients->pattelno; ?></td>
+                            <td><?php echo $allpatients->patadrs; ?></td>
+                            <td><?php echo $allpatients->patemail; ?></td>
+                            <td><?php echo $allpatients->patdob; ?></td>
+                            <td><?php echo $allpatients->patgen; ?></td>
+                        </tr>
+
+                    <?php endforeach; ?>
                   </table>
 
             </div>
