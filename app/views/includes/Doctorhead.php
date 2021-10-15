@@ -30,6 +30,9 @@
 <!--        <li><img src="--><?php //echo URLROOT ?><!--/public/images/Settings.png" alt="Settings" height="15px" style="opacity: 0.5;"></li>-->
 <!--        <li><img src="--><?php //echo URLROOT ?><!--/public/images/Notification.png" alt="Notifications" height="15px" style="opacity: 0.5;"></li>-->
 <!--        <li><img src="--><?php //echo URLROOT ?><!--/public/images/Message.png" alt="messages" height="15px" style="opacity: 0.5;"></li>-->
+
+        <li style="color: #888888;"><?php echo $_SESSION['username'] ?></li>
+        <li><img src="<?php echo URLROOT ?>/public/images/Profile.png" alt="Profile" height="35px" style="opacity: 0.5;"></li>
         <li style="color: #afafaf;margin-left: 5%;"> | </li>
         <li><div class="dropdown">
                 <span> <img src="<?php echo URLROOT ?>/public/images/Drop.png" alt="View" height="8px" style="opacity: 0.5;"></span>
@@ -39,8 +42,6 @@
                 </div>
             </div>
         </li>
-        <li style="color: #888888;"><?php echo $_SESSION['username'] ?></li>
-        <li><img src="<?php echo URLROOT ?>/public/images/Profile.png" alt="Profile" height="35px" style="opacity: 0.5;"></li>
 
     </ul>
 </div>
