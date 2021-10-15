@@ -81,6 +81,3 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
 <!--                </form>-->
 <!--            </div>-->
 <!--        </div>-->
-
-    </body>
-</html>
