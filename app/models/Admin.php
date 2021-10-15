@@ -5,9 +5,9 @@ class Admin {
         $this->db = new Database;
     }
 
-    public function viewusers() {
+    public function viewsupplier() {
 
-        $this->db->query('SELECT * FROM staff WHERE urole != "admin"');
+        $this->db->query('SELECT * FROM supplier');
 
         $results = $this->db->resultSet();
 
@@ -15,18 +15,19 @@ class Admin {
 
     }
 
-    public function login($username, $password) {
-        $this->db->query('SELECT * FROM staff WHERE uname = :username');
+    public function registersupplier($data) {
+        $this->db->query('INSERT INTO supplier (agencyname,agencyadrs,agencytel,agencyemail) VALUES(:agname,:agadrs,:agtel,:agemail)');
 
-        //Bind value
-        $this->db->bind(':username', $username);
 
-        $row = $this->db->single();
+        //Bind values
+        $this->db->bind(':agname', $data['suppliername']);
+        $this->db->bind(':agadrs', $data['supplieraddress']);
+        $this->db->bind(':agtel', $data['suppliertelno']);
+        $this->db->bind(':agemail', $data['suppliermail']);
 
-        $hashedPassword = $row->upswrd;
-
-        if (password_verify($password, $hashedPassword)) {
-            return $row;
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
         } else {
             return false;
         }

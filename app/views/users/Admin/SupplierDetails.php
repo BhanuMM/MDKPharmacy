@@ -12,37 +12,24 @@ require APPROOT . '/views/includes/Adminhead.php';
                 
                 <table id="customers">
                     <tr>
+                        <th>Agency ID</th>
                       <th>Agency Name</th>
                       <th>Address</th>
                       <th>Phone Number</th>
                       <th>Email</th>
-                      <th>Update</th>
-                      <th>Delete</th>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+<!--                      <th>Update</th>-->
+<!--                      <th>Delete</th>-->
+                    </tr> <?php foreach($data['suppliers'] as $allsuppliers): ?>
+
+                        <tr>
+                            <td><?php echo $allsuppliers->supplierid; ?></td>
+                            <td><?php echo $allsuppliers->agencyname; ?></td>
+                            <td><?php echo $allsuppliers->agencyadrs; ?></td>
+                            <td><?php echo $allsuppliers->agencytel; ?></td>
+                            <td><?php echo $allsuppliers->agencyemail; ?></td>
+                        </tr>
+
+                    <?php endforeach; ?>
                   </table>
 
             </div>

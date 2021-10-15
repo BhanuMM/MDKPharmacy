@@ -96,9 +96,3 @@ require APPROOT . '/views/includes/Adminhead.php';
         
 
 
-        
-    
-        
-     
-    </body>
-</html>
