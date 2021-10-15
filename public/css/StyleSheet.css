@@ -2,6 +2,9 @@ body {
     margin: 0;
   }
   
+
+ /* side bar navigation  */
+
 .sidebar{
     position: fixed;
     left: 0;
@@ -24,10 +27,11 @@ body {
 .sidebar ul a{
     display: block;
     font-family: "Poppins";
-    font-size: 12px;
+    font-size: 15px;
+    text-decoration: none;
     color:white;
     padding-left: 10%;
-    padding-top: 4%;
+    padding-top: 5%;
     padding-bottom: 4%;
     box-sizing: border-box;
     border-top: 1px solid rgba(255,255,255,.1);
