@@ -39,7 +39,12 @@ class Admins extends Controller {
     }
 
     public function viewsupplier() {
-        $this->view('users/Admin/SupplierDetails');
+        $allsuppliers = $this->adminModel->viewsupplier();
+
+        $data = [
+            'suppliers' => $allsuppliers
+        ];
+        $this->view('users/Admin/SupplierDetails',$data);
     }
 
     public function addsupplier() 
@@ -68,10 +73,10 @@ class Admins extends Controller {
     
     
                     //Register user from model function
-                    if ($this->receptionistModel->registerpatient($data)) {
+                    if ($this->adminModel->registersupplier($data)) {
                         //Redirect to the login page
     
-                        header('location: ' . URLROOT . '/Receptionist/ReciptionistDashboard');
+                        header('location: ' . URLROOT . '/Admin/SupplierDetails');
                     } else {
                         die('Something went wrong.');
                     }
