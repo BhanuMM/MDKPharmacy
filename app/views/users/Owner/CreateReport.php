@@ -1,5 +1,5 @@
 <?php
-require APPROOT . '/views/includes/Owner.php';
+require APPROOT . '/views/includes/Ownerhead.php';
 ?>
 
 <div class="row">
@@ -10,13 +10,17 @@ require APPROOT . '/views/includes/Owner.php';
                     Create Report
                 </h2>
                 <h5>
-                    Select Date
+                    Select From-Date
                 </h5>
-                <input class="input1" type="text" id="Rfname" name="Rfname" placeholder="John Doe" required>
-                <h5>
+                <input class="input1" type="text" id="Rfname" name="Rfname" placeholder="05/02/2021" required>
+                    <h5>
+                        Select To-Date
+                    </h5>
+                    <input class="input1" type="text" id="Rfname" name="Rfname" placeholder="05/03/2021" required>
+                    <h5>
                     Select Report Type 
                 </h5>
-                <input class="input1" type="text" id="Rnic" name="Rnic" size=12 placeholder="123456789 V" required>  <br><br>
+                <input class="input1" type="text" id="Rnic" name="Rnic" size=12 placeholder="Patient count report" required>  <br><br>
                 <button class="button button1">Generate Report</button>
               
 
