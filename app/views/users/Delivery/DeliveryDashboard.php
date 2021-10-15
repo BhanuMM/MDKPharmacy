@@ -9,7 +9,7 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                             <div class="welcome">
                                 <img src="https://randomuser.me/api/portraits/men/20.jpg" />
                                 <div class="welcome-names">
-                                    Welcome <br> Mr.Delivery Person        
+                                    Welcome <br> Mr.<?php echo $_SESSION['username'] ?>
                                 </div>
                             </div>
                         </div>

@@ -18,17 +18,22 @@ require APPROOT . '/views/includes/Adminhead.php';
             <div style="margin-left:0%; margin-right:0%; padding:1px 16px; width: 100%; ">
 
                 <div class="row">
-                    <div class="column">
+                <!-- user management card     -->
+
+                <div class="column">
                         <div class="card">
                             <div class="welcome">
                                 <img src="<?php echo URLROOT ?>/public/images/usermanagementicon.png" />
                                 <div class="welcome-names">
                                     User Management         
-                                </div>
+                                </div><br><br>
                             </div>
                             <a href="<?php echo URLROOT ?>/admins/viewuser"><button class="button button1">View</button></a>
                         </div>
-                    </div>
+                    </div> 
+
+                <!-- Report Management Card -->
+
                     <div class="column">
                         <div class="card">
                             <div class="welcome">
@@ -40,6 +45,9 @@ require APPROOT . '/views/includes/Adminhead.php';
                             <a href="../Admin/ReportDetails.html"><button class="button button1">View</button></a>
                       </div>
                     </div>
+
+                <!-- Supplier Management Card -->
+
                     <div class="column">
                       <div class="card">
                         <div class="welcome">
@@ -51,6 +59,9 @@ require APPROOT . '/views/includes/Adminhead.php';
                           <a href="../Admin/SupplierDetails.html"><button class="button button1">View</button></a>
                       </div>
                     </div>
+
+                <!-- Stock Management Card -->
+
                     <div class="column">
                         <div class="card">
                             <div class="welcome">
@@ -61,13 +72,14 @@ require APPROOT . '/views/includes/Adminhead.php';
                             </div>
                             <a href="../Admin/StockDetails.html">  <button class="button button1">View</button></a>
                         </div>
-
                     </div>
-                </div>
+               
             </div>
             <div class="row">
+              <!-- Medicine Management Card -->
                 <div class="column">
                     <div class="card">
+
                             <div class="welcome">
                                 <img src="<?php echo URLROOT ?>/public/images/suppliermanagementicon.png" />
                                 <div class="welcome-names">

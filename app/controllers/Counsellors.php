@@ -7,4 +7,8 @@ class Counsellors extends Controller {
     public function counsellordashboard() {
         $this->view('users/Counsellor/PrescriptionDetails');
     }
+
+    public function seemedicineavailability() {
+        $this->view('users/Counsellor/MedicineDetails');
+    }
 }
