@@ -27,6 +27,7 @@
     <ul id="list2">
         <a href = "<?php echo URLROOT ?>/counsellors/counsellordashboard">
         <li style="padding-left: 4%; padding-right: 60%; float: left;"><button class="button"><img src="<?php echo URLROOT ?>/public/images/Back.png" alt="Return to Dashboard" height="15px" style="opacity: 0.5;">Back to Dashboard</button></li>
+
         </a>
 <!--        <li><img src="--><?php //echo URLROOT ?><!--/public/images/Settings.png" alt="Settings" height="15px" style="opacity: 0.5;"></li>-->
 <!--        <li><img src="--><?php //echo URLROOT ?><!--/public/images/Notification.png" alt="Notifications" height="15px" style="opacity: 0.5;"></li>-->
@@ -41,7 +42,17 @@
                 </div>
             </div>
         </li>
+
         <li><img src="<?php echo URLROOT ?>/public/images/Profile.png" alt="Profile" height="35px" style="opacity: 0.5;"></li>
+        <li style="color: #afafaf;"> | </li>
+        <li><div class="dropdown">
+                <span> <img src="<?php echo URLROOT ?>/public/images/Settings.png" alt="View" height="8px" style="opacity: 0.5;"></span>
+                <div class="dropdown-content">
+                    <p><button class="btn-ddc">Settings</button></p>
+                    <p> <a href="<?php echo URLROOT ?>/users/logout"> <button class="btn-ddc">Logout</button> </a></p>
+                </div>
+            </div>
+        </li>
 
     </ul>
 </div>
