@@ -26,7 +26,7 @@ body {
 
 .sidebar ul a{
     display: block;
-    font-family: "Poppins";
+    font-family: 'Poppins', serif;
     font-size: 15px;
     text-decoration: none;
     color:white;
