@@ -8,9 +8,12 @@ body {
 .sidebar{
     position: fixed;
     left: 0;
-    width : 15%;
+    width : 17%;
     height: 100%; 
-    background-color: #43425d;
+    background-color: #0a0a2e;
+    margin: 7px 7px 7px 7px;
+    border: solid 2px #0a0a2e;
+    border-radius: 15px 15px 15px 15px;
 }
 
 .sidebar header{
@@ -19,8 +22,8 @@ body {
     font-family: "Helvetica";
     padding-top: 8.5%;
     padding-bottom: 8.5%;
-    text-align:center;
-    background-color: #3b3a53;
+    text-align: center;
+    /* background-color: #0a0a2e; */
     user-select: none;
 }
 
@@ -40,12 +43,18 @@ body {
 }
 
 ul li a:hover{
-    background-color: #3b3a53;
-    border-left: 10px solid #A3A0FB;
+    background-color: white;
+    color:#0a0a2e;
+    border-left: 10px solid #0a0a2e;
 } 
 
   /*---------------------------------------------------------------------*/
 
+  /* nav-bar = top navigation bar*/
+
+  .nav-bar{
+   align-items:right;
+  }
 
   #list {
     list-style-type: none;
@@ -55,7 +64,7 @@ ul li a:hover{
     background-color: #43425D;
     position: fixed;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
       text-decoration: none;
   }
   
@@ -80,8 +89,11 @@ ul li a:hover{
   #list2{
       list-style-type: none;
       margin: 0;
+      /* margin-left: 20px; */
       padding-top: 0.2%;
       padding-bottom: 1%;
+      padding-left: 87%; 
+      /* added to get the element to the corner */
   }
 
   #list2 li{
@@ -108,13 +120,20 @@ ul li a:hover{
       cursor: pointer;
   }
   .button1{
+      /* border: solid 1px #0a0a2e; */
       border: none;
-      background-color: #3C3B54;
-      color: white;
+      color: #0a0a2e;
+      border-radius: 15px; 
+      margin-top: 10px;
       padding-left: 30px;
       padding-right: 30px;
-      border-radius: 3px;
+      
   }
+
+  .button1:hover{
+      background-color: #0a0a2e;
+      color:#ffff;
+    }
   .button2{
       border-width: thin;
       border-color: #3C3B54;

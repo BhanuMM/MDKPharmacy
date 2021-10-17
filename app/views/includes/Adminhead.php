@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/StyleSheet.css">
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/csscode.css">
 </head>
-<body style="font-family: arial;">
+<body style="font-family: poppins;">
 
 <!-- --------------------------------------------------------------------------------------------- -->
 <div class="sidebar">
@@ -27,19 +27,20 @@
     </ul>
 </div>
 
-<div style="box-shadow: 1px 1px 5px #888888; background-color: #ffffff; padding-left: 10%; padding-top:0px; padding-bottom: 0px; height: 4.7%; ">
+<section class = "nav-bar">
+<div style="box-shadow: 1px 1px 5px #888888; background-color: #ffffff; padding-left: 10%; padding-top:0px; padding-bottom: 0px; height: 4.7%; ali ">
     <ul id="list2">
-        <a href="<?php echo URLROOT ?>/admins/admindashboard">
-        <li style="padding-left: 4%; padding-right: 60%; float: left;"><button class="button"><img src="<?php echo URLROOT ?>/public/images/Back.png" alt="Return to Dashboard" height="15px" style="opacity: 0.5;">Back to Dashboard</button></li></a>
+        <!-- <a href="<?php echo URLROOT ?>/admins/admindashboard">
+        <li style="padding-left: 4%; padding-right: 60%; float: left;"><button class="button"><img src="<?php echo URLROOT ?>/public/images/Back.png" alt="Return to Dashboard" height="15px" style="opacity: 0.5;">Back to Dashboard</button></li></a>   -->
 <!--        <li><img src="--><?php //echo URLROOT ?><!--/public/images/Drop.png" alt="Settings" height="15px" style="opacity: 0.5;"></li>-->
 <!--        <li><img src="--><?php //echo URLROOT ?><!--/public/images/Notification.png" alt="Notifications" height="15px" style="opacity: 0.5;"></li>-->
 <!--        <li><img src="--><?php //echo URLROOT ?><!--/public/images/Message.png" alt="messages" height="15px" style="opacity: 0.5;"></li>-->
 
         <li style="color: #888888;"><?php echo $_SESSION['username'] ?></li>
         <li><img src="<?php echo URLROOT ?>/public/images/Profile.png" alt="Profile" height="35px" style="opacity: 0.5;"></li>
-        <li style="color: #afafaf;"> | </li>
+        <li style="color: #0a0a2e;"> | </li>
         <li><div class="dropdown">
-                <span> <img src="<?php echo URLROOT ?>/public/images/Settings.png" alt="View" height="8px" style="opacity: 0.5;"></span>
+                <span> <img src="<?php echo URLROOT ?>/public/images/down-arrow.png" alt="View" height="8px" style="opacity: 0.5;"></span>
                 <div class="dropdown-content">
                     <p><button class="btn-ddc">Settings</button></p>
                     <p> <a href="<?php echo URLROOT ?>/users/logout"> <button class="btn-ddc">Logout</button> </a></p>
@@ -49,3 +50,5 @@
 
     </ul>
 </div>
+
+</section>
