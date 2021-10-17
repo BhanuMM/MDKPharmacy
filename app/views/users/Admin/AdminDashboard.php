@@ -3,12 +3,12 @@ require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
 
-<div style="margin-left:15%; margin-right:0%; padding:1px 16px; width: 80%; ">
-    <div class="card">
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
+    <div class="welcome-card">
         <div class="welcome">
-                <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="">
+                <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
             <div class="welcome-names">
-                Welcome <br> Mr.<?php echo $_SESSION['username'] ?>
+                Welcome , Mr.<?php echo $_SESSION['username'] ?> !
             </div>
         </div>
     </div>
@@ -21,10 +21,10 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <!-- user management card     -->
 
                 <div class="column">
-                        <div class="card">
+                        <div class="fn-card">
                             <div class="welcome">
-                                <img src="<?php echo URLROOT ?>/public/images/usermanagementicon.png" />
-                                <div class="welcome-names">
+                                <img src="<?php echo URLROOT ?>/public/images/user-icon.png" /><br><br>
+                                <div class="fn-names">
                                     User Management         
                                 </div><br><br>
                             </div>
@@ -35,10 +35,10 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <!-- Report Management Card -->
 
                     <div class="column">
-                        <div class="card">
+                        <div class="fn-card">
                             <div class="welcome">
-                            <img src="<?php echo URLROOT ?>/public/images/reportmanagementicon.png" />
-                          <div class="welcome-names">
+                            <img src="<?php echo URLROOT ?>/public/images/report-icon.png" />
+                          <div class="fn-names">
                              Report Management 
                           </div>
                         </div>
@@ -49,10 +49,10 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <!-- Supplier Management Card -->
 
                     <div class="column">
-                      <div class="card">
+                      <div class="fn-card">
                         <div class="welcome">
-                          <img src="<?php echo URLROOT ?>/public/images/suppliermanagementicon.png" />
-                          <div class="welcome-names">
+                          <img src="<?php echo URLROOT ?>/public/images/supplier-icon.png" />
+                          <div class="fn-names">
                                 Supplier Management       
                           </div>
                         </div>
@@ -63,10 +63,10 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <!-- Stock Management Card -->
 
                     <div class="column">
-                        <div class="card">
+                        <div class="fn-card">
                             <div class="welcome">
-                                <img src="<?php echo URLROOT ?>/public/images/stockmanagementicon.png" />
-                                <div class="welcome-names">
+                                <img src="<?php echo URLROOT ?>/public/images/stock-icon.png" /><br>
+                                <div class="fn-names">
                                     Stock Management         
                                 </div>
                             </div>
@@ -78,11 +78,11 @@ require APPROOT . '/views/includes/Adminhead.php';
             <div class="row">
               <!-- Medicine Management Card -->
                 <div class="column">
-                    <div class="card">
+                    <div class="fn-card">
 
                             <div class="welcome">
-                                <img src="<?php echo URLROOT ?>/public/images/suppliermanagementicon.png" />
-                                <div class="welcome-names">
+                                <img src="<?php echo URLROOT ?>/public/images/medicine-icon.png" />
+                                <div class="fn-names">
                                     Medicine Management
                                 </div>
                             </div>
