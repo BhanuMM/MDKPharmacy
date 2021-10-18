@@ -3,9 +3,9 @@ require APPROOT . '/views/includes/Doctorhead.php';
 ?>
 
 <div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: ">
-                <ul style="margin-top: 5%; padding-left: 0px; list-style-type: none; overflow: auto;">
-                    <li Style="float: middle; padding-left: 1%; vertical-align: middle; display: inline; margin-left: 40%;"><img src="../Images/Search.png" alt="Search" height="15px" style="opacity: 0.5;"></li>
-                    <li Style="float: middle; vertical-align: middle; display: inline; "><input type="text" placeholder="Search Patients"></li>
+                <ul style="margin-top: 5%; padding-left: 0px; padding-top: 2%; list-style-type: none; overflow: auto;">
+                    <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;"><a href="#"><img src="../Images/Search.png" alt="Search" height="15px" style="opacity: 0.5;"></a></li>
+                    <li Style="float: right; vertical-align: middle; display: inline; "><input class="input1" type="text" placeholder="Search Patients"></li>
                     <li Style="float: middle; vertical-align: middle; display: inline;"><h3>Select Patient</h3></li>
                 </ul>
                
@@ -51,7 +51,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                       <td></td>
                     </tr>
                   </table><br /><br /><br /><br />
-                  <button class="button button1" style="margin-left: 81%;">Create Prescription</button>
+                  <a href="<?php echo URLROOT ?>/doctors/addprescription"><button class="button button1" style="margin-left: 81%;">Create Prescription</button></a>
             </div>
 
            
