@@ -24,12 +24,12 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 <div class="column">
                         <div class="fn-card">
                             <div class="welcome">
-                                <img src="<?php echo URLROOT ?>/public/images/user-icon.png" /><br><br>
+                                <img src="<?php echo URLROOT ?>/public/images/report-icon.png" /><br><br>
                                 <div class="fn-names">
                                     Add Prescription         
                                 </div><br><br>
                             </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewuser"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/doctors/createprescription"><button class="button button1">View</button></a>
                         </div>
                     </div> 
 
@@ -38,12 +38,12 @@ require APPROOT . '/views/includes/Doctorhead.php';
                     <div class="column">
                         <div class="fn-card">
                             <div class="welcome">
-                            <img src="<?php echo URLROOT ?>/public/images/report-icon.png" />
+                            <img src="<?php echo URLROOT ?>/public/images/user-icon.png" />
                           <div class="fn-names">
                              Patient Details 
                           </div>
                         </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewreport"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/doctors/viewpatientdetails"><button class="button button1">View</button></a>
                       </div>
                     </div>
 
@@ -52,13 +52,12 @@ require APPROOT . '/views/includes/Doctorhead.php';
                     <div class="column">
                       <div class="fn-card">
                         <div class="welcome">
-                          <img src="<?php echo URLROOT ?>/public/images/supplier-icon.png" />
+                          <img src="<?php echo URLROOT ?>/public/images/medicine-icon.png" />
                           <div class="fn-names">
-                                Medicine 
-                                Availability      
+                                Medicine Availability
                           </div>
                         </div>
-                          <a href="<?php echo URLROOT ?>/admins/viewsupplier"><button class="button button1">View</button></a>
+                          <a href="<?php echo URLROOT ?>/doctors/viewmedicineavailability"><button class="button button1">View</button></a>
                       </div>
                     </div>
 
@@ -69,30 +68,29 @@ require APPROOT . '/views/includes/Doctorhead.php';
                             <div class="welcome">
                                 <img src="<?php echo URLROOT ?>/public/images/stock-icon.png" /><br>
                                 <div class="fn-names">
-                                    Prescription 
-                                    Details         
+                                    Prescription Details
                                 </div>
                             </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewstock">  <button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/doctors/allprescriptions">  <button class="button button1">View</button></a>
                         </div>
                     </div>
                
             </div>
-            <div class="row">
-              <!-- Medicine Management Card -->
-                <div class="column">
-                    <div class="fn-card">
-
-                            <div class="welcome">
-                                <img src="<?php echo URLROOT ?>/public/images/medicine-icon.png" />
-                                <div class="fn-names">
-                                    Medicine Management
-                                </div>
-                            </div>
-                        <a href="<?php echo URLROOT ?>/admins/viewmed"> <button class="button button1">View</button></a>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="row">-->
+<!--              <!-- Medicine Management Card -->
+<!--                <div class="column">-->
+<!--                    <div class="fn-card">-->
+<!---->
+<!--                            <div class="welcome">-->
+<!--                                <img src="--><?php //echo URLROOT ?><!--/public/images/supplier-icon.png" />-->
+<!--                                <div class="fn-names">-->
+<!--                                    Medicine Management-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        <a href="--><?php //echo URLROOT ?><!--/admins/viewmed"> <button class="button button1">View</button></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
      <!-- --------------------------------------------------------------------------------------------- -->             
                  
 
