@@ -8,11 +8,19 @@ class Deliverys extends Controller {
         $this->view('users/Delivery/DeliveryDashboard');
     }
 
-    public function viewpastdeliveries() {
-        $this->view('users/Delivery/DeliveryDetails');
+    public function viewcurrentdeliveries() {
+        $this->view('users/Delivery/CurrentDeliveries');
     }
 
-    public function viewprescription() {
-        $this->view('users/Delivery/DeliverypersonPrescription');
+    public function viewcurrentsingle() {
+        $this->view('users/Delivery/CurrentSingleDelivery');
+    }
+
+    public function viewpastdeliveries() {
+        $this->view('users/Delivery/PastDeliveries');
+    }
+
+    public function viewpastsingle() {
+        $this->view('users/Delivery/PastSingleDelivery');
     }
 }
