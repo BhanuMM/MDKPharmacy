@@ -1,27 +1,14 @@
 <?php
-require APPROOT . '/views/includes/Cashierhead.php';
+require APPROOT . '/views/includes/Cashier.php';
 ?>
 
-            <div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: ">
-
-                <!-- <div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: 1175px; "> -->
-                    
-                    <div class="card">
-                        <div class="welcome">
-                                <img src="https://randomuser.me/api/portraits/men/20.jpg" />
-                            <div class="welcome-names">
-                                Welcome <br> Mr.<?php echo $_SESSION['username'] ?>
-                            </div>
-                        </div>
-                    </div>
-
-
-                <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
-                    <li Style="float: left; vertical-align: middle; display: inline;"><h3> Prescriptions</h3></li>
+<div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: ">
+                <ul style="margin-top: 5%; padding-left: 0px; list-style-type: none; overflow: auto;">
+                    <li Style="float: left; vertical-align: middle; display: inline;"><h3>Create Inpatient Bills</h3></li>
                     <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" height="15px" style="opacity: 0.5;"></li>
-                    <li Style="float: right; vertical-align: middle; display: inline;"><input type="text" placeholder="Search Prescriptions"></li>
+                    <li Style="float: right; vertical-align: middle; display: inline;"><input type="text" placeholder="Prescription ID"></li>
                 </ul>
-                
+               
                 <table id="customers">
                     <tr>
                       <th>Patient ID</th>
@@ -54,21 +41,21 @@ require APPROOT . '/views/includes/Cashierhead.php';
                       <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                   </table>
 
             </div>
 
            
-
+        </div>
 
     </body>
 </html>
