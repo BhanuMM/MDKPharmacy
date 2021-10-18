@@ -14,13 +14,15 @@
 <div class="sidebar">
     <header>MDK HOSPITALS</header>
     <ul style="list-style-type: none; padding-left: 0px;">
-        <li><a href = "<?php echo URLROOT ?>/cashiers/cashierdashboard">Dashboard</a></li>
-<!--        <li><a href = "--><?php //echo URLROOT ?><!--/cashiers/prescriptionview"> Users</a></li>-->
-<!--        <li><a href = "../Admin/ReportDetails.html">Reports </a></li>-->
-<!--        <li><a href = "../Admin/SupplierDetails.html">Suppliers</a></li>-->
-<!--        <li><a href = "../Admin/StockDetails.html">Stocks</a></li>-->
+        <li><a href = "../Admin/AdminDashboard.html">Dashboard</a></li>
+        <li><a href = "../Admin/UserDetails.html"> Users</a></li>
+        <li><a href = "../Admin/ReportDetails.html">Reports </a></li>
+        <li><a href = "../Admin/SupplierDetails.html">Suppliers</a></li>
+        <li><a href = "../Admin/StockDetails.html">Stocks</a></li>
     </ul>
 </div>
+
+
 
 <div style="box-shadow: 1px 1px 5px #888888; background-color: #ffffff;  padding-top:10px; padding-bottom: 0px; height: 4.7%; ">
 
