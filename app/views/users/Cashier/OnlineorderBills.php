@@ -31,7 +31,7 @@ require APPROOT . '/views/includes/Cashier.php';
                       <td></td>
                     </tr>
                   </table>
-
+                  <button class="button button1">Create Bill</button>
             </div>
 
            
