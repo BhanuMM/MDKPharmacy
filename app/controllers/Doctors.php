@@ -12,7 +12,7 @@ class Doctors extends Controller {
         $this->view('users/Doctor/PatientDetails');
     }
 
-    public function viewprescriptions() {
+    public function allprescriptions() {
         $this->view('users/Doctor/Prescriptions');
     }
 
@@ -22,5 +22,13 @@ class Doctors extends Controller {
 
     public function createprescription() {
         $this->view('users/Doctor/CreatePrescription');
+    }
+
+    public function addprescription() {
+        $this->view('users/Doctor/AddPrescription');
+    }
+
+    public function viewprescriptions() {
+        $this->view('users/Doctor/ViewPrescription');
     }
 }
