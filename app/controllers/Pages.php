@@ -1,7 +1,7 @@
 <?php
 class Pages extends Controller {
     public function __construct() {
-        //$this->userModel = $this->model('User');
+        $this->pageModel = $this->model('Page');
     }
 
     public function index() {
@@ -27,4 +27,5 @@ class Pages extends Controller {
         $this->view('upload');
 
     }
+
 }
