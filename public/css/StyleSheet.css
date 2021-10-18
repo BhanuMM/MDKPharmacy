@@ -1,7 +1,19 @@
 body {
     margin: 0;
+    font-family: 'Poppins', sans-serif;  
+
   }
   
+/* Time and Date */
+/* 
+#myDiv{
+  float: left;
+  display: inline:
+  padding-left: 4%;
+  padding-right: 60%;
+ 
+}  */
+
 
  /* side bar navigation  */
 
@@ -200,13 +212,8 @@ ul li a:hover{
     background-color: white;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
+    padding: 12px 16px; 
     z-index: 1;
-}
-
-.dropdown-content:active{
-    background-color: #3e8e41;
-    color: white;
 }
 
 .btn-ddc {
@@ -215,12 +222,13 @@ ul li a:hover{
     color: black;
     text-align: center;
     font-size: 16px;
-    margin: 4px 2px;
+    /* margin: 4px 2px; */
     transition: 0.3s;
 }
 
 .btn-ddc:hover {
-    color:#43425D;
+ color: #0a0a2e;
+  
 }
 
 .dropdown:hover .dropdown-content {

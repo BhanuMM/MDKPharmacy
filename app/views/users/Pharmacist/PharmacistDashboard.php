@@ -1,6 +1,7 @@
 <?php
-require APPROOT . '/views/includes/Doctorhead.php';
+require APPROOT . '/views/includes/Pharmacisthead.php';
 ?>
+
 
 
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
@@ -19,33 +20,33 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
                 <div class="row">
 
-                <!-- Add Prescription     -->
+                <!-- View Prescription     -->
 
                 <div class="column">
                         <div class="fn-card">
                             <div class="welcome">
                                 <img src="<?php echo URLROOT ?>/public/images/user-icon.png" /><br><br>
                                 <div class="fn-names">
-                                    Add Prescription         
+                                    View Prescription         
                                 </div><br><br>
                             </div>
                             <a href="<?php echo URLROOT ?>/admins/viewuser"><button class="button button1">View</button></a>
                         </div>
                     </div> 
 
-                <!-- Patient Details
+                <!-- View Online Orders -->
 
                     <div class="column">
                         <div class="fn-card">
                             <div class="welcome">
                             <img src="<?php echo URLROOT ?>/public/images/report-icon.png" />
                           <div class="fn-names">
-                             Patient Details 
+                             Online Orders
                           </div>
                         </div>
                             <a href="<?php echo URLROOT ?>/admins/viewreport"><button class="button button1">View</button></a>
                       </div>
-                    </div> -->
+                    </div>
 
                 <!-- Check Medicine Availability -->
 
@@ -62,15 +63,14 @@ require APPROOT . '/views/includes/Doctorhead.php';
                       </div>
                     </div>
 
-                <!-- Prescription Details
+                <!-- Online Deliveries -->
 
                     <div class="column">
                         <div class="fn-card">
                             <div class="welcome">
                                 <img src="<?php echo URLROOT ?>/public/images/stock-icon.png" /><br>
                                 <div class="fn-names">
-                                    Prescription 
-                                    Details         
+                                    Online Deliveries    
                                 </div>
                             </div>
                             <a href="<?php echo URLROOT ?>/admins/viewstock">  <button class="button button1">View</button></a>
@@ -78,7 +78,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                     </div>
                
             </div> -->
-            <div class="row">
+            <!-- <div class="row">
 
               <!-- Medicine Management Card
                 <div class="column">
@@ -93,7 +93,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                         <a href="<?php echo URLROOT ?>/admins/viewmed"> <button class="button button1">View</button></a>
                     </div>
                 </div>
-            </div> -->
+            </div> --> -->
      <!-- --------------------------------------------------------------------------------------------- -->             
                  
 
