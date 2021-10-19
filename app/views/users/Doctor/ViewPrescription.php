@@ -2,7 +2,7 @@
 require APPROOT . '/views/includes/Doctorhead.php';
 ?>
 
-<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">
     <div class="bill">
         <div class="company">
             <div class="bill-row">

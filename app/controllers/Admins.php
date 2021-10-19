@@ -23,13 +23,18 @@ class Admins extends Controller {
     }
 
     public function viewmed() {
-        $this->view('users/Admin/MedicineDetails');
+        $allmedicines = $this->adminModel->viewmed();
+
+        $data = [
+            'medicines' => $allmedicines
+        ];
+        $this->view('users/Admin/MedicineDetails',$data);
     }
 
     public function addmed() {
 
             $data = [
-                'medicinename' => '',
+                'genericname' => '',
                 'brandname' => '',
                 'importername' => '',
                 'dealer' => '',
@@ -45,7 +50,7 @@ class Admins extends Controller {
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
     
                 $data = [
-                    'medicinename' => trim($_POST['medname']),
+                    'genericname' => trim($_POST['medname']),
                     'brandname' => trim($_POST['brandname']),
                     'importername' => trim($_POST['imname']),
                     'dealer' => trim($_POST['dealer']),
@@ -58,10 +63,10 @@ class Admins extends Controller {
     
     
                     //Register user from model function
-                    if ($this->receptionistModel->registerpatient($data)) {
+                    if ($this->adminModel->registermedicine($data)) {
                         //Redirect to the login page
     
-                        header('location: ' . URLROOT . '/Receptionist/ReciptionistDashboard');
+                        header('location: ' . URLROOT . '/admins/viewmed');
                     } else {
                         die('Something went wrong.');
                     }

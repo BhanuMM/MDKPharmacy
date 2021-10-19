@@ -39,12 +39,12 @@ require APPROOT . '/views/includes/Cashierhead.php';
                             <div class="welcome">
                             <img src="<?php echo URLROOT ?>/public/images/report-icon.png" />
                           <div class="fn-names">
-                             View Previous Bills 
+                             Previous Bills
                           </div>
                         </div>
                             <a href="<?php echo URLROOT ?>/cashiers/pastbills"><button class="button button1">View</button></a>
                       </div>
-                    </div> -->
+                    </div>
 
                 <!-- Check Medicine Availability -->
 
@@ -74,7 +74,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                         </div>
                     </div>
                
-            </div> -->
+            </div>
             <div class="row">
 
               <!-- New Outpatient Bill -->
@@ -94,20 +94,20 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
                 <!-- Online Deliveries -->
 
-                <div class="column">
-                    <div class="fn-card">
-
-                            <div class="welcome">
-                                <img src="<?php echo URLROOT ?>/public/images/medicine-icon.png" />
-                                <div class="fn-names">
-                                    Online Deliveries
-                                </div>
-                            </div>
-                        <a href="<?php echo URLROOT ?>/cashiers/"> <button class="button button1">View</button></a>
-                    </div>
-                </div>
-
-            </div> 
+<!--                <div class="column">-->
+<!--                    <div class="fn-card">-->
+<!---->
+<!--                            <div class="welcome">-->
+<!--                                <img src="--><?php //echo URLROOT ?><!--/public/images/medicine-icon.png" />-->
+<!--                                <div class="fn-names">-->
+<!--                                    Online Deliveries-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        <a href="--><?php //echo URLROOT ?><!--/cashiers/"> <button class="button button1">View</button></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--            </div> -->
      <!-- --------------------------------------------------------------------------------------------- -->             
                  
 

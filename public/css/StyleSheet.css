@@ -132,8 +132,8 @@ ul li a:hover{
       cursor: pointer;
   }
   .button1{
-      /* border: solid 1px #0a0a2e; */
-      border: none;
+      border: solid 2px #0a0a2e;
+      /*border: none;*/
       color: #0a0a2e;
       border-radius: 15px; 
       margin-top: 10px;

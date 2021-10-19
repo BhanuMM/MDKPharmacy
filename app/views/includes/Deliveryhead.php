@@ -12,9 +12,11 @@
 
 <!-- --------------------------------------------------------------------------------------------- -->
 <div class="sidebar">
-    <header>MDK HOSPITALS</header>
+    <header><img src="<?php echo URLROOT ?>/public/images/1.png" style="width: 70px;"/><br><br><strong>MDK HOSPITALS</strong></header>
     <ul style="list-style-type: none; padding-left: 0px;">
         <li><a href = "<?php echo URLROOT ?>/Deliverys/deliverydashboard">Dashboard</a></li>
+        <li><a href = "<?php echo URLROOT ?>/Deliverys/viewcurrentdeliveries">Assigned Deliveries</a></li>
+        <li><a href = "<?php echo URLROOT ?>/Deliverys/viewpastdeliveries">Previous Deliveries</a></li>
         <!-- <li><a href = "<?php echo URLROOT ?>/Deliverys/viewpastdeliveries"> Users</a></li> -->
         <!-- <li><a href = "<?php echo URLROOT ?>/Deliverys/viewprescription">Reports </a></li> -->
 <!--        <li><a href = "../Admin/SupplierDetails.html">Suppliers</a></li>-->

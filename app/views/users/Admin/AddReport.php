@@ -4,7 +4,7 @@ require APPROOT . '/views/includes/Adminhead.php';
         <div class="row">
             <form method="post" action="userreg.php">
             <!-- <div style="margin-left:20%; padding:1px 16px;"> -->
-                <div class="column" style="margin-right: 30%; width: 40%; margin-left:17%; padding:1px 16px;">
+                <div class="column" style="margin-right: 30%; width: 40%; margin-left:20%; padding:1px 16px;">
                 <h2 style="margin-top: 18%;">
                     Create Report
                 </h2>
@@ -21,8 +21,3 @@ require APPROOT . '/views/includes/Adminhead.php';
 
                
             </div>
-
-        
-
-    </body>
-</html>

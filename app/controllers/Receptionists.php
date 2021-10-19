@@ -8,12 +8,17 @@ class Receptionists extends Controller
 
     public function receptionistdashboard()
     {
+        $this->view('users/Receptionist/ReciptionistDashboard');
+    }
+
+    public function viewpatients()
+    {
         $allpatients = $this->receptionistModel->viewpatient();
 
         $data = [
             'patients' => $allpatients
         ];
-        $this->view('users/Receptionist/ReciptionistDashboard',$data);
+        $this->view('users/Receptionist/ReceptionistViewPatient',$data);
     }
 
     public function addpatient()

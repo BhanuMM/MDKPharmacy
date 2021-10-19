@@ -76,10 +76,10 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                         </div>
                     </div>
                
-            </div> -->
+            </div>
             <!-- <div class="row">
 
-              <!-- Medicine Management Card
+              Medicine Management Card
                 <div class="column">
                     <div class="fn-card">
 
@@ -92,7 +92,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                         <a href="<?php echo URLROOT ?>/admins/viewmed"> <button class="button button1">View</button></a>
                     </div>
                 </div>
-            </div> --> -->
+            </div> -->
      <!-- --------------------------------------------------------------------------------------------- -->             
                  
 

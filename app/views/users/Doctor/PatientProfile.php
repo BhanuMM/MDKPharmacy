@@ -13,7 +13,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
             </div>
         </div>
     </div>
-    <a href="<?php echo URLROOT ?>/doctors/addprescription"><input type="button" class="button button1" style="margin-top: 1%;" value="+New Prescription" /></a>
+<!--    <a href="--><?php //echo URLROOT ?><!--/doctors/addprescription"><input type="button" class="button button1" style="margin-top: 1%;" value="+New Prescription" /></a>-->
      <!-- --------------------------------------------------------------------------------------------- -->             
                  
      <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
@@ -42,11 +42,3 @@ require APPROOT . '/views/includes/Doctorhead.php';
           <td align="center"><button class="button button1">View</button></td>
         </tr>
       </table>
-
-
-        
-    
-        
-     
-    </body>
-</html>

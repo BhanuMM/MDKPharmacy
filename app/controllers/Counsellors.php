@@ -5,10 +5,19 @@ class Counsellors extends Controller {
     }
 
     public function counsellordashboard() {
-        $this->view('users/Counsellor/PrescriptionDetails');
+        $this->view('users/Counsellor/CounsellorDashboard');
     }
 
     public function seemedicineavailability() {
         $this->view('users/Counsellor/MedicineDetails');
     }
+
+    public function pastbills() {
+        $this->view('users/Counsellor/PastBills');
+    }
+
+    public function pastbillsingle() {
+        $this->view('users/Counsellor/PastBillSingle');
+    }
+
 }

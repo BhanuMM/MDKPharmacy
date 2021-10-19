@@ -3,7 +3,7 @@ require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
     <div style="margin-left:20%; padding:1px 16px; width: 40%">
-        <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/addmedicine">
+        <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/addmed">
 
             <h2 style="margin-top: 3%;">
                 Medicine Details

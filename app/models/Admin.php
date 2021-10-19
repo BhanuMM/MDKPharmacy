@@ -43,7 +43,37 @@ class Admin {
         }
     }
 
+    public function registermedicine($data) {
+        $this->db->query('INSERT INTO medicine (medgenname,medbrand,medimporter,meddealer,medpurchprice,medsellprice,medprofit) 
+        VALUES(:medname,:medbrand,:importer,:dealer,:purchprice,:sellprice,:profit)');
 
+
+        //Bind values
+        $this->db->bind(':medname', $data['genericname']);
+        $this->db->bind(':medbrand', $data['brandname']);
+        $this->db->bind(':importer', $data['importername']);
+        $this->db->bind(':dealer', $data['dealer']);
+        $this->db->bind(':purchprice', $data['purchaseprice']);
+        $this->db->bind(':sellprice', $data['sellingprice']);
+        $this->db->bind(':profit', $data['profitmargin']);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function viewmed() {
+
+        $this->db->query('SELECT * FROM medicine');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
     //Find user by email. Email is passed in by the Controller.
 //    public function findUserByEmail($email) {
 //        //Prepared statement
