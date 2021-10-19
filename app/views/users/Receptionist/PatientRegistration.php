@@ -2,10 +2,8 @@
 require APPROOT . '/views/includes/Reciptionisthead.php';
 ?>
 
-        <div class="row">
-            <!-- <div style="margin-left:20%; padding:1px 16px;"> -->
-
-            <div class="column" style="margin-left:17%; padding:1px 16px;">
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
+            <div class="column">
                 <form method="post" class="data" action="<?php echo URLROOT; ?>/receptionists/registerpatient">
                     <h2 style="margin-top: 3%;">
                         Patient Details

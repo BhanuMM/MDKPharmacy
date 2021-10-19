@@ -3,7 +3,6 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
 ?>
 
 
-
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
     <div class="welcome-card">
         <div class="welcome">
@@ -30,7 +29,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                                     Add Patient         
                                 </div><br><br>
                             </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewuser"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/receptionists/addpatient"><button class="button button1">View</button></a>
                         </div>
                     </div> 
 
@@ -44,7 +43,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                              View Patients  
                           </div>
                         </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewreport"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>"><button class="button button1">View</button></a>
                       </div>
                     </div> -->
 
@@ -58,7 +57,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                                 View Doctors      
                           </div>
                         </div>
-                          <a href="<?php echo URLROOT ?>/admins/viewsupplier"><button class="button button1">View</button></a>
+                          <a href="#"><button class="button button1">View</button></a>
                       </div>
                     </div>
 
