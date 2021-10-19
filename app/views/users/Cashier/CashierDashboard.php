@@ -44,7 +44,9 @@ require APPROOT . '/views/includes/Cashierhead.php';
                         </div>
                             <a href="<?php echo URLROOT ?>/cashiers/pastbills"><button class="button button1">View</button></a>
                       </div>
-                    </div>
+
+                    </div> 
+
 
                 <!-- Check Medicine Availability -->
 
@@ -94,6 +96,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
                 <!-- Online Deliveries -->
 
+
 <!--                <div class="column">-->
 <!--                    <div class="fn-card">-->
 <!---->
@@ -108,6 +111,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 <!--                </div>-->
 <!---->
 <!--            </div> -->
+
      <!-- --------------------------------------------------------------------------------------------- -->             
                  
 
