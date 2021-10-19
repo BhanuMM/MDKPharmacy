@@ -1,5 +1,5 @@
 <?php
-require APPROOT . '/views/includes/Pharmacist.php';
+require APPROOT . '/views/includes/Pharmacisthead.php';
 ?>
 
 
@@ -35,14 +35,14 @@ require APPROOT . '/views/includes/Pharmacist.php';
                       <th>Update</th>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>Data</td>
+                      <td>Data</td>
+                      <td>Data</td>
+                      <td>Data</td>
+                      <td>Data</td>
+                      <td>Data</td>
+                      <td>Data</td>
+                      <td><a href="<?php echo URLROOT?>/pharmacists/viewprescription">view</a></td>
                     </tr>
                     <tr>
                       <td></td>

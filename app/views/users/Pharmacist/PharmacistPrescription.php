@@ -1,5 +1,5 @@
 <?php
-require APPROOT . '/views/includes/Pharmacist.php';
+require APPROOT . '/views/includes/Pharmacisthead.php';
 ?>
 
 <div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: ">

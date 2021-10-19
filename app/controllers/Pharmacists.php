@@ -5,6 +5,14 @@ class Pharmacists extends Controller {
     }
 
     public function pharmacistdashboard() {
-        $this->view('users/Pharmacist/PriscriptionDetails');
+        $this->view('users/Pharmacist/PharmacistDashboard');
+    }
+
+    public function prescriptiondetails() {
+        $this->view('users/Pharmacist/PrescriptionDetails');
+    }
+
+    public function viewprescription() {
+        $this->view('users/Pharmacist/PharmacistPrescription');
     }
 }
