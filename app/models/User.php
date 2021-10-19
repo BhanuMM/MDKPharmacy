@@ -31,16 +31,22 @@ class User {
 
         //Bind value
         $this->db->bind(':username', $username);
-
         $row = $this->db->single();
+        if($this->db->rowCount() > 0){
 
-        $hashedPassword = $row->upswrd;
 
-        if (password_verify($password, $hashedPassword)) {
-            return $row;
+            $hashedPassword = $row->upswrd;
+
+            if (password_verify($password, $hashedPassword)) {
+                return $row;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
+
+
     }
 
     //Find user by email. Email is passed in by the Controller.

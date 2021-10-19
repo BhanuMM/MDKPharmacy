@@ -298,3 +298,9 @@ table th, table td {
 .table-field{
   width: 20%;
 }
+/*errors span*/
+.invalidFeedback{
+    color: red;
+    font-size: 14px;
+
+}

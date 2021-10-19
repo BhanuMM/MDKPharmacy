@@ -23,6 +23,7 @@ class Users extends Controller {
             'emailError' => '',
             'passwordError' => '',
             'confirmPasswordError' => ''
+//            'viewalert'=>''
         ];
 
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -43,6 +44,7 @@ class Users extends Controller {
                 'emailError' => '',
                 'passwordError' => '',
                 'confirmPasswordError' => ''
+//                  'viewalert'=>''
             ];
 
             $nameValidation = "/^[a-zA-Z0-9]*$/";
@@ -84,7 +86,7 @@ class Users extends Controller {
                 //Register user from model function
                 if ($this->userModel->register($data)) {
                     //Redirect to the login page
-
+//                    $data['viewalert'] = 'view';
                     header('location: ' . URLROOT . '/users/login');
                 } else {
                     die('Something went wrong.');
@@ -161,7 +163,14 @@ class Users extends Controller {
                     // $this->view('users/admin');
 
                 } else {
-                    $data['passwordError'] = 'Password or username is incorrect. Please try again.';
+                    $data = [
+                        'username' => '',
+                        'password' => '',
+                        'usernameError' => '',
+                        'passwordError' => ''
+                    ];
+                    $data['passwordError'] = '*Password or username is incorrect. Please try again.';
+
 
                     $this->view('users/login', $data);
                 }

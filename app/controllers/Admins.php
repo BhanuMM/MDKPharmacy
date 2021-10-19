@@ -122,6 +122,7 @@ class Admins extends Controller {
                         //Redirect to the login page
     
                         header('location: ' . URLROOT . '/Admin/SupplierDetails');
+
                     } else {
                         die('Something went wrong.');
                     }
