@@ -11,7 +11,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                                 <div class="welcome-names">
                                     Mr.Patient         
                                 </div>
-                                <p><input type="button" style="margin-left: 450%;" class="button button1" value="+New Prescription" /></p>
+                                <a href="<?php echo URLROOT ?>/doctors/addprescription"><input type="button" style="margin-left: 450%;" class="button button1" value="+New Prescription" /></a>
                                 
                             </div>
                         </div>

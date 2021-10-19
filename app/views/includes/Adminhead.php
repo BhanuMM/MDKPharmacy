@@ -32,7 +32,7 @@
 
  <ul id="list2">
     <!-- Date and Time -->
-  <!-- <li style="padding-left: 4%; padding-right: 60%; float: left;"><div id="myDiv"></div></li>  -->
+<!--   <li style="padding-left: 4%; padding-right: 60%; float: left;"><div id="myDiv"></div></li>  -->
 
 <!--        <li><img src="--><?php //echo URLROOT ?><!--/public/images/Settings.png" alt="Settings" height="15px" style="opacity: 0.5;"></li>-->
 <!--        <li><img src="--><?php //echo URLROOT ?><!--/public/images/Notification.png" alt="Notifications" height="15px" style="opacity: 0.5;"></li>-->

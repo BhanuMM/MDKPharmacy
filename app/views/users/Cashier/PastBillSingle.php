@@ -1,21 +1,8 @@
 <?php
-require APPROOT . '/views/includes/Deliveryhead.php';
+require APPROOT . '/views/includes/Cashierhead.php';
 ?>
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
-<div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: ">
-                <ul style="margin-top: 5%; padding-left: 0px; list-style-type: none; overflow: auto;">
-                    <li Style="float: left; vertical-align: middle; display: inline;"><h3>Delivery Details</h3></li>
-                    <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;"><button class="button button1">Confirm</button></li>
-                </ul>
-
-                <ul><li style="list-style: none;"><h4>Date:</h4></li>
-                    <li style="list-style: none;"><h4>Delivery ID:</h4></li>
-                    <li style="list-style: none;"><h4>Address:</h4></li>
-                </ul>
-               <p></p>
-              </div>
-                
-        <div class="bill">
+<div class="bill">
         <div class="company">
             <div class="bill-row">
                 <div class="bill-col">
@@ -78,10 +65,7 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                 </tbody>
             </table>
         </div>      
-    </div>
-    
-    </div>
-            
-
-    </body>
+    </div>      
+</div>
+</body>
 </html>
