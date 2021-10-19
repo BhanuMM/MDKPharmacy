@@ -65,4 +65,9 @@ class Receptionists extends Controller
         }
         $this->view('users/Admin/AddUser', $data);
     }
+
+    public function profilesettings()
+    {
+        $this->view('users/Receptionist/ReceptionistProfileSetting');
+    }
 }

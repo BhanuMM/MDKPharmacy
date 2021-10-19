@@ -3,18 +3,16 @@ require APPROOT . '/views/includes/Doctorhead.php';
 ?>
 
 <!-- --------------------------------------------------------------------------------------------- -->
-        
-            <div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: 1175px; ">
-                        <div class="card">
-                            <div class="welcome">
-                                    <img src="https://randomuser.me/api/portraits/men/20.jpg" /></li>
-                                <div class="welcome-names">
-                                    Mr.Patient         
-                                </div>
-                                <p><input type="button" style="margin-left: 1000%;" class="button button1" value="Edit" /></p>
-                                
-                            </div>
-                        </div>
+
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+            <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
+            <div class="welcome-names">
+                Welcome , Mr.#Patient Name!
+            </div>
+        </div>
+    </div>
                    
      <!-- --------------------------------------------------------------------------------------------- -->             
     <div class="row">
