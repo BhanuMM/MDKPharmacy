@@ -19,19 +19,19 @@ require APPROOT . '/views/includes/Doctorhead.php';
                     <th>1</th>
                     <td>Paracetamol</td>
                     <td style="text-align: center;">50</td>
-                    <td align="center"><button class="button button1">ADD</button></td>
+                    <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
                 </tr>
                 <tr>
                     <th>2</th>
                     <td>Paracetamol</td>
                     <td style="text-align: center;">23</td>
-                    <td align="center"><button class="button button1">ADD</button></td>
+                    <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
                 </tr>
                 <tr>
                     <th>3</th>
                     <td>Paracetamol</td>
                     <td style="text-align: center;">70</td>
-                    <td align="center"><button class="button button1">ADD</button></td>
+                    <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
                 </tr>
               </table>
         </div>
@@ -51,31 +51,31 @@ require APPROOT . '/views/includes/Doctorhead.php';
                     <th>1</th>
                     <td>Paracetamol</td>
                     <td><input type="number" class="input1"></td>
-                    <td align="center"><button class="button button1">Remove</button></td>
+                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
                     <th>2</th>
                     <td>Paracetamol</td>
                     <td><input type="number" class="input1"></td>
-                    <td align="center"><button class="button button1">Remove</button></td>
+                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
                     <th>3</th>
                     <td>Paracetamol</td>
                     <td><input type="number" class="input1"></td>
-                    <td align="center"><button class="button button1">Remove</button></td>
+                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
                     <th>4</th>
                     <td>Paracetamol</td>
                     <td><input type="number" class="input1"></td>
-                    <td align="center"><button class="button button1">Remove</button></td>
+                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
                     <th>5</th>
                     <td>Paracetamol</td>
                     <td><input type="number" class="input1"></td>
-                    <td align="center"><button class="button button1">Remove</button></td>
+                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
               </table>
             <a href="<?php echo URLROOT ?>/Cashiers/outpatientsingle"><button class="button button1" style="margin-left: 81%;">Create Bill</button></a>
