@@ -7,7 +7,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
     <div class="welcome-card">
         <div class="welcome">
-                <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
+            <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
             <div class="welcome-names">
                 Welcome , Mr.<?php echo $_SESSION['username'] ?> !
             </div>
@@ -44,7 +44,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                              Online Orders
                           </div>
                         </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewreport"><button class="button button1">View</button></a>
+                            <a href="#"><button class="button button1">View</button></a>
                       </div>
                     </div>
 
@@ -55,11 +55,10 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                         <div class="welcome">
                           <img src="<?php echo URLROOT ?>/public/images/supplier-icon.png" />
                           <div class="fn-names">
-                                Medicine 
-                                Availability      
+                                Medicine Availability
                           </div>
                         </div>
-                          <a href="<?php echo URLROOT ?>/admins/viewsupplier"><button class="button button1">View</button></a>
+                          <a href="<?php echo URLROOT ?>/pharmacists/viewmedicineavailability"><button class="button button1">View</button></a>
                       </div>
                     </div>
 
