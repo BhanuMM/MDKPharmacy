@@ -61,7 +61,6 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 </tbody>
             </table>
         </div>
-        <button class="button button1" style="float: right;">Print Bill</button>
     </div>
 </div>
 

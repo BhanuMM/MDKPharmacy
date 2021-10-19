@@ -15,4 +15,9 @@ class Pharmacists extends Controller {
     public function viewprescription() {
         $this->view('users/Pharmacist/PharmacistPrescription');
     }
+
+    public function viewmedicineavailability() {
+        $this->view('users/Pharmacist/MedicineDetails');
+    }
+
 }

@@ -72,7 +72,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                                     Online Deliveries    
                                 </div>
                             </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewstock">  <button class="button button1">View</button></a>
+                            <a href="#">  <button class="button button1">View</button></a>
                         </div>
                     </div>
                
