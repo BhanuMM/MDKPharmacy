@@ -1,7 +1,7 @@
 <?php
 require APPROOT . '/views/includes/Adminhead';
 ?>
-<div style="margin-left:17%; padding:1px 16px; width: 40%">
+<div style="margin-left:20%; padding:1px 16px; width: 40%">
     <form method="post" class="data" action="<?php echo URLROOT; ?>/users/register" style="background-color: white; ">
         <h2 style="margin-top: 3%;">
             User Details

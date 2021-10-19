@@ -2,7 +2,7 @@
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
-<div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: ">
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
                 <a href="<?php echo URLROOT ?>/Admins/addstock"><button style="margin-top: 10%;" class="button button1">Add New Stock +</button></a>
                 <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> Stock Details</h3></li>

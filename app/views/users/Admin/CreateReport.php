@@ -18,12 +18,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                 </h5>
                 <input class="input1" type="text" id="Rnic" name="Rnic" size=12 placeholder="123456789 V" required>  <br><br>
                 <button class="button button1">Generate Report</button>
-              
-
+                </div>
+            </form>
                
-            </div>
-
-        
-
-    </body>
-</html>
+</div>
