@@ -2,63 +2,68 @@
 require APPROOT . '/views/includes/Doctorhead.php';
 ?>
 
-            <div style="margin-top: 10%; margin-left:25%; margin-right:9%; padding:1px 16px;">
-                <a href="../Admin/AddStock.html"><button style="margin-top: 5%; float: right;" class="button button1">Print</button></a>
-                <ul style="margin-bottom: 0%; padding-left: 0px; list-style-type: none; overflow: auto;">
-                    <li Style="float: left; vertical-align: middle; display: inline;width: 120px;
-    height: 45px;"><h3 style="margin-bottom: 0%;"> Prescriptions</h3></li>
-                </ul>
-                <p style="font-size: 10px; font-family: sans-serif;"> MDK HOSPITAL</p>
-
-<br/><br/>
-                <div style="margin-left:17%; margin-right:1%; padding:1px 16px;">
-                	<h3 style="font-size: 10px; font-family: sans-serif; float: right; line-height: 15px;">Date: 12 March 2021<br/>
-                	Status:<br/>
-                	ID: #123456</h3><br/>
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
+    <div class="bill">
+        <div class="company">
+            <div class="bill-row">
+                <div class="bill-col">
+                    <h1 class="text-white">MDK Hospitals</h1>
                 </div>
-
-
-
-
-
-
-
-
-                <table id="customers">
-                    <tr>
-                      <th>Patient ID</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Country</th>
-                      <th>Update</th>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>                     
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                  </table>
-
+                <div class="bill-col">
+                    <div class="company-details">
+                        <p class="text-white">No 149, Sri Ariyavilasa Rd, Horana 12400</p>
+                        <p class="text-white">mdkhospital@gmail.com</p>
+                        <p class="text-white">+94 347 888 888</p>
+                    </div>
+                </div>
             </div>
-
-           
         </div>
 
-    </body>
+        <div class="bill-body">
+            <div class="bill-row">
+                <div class="bill-col">
+                    <h2>Prescription No: </h2>
+                    <p>Date: </p>
+                    <p>Time: </p>
+                    <p>Patient Name:  </p>
+                </div>
+                <div></div>
+            </div>
+        </div>
+
+        <div class="bill-body">
+            <h3>Ordered Items</h3>
+            <br>
+            <table class="table-bordered">
+                <thead>
+                <tr>
+                    <th>Medicine</th>
+                    <th class="table-field">Quantity</th>
+                    <th class="table-field">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="button button1" style="float: right;">Print Bill</button>
+    </div>
+</div>
+
+</body>
 </html>

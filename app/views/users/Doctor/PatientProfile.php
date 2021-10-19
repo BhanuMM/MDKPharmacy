@@ -3,19 +3,17 @@ require APPROOT . '/views/includes/Doctorhead.php';
 ?>
 
 <!-- --------------------------------------------------------------------------------------------- -->
-        
-            <div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: 1175px; ">
-                        <div class="card">
-                            <div class="welcome">
-                                    <img src="https://randomuser.me/api/portraits/men/20.jpg" /></li>
-                                <div class="welcome-names">
-                                    Mr.Patient         
-                                </div>
-                                <a href="<?php echo URLROOT ?>/doctors/addprescription"><input type="button" style="margin-left: 450%;" class="button button1" value="+New Prescription" /></a>
-                                
-                            </div>
-                        </div>
-                   
+
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+            <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
+            <div class="welcome-names">
+                Welcome , Mr.<?php echo $_SESSION['username'] ?> !
+            </div>
+        </div>
+    </div>
+    <a href="<?php echo URLROOT ?>/doctors/addprescription"><input type="button" class="button button1" style="margin-top: 1%;" value="+New Prescription" /></a>
      <!-- --------------------------------------------------------------------------------------------- -->             
                  
      <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
