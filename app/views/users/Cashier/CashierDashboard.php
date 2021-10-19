@@ -28,7 +28,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                                     MDK Patient Prescriptions        
                                 </div><br><br>
                             </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewuser"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/Cashiers/inpatientbills"><button class="button button1">View</button></a>
                         </div>
                     </div> 
 
@@ -42,7 +42,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                              View Previous Bills 
                           </div>
                         </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewreport"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/cashiers/pastbills"><button class="button button1">View</button></a>
                       </div>
                     </div> -->
 
@@ -53,11 +53,10 @@ require APPROOT . '/views/includes/Cashierhead.php';
                         <div class="welcome">
                           <img src="<?php echo URLROOT ?>/public/images/supplier-icon.png" />
                           <div class="fn-names">
-                                Medicine 
-                                Availability      
+                                Medicine Availability      
                           </div>
                         </div>
-                          <a href="<?php echo URLROOT ?>/admins/viewsupplier"><button class="button button1">View</button></a>
+                          <a href="<?php echo URLROOT ?>/cashiers/medicineavailability"><button class="button button1">View</button></a>
                       </div>
                     </div>
 
@@ -71,7 +70,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                                    Online Order Bills        
                                 </div>
                             </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewstock">  <button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/cashiers/onlineorderbills">  <button class="button button1">View</button></a>
                         </div>
                     </div>
                
@@ -89,7 +88,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                                     Outpatient Bills
                                 </div>
                             </div>
-                        <a href="<?php echo URLROOT ?>/admins/viewmed"> <button class="button button1">View</button></a>
+                        <a href="<?php echo URLROOT ?>/cashiers/outpatientbills"> <button class="button button1">View</button></a>
                     </div>
                 </div>
 
@@ -104,7 +103,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                                     Online Deliveries
                                 </div>
                             </div>
-                        <a href="<?php echo URLROOT ?>/admins/viewmed"> <button class="button button1">View</button></a>
+                        <a href="<?php echo URLROOT ?>/cashiers/"> <button class="button button1">View</button></a>
                     </div>
                 </div>
 

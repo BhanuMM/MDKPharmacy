@@ -15,8 +15,8 @@
     <header>MDK HOSPITALS</header>
     <ul style="list-style-type: none; padding-left: 0px;">
         <li><a href = "<?php echo URLROOT ?>/Deliverys/deliverydashboard">Dashboard</a></li>
-        <li><a href = "<?php echo URLROOT ?>/Deliverys/viewpastdeliveries"> Users</a></li>
-        <li><a href = "<?php echo URLROOT ?>/Deliverys/viewprescription">Reports </a></li>
+        <!-- <li><a href = "<?php echo URLROOT ?>/Deliverys/viewpastdeliveries"> Users</a></li> -->
+        <!-- <li><a href = "<?php echo URLROOT ?>/Deliverys/viewprescription">Reports </a></li> -->
 <!--        <li><a href = "../Admin/SupplierDetails.html">Suppliers</a></li>-->
 <!--        <li><a href = "../Admin/StockDetails.html">Stocks</a></li>-->
     </ul>
