@@ -1,5 +1,5 @@
 <?php
-require APPROOT . '/views/includes/Cashier.php';
+require APPROOT . '/views/includes/Cashierhead.php';
 ?>
 
 <div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: ">
@@ -52,7 +52,7 @@ require APPROOT . '/views/includes/Cashier.php';
                     </tr>
                   </table>
 
-                  <button class="button button1">Create Bill</button>
+                  <a href="<?php echo URLROOT ?>/cashiers/inpatientsingle"><button class="button button1">Create Bill</button></a>
 
             </div>
 

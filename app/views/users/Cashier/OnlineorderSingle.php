@@ -1,7 +1,7 @@
 <?php
 require APPROOT . '/views/includes/Cashierhead.php';
 ?>
-
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
 <div class="bill">
         <div class="company">
             <div class="bill-row">
@@ -64,8 +64,11 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     </tr>
                 </tbody>
             </table>
-        </div>      
-    </div>      
+        </div> 
+        <button class="button button1">Print Bill</button>     
+    </div>
+</div>
+           
 
 </body>
 </html>
