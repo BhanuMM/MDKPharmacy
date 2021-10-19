@@ -29,7 +29,7 @@ require APPROOT . '/views/includes/Counsellorhead.php';
                                     View Bills         
                                 </div><br><br>
                             </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewuser"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/counsellors/pastbills"><button class="button button1">View</button></a>
                         </div>
                     </div> 
 
@@ -45,23 +45,23 @@ require APPROOT . '/views/includes/Counsellorhead.php';
                                 Availability      
                           </div>
                         </div>
-                          <a href="<?php echo URLROOT ?>/admins/viewsupplier"><button class="button button1">View</button></a>
+                          <a href="<?php echo URLROOT ?>/counsellors/seemedicineavailability"><button class="button button1">View</button></a>
                       </div>
                     </div>
 
                  <!-- Online Deliveries -->
 
-                    <div class="column">
-                        <div class="fn-card">
-                            <div class="welcome">
-                                <img src="<?php echo URLROOT ?>/public/images/stock-icon.png" /><br>
-                                <div class="fn-names">
-                                    Online Deliveries      
-                                </div>
-                            </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewstock">  <button class="button button1">View</button></a>
-                        </div>
-                    </div>
+<!--                    <div class="column">-->
+<!--                        <div class="fn-card">-->
+<!--                            <div class="welcome">-->
+<!--                                <img src="--><?php //echo URLROOT ?><!--/public/images/stock-icon.png" /><br>-->
+<!--                                <div class="fn-names">-->
+<!--                                    Online Deliveries      -->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <a href="--><?php //echo URLROOT ?><!--/admins/viewstock">  <button class="button button1">View</button></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
                
             </div> 
            

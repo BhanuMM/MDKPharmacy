@@ -33,19 +33,19 @@ require APPROOT . '/views/includes/Doctorhead.php';
                         </div>
                     </div> 
 
-                <!-- Patient Details
+                <!-- Patient Details-->
 
                     <div class="column">
                         <div class="fn-card">
                             <div class="welcome">
                             <img src="<?php echo URLROOT ?>/public/images/user-icon.png" />
                           <div class="fn-names">
-                             Patient Details 
+                             Patient History
                           </div>
                         </div>
                             <a href="<?php echo URLROOT ?>/doctors/viewpatientdetails"><button class="button button1">View</button></a>
                       </div>
-                    </div> -->
+                    </div>
 
                 <!-- Check Medicine Availability -->
 

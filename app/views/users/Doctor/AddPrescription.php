@@ -95,6 +95,4 @@ require APPROOT . '/views/includes/Doctorhead.php';
 <!--              <input type="button" style="margin-left: 10%;" class="button button1" value="Create Prescription" />-->
             
         </div>
-    </div>  
-    </body>
-</html>
+    </div>
