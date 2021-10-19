@@ -30,7 +30,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                                     View Prescription         
                                 </div><br><br>
                             </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewuser"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/pharmacists/prescriptiondetails"><button class="button button1">View</button></a>
                         </div>
                     </div> 
 
