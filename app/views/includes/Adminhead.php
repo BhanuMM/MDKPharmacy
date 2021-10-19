@@ -29,10 +29,10 @@
 
 
 <div style="box-shadow: 1px 1px 5px #888888; background-color: #ffffff;  padding-top:10px; padding-bottom: 0px; height: 4.7%; ">
-
+    <p style="margin-left: 20%; margin-top: 0; padding-left: 2%;  padding-right: 10%; float: left;"  id="myDiv"></p>
  <ul id="list2">
     <!-- Date and Time -->
-<!--   <li style="padding-left: 4%; padding-right: 60%; float: left;"><div id="myDiv"></div></li>  -->
+
 
 <!--        <li><img src="--><?php //echo URLROOT ?><!--/public/images/Settings.png" alt="Settings" height="15px" style="opacity: 0.5;"></li>-->
 <!--        <li><img src="--><?php //echo URLROOT ?><!--/public/images/Notification.png" alt="Notifications" height="15px" style="opacity: 0.5;"></li>-->
@@ -63,37 +63,4 @@
     </ul>
 </div>
 
-<script>
-    function showDateTime() {
-  var myDiv = document.getElementById("myDiv");
-
-  var date = new Date();
-  var dayList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  var monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-  ];
-  var dayName = dayList[date.getDay()];
-  var monthName = monthNames[date.getMonth()];
-  var today = `${dayName}, ${monthName} ${date.getDate()}, ${date.getFullYear()}`;
-
-  var hour = date.getHours();
-  var min = date.getMinutes();
-  var sec = date.getSeconds();
-
-  var time = hour + ":" + min + ":" + sec;
-  myDiv.innerText = `Date :  ${today}. Time : ${time}`;
-}
-setInterval(showDateTime, 1000);
-
-</script>
+<script src="<?php echo URLROOT ?>/public/js/main.js"></script>

@@ -8,21 +8,20 @@
     ?>
 </div> -->
 <div align="center" style="margin-top: 8%;">
+    <img src="<?php echo URLROOT ?>/public/images/mdklogo.png" style="width: 70px;"><br>
             <h2 style="letter-spacing: 5px;">M D K HOSPITALS</h2>
-            <p style="font-size: 14px;">Welcome Back!, Please login to your account.<br /><br /><p>
+            <p style="font-size: 14px;">Welcome Back!, Please login to your account.<br><br><p>
             <form  method="post" action="<?php echo URLROOT; ?>/users/login" style="width:30%; text-align: left;">
 
-                <p><b>Username:</b></p>
+                <p><b>Username:</b></p><br>
                 <input class="input1" type="text" id="Runame" name="Runame" style="border: none;" placeholder="Enter your username">
-                <hr />
-                <br />
-                <p><b>Password:</b></p>
+                <br><br>
+                <p><b>Password:</b></p><br>
                 <input class="input1" type="password" id="Rpass" style="border: none; " name="Rpass" placeholder="Enter the password">
-                <hr />
         <span class="invalidFeedback">
                 <?php echo $data['passwordError']; ?>
-                </span>
-				<input type="submit" name="submitbutton4" value="Sign In" class="button button1" style="margin-left: 33%; margin-top: 3%;" >
+                </span><br><br><br>
+				<input type="submit" name="submitbutton4" value="Sign In" class="button button1" style="margin-left: 38%; margin-top: 3%;" >
             </form>
         </div>
 
