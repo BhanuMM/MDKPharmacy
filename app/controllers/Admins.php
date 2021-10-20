@@ -76,10 +76,53 @@ class Admins extends Controller {
     }
 
     public function viewstock() {
-        $this->view('users/Admin/StockDetails');
+        $allstocks = $this->adminModel->viewstock();
+
+        $data = [
+            'stocks' => $allstocks
+        ];
+        $this->view('users/Admin/StockDetails',$data);
     }
 
     public function addstock() {
+
+        $data = [
+            'itemcode' => '',
+            'quantity' => '',
+            'purchaseprice' => '',
+            'sellingprice' => '',
+            'purchasedate' => '',
+            'expirydate' => '',
+            'nameError' => ''
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'itemcode' => trim($_POST['item']),
+                'quantity' => trim($_POST['quantity']),
+                'purchaseprice' => trim($_POST['purchprice']),
+                'sellingprice' => trim($_POST['sellprice']),
+                'purchasedate' => $_POST['purchdate'],
+                'expirydate' => $_POST['expdate']
+            ];
+            // Make sure that errors are empty
+            if (empty($data['nameError'])) {
+
+
+                //Register user from model function
+                if ($this->adminModel->registerstock($data)) {
+                    //Redirect to the login page
+
+                    header('location: ' . URLROOT . '/admins/viewstock');
+                } else {
+                    die('Something went wrong.');
+                }
+            }
+        }
         $this->view('users/Admin/AddStock');
     }
 

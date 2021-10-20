@@ -74,6 +74,36 @@ class Admin {
         return $results;
 
     }
+
+    public function registerstock($data) {
+        $this->db->query('INSERT INTO stock (itemcode,quantity,purchprice,sellprice,purchdate,expdate) VALUES(:item,:quantity,:purchprice,:sellprice,:purchdate,:expdate)');
+
+
+        //Bind values
+        $this->db->bind(':item', $data['itemcode']);
+        $this->db->bind(':quantity', $data['quantity']);
+        $this->db->bind(':purchprice', $data['purchaseprice']);
+        $this->db->bind(':sellprice', $data['sellingprice']);
+        $this->db->bind(':purchdate', $data['purchasedate']);
+        $this->db->bind(':expdate', $data['expirydate']);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function viewstock() {
+
+        $this->db->query('SELECT * FROM stock');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
     //Find user by email. Email is passed in by the Controller.
 //    public function findUserByEmail($email) {
 //        //Prepared statement
