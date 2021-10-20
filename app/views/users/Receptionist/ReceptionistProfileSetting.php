@@ -50,6 +50,4 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
 
 </div>
 
-</body>
-</html>
 

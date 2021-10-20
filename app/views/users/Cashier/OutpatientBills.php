@@ -1,5 +1,5 @@
 <?php
-require APPROOT . '/views/includes/Doctorhead.php';
+require APPROOT . '/views/includes/Cashierhead.php';
 ?>
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
     <div class="row">
@@ -83,5 +83,3 @@ require APPROOT . '/views/includes/Doctorhead.php';
         </div>
     </div>  
 </div>
-    </body>
-</html>

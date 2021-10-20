@@ -17,7 +17,7 @@
         <li><a href = "<?php echo URLROOT ?>/doctors/doctordashboard">Dashboard</a></li>
         <li><a href = "<?php echo URLROOT ?>/doctors/viewpatientdetails">Patient History</a></li>
         <li><a href = "<?php echo URLROOT ?>/doctors/viewmedicineavailability">Medicine Availability</a></li>
-        <li><a href = "#">Profile Settings</a></li>
+        <li><a href = "<?php echo URLROOT ?>/doctors/profilesettings">Profile Settings</a></li>
     </ul>
 </div>
 

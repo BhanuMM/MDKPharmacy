@@ -32,6 +32,37 @@ require APPROOT . '/views/includes/Cashierhead.php';
                         </div>
                     </div> 
 
+                <!-- New Outpatient Bill -->
+
+                <div class="column">
+                    <div class="fn-card">
+
+                            <div class="welcome">
+                                <img src="<?php echo URLROOT ?>/public/images/medicine-icon.png" />
+                                <div class="fn-names">
+                                    Outpatient Bills
+                                </div>
+                            </div>
+                        <a href="<?php echo URLROOT ?>/cashiers/outpatientbills"> <button class="button button1">View</button></a>
+                    </div>
+                </div>
+                <!-- Online Order Bills -->
+
+                <div class="column">
+                        <div class="fn-card">
+                            <div class="welcome">
+                                <img src="<?php echo URLROOT ?>/public/images/stock-icon.png" /><br>
+                                <div class="fn-names">
+                                   Online Order Bills        
+                                </div>
+                            </div>
+                            <a href="<?php echo URLROOT ?>/cashiers/onlineorderbills">  <button class="button button1">View</button></a>
+                        </div>
+                    </div>
+               
+            </div>
+            <div class="row">
+
                 <!-- View Previous Bills -->
 
                     <div class="column">
@@ -61,38 +92,6 @@ require APPROOT . '/views/includes/Cashierhead.php';
                           <a href="<?php echo URLROOT ?>/cashiers/medicineavailability"><button class="button button1">View</button></a>
                       </div>
                     </div>
-
-               <!-- Online Order Bills -->
-
-                    <div class="column">
-                        <div class="fn-card">
-                            <div class="welcome">
-                                <img src="<?php echo URLROOT ?>/public/images/stock-icon.png" /><br>
-                                <div class="fn-names">
-                                   Online Order Bills        
-                                </div>
-                            </div>
-                            <a href="<?php echo URLROOT ?>/cashiers/onlineorderbills">  <button class="button button1">View</button></a>
-                        </div>
-                    </div>
-               
-            </div>
-            <div class="row">
-
-              <!-- New Outpatient Bill -->
-
-                <div class="column">
-                    <div class="fn-card">
-
-                            <div class="welcome">
-                                <img src="<?php echo URLROOT ?>/public/images/medicine-icon.png" />
-                                <div class="fn-names">
-                                    Outpatient Bills
-                                </div>
-                            </div>
-                        <a href="<?php echo URLROOT ?>/cashiers/outpatientbills"> <button class="button button1">View</button></a>
-                    </div>
-                </div>
 
                 <!-- Online Deliveries -->
 

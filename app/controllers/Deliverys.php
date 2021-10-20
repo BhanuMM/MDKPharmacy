@@ -23,4 +23,7 @@ class Deliverys extends Controller {
     public function viewpastsingle() {
         $this->view('users/Delivery/PastSingleDelivery');
     }
+    public function profilesettings() {
+        $this->view('users/Delivery/DeliveryProfileSetting');
+    }
 }

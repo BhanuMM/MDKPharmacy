@@ -18,7 +18,7 @@
         <li><a href = "#"> Online Orders</a></li>
         <li><a href = "<?php echo URLROOT ?>/pharmacists/viewmedicineavailability">Medicine Availability</a></li>
         <li><a href = "#">Deliveries</a></li>
-        <li><a href = "#">Profile Settings</a></li>
+        <li><a href = "<?php echo URLROOT ?>/pharmacists/profilesettings">Profile Settings</a></li>
     </ul>
 </div>
 
