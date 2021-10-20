@@ -23,6 +23,7 @@
         <li><a href = "<?php echo URLROOT ?>/admins/viewsupplier">Suppliers</a></li>
         <li><a href = "<?php echo URLROOT ?>/admins/viewstock">Stocks</a></li>
         <li><a href = "<?php echo URLROOT ?>/admins/viewmed">Medicine</a></li>
+        <li><a href = "<?php echo URLROOT ?>/admins/profilesettings">Profile Settings</a></li>
 
     </ul>
 </div>

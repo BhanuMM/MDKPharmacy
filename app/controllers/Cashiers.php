@@ -43,4 +43,8 @@ class Cashiers extends Controller {
     public function medicineavailability() {
         $this->view('users/Cashier/MedicineAvailability');
     }
+
+    public function profilesettings() {
+        $this->view('users/Cashier/CashierProfileSetting');
+    }
 }

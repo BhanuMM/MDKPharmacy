@@ -20,4 +20,8 @@ class Counsellors extends Controller {
         $this->view('users/Counsellor/PastBillSingle');
     }
 
+    public function profilesettings() {
+        $this->view('users/Counsellor/CounsellorProfileSetting');
+    }
+
 }

@@ -20,4 +20,8 @@ class Pharmacists extends Controller {
         $this->view('users/Pharmacist/MedicineDetails');
     }
 
+    public function profilesettings() {
+        $this->view('users/Pharmacist/PharmacistProfileSetting');
+    }
+
 }
