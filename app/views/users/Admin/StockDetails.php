@@ -18,39 +18,21 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <th>Selling unit price</th>
                       <th>Purchase Date</th>
                       <th>Expiry Date</th>
-                      <th>Update</th>
-                      <th>Delete</th>
+<!--                      <th>Update</th>-->
+<!--                      <th>Delete</th>-->
                     </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php foreach($data['stocks'] as $allstocks): ?>
+
+                        <tr>
+                            <td><?php echo $allstocks->itemcode; ?></td>
+                            <td><?php echo $allstocks->quantity; ?></td>
+                            <td><?php echo $allstocks->purchprice; ?></td>
+                            <td><?php echo $allstocks->sellprice; ?></td>
+                            <td><?php echo $allstocks->purchdate; ?></td>
+                            <td><?php echo $allstocks->expdate; ?></td>
+                        </tr>
+
+                    <?php endforeach; ?>
                   </table>
 
             </div>
