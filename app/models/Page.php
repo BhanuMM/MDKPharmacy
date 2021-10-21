@@ -5,14 +5,22 @@ class Page {
         $this->db = new Database;
     }
 
-//    public function viewusers() {
-//
-//        $this->db->query('SELECT * FROM staff  ');
-//
-//        $results = $this->db->resultSet();
-//
-//        return $results;
-//
-//    }
+    public function fileupload($data) {
+
+        $this->db->query('INSERT INTO onlineorder (onlinefname, onlinetelno, onlineadrs,filename) VALUES(:fname,:telno,:adrs,:img)');
+
+
+        //Bind values
+        $this->db->bind(':fname', $data['fullname']);
+        $this->db->bind(':telno', $data['telno']);
+        $this->db->bind(':adrs', $data['address']);
+        $this->db->bind(':img', $data['image']);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

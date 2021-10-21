@@ -9,7 +9,7 @@
 <h3>Upload Your Prescription</h3><br><br>
 
 
-  <form action="/action_page.php">
+  <form method="post" class="data" action="<?php echo URLROOT; ?>/pages/upload">
     <label for="fullname">Full Name</label>
     <input type="text" id="fullname" name="fullname" placeholder="Your name..">
 
@@ -23,7 +23,7 @@
     	
     <label for="img">Upload Prescription</label>
     <br>
-    <input type="file" id="img" name="img" accept="image/*" style="background-  color:white;text-align:center;padding:16px 16px 16px 16px">
+    <input type="file" id="image" name="image" accept="image/*" style="background-  color:white;text-align:center;padding:16px 16px 16px 16px">
 
     
     <br><br>
