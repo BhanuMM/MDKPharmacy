@@ -6,12 +6,9 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <a href="<?php echo URLROOT ?>/users/register"><button  class="button button1">Add New User +</button></a>
                 <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> User Details</h3></li>
-<!--                    <li ><form class="search-container">-->
-<!--                            <input type="text" style="margin-left: 110px; width: 300px;" id="search-bar" placeholder="Check Medicine Availability">-->
-<!--                            <a href="#"><img style="left: 360px;" class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a></form>-->
-<!--                    </li>-->
+
                     <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
-                            <a href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
+                            <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
                     <li Style="float: right; vertical-align: middle; display: inline;">
                         <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Search Users"></li></form>
                 </ul>
