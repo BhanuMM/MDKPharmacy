@@ -33,6 +33,7 @@
   border-radius: 15px;
   padding: 40px 40px 40px 25px;
   transition: 0.3s;
+     margin-right: 10px;
  }
 
   .fn-card:hover {
