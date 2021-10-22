@@ -1,8 +1,14 @@
 <?php
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
+
 <div style="margin-left:20%; padding:1px 16px; width: 40%">
-    <form method="post" class="data" action="<?php echo URLROOT; ?>/users/register" style="background-color: white; ">
+    
+
+<form method="post" class="data" action="<?php echo URLROOT; ?>/users/register" style="background-color: white; ">
+<div class="form-left">
+<!--   
+  <div class="centered">  -->
         <h2 style="margin-top: 3%;">
             User Details
         </h2>
@@ -16,7 +22,6 @@ require APPROOT . '/views/includes/Adminhead.php';
             <option value="counsellor">Counsellor</option>
             <option value="delivery">Delivery</option>
             <option value="doctor">Doctor</option>
-            <option value="owner">Owner</option>
             <option value="pharmacist">Pharmacist</option>
             <option value="receptionist">Receptionist</option>
 
@@ -33,11 +38,22 @@ require APPROOT . '/views/includes/Adminhead.php';
         <h5>
             Phone Number
         </h5>
-        <input class="input1" type="text" id="Rtelno" name="Rtelno" size=10 placeholder="Contact number..." value="<?php echo $data['telno']; ?>"  min="10" max="10" required>
+
+        <input class="input1" type="text" id="Rtelno" name="Rtelno" size=10 placeholder="Contact number..." value="<?php echo $data['telno']; ?>" required>
+        </div>
+  <!-- </div> -->
+  
+  <div class="form-right">
+   <!-- <div class="centered"> -->
+
         <h5>
+
             Email
         </h5>
         <input class="input1" type="text" id="Remail" name="Remail" size=40 placeholder="Email address..." value="<?php echo $data['email']; ?>" >
+  
+
+  
         <h5>
             Username
         </h5>
@@ -63,10 +79,12 @@ require APPROOT . '/views/includes/Adminhead.php';
         <br><br>
 <!--      //if($data['viewalert']=="view"){-->
 <!--         echo '<script> alert(" Updated Successfully!");</script>'; }-->
-        <input class="button button1" type="reset" value="Refresh">
-        <input class="button button1" type="submit" name="submitbutton1" Value="Register">
+<div style="margin-left:220px;">
+        <input class="form-clear" type="reset" value=" Clear ">
+        <input class="form-submit" type="submit" name="submitbutton1" Value="Register">
     </form>
 </div>
+</div></div>
 
 
 </div>

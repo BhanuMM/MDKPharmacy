@@ -65,8 +65,12 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 </tbody>
             </table>
         </div>
-        <button class="button button1">Print Bill</button>       
+        <div style="margin-left:85%;">
+        <br><br>
+        <button class="form-submit">Print Bill</button> 
+</div>      
     </div>  
+    <br><br><br>
 </div>   
 
 </body>

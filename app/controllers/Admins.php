@@ -54,9 +54,9 @@ class Admins extends Controller {
                     'brandname' => trim($_POST['brandname']),
                     'importername' => trim($_POST['imname']),
                     'dealer' => trim($_POST['dealer']),
-                    'purchaseprice' => trim($_POST['purchprice']),
-                    'sellingprice' => trim($_POST['sellprice']),
-                    'profitmargin' => trim($_POST['profit'])
+                    'purchaseprice' => $_POST['purchprice'],
+                    'sellingprice' => $_POST['sellprice'],
+                    'profitmargin' => $_POST['profit']
                 ];
                 // Make sure that errors are empty
                 if (empty($data['nameError'])) {
