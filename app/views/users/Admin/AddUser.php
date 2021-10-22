@@ -33,7 +33,7 @@ require APPROOT . '/views/includes/Adminhead.php';
         <h5>
             Phone Number
         </h5>
-        <input class="input1" type="text" id="Rtelno" name="Rtelno" size=10 placeholder="Contact number..." value="<?php echo $data['telno']; ?>" required>
+        <input class="input1" type="text" id="Rtelno" name="Rtelno" size=10 placeholder="Contact number..." value="<?php echo $data['telno']; ?>"  min="10" max="10" required>
         <h5>
             Email
         </h5>
