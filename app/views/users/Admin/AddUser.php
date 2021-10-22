@@ -38,12 +38,14 @@ require APPROOT . '/views/includes/Adminhead.php';
         <h5>
             Phone Number
         </h5>
+
         <input class="input1" type="text" id="Rtelno" name="Rtelno" size=10 placeholder="Contact number..." value="<?php echo $data['telno']; ?>" required>
         </div>
   <!-- </div> -->
   
   <div class="form-right">
    <!-- <div class="centered"> -->
+
         <h5>
 
             Email
