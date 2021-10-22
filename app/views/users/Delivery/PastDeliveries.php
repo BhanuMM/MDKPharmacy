@@ -16,21 +16,21 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                       <th>View</th>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>Pr005</td>
+                      <td>B.K.B.Kulathunga</td>
+                      <td>14, Colombo Rd, Horana.</td>
                       <td><a href="<?php echo URLROOT ?>/deliverys/viewpastsingle"><button class="button button1">View</button></a></td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>Pr006</td>
+                      <td>G.L.Peiris</td>
+                      <td>13, Ingiriya Rd, Horana.</td>
                       <td><a href="<?php echo URLROOT ?>/deliverys/viewpastsingle"><button class="button button1">View</button></a></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                      <td>Pr007</td>
+                      <td>G.H.S.Perera</td>
+                      <td>12, Kalutara Rd, Horana.</td>
                         <td><a href="<?php echo URLROOT ?>/deliverys/viewpastsingle"><button class="button button1">View</button></a></td>
                     </tr>
                   </table>

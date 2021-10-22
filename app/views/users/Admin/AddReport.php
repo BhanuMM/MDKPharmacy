@@ -11,11 +11,11 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <h5>
                     Select Date
                 </h5>
-                <input class="input1" type="text" id="Rfname" name="Rfname" placeholder="John Doe" required>
+                <input class="input1" type="text" id="Rfname" name="Rfname" placeholder="2021-10-30" required>
                 <h5>
                     Select Report Type 
                 </h5>
-                <input class="input1" type="text" id="Rnic" name="Rnic" size=12 placeholder="123456789 V" required>  <br><br>
+                <input class="input1" type="text" id="Rnic" name="Rnic" size=12 placeholder="Daily Summary" required>  <br><br>
                 <button class="button button1">Generate Report</button>
               
 

@@ -21,44 +21,32 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 
                 <table id="customers">
                     <tr>
-                      <th>Patient ID</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Country</th>
-                      <th>Update</th>
+                      <th>Prescription ID</th>
+                      <th>Patient Name</th>
+                      <th>Patient NIC</th>
+                      <th>Date</th>
+                      <th>View</th>
                     </tr>
                     <tr>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td><a href="<?php echo URLROOT?>/pharmacists/viewprescription">view</a></td>
+                      <td>Pr009</td>
+                      <td>G.H.K.Perera</td>
+                      <td>7589456521V</td>
+                      <td>2021-10-08</td>
+                      <td align="center"><a href="<?php echo URLROOT?>/pharmacists/viewprescription"><button class="button button1">View</button></a></td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                        <td>Pr007</td>
+                      <td>G.H.K.Perera</td>
+                      <td>7589456521V</td>
+                      <td>2021-10-08</td>
+                      <td align="center"><a href="<?php echo URLROOT?>/pharmacists/viewprescription"><button class="button button1">View</button></a></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Pr005</td>
+                        <td>R.Y.T.Silva</td>
+                        <td>851263457V</td>
+                        <td>2021-09-08</td>
+                        <td align="center"><a href="<?php echo URLROOT?>/pharmacists/viewprescription"><button class="button button1">View</button></a></td>
                     </tr>
                   </table>
 

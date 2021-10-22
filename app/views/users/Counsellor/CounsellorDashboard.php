@@ -8,7 +8,7 @@ require APPROOT . '/views/includes/Counsellorhead.php';
         <div class="welcome">
                 <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
             <div class="welcome-names">
-                Welcome , Mr.<?php echo $_SESSION['username'] ?> !
+                Welcome ,<?php echo $_SESSION['username'] ?> !
             </div>
         </div>
     </div>

@@ -11,44 +11,32 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                
                 <table id="customers">
                     <tr>
-                      <th>Patient ID</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Country</th>
-                      <th>Update</th>
+                    <th>Medicine ID</th>
+                      <th>Generic Name</th>
+                      <th>Brand Name</th>
+                      <th>Remaining Quantity</th>
+                      <th>Unit Price</th>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>M001</td>
+                      <td>Omeprazole</td>
+                      <td>Omez</td>
+                      <td>Heyleys</td>
+                      <td>10.00</td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>M002</td>
+                      <td>Paracetamol</td>
+                      <td>Panadol</td>
+                      <td>Coniferr International</td>
+                      <td>7.00</td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>M003</td>
+                      <td>Amoxicillin</td>
+                      <td>Amoxil</td>
+                      <td>Agvet Pharma</td>
+                      <td>12.00</td>
                     </tr>
                   </table>
 

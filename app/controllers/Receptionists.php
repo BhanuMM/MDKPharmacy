@@ -62,13 +62,13 @@ class Receptionists extends Controller
                 if ($this->receptionistModel->registerpatient($data)) {
                     //Redirect to the login page
 
-                    header('location: ' . URLROOT . '/Receptionist/ReciptionistDashboard');
+                    header('location: ' . URLROOT . '/receptionists/receptionistdashboard');
                 } else {
                     die('Something went wrong.');
                 }
             }
         }
-        $this->view('users/Admin/AddUser', $data);
+        $this->view('users/Receptionist/ReciptionistDashboard');
     }
 
     public function profilesettings()

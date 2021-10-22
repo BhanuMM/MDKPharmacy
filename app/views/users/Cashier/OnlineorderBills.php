@@ -11,27 +11,30 @@ require APPROOT . '/views/includes/Cashierhead.php';
                
                 <table id="customers">
                     <tr>
-                      <th>Medicine ID</th>
-                      <th>Generic Name</th>
-                      <th>Quantity</th>
+                      <th>Prescription ID</th>
+                      <th>Patient Name</th>
+                      <th>Telephone Number</th>
+                      <th>View</th>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>Pr067</td>
+                      <td>T.N.H.Silva</td>
+                      <td>0756545258</td>
+                      <td><a href="<?php echo URLROOT ?>/cashiers/onlineordersingle"><button class="button button1">Create Bill</button></a></td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>Pr098</td>
+                      <td>S.T.Amarasiri</td>
+                      <td>0777348759</td>
+                      <td><a href="<?php echo URLROOT ?>/cashiers/onlineordersingle"><button class="button button1">Create Bill</button></a></td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>Pr092</td>
+                      <td>T.U.Fernando</td>
+                      <td>0777982453</td>
+                      <td><a href="<?php echo URLROOT ?>/cashiers/onlineordersingle"><button class="button button1">Create Bill</button></a></td>
                     </tr>
                   </table>
-                  <a href="<?php echo URLROOT ?>/cashiers/onlineordersingle"><button class="button button1">Create Bill</button></a>
             </div>
 
            

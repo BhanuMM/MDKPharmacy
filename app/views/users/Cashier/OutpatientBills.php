@@ -23,13 +23,13 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 </tr>
                 <tr>
                     <th>2</th>
-                    <td>Paracetamol</td>
+                    <td>Panadeine</td>
                     <td style="text-align: center;">23</td>
                     <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
                 </tr>
                 <tr>
                     <th>3</th>
-                    <td>Paracetamol</td>
+                    <td>Omeprazole</td>
                     <td style="text-align: center;">70</td>
                     <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
                 </tr>
@@ -55,25 +55,25 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 </tr>
                 <tr>
                     <th>2</th>
-                    <td>Paracetamol</td>
+                    <td>Omeprazole</td>
                     <td><input type="number" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
                     <th>3</th>
-                    <td>Paracetamol</td>
+                    <td>Abacavir</td>
                     <td><input type="number" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
                     <th>4</th>
-                    <td>Paracetamol</td>
+                    <td>Vitamin-C</td>
                     <td><input type="number" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
                     <th>5</th>
-                    <td>Paracetamol</td>
+                    <td>Amoxicillin</td>
                     <td><input type="number" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>

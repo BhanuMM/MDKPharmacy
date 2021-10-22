@@ -11,27 +11,31 @@ require APPROOT . '/views/includes/Counsellorhead.php';
                
                 <table id="customers">
                     <tr>
-                      <th>Patient ID</th>
-                      <th>Views</th>
-                      <th>Views</th>
+                      <th>Bill ID</th>
+                      <th>Prescription ID</th>
+                      <th>Patient Name</th>
+                      <th>Patient NIC</th>
                       <th>View</th>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>B001</td>
+                      <td>Pr001</td>
+                      <td>B.N.Perera</td>
+                      <td>785263951V</td>
                       <td><a href="<?php echo URLROOT ?>/counsellors/pastbillsingle"><button class="button button1">View</button></a></td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>B002</td>
+                      <td>Pr002</td>
+                      <td>S.N.Silva</td>
+                      <td>765266781V</td>
                       <td><a href="<?php echo URLROOT ?>/counsellors/pastbillsingle"><button class="button button1">View</button></a></td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>B003</td>
+                      <td>Pr003</td>
+                      <td>P.B.Peiris</td>
+                      <td>985263951V</td>
                       <td><a href="<?php echo URLROOT ?>/counsellors/pastbillsingle"><button class="button button1">View</button></a></td>
                     </tr>
                   </table>

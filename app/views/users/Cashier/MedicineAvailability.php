@@ -17,25 +17,25 @@ require APPROOT . '/views/includes/Cashierhead.php';
                       <th>Unit Price</th>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>M001</td>
+                      <td>Omeprazole</td>
+                      <td>Omez</td>
+                      <td>Heyleys</td>
+                      <td>10.00</td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>M002</td>
+                      <td>Paracetamol</td>
+                      <td>Panadol</td>
+                      <td>Coniferr International</td>
+                      <td>7.00</td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>M003</td>
+                      <td>Amoxicillin</td>
+                      <td>Amoxil</td>
+                      <td>Agvet Pharma</td>
+                      <td>12.00</td>
                     </tr>
                   </table>
 

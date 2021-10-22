@@ -8,7 +8,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
         <div class="welcome">
                 <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
             <div class="welcome-names">
-                Welcome , Mr.<?php echo $_SESSION['username'] ?> !
+                Welcome ,<?php echo $_SESSION['username'] ?> !
             </div>
         </div>
     </div>
@@ -49,7 +49,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
 
                 <!-- View Doctors -->
 
-                    <div class="column">
+                    <!-- <div class="column">
                       <div class="fn-card">
                         <div class="welcome">
                           <img src="<?php echo URLROOT ?>/public/images/supplier-icon.png" />
@@ -59,7 +59,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                         </div>
                           <a href="#"><button class="button button1">View</button></a>
                       </div>
-                    </div>
+                    </div> -->
 
                
      <!-- --------------------------------------------------------------------------------------------- -->             

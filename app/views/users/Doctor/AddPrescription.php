@@ -23,27 +23,15 @@ require APPROOT . '/views/includes/Doctorhead.php';
             </ul>
             <table>
                 <tr>
-                    <th>Medicine Number</th>
+                    <th>Medicine ID</th>
                     <th>Medicine</th>
                     <th>Remaining Quantity</th>
                     <th></th> 
                 </tr>
                 <tr>
-                    <th>1</th>
+                    <th>M001</th>
                     <td>Paracetamol</td>
                     <td style="text-align: center;">50</td>
-                    <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
-                </tr>
-                <tr>
-                    <th>2</th>
-                    <td>Paracetamol</td>
-                    <td style="text-align: center;">23</td>
-                    <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
-                </tr>
-                <tr>
-                    <th>3</th>
-                    <td>Paracetamol</td>
-                    <td style="text-align: center;">70</td>
                     <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
                 </tr>
               </table>
@@ -55,38 +43,32 @@ require APPROOT . '/views/includes/Doctorhead.php';
             </ul>
             <table style="padding: 12px;">
                 <tr>
-                    <th>#</th>
+                    <th>No.of.Items</th>
                     <th>Medicine</th>
                     <th>Quantity</th>
                     <th></th> 
                 </tr>
                 <tr>
-                    <th>1</th>
+                    <th>M001</th>
                     <td>Paracetamol</td>
                     <td><input type="number" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
-                    <th>2</th>
-                    <td>Paracetamol</td>
+                    <th>M002</th>
+                    <td>Omeprazole</td>
                     <td><input type="number" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
-                    <th>3</th>
-                    <td>Paracetamol</td>
+                    <th>M003</th>
+                    <td>Amoxicillin</td>
                     <td><input type="number" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
-                    <th>4</th>
-                    <td>Paracetamol</td>
-                    <td><input type="number" class="input1"></td>
-                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
-                </tr>
-                <tr>
-                    <th>5</th>
-                    <td>Paracetamol</td>
+                    <th>M004</th>
+                    <td>Vitamin-C</td>
                     <td><input type="number" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
