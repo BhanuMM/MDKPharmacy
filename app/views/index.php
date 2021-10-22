@@ -22,14 +22,14 @@
         <div class="about-left">
             <h1>About Us</h1><br><br>
             <h2>Ensuring the Best in the Industry</h2><br>
-            <p>MDK Hospitals is the most accredited hospital in the Sri Lankan<br> healthcare sector. Since 2002, Lanka Hospitals has revolutionized<br> the healthcare industry through infrastructure development <br>and advancement of products and services, with a view to deliver<br> healthcare that is on par with global medical standards.
+            <p>MDK Hospitals is the most accredited hospital in the Sri Lankan<br> healthcare sector. Since 2011, MDK Hospitals has revolutionized<br> the healthcare industry through infrastructure development <br>and advancement of products and services, with a view to deliver<br> healthcare that is on par with global medical standards.
             </p>
 
 
         </div>
 
         <div class="about-right">
-            <img src="<?php echo URLROOT ?>/public/images/c1.jpg">
+            <img src="<?php echo URLROOT ?>/public/images/c1.jpg" >
         </div>
 
 
@@ -44,7 +44,7 @@
         <div class="op-right">
             <h1>Online Pharmacy</h1><br><br>
             <h2>Order your medicine to the doorsteps during <br>the pandemic</h2><br>
-            <p>MDK Hospitals is the most accredited hospital in the Sri Lankan<br> healthcare sector. Since 2002, Lanka Hospitals has revolutionized<br> the healthcare industry through infrastructure development <br>and advancement of products and services, with a view to deliver<br> healthcare that is on par with global medical standards.<br><br>
+            <p>MDK Hospitals is committed to provide compassionate care <br> and excellent service that transcends conventional healthcare.<br> Easily order your medicines by uploading your prescriptions<br> to the MDK Hospitals online website and recieve your medicine <br> to your doorstep <br><br><br>
 
             <a href="<?php echo URLROOT; ?>/pages/product"><button class="button"><span>Visit now</span></button></a>
             </p>
@@ -63,20 +63,22 @@
     <!-- facilities -->
     <section id="fac" class= "fac">
     <h1>Our Facilities</h1>
-    <p>Lorem ipsum dolor sit amet consectetur <br> adipisicing elit. Incidunt placeat perferendis, quaerat earum rem excepturi <br> accusantium delectus magni omnis laboriosam quia nihil velit illum quos tempora at ea qui itaque!
+    <p>MDK Hospitals is committed to provide <br>compassionate care
+and excellent service that transcends conventional healthcare.
     </p>
     <div class="row">
     <div class="fac-col">
         <h3>Surgery</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, explicabo quia incidunt omnis labore cum est assumenda temporibus provident neque reprehenderit sunt, qui reiciendis quaerat exercitationem mollitia pariatur hic. Quo!</p>
+        <p>MDK Hospitals has become a regional leader in complex fields of surgeries with their cutting edge technology. With the help of the expertise in different sectors, our staff offers a total care approach to our people.
+        </p>
     </div>
     <div class="fac-col">
         <h3>Dental</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, explicabo quia incidunt omnis labore cum est assumenda temporibus provident neque reprehenderit sunt, qui reiciendis quaerat exercitationem mollitia pariatur hic. Quo!</p>
+        <p>With a dedicated team of local specialist dentists,  highly trained nurses and access to the most up-to-date technology, MDK hospital is able to provide the best dental service in the area. </p>
     </div>
     <div class="fac-col">
         <h3>Pharmacy</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, explicabo quia incidunt omnis labore cum est assumenda temporibus provident neque reprehenderit sunt, qui reiciendis quaerat exercitationem mollitia pariatur hic. Quo!</p>
+        <p>MDK Hospitals Pharmacies promote rational use of medicine by providing a well-defined dispensing process with the help of professional, qualified staff in conveniently located, safe and reliable outlets. </p>
     </div>
     </div>
 

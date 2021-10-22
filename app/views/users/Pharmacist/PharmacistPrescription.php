@@ -60,7 +60,9 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 </tr>
                 </tbody>
             </table>
+           
         </div>
+        <button class="button1" style="align-items=center; margin-left: 85%;">Confirm ✔</button>
     </div>
 </div>
 

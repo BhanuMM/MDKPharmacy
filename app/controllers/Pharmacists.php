@@ -19,6 +19,13 @@ class Pharmacists extends Controller {
     public function viewmedicineavailability() {
         $this->view('users/Pharmacist/MedicineDetails');
     }
+    public function viewonlineorders() {
+        $this->view('users/Pharmacist/ViewOnlineOrders');
+    }
+    public function onlineorderprepare() {
+        $this->view('users/Pharmacist/OnlineOrderPrepare');
+    }
+
 
     public function profilesettings() {
         $this->view('users/Pharmacist/PharmacistProfileSetting');
