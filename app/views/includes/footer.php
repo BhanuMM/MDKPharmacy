@@ -3,10 +3,10 @@
     <div class="footer-row">
     <div class="footer-col">
             <div class="logo">
-                <a href = "index.html"><img src="<?php echo URLROOT ?>/public/images/logo1.png"> </a>
+                <a href = "index.html"><img src="<?php echo URLROOT ?>/public/images/1.png" width=100 height > </a>
             </div>
               <h3>MDK Hospital</i></h3>
-        <p>Providing the best <br> health care <br> since 1999</p>
+        <p>Providing the best <br> health care <br> since 2010</p>
     </div>
 
     <div class="footer-col">

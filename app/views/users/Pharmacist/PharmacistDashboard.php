@@ -44,7 +44,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                              Online Orders
                           </div>
                         </div>
-                            <a href="#"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT?>/pharmacists/viewonlineorders"><button class="button button1">View</button></a>
                       </div>
                     </div>
 

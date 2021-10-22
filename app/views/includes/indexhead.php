@@ -25,13 +25,13 @@
                 <p>Opening Hours: 6.00 Am - 11.00 Pm (Mon - Sat)</p>
             </div>
             <div class="text-right">
-                Call Us At +94 011 752 8659
+                Call Us At +0347 888 888
             </div>
         </div>
         <!--logo and menu-->
         <nav>
             <div class="logo">
-                <a href = "index.html"><img src="<?php echo URLROOT ?>/public/images/logo1.png"> </a>
+                <a href = "index.html"><img src="<?php echo URLROOT ?>/public/images/mdklogowidth.png" width="200" height="70"> </a>
             </div>
             
         <div class="nav-links" id="navLinks">
