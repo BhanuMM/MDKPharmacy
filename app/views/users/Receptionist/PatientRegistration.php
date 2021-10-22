@@ -5,6 +5,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
             <div class="column">
                 <form method="post" class="data" action="<?php echo URLROOT; ?>/receptionists/registerpatient">
+                <div class="form-left">
                     <h2 style="margin-top: 3%;">
                         Patient Details
                     </h2>
@@ -17,13 +18,15 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                     </h5>
                     <input class="input1" id="patnic" name="patnic" type="text" placeholder="123456789 V" required>
                     <h5>
-                        Phone Number
-                    </h5>
-                    <input class="input1" id="pattelno" name="pattelno" type="text" placeholder="+94761234567" required>
-                    <h5>
                         Address
                     </h5>
                     <input type="text" class="input2"  id="patadrs" name="patadrs" placeholder="222/B, Bakers' Street, Colombo 07." required>
+                </div>
+                <div class="form-right">
+                     <h5>
+                        Phone Number
+                    </h5>
+                    <input class="input1" id="pattelno" name="pattelno" type="text" placeholder="+94761234567" required>
                     <h5>
                         Email
                     </h5>
@@ -42,11 +45,13 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                     </h5>
                     <input class="input1" type="date" id="patdob" name="patdob" size=15 required>
 
-                    <br><br>
-
-                    <input type="Submit" class="button button1" value="Submit">
+                    <br><br><br>
+                    <div style="margin-left:340px;">
+                    <input type="Submit" class="form-submit" value="Submit">
+                </div>
+                </div>
                 </form>
-
+            
 <!--                <input type="Submit" class="button" value="Add Child Account +">-->
                 <br><br>
             </div>
