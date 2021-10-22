@@ -1,3 +1,8 @@
+<?php
+if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="counsellor")){
+    header('location: ' . URLROOT . '/users/logout');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
