@@ -22,8 +22,9 @@ class Users extends Controller {
             'usernameError' => '',
             'emailError' => '',
             'passwordError' => '',
-            'confirmPasswordError' => ''
-//            'viewalert'=>''
+            'confirmPasswordError' => '',
+            'telError'=>'',
+                  'nicError'=>''
         ];
 
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -43,17 +44,36 @@ class Users extends Controller {
                 'usernameError' => '',
                 'emailError' => '',
                 'passwordError' => '',
-                'confirmPasswordError' => ''
-//                  'viewalert'=>''
+                'confirmPasswordError' => '',
+                  'telError'=>'',
+                  'nicError'=>''
             ];
 
-            $nameValidation = "/^[a-zA-Z0-9]*$/";
+          // Validate nic on length, numeric values,
+          $nicValidation = "/^([0-9]{9}[x|X|v|V]|[0-9]{12})$/";
+          if( preg_match($nicValidation, $data['nic']) ){
+              $data['nicError'] = '';
+          }else{
+              $data['nicError'] = 'Invalid NIC Number';
+          }
+
+
+          // Validate telephone on length, numeric values,
+          $telValidation = "/^[0-9]+$/";
+          if(strlen($data['telno']) ==10 && preg_match($telValidation, $data['telno']) ){
+              $data['telError'] = '';
+          }else{
+              $data['telError'] = 'Invalid Contact Number';
+          }
+
+
+            $unameValidation = "/^[a-zA-Z0-9]*$/";
             $passwordValidation = "/^(.{0,7}|[^a-z]*|[^\d]*)$/i";
 
             //Validate username on letters/numbers
             if (empty($data['username'])) {
                 $data['usernameError'] = 'Please enter username.';
-            } elseif (!preg_match($nameValidation, $data['username'])) {
+            } elseif (!preg_match($unameValidation, $data['username'])) {
                 $data['usernameError'] = 'Name can only contain letters and numbers.';
             }
 
@@ -78,7 +98,7 @@ class Users extends Controller {
             }
 
             // Make sure that errors are empty
-            if (empty($data['usernameError'])  && empty($data['passwordError']) && empty($data['confirmPasswordError'])) {
+            if (empty($data['usernameError'])  && empty($data['passwordError']) && empty($data['confirmPasswordError']) && empty($data['telError']) && empty($data['nicError'])) {
 
                 // Hash password
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);

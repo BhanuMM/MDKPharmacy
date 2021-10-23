@@ -34,13 +34,17 @@ require APPROOT . '/views/includes/Adminhead.php';
             NIC
         </h5>
         <input class="input1" type="text" id="Rnic" name="Rnic" size=12 placeholder="784596212V" value="<?php echo $data['nic']; ?>" required>
-
+        <span class="invalidFeedback">
+                <?php echo $data['nicError']; ?>
+                </span>
         <h5>
             Phone Number
         </h5>
 
         <input class="input1" type="text" id="Rtelno" name="Rtelno" size=10 placeholder="+94 75 222 3576" value="<?php echo $data['telno']; ?>" required>
-
+        <span class="invalidFeedback">
+                <?php echo $data['telError']; ?>
+                </span>
         </div>
   <!-- </div> -->
   

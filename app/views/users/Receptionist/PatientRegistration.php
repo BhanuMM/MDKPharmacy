@@ -12,32 +12,38 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                     <h5>
                         Name
                     </h5>
-                    <input class="input1" id="patname" name="patname" type="text" placeholder="A.D.N.Kulathunga" required>
+                    <input class="input1" id="patname" name="patname" type="text" placeholder="A.D.N.Kulathunga" value="<?php echo $data['patientname']; ?>" required>
                     <h5>
                         NIC
                     </h5>
-                    <input class="input1" id="patnic" name="patnic" type="text" placeholder="784596212V" required>
+                    <input class="input1" id="patnic" name="patnic" type="text" placeholder="784596212V" value="<?php echo $data['patientnic']; ?>" required>
+                    <span class="invalidFeedback">
+                 <?php echo $data['nicError']; ?>
+                </span>
                     <h5>
                         Address
                     </h5>
-                    <input type="text" class="input2"  id="patadrs" name="patadrs" placeholder="222/B, Bakers' Street, Colombo 07." required>
+                    <input type="text" class="input2"  id="patadrs" name="patadrs" placeholder="222/B, Bakers' Street, Colombo 07." value="<?php echo $data['patientadrs']; ?>" required>
                 </div>
                 <div class="form-right">
                      <h5>
                         Phone Number
                     </h5>
-                    <input class="input1" id="pattelno" name="pattelno" type="text" placeholder="+94761234567" required>
+                    <input class="input1" id="pattelno" name="pattelno" type="text" placeholder="+94761234567" value="<?php echo $data['patienttelno']; ?>" required>
+                    <span class="invalidFeedback">
+                <?php echo $data['telError']; ?>
+                </span>
                     <h5>
                         Email
                     </h5>
-                    <input class="input1" type="text" id="patemail" name="patemail" size=40 placeholder="abc@gmail.com" >
+                    <input class="input1" type="email" id="patemail" name="patemail" size=40 placeholder="abc@gmail.com" value="<?php echo $data['patientemail']; ?>">
                     <h5>
                         Gender
                     </h5>
-                    <select name="patgen" required class="input1">
+                    <select name="patgen" required class="input1" required>
                         <option value="" disabled selected>Choose option</option>
-                        <option value="male">Male</option>
-                        <option value="Female">Female</option>
+                        <option value="male" <?php if ($data['patientgen'] == 'male') echo ' selected="selected"'; ?>>Male</option>
+                        <option value="female" <?php if ($data['patientgen'] == 'female') echo ' selected="selected"'; ?>>Female</option>
 
                     </select>
                     <h5>
@@ -46,7 +52,8 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                     <input class="input1" type="date" id="patdob" name="patdob" size=15 required>
 
                     <br><br><br>
-                    <div style="margin-left:340px;">
+                    <div style="margin-left:240px;">
+                        <input class="form-clear" type="reset" value=" Clear ">
                     <input type="Submit" class="form-submit" value="Submit">
                 </div>
                 </div>
