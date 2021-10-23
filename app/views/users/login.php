@@ -18,9 +18,10 @@
                 <br><br>
                 <p><b>Password:</b></p><br>
                 <input class="input1" type="password" id="Rpass" style="border: none; " name="Rpass" placeholder="Enter the password">
-        <span class="invalidFeedback">
+        <br><br>
+        <span class="invalidFeedback" style="margin-top: 30px">
                 <?php echo $data['passwordError']; ?>
-                </span><br><br><br>
+                </span><br>
 				<input type="submit" name="submitbutton4" value="Sign In" class="button button1" style="margin-left: 38%; margin-top: 3%;" >
             </form>
         </div>

@@ -16,6 +16,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                       <th>Medicine ID</th>
                       <th>Generic Name</th>
                       <th>Brand Name</th>
+                      <th>Importer</th>
                       <th>Remaining Quantity</th>
                       <th>Unit Price</th>
                     </tr>
@@ -24,6 +25,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                       <td>Omeprazole</td>
                       <td>Omez</td>
                       <td>Heyleys</td>
+                        <td>400</td>
                       <td>10.00</td>
                     </tr>
                     <tr>
@@ -31,6 +33,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                       <td>Paracetamol</td>
                       <td>Panadol</td>
                       <td>Coniferr International</td>
+                        <td>600</td>
                       <td>7.00</td>
                     </tr>
                     <tr>
@@ -38,6 +41,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                       <td>Amoxicillin</td>
                       <td>Amoxil</td>
                       <td>Agvet Pharma</td>
+                        <td>300</td>
                       <td>12.00</td>
                   </table>
 

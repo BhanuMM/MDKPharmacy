@@ -29,7 +29,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                      <h5>
                         Phone Number
                     </h5>
-                    <input class="input1" id="pattelno" name="pattelno" type="text" placeholder="+94761234567" value="<?php echo $data['patienttelno']; ?>" required>
+                    <input class="input1" id="pattelno" name="pattelno" type="number" placeholder="+94761234567" value="<?php echo $data['patienttelno']; ?>" required>
                     <span class="invalidFeedback">
                 <?php echo $data['telError']; ?>
                 </span>
