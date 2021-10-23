@@ -48,7 +48,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="admin")){
                 </span>
 
                 <div class="dropdown-content">
-                    <p><button class="btn-ddc">Settings</button></p>
+                    <p><a href="<?php echo URLROOT ?>/admins/profilesettings"><button class="btn-ddc">Settings</button></a></p>
 
                     <p> <a href="<?php echo URLROOT ?>/users/logout"> <button class="btn-ddc">Logout</button> </a></p>
 

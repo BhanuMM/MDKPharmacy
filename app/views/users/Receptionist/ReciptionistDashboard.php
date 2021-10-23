@@ -29,7 +29,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                                     Add Patient         
                                 </div><br><br>
                             </div>
-                            <a href="<?php echo URLROOT ?>/receptionists/addpatient"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/receptionists/registerpatient"><button class="button button1">View</button></a>
                         </div>
                     </div> 
 
