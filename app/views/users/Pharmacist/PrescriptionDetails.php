@@ -15,8 +15,10 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 
     <ul style="margin-top: 5%; padding-left: 0px; padding-top: 2%; list-style-type: none; overflow: auto;">
         <li Style="float: left; vertical-align: middle; display: inline;"><h3>Prescriptions</h3></li>
-        <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;"><a href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" height="15px" style="opacity: 0.5;"></a></li>
-        <li Style="float: right; vertical-align: middle; display: inline;"><input type="text" class="input1" placeholder="Search Prescriptions"></li>
+        <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
+                <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
+            <li Style="float: right; vertical-align: middle; display: inline;">
+                <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Search Prescriptions"></li></form>
     </ul>
                 
                 <table id="customers">

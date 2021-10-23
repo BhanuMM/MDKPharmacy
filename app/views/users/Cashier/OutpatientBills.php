@@ -5,8 +5,10 @@ require APPROOT . '/views/includes/Cashierhead.php';
     <div class="row">
         <div class="column" style="margin-left:5%; padding:1px 16px;">
             <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
-                <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;"><a href="#"><img src="../Images/Search.png" alt="Search" height="15px" style="opacity: 0.5;"></a></li>
-                <li Style="float: right; vertical-align: middle; display: inline; "><input class="input1" type="text" placeholder="Search Patients"></li>
+                <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
+                        <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
+                    <li Style="float: right; vertical-align: middle; display: inline;">
+                        <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Search Bills"></li></form>
             </ul>
             <table>
                 <tr>

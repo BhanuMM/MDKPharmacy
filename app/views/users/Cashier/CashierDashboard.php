@@ -14,7 +14,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 <!-- --------------------------------------------------------------------------------------------- -->
         
 
-            <div style="margin-left:0%; margin-right:0%; padding:1px 16px; width: 100%; ">
+            <div style="margin-left:0%; margin-right:0%; padding:1px 16px; width: 110%; ">
 
                 <div class="row">
 

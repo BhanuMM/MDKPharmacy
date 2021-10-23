@@ -54,9 +54,9 @@ class Admins extends Controller {
                     'brandname' => trim($_POST['brandname']),
                     'importername' => trim($_POST['imname']),
                     'dealer' => trim($_POST['dealer']),
-                    'purchaseprice' => trim($_POST['purchprice']),
-                    'sellingprice' => trim($_POST['sellprice']),
-                    'profitmargin' => trim($_POST['profit'])
+                    'purchaseprice' => $_POST['purchprice'],
+                    'sellingprice' => $_POST['sellprice'],
+                    'profitmargin' => $_POST['profit']
                 ];
                 // Make sure that errors are empty
                 if (empty($data['nameError'])) {
@@ -142,7 +142,9 @@ class Admins extends Controller {
                 'supplieraddress' => '',
                 'suppliertelno' => '',
                 'suppliermail' => '',
-                'nameError' => ''
+                'nameError' => '',
+                'telError' => ''
+
             ];
     
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -156,22 +158,32 @@ class Admins extends Controller {
                     'suppliertelno' => trim($_POST['suptelno']),
                     'suppliermail' => trim($_POST['supmail'])
                 ];
+
+
+
+                // Validate telephone on length, numeric values,
+                $telValidation = "/^[0-9]+$/";
+              if(strlen($data['suppliertelno']) ==10 && preg_match($telValidation, $data['suppliertelno']) ){
+                    $data['telError'] = '';
+                }else{
+                  $data['telError'] = 'Invalid Contact Number';
+              }
                 // Make sure that errors are empty
-                if (empty($data['nameError'])) {
+                if (empty($data['telError'])) {
     
     
                     //Register user from model function
                     if ($this->adminModel->registersupplier($data)) {
                         //Redirect to the login page
     
-                        header('location: ' . URLROOT . '/Admin/SupplierDetails');
+                        header('location: ' . URLROOT . '/admins/viewsupplier');
 
                     } else {
                         die('Something went wrong.');
                     }
                 }
             }
-            $this->view('users/Admin/AddSupplier');
+            $this->view('users/Admin/AddSupplier', $data);
         
        
         }

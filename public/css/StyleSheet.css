@@ -152,6 +152,18 @@ ul li a:hover{
       color: #3C3B54;
       border-radius: 6px;
   }
+
+/* Only for Profile Settings Form Fields */
+.input-ps{
+  width: 40%;
+  padding: 10px 15px;
+  margin-top: -3%;
+  margin-bottom: -1%;
+  box-sizing: border-box;
+  border:none;
+  background-color: #d8d8da;
+
+}
 .input1{
     width: 100%;
     padding: 10px 15px;
@@ -238,6 +250,86 @@ ul li a:hover{
     display: block;
     background-color: white;
 }
+
+/* Forms */
+
+.form-left{
+  margin-left: 380px;
+  margin-top: 100px;
+  height: 100%;
+  width: 30%;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  left: 0;
+}
+
+.form-right{
+  margin-right: 150px;
+  margin-top: 140px;
+  height: 100%;
+  width: 30%;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  right: 0;
+  z-index: -1;
+
+}
+
+.form-submit{
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 4px;
+    cursor: pointer;
+    /* border: solid 2px #0a0a2e; */
+    /*border: none;*/
+    color: #fff;
+    background-color: #0a0a2e;
+    border-radius: 15px; 
+    margin-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    transition: transform .2s;
+    
+    
+}
+
+.form-submit:hover{
+    background-color: #0a0a2e;
+    color:#ffff;
+    transform: scale(1.1);
+  }
+
+.form-clear{
+  padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 3px;
+    cursor: pointer;
+    border: solid 2px #0a0a2e;
+    /*border: none;*/
+    color: #0a0a2e;
+    border-radius: 15px; 
+    margin-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px; 
+}
+.form-clear:hover{
+  background-color: #0a0a2e;
+  color:#ffff;
+}
+
+
 
 
 /* Online Order(OO) Prepare */
@@ -364,4 +456,15 @@ table th, table td {
     color: red;
     font-size: 14px;
 
+}
+/*----------------------------------------------------------------------------------*/
+/*User interfaces search bar*/
+input#UISearchbar{
+    margin: 0 auto;
+    /*width: 100%;*/
+    height: 45px;
+    padding: 0 10px;
+    font-size: 1rem;
+    border: 2px solid #0a0a2e;
+    outline: none;
 }

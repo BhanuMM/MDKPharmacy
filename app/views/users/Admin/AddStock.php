@@ -2,7 +2,7 @@
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
-    <div style="margin-left:20%; padding:1px 16px; width: 40%">
+    <div style="margin-left:20%;  padding:1px 16px; width: 40%">
         <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/addstock">
             <h2 style="margin-top: 3%;">
                 Stock Details
@@ -33,9 +33,10 @@ require APPROOT . '/views/includes/Adminhead.php';
             <input class="input1" type="date" id="expdate" name="expdate" placeholder="2023-01-02">
                 
             <br><br>
-            <button class="button button1">Submit</button>
+            <button class="form-submit">Submit</button>
         </form>
     </div>
+    <br><br><br><br><br><br>
 
            
 
