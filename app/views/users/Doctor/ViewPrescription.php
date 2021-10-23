@@ -26,14 +26,16 @@ require APPROOT . '/views/includes/Doctorhead.php';
                     <p>Date: </p>
                     <p>Time: </p>
                     <p>Patient Name:  </p>
+                    <p>Age:  </p>
+                    <p>Gender:  </p>
                 </div>
                 <div></div>
             </div>
         </div>
 
         <div class="bill-body">
-            <h3>Ordered Items</h3>
-            <br>
+<!--            <h3>Ordered Items</h3>-->
+<!--            <br>-->
             <table class="table-bordered">
                 <thead>
                 <tr>
@@ -60,10 +62,13 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 </tr>
                 </tbody>
             </table>
-        </div>
-        <button class="button button1" style="float: right;">Print Bill</button>
-    </div>
-</div>
+            <h3>Special Notes</h3> <br>
+            <textarea name="Text1" class="input2" rows="5"></textarea>
+                        <br>
+                    </div>
+                    <button class="button button1" style="float: right;">Print Bill</button>
+                </div>
+            </div>
 
-</body>
-</html>
+            </body>
+            </html>
