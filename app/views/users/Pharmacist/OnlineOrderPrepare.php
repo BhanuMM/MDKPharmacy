@@ -19,7 +19,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 
 <div class="row" style="margin-top:200%; ">
         <!-- <div class="column" style="margin-left:25%; padding:1px 16px;"> -->
-        <input type="text" id="search-bar" placeholder="Search Medicine">
+        <input type="text" id="search-bar" placeholder="Generic Name">
     <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
   </form>
 

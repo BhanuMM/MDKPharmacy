@@ -64,7 +64,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 
                 <!-- Online Deliveries -->
 
-                    <div class="column">
+                    <!-- <div class="column">
                         <div class="fn-card">
                             <div class="welcome">
                                 <img src="<?php echo URLROOT ?>/public/images/stock-icon.png" /><br>
@@ -76,7 +76,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                         </div>
                     </div>
                
-            </div>
+            </div> -->
             <!-- <div class="row">
 
               Medicine Management Card

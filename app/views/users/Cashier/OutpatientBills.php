@@ -8,29 +8,29 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
                         <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
                     <li Style="float: right; vertical-align: middle; display: inline;">
-                        <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Search Bills"></li></form>
+                        <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Generic Name"></li></form>
             </ul>
             <table>
                 <tr>
-                    <th>Medicine Number</th>
+                    <th>Medicine ID</th>
                     <th>Medicine</th>
                     <th>Remaining Quantity</th>
                     <th></th> 
                 </tr>
                 <tr>
-                    <th>1</th>
+                    <th>M001</th>
                     <td>Paracetamol</td>
                     <td style="text-align: center;">50</td>
                     <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
                 </tr>
                 <tr>
-                    <th>2</th>
+                    <th>M002</th>
                     <td>Panadeine</td>
                     <td style="text-align: center;">23</td>
                     <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
                 </tr>
                 <tr>
-                    <th>3</th>
+                    <th>M042</th>
                     <td>Omeprazole</td>
                     <td style="text-align: center;">70</td>
                     <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
@@ -44,39 +44,51 @@ require APPROOT . '/views/includes/Cashierhead.php';
             </ul>
             <table style="padding: 12px;">
                 <tr>
-                    <th>#</th>
+                    <th>Medicine ID</th>
                     <th>Medicine</th>
-                    <th>Quantity</th>
+                    <th style="width: 75px;">Qty</th>
+                    <th style="width: 75px;">Unit Price</th>
+                    <th style="width: 75px;">Total</th>
                     <th></th> 
                 </tr>
                 <tr>
-                    <th>1</th>
+                    <th>M001</th>
                     <td>Paracetamol</td>
-                    <td><input type="number" class="input1"></td>
+                    <td><input  style="width: 75px;" type="number" class="input1"></td>
+                    <td><input style="width: 75px;" class="input1"></td>
+                    <td><input  style="width: 75px;" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
-                    <th>2</th>
+                    <th>M042</th>
                     <td>Omeprazole</td>
-                    <td><input type="number" class="input1"></td>
+                    <td><input style="width: 75px;" type="number" class="input1"></td>
+                    <td><input style="width: 75px;" class="input1"></td>
+                    <td><input style="width: 75px;" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
-                    <th>3</th>
+                    <th>M003</th>
                     <td>Abacavir</td>
-                    <td><input type="number" class="input1"></td>
+                    <td><input style="width: 75px;" type="number" class="input1"></td>
+                    <td><input style="width: 75px;" class="input1"></td>
+                    <td><input style="width: 75px;" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
-                    <th>4</th>
+                    <th>M064</th>
                     <td>Vitamin-C</td>
-                    <td><input type="number" class="input1"></td>
+                    <td><input style="width: 75px;" type="number" class="input1"></td>
+                    <td><input style="width: 75px;" class="input1"></td>
+                    <td><input style="width: 75px;" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
                 <tr>
-                    <th>5</th>
+                    <th>M035</th>
                     <td>Amoxicillin</td>
-                    <td><input type="number" class="input1"></td>
+                    <td><input style="width: 75px;" type="number" class="input1"></td>
+                    <td><input style="width: 75px;" class="input1"></td>
+                    <td><input style="width: 75px;" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
               </table>
