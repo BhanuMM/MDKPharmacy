@@ -37,19 +37,19 @@ require APPROOT . '/views/includes/Adminhead.php';
                 Purchase Price (Rs.)
             </h5>
 
-            <input class="input1" type="text" id="purchprice" name="purchprice" placeholder="10.00">
+            <input class="input1" type="number" id="purchprice" name="purchprice" placeholder="10.00">
 
             <h5>
                 Selling Price (Rs.)
             </h5>
 
-            <input class="input1" id="sellprice" name="sellprice" type="text" placeholder="12.00">
+            <input class="input1" id="sellprice" name="sellprice" type="number" placeholder="12.00">
 
             <h5>
                 Profit Margin (Rs.)
             </h5>
 
-            <input class="input1" id="profit" name="profit" type="text" placeholder="2.00">
+            <input class="input1" id="profit" name="profit" type="number" placeholder="2.00">
 
                 
             <br><br><br><br>

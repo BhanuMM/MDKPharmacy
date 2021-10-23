@@ -14,15 +14,15 @@ require APPROOT . '/views/includes/Adminhead.php';
             <h5>
                 Quantity
             </h5>
-            <input class="input1" type="text" id="quantity" name="quantity" placeholder="18">
+            <input class="input1" type="number" id="quantity" name="quantity" placeholder="18">
             <h5>
                 Purchasing unit price
             </h5>
-            <input class="input1" type="text" id="purchprice" name="purchprice" placeholder="10.00">
+            <input class="input1" type="number" id="purchprice" name="purchprice" placeholder="10.00">
             <h5>
                 Selling unit price
             </h5>
-            <input class="input1" type="text" id="sellprice" name="sellprice" placeholder="13.00">
+            <input class="input1" type="number" id="sellprice" name="sellprice" placeholder="13.00">
             <h5>
                 Purchase Date
             </h5>
