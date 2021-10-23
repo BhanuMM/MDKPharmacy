@@ -50,7 +50,16 @@ require APPROOT . '/views/includes/Adminhead.php';
             </h5>
 
             <input class="input1" id="profit" name="profit" type="number" placeholder="2.00">
+        <h5>
+            Medicine Access Level
+        </h5>
+        <select class="input1" name="acslvl" required>
+            <option value="" disabled selected>Choose option</option>
+            <option <?php if ($data['acslvl'] == '1') echo ' selected="selected"'; ?> value="1">Level One</option>
+            <option <?php if ($data['acslvl'] == '2') echo ' selected="selected"'; ?> value="2">Level Two</option>
+            <option <?php if ($data['acslvl'] == '3') echo ' selected="selected"'; ?> value="3">Level Three</option>
 
+        </select>
                 
             <br><br><br><br>
             <div style="margin-left:340px;">

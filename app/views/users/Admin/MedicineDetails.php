@@ -22,13 +22,14 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <th>Purchase Price</th>
                       <th>Selling Price</th>
                       <th>Profit Margin</th>
+                        <th>Access Level</th>
 <!--                      <th>Update</th>-->
 <!--                      <th>Delete</th>-->
                     </tr>
                     <?php foreach($data['medicines'] as $allmedicines): ?>
 
                         <tr>
-                            <td><?php echo $allmedicines->medid; ?></td>
+                            <td>M<?php echo $allmedicines->medid; ?></td>
                             <td><?php echo $allmedicines->medgenname; ?></td>
                             <td><?php echo $allmedicines->medbrand; ?></td>
                             <td><?php echo $allmedicines->medimporter; ?></td>
@@ -36,6 +37,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                             <td><?php echo $allmedicines->medpurchprice; ?></td>
                             <td><?php echo $allmedicines->medsellprice; ?></td>
                             <td><?php echo $allmedicines->medprofit; ?></td>
+                            <td><?php echo $allmedicines->medacslvl; ?></td>
                         </tr>
 
                     <?php endforeach; ?>
