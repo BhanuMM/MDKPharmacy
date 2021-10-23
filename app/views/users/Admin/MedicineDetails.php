@@ -6,8 +6,10 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <a href="<?php echo URLROOT ?>/Admins/addmed"><button class="button button1">Add New Medicine +</button></a>
                 <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> Medicine Details</h3></li>
-                    <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" height="15px" style="opacity: 0.5;"></li>
-                    <li Style="float: right; vertical-align: middle; display: inline;"><input type="text" placeholder="Search Stock"></li>
+                    <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
+                            <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
+                        <li Style="float: right; vertical-align: middle; display: inline;">
+                            <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Search Medicine"></li></form>
                 </ul>
                 
                 <table id="customers">
