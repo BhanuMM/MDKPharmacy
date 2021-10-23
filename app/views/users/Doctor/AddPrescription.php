@@ -4,12 +4,13 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
 <!-- --------------------------------------------------------------------------------------------- -->
 
-<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
-    <div class="welcome-card">
+<div style="margin-left: 300px; margin-top: 1%; margin-right:0%; padding:1px 16px; width: 70%; ">
+    <div class="patient-card">
         <div class="welcome">
-            <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
-            <div class="welcome-names">
-                Welcome , Mr.#Patient Name!
+            <div class="patientdetails">
+                Name: Ruwan Perera <br>
+                Age: 42 years <br>
+                Gender: Male <br>
             </div>
         </div>
     </div>
@@ -39,7 +40,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
         <div class="column" style="margin-left:25%;padding:1px 16px;">
             <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
-                <li Style="float: left; vertical-align: middle; display: inline;"><h3>Added Medicine List</h3></li>
+                <li><h3>Added Medicine List</h3></li>
             </ul>
             <table style="padding: 12px;">
                 <tr>
