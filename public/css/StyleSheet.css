@@ -471,3 +471,26 @@ input#UISearchbar{
     border: 2px solid #0a0a2e;
     outline: none;
 }
+
+/*----------------------------------------------------------------------------------*/
+/*Patient details header part CSS */
+
+.patient-card{
+    /*background-image: url(../images/welcome-banner.png);*/
+    height : 70px;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    border-radius: 15px;
+    /* margin-top: 19px;
+    margin-bottom: 5px; */
+    padding: 40px;
+    /* padding: 25px 25px 15px 25px; */
+    transition: 0.3s;
+}
+
+.patientdetails {
+    color: black;
+    font-size: 20px;
+    margin-left: 10px;
+    text-decoration: none;
+}
