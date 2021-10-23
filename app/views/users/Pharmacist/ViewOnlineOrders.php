@@ -25,44 +25,28 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 
                 <table id="customers">
                     <tr>
-                      <th>Patient ID</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Country</th>
-                      <th>Update</th>
+                      <th>Order ID</th>
+                      <th>Patient Name</th>
+                      <th>Telephone Number</th>
+                      <th>View</th>
                     </tr>
                     <tr>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td><a href="<?php echo URLROOT?>/pharmacists/onlineorderprepare">view</a></td>
+                      <td>Or001</td>
+                      <td>G.K.W.Weerasinha</td>
+                      <td>0112589632</td>
+                      <td><a href="<?php echo URLROOT?>/pharmacists/onlineorderprepare"><button class="button button1">View</button></a></td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                    <td>Or002</td>
+                      <td>B.U.W.Gamage</td>
+                      <td>0772589632</td>
+                      <td><a href="<?php echo URLROOT?>/pharmacists/onlineorderprepare"><button class="button button1">View</button></a></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <td>Or003</td>
+                      <td>R.K.W.Medagama</td>
+                      <td>0712589632</td>
+                      <td><a href="<?php echo URLROOT?>/pharmacists/onlineorderprepare"><button class="button button1">View</button></a></td>
                     </tr>
                   </table>
 

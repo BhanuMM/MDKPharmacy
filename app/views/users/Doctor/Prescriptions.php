@@ -20,27 +20,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
             <th>Views</th>
             <th>Views</th>
             <th>Country</th>
-            <th>Update</th>
-        </tr>
-        <tr>
-            <td>Data</td>
-            <td>Data</td>
-            <td>Data</td>
-            <td>Data</td>
-            <td>Data</td>
-            <td>Data</td>
-            <td>Data</td>
-            <td><a href="<?php echo URLROOT ?>/doctors/viewprescriptions">View</a></td>
-        </tr>
-        <tr>
-            <td>Data</td>
-            <td>Data</td>
-            <td>Data</td>
-            <td>Data</td>
-            <td>Data</td>
-            <td>Data</td>
-            <td>Data</td>
-            <td><a href="<?php echo URLROOT ?>/doctors/viewprescriptions">View</a></td>
+            <th>View</th>
         </tr>
         <tr>
             <td></td>
@@ -50,7 +30,27 @@ require APPROOT . '/views/includes/Doctorhead.php';
             <td></td>
             <td></td>
             <td></td>
+            <td><button class="button button1"><a href="<?php echo URLROOT ?>/doctors/viewprescriptions">View</a></button></td>
+        </tr>
+        <tr>
             <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button class="button button1"><a href="<?php echo URLROOT ?>/doctors/viewprescriptions">View</a></button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button class="button button1"><a href="<?php echo URLROOT ?>/doctors/viewprescriptions">View</a></button></td>
         </tr>
     </table>
 

@@ -14,46 +14,34 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 <table id="customers">
                     <tr>
                       <th>Patient ID</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Country</th>
-                      <th>Update</th>
+                      <th>Patient Name</th>
+                      <th>Patient NIC</th>
+                      <th>Patient Age</th>
+                      <th>Create Prescription</th>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>P001</td>
+                      <td>G.N.S.Silva</td>
+                      <td>874596521V</td>
+                      <td>31</td>
+                      <td><a href="<?php echo URLROOT ?>/doctors/addprescription"><button class="button button1" >Create Prescription</button></a></td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>P002</td>
+                      <td>H.K.L.Fernando</td>
+                      <td>985647125V</td>
+                      <td>23</td>
+                      <td><a href="<?php echo URLROOT ?>/doctors/addprescription"><button class="button button1" >Create Prescription</button></a></td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>P003</td>
+                      <td>D.G.Amarasena</td>
+                      <td>751235412V</td>
+                      <td>45</td>
+                      <td><a href="<?php echo URLROOT ?>/doctors/addprescription"><button class="button button1" >Create Prescription</button></a></td>
                     </tr>
                   </table><br /><br /><br /><br />
-                  <a href="<?php echo URLROOT ?>/doctors/addprescription"><button class="button button1" style="margin-left: 81%;">Create Prescription</button></a>
+                  
             </div>
 
            

@@ -29,35 +29,40 @@ require APPROOT . '/views/includes/Adminhead.php';
         <h5>
             Name
         </h5>
-        <input class="input1" type="text" id="Rfname" name="Rfname" size=15 placeholder="Name..." value="<?php echo $data['name']; ?>" required>
+        <input class="input1" type="text" id="Rfname" name="Rfname" size=15 placeholder="A.D.N.Kulathunga" value="<?php echo $data['name']; ?>" required>
         <h5>
             NIC
         </h5>
-        <input class="input1" type="text" id="Rnic" name="Rnic" size=12 placeholder="NIC number..." value="<?php echo $data['nic']; ?>" required>
+        <input class="input1" type="text" id="Rnic" name="Rnic" size=12 placeholder="784596212V" value="<?php echo $data['nic']; ?>" required>
 
         <h5>
             Phone Number
         </h5>
 
-        <input class="input1" type="text" id="Rtelno" name="Rtelno" size=10 placeholder="Contact number..." value="<?php echo $data['telno']; ?>" required>
+        <input class="input1" type="text" id="Rtelno" name="Rtelno" size=10 placeholder="+94 75 222 3576" value="<?php echo $data['telno']; ?>" required>
+
         </div>
   <!-- </div> -->
   
   <div class="form-right">
    <!-- <div class="centered"> -->
 
+
         <h5>
 
             Email
         </h5>
-        <input class="input1" type="text" id="Remail" name="Remail" size=40 placeholder="Email address..." value="<?php echo $data['email']; ?>" >
+
+        <input class="input1" type="text" id="Remail" name="Remail" size=40 placeholder="abc@gmail.com" value="<?php echo $data['email']; ?>" >
+
   
 
   
+
         <h5>
             Username
         </h5>
-        <input class="input1" type="text" id="Runame" name="Runame" size=40 placeholder="Username..."  value="<?php echo $data['username']; ?>"required>
+        <input class="input1" type="text" id="Runame" name="Runame" size=40 placeholder="abc_78"  value="<?php echo $data['username']; ?>"required>
         <span class="invalidFeedback">
                 <?php echo $data['usernameError']; ?>
                 </span>

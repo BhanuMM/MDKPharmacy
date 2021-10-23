@@ -13,27 +13,31 @@ require APPROOT . '/views/includes/Cashierhead.php';
                
                 <table id="customers">
                     <tr>
-                      <th>Patient ID</th>
-                      <th>Views</th>
-                      <th>Views</th>
+                      <th>Prescription ID</th>
+                      <th>Patient Name</th>
+                      <th>Patient NIC</th>
+                      <th>Date</th>
                       <th>View</th>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>Pr001</td>
+                      <td>D.S.Kulathunga</td>
+                      <td>785236954V</td>
+                      <td>2021-10-12</td>
                       <td><a href="<?php echo URLROOT ?>/cashiers/pastbillsingle"><button class="button button1">View</button></a></td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>Pr002</td>
+                      <td>R.S.Perera</td>
+                      <td>697854124V</td>
+                      <td>2021-10-23</td>
                       <td><a href="<?php echo URLROOT ?>/cashiers/pastbillsingle"><button class="button button1">View</button></a></td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>Pr003</td>
+                      <td>D.N.Silva</td>
+                      <td>854565751V</td>
+                      <td>2021-10-14</td>
                       <td><a href="<?php echo URLROOT ?>/cashiers/pastbillsingle"><button class="button button1">View</button></a></td>
                     </tr>
                   </table>

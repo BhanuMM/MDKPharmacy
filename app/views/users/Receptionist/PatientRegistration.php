@@ -12,11 +12,11 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                     <h5>
                         Name
                     </h5>
-                    <input class="input1" id="patname" name="patname" type="text" placeholder="John Doe" required>
+                    <input class="input1" id="patname" name="patname" type="text" placeholder="A.D.N.Kulathunga" required>
                     <h5>
                         NIC
                     </h5>
-                    <input class="input1" id="patnic" name="patnic" type="text" placeholder="123456789 V" required>
+                    <input class="input1" id="patnic" name="patnic" type="text" placeholder="784596212V" required>
                     <h5>
                         Address
                     </h5>
@@ -30,7 +30,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                     <h5>
                         Email
                     </h5>
-                    <input class="input1" type="text" id="patemail" name="patemail" size=40 placeholder="Email address..." >
+                    <input class="input1" type="text" id="patemail" name="patemail" size=40 placeholder="abc@gmail.com" >
                     <h5>
                         Gender
                     </h5>

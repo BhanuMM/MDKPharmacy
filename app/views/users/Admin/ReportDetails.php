@@ -14,44 +14,28 @@ require APPROOT . '/views/includes/Adminhead.php';
                 
                 <table id="customers">
                     <tr>
-                      <th>Patient ID</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Country</th>
-                      <th>Update</th>
+                      <th>Report ID</th>
+                      <th>Date</th>
+                      <th>Type</th>
+                      <th>View</th>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>R001</td>
+                      <td>2021-09-25</td>
+                      <td>Daily Summary</td>
+                      <td><button class="button button1">View</button></td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>R003</td>
+                      <td>2021-08-25</td>
+                      <td>Monthly Summary</td>
+                      <td><button class="button button1">View</button></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                      <td>R005</td>
+                      <td>2021-07-25</td>
+                      <td>Daily Summary</td>
+                      <td><button class="button button1">View</button></td>
                     </tr>
                   </table>
 

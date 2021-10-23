@@ -13,44 +13,44 @@ require APPROOT . '/views/includes/Doctorhead.php';
                
                 <table id="customers">
                     <tr>
-                      <th>Patient ID</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Views</th>
-                      <th>Country</th>
-                      <th>Update</th>
+                        <th>Patient ID</th>
+                        <th>Patient Name</th>
+                        <th>NIC</th>
+                        <th>Tel.No</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
                     </tr>
                     <tr>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td>Data</td>
-                      <td><a href="<?php echo URLROOT ?>/doctors/patientprofile">View</a></td>
+                      <td>P004</td>
+                      <td>H.J.K.Gunasena</td>
+                      <td>547896321V</td>
+                      <td>0756547485</td>
+                      <td>145,Kandy Rd, Colombo.</td>
+                      <td>gunasena@gmail.com</td>
+                      <td>1954-10-23</td>
+                      <td>Male</td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>P012</td>
+                      <td>K.L.chandradasa</td>
+                      <td>647346321V</td>
+                      <td>0777747485</td>
+                      <td>14,Horana Rd, Colombo.</td>
+                      <td>chandradasa@gmail.com</td>
+                      <td>1964-10-23</td>
+                      <td>Male</td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>P045</td>
+                      <td>G.N.S.Silva</td>
+                      <td>847896321V</td>
+                      <td>0716547485</td>
+                      <td>145,Kandy Rd, Colombo.</td>
+                      <td>nilanthi@gmail.com</td>
+                      <td>1984-11-23</td>
+                      <td>Female</td>
                     </tr>
                   </table>
 
