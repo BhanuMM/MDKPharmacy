@@ -19,7 +19,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
         <div class="column" style="margin-left:5%; padding:1px 16px;">
             <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
                 <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;"><a href="#"><img src="../Images/Search.png" alt="Search" height="15px" style="opacity: 0.5;"></a></li>
-                <li Style="float: right; vertical-align: middle; display: inline; "><input class="input1" type="text" placeholder="Search Patients"></li>
+                <li Style="float: right; vertical-align: middle; display: inline; "><input class="input1" type="text" placeholder="Generic Name"></li>
             </ul>
             <table>
                 <tr>
@@ -43,7 +43,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
             </ul>
             <table style="padding: 12px;">
                 <tr>
-                    <th>No.of.Items</th>
+                    <th>Medicine ID</th>
                     <th>Medicine</th>
                     <th>Quantity</th>
                     <th></th> 
