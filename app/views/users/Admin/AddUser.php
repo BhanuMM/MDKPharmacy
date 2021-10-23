@@ -17,13 +17,13 @@ require APPROOT . '/views/includes/Adminhead.php';
         </h5>
         <select class="input1" name="Rrole" required>
             <option value="" disabled selected>Choose option</option>
-            <option value="admin">Administrator</option>
-            <option value="cashier">Cashier</option>
-            <option value="counsellor">Counsellor</option>
-            <option value="delivery">Delivery</option>
-            <option value="doctor">Doctor</option>
-            <option value="pharmacist">Pharmacist</option>
-            <option value="receptionist">Receptionist</option>
+            <option <?php if ($data['role'] == 'admin') echo ' selected="selected"'; ?> value="admin">Administrator</option>
+            <option <?php if ($data['role'] == 'cashier') echo ' selected="selected"'; ?> value="cashier">Cashier</option>
+            <option <?php if ($data['role'] == 'counsellor') echo ' selected="selected"'; ?> value="counsellor">Counsellor</option>
+            <option <?php if ($data['role'] == 'delivery') echo ' selected="selected"'; ?> value="delivery">Delivery</option>
+            <option <?php if ($data['role'] == 'doctor') echo ' selected="selected"'; ?> value="doctor">Doctor</option>
+            <option <?php if ($data['role'] == 'pharmacist') echo ' selected="selected"'; ?> value="pharmacist">Pharmacist</option>
+            <option <?php if ($data['role'] == 'receptionist') echo ' selected="selected"'; ?> value="receptionist">Receptionist</option>
 
         </select>
         <h5>
@@ -41,7 +41,7 @@ require APPROOT . '/views/includes/Adminhead.php';
             Phone Number
         </h5>
 
-        <input class="input1" type="number" id="Rtelno" name="Rtelno" size=10 placeholder="075 222 3576" value="<?php echo $data['telno']; ?>" required>
+        <input class="input1" type="text" id="Rtelno" name="Rtelno" size=10 placeholder="075 222 3576" value="<?php echo $data['telno']; ?>" required>
         <span class="invalidFeedback">
                 <?php echo $data['telError']; ?>
                 </span>

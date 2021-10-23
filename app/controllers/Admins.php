@@ -41,6 +41,7 @@ class Admins extends Controller {
                 'purchaseprice' => '',
                 'sellingprice' => '',
                 'profitmargin' => '',
+                'acslvl'=>'',
                 'nameError' => ''
             ];
     
@@ -56,8 +57,9 @@ class Admins extends Controller {
                     'dealer' => trim($_POST['dealer']),
                     'purchaseprice' => $_POST['purchprice'],
                     'sellingprice' => $_POST['sellprice'],
-                    'profitmargin' => $_POST['profit']
-                ];
+                    'profitmargin' => $_POST['profit'],
+                    'acslvl'=>$_POST['acslvl']
+                    ];
                 // Make sure that errors are empty
                 if (empty($data['nameError'])) {
     
@@ -72,7 +74,7 @@ class Admins extends Controller {
                     }
                 }
             }
-        $this->view('users/Admin/AddMedicine');
+        $this->view('users/Admin/AddMedicine',$data);
     }
 
     public function viewstock() {

@@ -44,8 +44,8 @@ class Admin {
     }
 
     public function registermedicine($data) {
-        $this->db->query('INSERT INTO medicine (medgenname,medbrand,medimporter,meddealer,medpurchprice,medsellprice,medprofit) 
-        VALUES(:medname,:medbrand,:importer,:dealer,:purchprice,:sellprice,:profit)');
+        $this->db->query('INSERT INTO medicine (medgenname,medbrand,medimporter,meddealer,medpurchprice,medsellprice,medprofit,medacslvl) 
+        VALUES(:medname,:medbrand,:importer,:dealer,:purchprice,:sellprice,:profit,:acslvl)');
 
 
         //Bind values
@@ -56,6 +56,7 @@ class Admin {
         $this->db->bind(':purchprice', $data['purchaseprice']);
         $this->db->bind(':sellprice', $data['sellingprice']);
         $this->db->bind(':profit', $data['profitmargin']);
+        $this->db->bind(':acslvl', $data['acslvl']);
 
         //Execute function
         if ($this->db->execute()) {
