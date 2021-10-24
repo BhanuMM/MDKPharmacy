@@ -370,7 +370,7 @@ ul li a:hover{
 
 /* Search bar for Doctor - add prescription.php */
 
-.addmed-search-container{
+.searchmed-search-container{
   width: 300px;
   flex-basis: 35%;
   margin: 0 auto;
@@ -378,7 +378,7 @@ ul li a:hover{
 }
 
 
-input#addmed-search-bar{
+input#searchmed-search-bar{
   margin: 0 auto;
   width: 100%;
   height: 30px;
@@ -389,7 +389,7 @@ input#addmed-search-bar{
 
  }
 
-.addmed-search-icon{
+.searchmed-search-icon{
   position: relative;
   padding-right: -23px;
   float: right;

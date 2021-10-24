@@ -1,14 +1,15 @@
 <?php
 require APPROOT . '/views/includes/Cashierhead.php';
 ?>
-<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
+<div style="margin-left: 265px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
     <div class="row">
         <div class="column" style="margin-left:5%; padding:1px 16px;">
-            <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
-                <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
-                        <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
-                    <li Style="float: right; vertical-align: middle; display: inline;">
-                        <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Generic Name"></li></form>
+            <ul style="padding-left: 0px; list-style-type: none; overflow: auto; width: 200%; margin-left:-17%;">
+            
+            <form class="searchmed-search-container">
+                <input type="text" id="searchmed-search-bar" placeholder="Search Medicine">
+                <a href="#"><img class="searchmed-search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+            </form><br><br><br>
             </ul>
             <table>
                 <tr>
