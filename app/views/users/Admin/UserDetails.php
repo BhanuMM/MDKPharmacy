@@ -12,7 +12,13 @@ require APPROOT . '/views/includes/Adminhead.php';
                     <li Style="float: right; vertical-align: middle; display: inline;">
                         <input type="text" id="UISearchbar" style="height: 35px;" placeholder="NIC"></li></form>
                 </ul>
-                
+            <span class="successadded">
+                 <?php
+                 if(isset($_GET['msg'])){
+                     echo $_GET['msg']; // print_r($_GET); //remember to add semicolon
+                 }
+                 ?>
+                </span>
                 <table id="customers">
                     <tr>
                       <th>Staff ID</th>

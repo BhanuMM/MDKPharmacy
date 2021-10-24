@@ -2,6 +2,7 @@
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
+
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
                 <a href="<?php echo URLROOT ?>/Admins/addsupplier"><button class="button button1">Add New Supplier +</button></a>
                 <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
@@ -11,7 +12,15 @@ require APPROOT . '/views/includes/Adminhead.php';
                         <li Style="float: right; vertical-align: middle; display: inline;">
                             <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Supplier ID"></li></form>
                 </ul>
-                
+            <span class="successadded">
+                 <?php
+                 if(isset($_GET['msg'])){
+                     echo $_GET['msg']; // print_r($_GET); //remember to add semicolon
+                 }
+                 ?>
+                </span>
+
+
                 <table id="customers">
                     <tr>
                         <th>Agency ID</th>

@@ -460,6 +460,11 @@ table th, table td {
     font-size: 14px;
 
 }
+.successadded{
+    color: #12a602;
+    font-size: 14px;
+
+}
 /*----------------------------------------------------------------------------------*/
 /*User interfaces search bar*/
 input#UISearchbar{
