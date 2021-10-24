@@ -19,7 +19,7 @@ require APPROOT . '/views/includes/Adminhead.php';
         <h5>
             Phone Number
         </h5>
-        <input class="input1" id="suptelno" name="suptelno" type="number" placeholder="075 222 3576" value="<?php echo $data['suppliertelno']; ?>" required>
+        <input class="input1" id="suptelno" name="suptelno" type="text" placeholder="075 222 3576" value="<?php echo $data['suppliertelno']; ?>" required>
         <span class="invalidFeedback">
                 <?php echo $data['telError']; ?>
                 </span>
