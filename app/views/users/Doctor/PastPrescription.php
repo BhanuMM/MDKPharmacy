@@ -66,7 +66,6 @@ require APPROOT . '/views/includes/Doctorhead.php';
             <textarea name="Text1" class="input2" rows="5"></textarea>
                         <br>
                     </div>
-                    <button class="button button1" style="float: right;">Print Prescription</button>
                 </div>
             </div>
 
