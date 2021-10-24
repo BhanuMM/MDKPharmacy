@@ -4,7 +4,7 @@ require APPROOT . '/views/includes/Adminhead.php';
 
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
                 <a href="<?php echo URLROOT ?>/users/register"><button  class="button button1">Add New User +</button></a>
-                <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
+                <ul style="padding-left: 0px; list-style-type: none; ">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> User Details</h3></li>
 
                     <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
