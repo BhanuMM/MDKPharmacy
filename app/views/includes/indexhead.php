@@ -25,7 +25,7 @@
                 <p>Open 24 hours</p>
             </div>
             <div class="text-right">
-                Call Us At +0347 888 888
+                Call Us At 0347 888 888
             </div>
         </div>
         <!--logo and menu-->
