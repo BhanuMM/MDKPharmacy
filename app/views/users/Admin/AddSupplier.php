@@ -8,6 +8,7 @@ require APPROOT . '/views/includes/Adminhead.php';
         <h2 style="margin-top: 3%;">
             Supplier Details
         </h2>
+
         <h5>
             Agency Name
         </h5>

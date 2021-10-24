@@ -107,7 +107,7 @@ class Users extends Controller {
                 if ($this->userModel->register($data)) {
                     //Redirect to the login page
 //                    $data['viewalert'] = 'view';
-                    header('location: ' . URLROOT . '/users/login');
+                    header('location: ' . URLROOT . '/admins/viewuser');
                 } else {
                     die('Something went wrong.');
                 }

@@ -78,9 +78,9 @@ class Receptionists extends Controller
 
                 //Register user from model function
                 if ($this->receptionistModel->registerpatient($data)) {
-                    //Redirect to the login page
-
-                    header('location: ' . URLROOT . '/receptionists/viewpatients');
+                    //Redirect to the viewtable page
+                    $recadded = 'New Patient has been Successfully Added!';
+                    header('location: ' . URLROOT . '/receptionists/viewpatients?msg='.$recadded);
                 } else {
                     die('Something went wrong.');
                 }

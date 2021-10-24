@@ -66,9 +66,9 @@ class Admins extends Controller {
     
                     //Register user from model function
                     if ($this->adminModel->registermedicine($data)) {
-                        //Redirect to the login page
-    
-                        header('location: ' . URLROOT . '/admins/viewmed');
+                        //Redirect to the viewtable page
+                        $recadded = 'New Medicine has been Successfully Added!';
+                        header('location: ' . URLROOT . '/admins/viewmed?msg='.$recadded);
                     } else {
                         die('Something went wrong.');
                     }
@@ -117,9 +117,9 @@ class Admins extends Controller {
 
                 //Register user from model function
                 if ($this->adminModel->registerstock($data)) {
-                    //Redirect to the login page
-
-                    header('location: ' . URLROOT . '/admins/viewstock');
+                    //Redirect to the viewtable page
+                    $recadded = 'New Stock has been Successfully Added!';
+                    header('location: ' . URLROOT . '/admins/viewstock?msg='.$recadded);
                 } else {
                     die('Something went wrong.');
                 }
@@ -176,9 +176,10 @@ class Admins extends Controller {
     
                     //Register user from model function
                     if ($this->adminModel->registersupplier($data)) {
-                        //Redirect to the login page
-    
-                        header('location: ' . URLROOT . '/admins/viewsupplier');
+
+                        //Redirect to the viewtable page
+                        $recadded = 'New Supplier has been Successfully Added!';
+                        header('location: ' . URLROOT . '/admins/viewsupplier?msg='.$recadded);
 
                     } else {
                         die('Something went wrong.');
