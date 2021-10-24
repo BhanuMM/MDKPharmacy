@@ -27,18 +27,18 @@ require APPROOT . '/views/includes/Doctorhead.php';
           <th></th> 
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td align="center"><button class="button button1">View</button></td>
+          <td>Pr001</td>
+          <td>2021-09-25</td>
+          <td align="center"><a href="<?php echo URLROOT ?>/doctors/pastprescription"><button class="button button1">View</button></a></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td align="center"><button class="button button1">View</button></td>
+          <td>Pr067</td>
+          <td>2021-10-08</td>
+          <td align="center"><a href="<?php echo URLROOT ?>/doctors/pastprescription"><button class="button button1">View</button></a></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td align="center"><button class="button button1">View</button></td>
+          <td>Pr098</td>
+          <td>2021-10-23</td>
+          <td align="center"><a href="<?php echo URLROOT ?>/doctors/pastprescription"><button class="button button1">View</button></a></td>
         </tr>
       </table>

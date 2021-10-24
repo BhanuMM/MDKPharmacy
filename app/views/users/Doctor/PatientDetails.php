@@ -21,6 +21,8 @@ require APPROOT . '/views/includes/Doctorhead.php';
                         <th>Email</th>
                         <th>Date of Birth</th>
                         <th>Gender</th>
+                        <th>View Prescriptions</th>
+
                     </tr>
                     <tr>
                       <td>P004</td>
@@ -31,16 +33,18 @@ require APPROOT . '/views/includes/Doctorhead.php';
                       <td>gunasena@gmail.com</td>
                       <td>1954-10-23</td>
                       <td>Male</td>
+                      <td><a href="<?php echo URLROOT ?>/doctors/patientprofile"><button class="button button1">View</button></a></td>
                     </tr>
                     <tr>
                       <td>P012</td>
-                      <td>K.L.chandradasa</td>
+                      <td>K.L.Chandradasa</td>
                       <td>647346321V</td>
                       <td>0777747485</td>
                       <td>14,Horana Rd, Colombo.</td>
                       <td>chandradasa@gmail.com</td>
                       <td>1964-10-23</td>
                       <td>Male</td>
+                      <td><a href="<?php echo URLROOT ?>/doctors/patientprofile"><button class="button button1">View</button></a></td>
                     </tr>
                     <tr>
                       <td>P045</td>
@@ -51,6 +55,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                       <td>nilanthi@gmail.com</td>
                       <td>1984-11-23</td>
                       <td>Female</td>
+                      <td><a href="<?php echo URLROOT ?>/doctors/patientprofile"><button class="button button1">View</button></a></td>
                     </tr>
                   </table>
 
