@@ -29,6 +29,7 @@ require APPROOT . '/views/includes/Adminhead.php';
         <input type="email" id="supmail" name="supmail"  class="input1"  placeholder="abc@gmail.com" value="<?php echo $data['suppliermail']; ?>" >
                 
         <br><br>
+        <input class="button button1" type="reset" value="Refresh">
         <button class="form-submit">Submit</button>
     </form>
 </div>
