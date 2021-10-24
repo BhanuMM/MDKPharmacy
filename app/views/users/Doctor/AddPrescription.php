@@ -77,7 +77,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
               </table>
-            <a href="<?php echo URLROOT ?>/doctors/viewprescriptions"><button class="form-submit" style="margin-left: 260px;">Create Prescription</button></a>
+            <a href="<?php echo URLROOT ?>/doctors/viewprescriptions"><button class="opbill-form-submit" style="margin-left: 200px;">Create Prescription</button></a>
             <br> <br> <br> <br> <br>
 <!--              <input type="button" style="margin-left: 10%;" class="button button1" value="Create Prescription" />-->
             
