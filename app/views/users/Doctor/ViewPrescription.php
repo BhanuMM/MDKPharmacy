@@ -41,29 +41,29 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 <tr>
                     <th>Medicine</th>
                     <th class="table-field">Quantity</th>
-                    <th class="table-field">Total</th>
+<!--                    <th class="table-field">Total</th>-->
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td></td>
+<!--                    <td></td>-->
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td></td>
+<!--                    <td></td>-->
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td></td>
+<!--                    <td></td>-->
                 </tr>
                 </tbody>
             </table>
             <h3>Special Notes</h3> <br>
-            <textarea name="Text1" class="input2" rows="5"></textarea>
+            <textarea name="Text1" class="input2" rows="5" readonly></textarea>
                         <br>
                     </div>
                     <button class="button button1" style="float: right;">Print Prescription</button>

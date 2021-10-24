@@ -25,7 +25,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                             <div class="welcome">
                                 <img src="<?php echo URLROOT ?>/public/images/user-icon.png" /><br><br>
                                 <div class="fn-names">
-                                    MDK Patient Prescriptions        
+                                    Inpatient Bills
                                 </div><br><br>
                             </div>
                             <a href="<?php echo URLROOT ?>/Cashiers/inpatientbills"><button class="button button1">View</button></a>
