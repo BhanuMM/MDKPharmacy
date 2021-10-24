@@ -93,7 +93,9 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
               </table>
-            <a href="<?php echo URLROOT ?>/Cashiers/outpatientsingle"><button class="button button1" style="margin-left: 81%;">Create Bill</button></a>
+            <a href="<?php echo URLROOT ?>/Cashiers/outpatientsingle"><button class="opbill-form-submit" style="margin-left: 320px;">Create Bill</button></a>
+            <br>
+            <br>
             
         </div>
     </div>  

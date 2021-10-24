@@ -311,6 +311,36 @@ ul li a:hover{
     transform: scale(1.1);
   }
 
+/* outpatient bill create bill button */
+
+.opbill-form-submit{
+  padding: 10px;
+  width : 200px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 4px;
+  cursor: pointer;
+  /* border: solid 2px #0a0a2e; */
+  /*border: none;*/
+  color: #fff;
+  background-color: #0a0a2e;
+  border-radius: 15px; 
+  margin-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  transition: transform .2s;
+  
+  
+}
+
+.opbill-form-submit:hover{
+  background-color: #0a0a2e;
+  color:#ffff;
+  transform: scale(1.1);
+}
+
 .form-clear{
   padding: 10px;
     text-align: center;
