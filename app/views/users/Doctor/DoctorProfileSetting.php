@@ -11,28 +11,28 @@ require APPROOT . '/views/includes/Doctorhead.php';
             Name
         </h5>
 
-        <input class="input1" type="text" id="Rfname" name="Rfname" size=15 placeholder="A.D.N.Kulathunga" readonly>
+        <input class="input-ps" type="text" id="Rfname" name="Rfname" size=15 placeholder="A.D.N.Kulathunga" readonly>
 
         
         <h5>
             NIC
         </h5>
 
-        <input class="input1" type="text" id="Rnic" name="Rnic" size=12 placeholder="784596212V" readonly>
+        <input class="input-ps" type="text" id="Rnic" name="Rnic" size=12 placeholder="784596212V" readonly>
 
 
         <h5>
             Email
         </h5>
 
-        <input class="input1" type="text" id="Remail" name="Remail" size=40 placeholder="abc@gmail.com" readonly>
+        <input class="input-ps" type="text" id="Remail" name="Remail" size=40 placeholder="abc@gmail.com" readonly>
 
 
         <h5>
             Username
         </h5>
 
-        <input class="input1" type="text" id="Runame" name="Runame" size=40 placeholder="abc_78" readonly>
+        <input class="input-ps" type="text" id="Runame" name="Runame" size=40 placeholder="abc_78" readonly>
 
 
         <h5>

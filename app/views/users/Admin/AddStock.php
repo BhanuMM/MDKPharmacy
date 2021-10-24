@@ -32,7 +32,8 @@ require APPROOT . '/views/includes/Adminhead.php';
             </h5>
             <input class="input1" type="date" id="expdate" name="expdate" placeholder="2023-01-02" required>
                 
-            <br><br>
+            <br><br><br>
+            <input class="button button1" type="reset" value="Refresh">
             <button class="form-submit">Submit</button>
         </form>
     </div>

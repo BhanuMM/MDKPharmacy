@@ -20,7 +20,7 @@ require APPROOT . '/views/includes/Adminhead.php';
         <h5>
             Phone Number
         </h5>
-        <input class="input1" id="suptelno" name="suptelno" type="text" placeholder="075 222 3576" value="<?php echo $data['suppliertelno']; ?>" required>
+        <input class="input1" id="suptelno" name="suptelno" type="text" placeholder="0752223576" value="<?php echo $data['suppliertelno']; ?>" required>
         <span class="invalidFeedback">
                 <?php echo $data['telError']; ?>
                 </span>
@@ -30,6 +30,7 @@ require APPROOT . '/views/includes/Adminhead.php';
         <input type="email" id="supmail" name="supmail"  class="input1"  placeholder="abc@gmail.com" value="<?php echo $data['suppliermail']; ?>" >
                 
         <br><br>
+        <input class="button button1" type="reset" value="Refresh">
         <button class="form-submit">Submit</button>
     </form>
 </div>

@@ -41,7 +41,7 @@ require APPROOT . '/views/includes/Adminhead.php';
             Phone Number
         </h5>
 
-        <input class="input1" type="text" id="Rtelno" name="Rtelno" size=10 placeholder="075 222 3576" value="<?php echo $data['telno']; ?>" required>
+        <input class="input1" type="text" id="Rtelno" name="Rtelno" size=10 placeholder="0752223576" value="<?php echo $data['telno']; ?>" required>
         <span class="invalidFeedback">
                 <?php echo $data['telError']; ?>
                 </span>

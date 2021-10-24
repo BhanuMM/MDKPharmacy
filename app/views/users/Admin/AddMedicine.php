@@ -62,7 +62,8 @@ require APPROOT . '/views/includes/Adminhead.php';
         </select>
                 
             <br><br><br><br>
-            <div style="margin-left:340px;">
+         <div style="margin-left:220px;">
+            <input class="button button1" type="reset" value="Refresh">
             <button class="form-submit">Submit
             </button>
     </div>

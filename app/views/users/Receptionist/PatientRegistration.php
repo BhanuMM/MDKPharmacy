@@ -29,7 +29,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                      <h5>
                         Phone Number
                     </h5>
-                    <input class="input1" id="pattelno" name="pattelno" type="text" placeholder="+94761234567" value="<?php echo $data['patienttelno']; ?>" required>
+                    <input class="input1" id="pattelno" name="pattelno" type="text" placeholder="0776360659" value="<?php echo $data['patienttelno']; ?>" required>
                     <span class="invalidFeedback">
                 <?php echo $data['telError']; ?>
                 </span>
@@ -52,7 +52,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                     <input class="input1" type="date" id="patdob" name="patdob" size=15 required>
 
                     <br><br><br>
-                    <div style="margin-left:240px;">
+                    <div style="margin-left:200px;">
                         <input class="form-clear" type="reset" value=" Clear ">
                     <input type="Submit" class="form-submit" value="Submit">
                 </div>
