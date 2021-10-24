@@ -8,13 +8,17 @@
     
   <br>
   <br>
+
   <section class="product-header">
   <form class="search-container">
     <input type="text" id="search-bar" placeholder="Check Medicine Availability">
     <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
   </form>
 
+
   <a href="<?php echo URLROOT; ?>/pages/upload"> <button class="upload-button">Upload Prescription + </button></a>
+      <h5> Order your medicine to the doorsteps during
+          the pandemic,<br> Simply Send your Prescription to us. </h5>
 
 </section> 
 
