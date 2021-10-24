@@ -13,15 +13,16 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 Gender: Male <br>
             </div>
         </div>
-    </div>
+    </div> <br><br>
+     
                    
      <!-- --------------------------------------------------------------------------------------------- -->             
     <div class="row">
-        <div class="column" style="margin-left:5%; padding:1px 16px;">
-            <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
-                <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;"><a href="#"><img src="../Images/Search.png" alt="Search" height="15px" style="opacity: 0.5;"></a></li>
-                <li Style="float: right; vertical-align: middle; display: inline; "><input class="input1" type="text" placeholder="Generic Name"></li>
-            </ul>
+        <div class="column" style="margin-left:5%; ">
+        <form class="addmed-search-container">
+         <input type="text" id="addmed-search-bar" placeholder="  Search Medicine">
+        <a href="#"><img class="addmed-search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+  </form><br><br><br>
             <table>
                 <tr>
                     <th>Medicine ID</th>
@@ -38,7 +39,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
               </table>
         </div>
 
-        <div class="column" style="margin-left:25%;padding:1px 16px;">
+        <div class="column" style="margin-left:35%;padding:1px;">
             <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
                 <li><h3>Added Medicine List</h3></li>
             </ul>
@@ -74,7 +75,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
               </table>
-            <a href="<?php echo URLROOT ?>/doctors/viewprescriptions"><button class="button button1" style="margin-left: 81%;">Create Prescription</button></a>
+            <a href="<?php echo URLROOT ?>/doctors/viewprescriptions"><button class="button button1" style="margin-left: 100%;">Create Prescription</button></a>
 <!--              <input type="button" style="margin-left: 10%;" class="button button1" value="Create Prescription" />-->
             
         </div>
