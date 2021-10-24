@@ -2,7 +2,13 @@
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
-<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; "><span class="successadded">
+                 <?php
+                 if(isset($_GET['msg'])){
+                     echo $_GET['msg']; // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
                 <a href="<?php echo URLROOT ?>/users/register"><button  class="button button1">Add New User +</button></a>
                 <ul style="padding-left: 0px; list-style-type: none; ">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> User Details</h3></li>
@@ -12,13 +18,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                     <li Style="float: right; vertical-align: middle; display: inline;">
                         <input type="text" id="UISearchbar" style="height: 35px;" placeholder="NIC"></li></form>
                 </ul>
-            <span class="successadded">
-                 <?php
-                 if(isset($_GET['msg'])){
-                     echo $_GET['msg']; // print_r($_GET); //remember to add semicolon
-                 }
-                 ?>
-                </span>
+
                 <table id="customers">
                     <tr>
                       <th>Staff ID</th>

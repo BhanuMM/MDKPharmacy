@@ -39,24 +39,24 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 <tr>
                     <th>Medicine</th>
                     <th class="table-field">Quantity</th>
-                    <th class="table-field">Total</th>
+<!--                    <th class="table-field">Total</th>-->
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td></td>
+<!--                    <td></td>-->
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td></td>
+<!--                    <td></td>-->
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td></td>
+<!--                    <td></td>-->
                 </tr>
                 </tbody>
             </table>
