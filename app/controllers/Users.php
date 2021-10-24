@@ -106,8 +106,8 @@ class Users extends Controller {
                 //Register user from model function
                 if ($this->userModel->register($data)) {
                     //Redirect to the login page
-//                    $data['viewalert'] = 'view';
-                    header('location: ' . URLROOT . '/admins/viewuser');
+                    $recadded = 'New user has been Successfully Added!';
+                    header('location: ' . URLROOT . '/admins/viewuser?msg='.$recadded);
                 } else {
                     die('Something went wrong.');
                 }

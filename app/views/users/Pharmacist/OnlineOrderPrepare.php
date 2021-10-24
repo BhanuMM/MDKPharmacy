@@ -75,7 +75,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
               </table>
-            <a href="#"><button class="button button1" style="margin : 50px 0px 300px;">Create Prescription</button></a>
+            <a href="<?php echo URLROOT; ?>/pharmacists/viewprescription"><button class="button button1" style="margin : 50px 0px 300px;">Create Prescription</button></a>
 <!--              <input type="button" style="margin-left: 10%;" class="button button1" value="Create Prescription" />-->
             
         </div>
