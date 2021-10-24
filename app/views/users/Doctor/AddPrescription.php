@@ -18,11 +18,13 @@ require APPROOT . '/views/includes/Doctorhead.php';
                    
      <!-- --------------------------------------------------------------------------------------------- -->             
     <div class="row">
+
         <div class="column" style="margin-left:5%; ">
         <form class="addmed-search-container">
          <input type="text" id="addmed-search-bar" placeholder="Search Medicine">
         <a href="#"><img class="addmed-search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
-  </form><br><br><br>
+        </form><br><br><br>
+
             <table>
                 <tr>
                     <th>Medicine ID</th>
@@ -75,7 +77,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
               </table>
-            <a href="<?php echo URLROOT ?>/doctors/viewprescriptions"><button class="button button1" style="margin-left: 100%;">Create Prescription</button></a>
+            <a href="<?php echo URLROOT ?>/doctors/viewprescriptions"><button class="form-submit" style="margin-left: 260px;">Create Prescription</button></a>
             <br> <br> <br> <br> <br>
 <!--              <input type="button" style="margin-left: 10%;" class="button button1" value="Create Prescription" />-->
             
