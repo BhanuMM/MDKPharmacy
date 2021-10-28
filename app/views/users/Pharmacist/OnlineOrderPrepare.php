@@ -17,7 +17,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 <div class="split right">
 <div class="centered">
 
-<div class="row" style="margin-top:200%; ">
+<div class="row" style="margin-top:130%; ">
         <!-- <div class="column" style="margin-left:25%; padding:1px 16px;"> -->
         <input type="text" id="search-bar" placeholder="Search Medicine">
     <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
@@ -41,7 +41,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
               </table>
         </div><br><br>
        
-
+<hr>
 
 
       <!-- <div class="column">  -->
