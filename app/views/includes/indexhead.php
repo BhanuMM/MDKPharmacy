@@ -12,6 +12,7 @@
 
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/landingstyle.css">
 
@@ -22,7 +23,7 @@
         <!--top bar ( time/contact) -->
         <div class="top-header">
             <div class="text-left">
-                <p>Open 24 hours</p>
+                <p>   Open 24 hours</p>
             </div>
             <div class="text-right">
                 Call Us At 0347 888 888

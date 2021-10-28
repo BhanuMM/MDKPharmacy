@@ -16,8 +16,46 @@
   </div>
 </section>
 
-    <!-- About Us -->
+<section class="features">
+  <div class="features-inner">
+    <div class="features-card" style="border-radius:15px 0px 0px 15px">
+      
+    <div style="font-size: 3rem;">
+      <i class="fa fa-phone-square" aria-hidden="true"></i>
+    </div>
 
+      <h2>Emergency Cases</h2>
+     
+      <p>Please feel free to contact our friendly reception staff with any general or
+                  medical enquiry.<br></p>
+    </div>
+
+    <div class="features-card" style="background-color:#2d4990;">
+    
+    <div style="font-size: 3rem;">
+       <i class="fa fa-medkit " aria-hidden="true"></i>
+    </div>
+
+    <h2>Health Checkup</h2>
+   
+      <p>Make an appointment with our panel of expert physicians and learn about maintaining a wholesome lifestyle and good health.</p>
+      
+    </div>
+    <div class="features-card" style="background-color:#21cdc0;border-radius:0px 15px 15px 0px">
+  
+    <div style="font-size: 3rem;">
+    <i class="fa fa-truck" aria-hidden="true"></i>
+    </div>
+    <h2>Online Pharmacy</h2>
+      <p>Order medicine online with few clicks and recieve medicine to your doorsteps </p>
+    </div>
+
+  </div>
+</section>
+
+    <!-- About Us -->
+    <br><br>
+    <br><br>
     <section id="about" class="about">
         <div class="about-left">
             <h1>About Us</h1><br><br>
@@ -29,7 +67,7 @@
         </div>
 
         <div class="about-right">
-            <img src="<?php echo URLROOT ?>/public/images/c1.jpg" >
+            <img src="<?php echo URLROOT ?>/public/images/c1.jpg">
         </div>
 
 
@@ -54,7 +92,7 @@
         </div>
 
         <div class="op-left">
-            <img src="<?php echo URLROOT ?>/public/images/deliveryman.jpg">
+            <img src="<?php echo URLROOT ?>/public/images/op.jpg">
         </div>
 
     </section>
@@ -65,7 +103,7 @@
     <h1>Our Facilities</h1>
     <p>MDK Hospitals is committed to provide <br>compassionate care
 and excellent service that transcends conventional healthcare.
-    </p>
+    </p><br><br><br>
     <div class="row">
     <div class="fac-col">
         <h3>Surgery</h3>
@@ -85,16 +123,57 @@ and excellent service that transcends conventional healthcare.
 
     </section>
 
+
+    <!-- Contact -->
+    <!-- Faculty section css styles applied -->  
+   
+    <section id="location" class="location">
+
+    <center>   
+    <div class="location-center">
+         
+            <h1 style="font-size:50px;">Contact Us</h1><br><br><br>
+            <!-- <h2>Order your medicine to the doorsteps during <br>the pandemic</h2><br> -->
+           
+
+            <p  style="font-size:20px;"> <i class="fa fa-map-marker" aria-hidden="true"></i>        No 149, Sri Ariyavilasa Rd,
+Horana 12400 <br> <i class="fa fa-phone-square" style=" aria-hidden="true"></i>
+   0347 888 888 
+
+           
+
+
+        </div>
+</div>
+<center>   
+        <br><br>
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.4554387451667!2d80.06169371460474!3d6.714141722780812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24b7291210f21%3A0xac1a58f519a84bf2!2sMDK%20Hospital!5e0!3m2!1sen!2slk!4v1634207145593!5m2!1sen!2slk" width="1400px" height="350px"  style="border:0;" allowfullscreen="" loading="lazy"></iframe> 
+        </div>
+        
+    </section>
+    <center>  
+    <br>
+</div
+
+
+    
     
     <!-- location -->
+<!-- 
+    <section id="location" class= "location"> -->
+   
 
-    <section id="location" class= "location">
-    <center>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.4554387451667!2d80.06169371460474!3d6.714141722780812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24b7291210f21%3A0xac1a58f519a84bf2!2sMDK%20Hospital!5e0!3m2!1sen!2slk!4v1634207145593!5m2!1sen!2slk" width="1500" height="450"  style="border:0;" allowfullscreen="" loading="lazy"></iframe></center>
-    </section>
+         
+    </center>
+    <!-- <h1>Locate Us</h1> -->
+    <br><br>
+    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.4554387451667!2d80.06169371460474!3d6.714141722780812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24b7291210f21%3A0xac1a58f519a84bf2!2sMDK%20Hospital!5e0!3m2!1sen!2slk!4v1634207145593!5m2!1sen!2slk" width="1500" height="450"  style="border:0;" allowfullscreen="" loading="lazy"></iframe></center> -->
+    <!-- <br>
     <br>
     <br>
-    <BR>
+
+    <br>
+    <BR> -->
 
     <?php
    require APPROOT . '/views/includes/footer.php';
