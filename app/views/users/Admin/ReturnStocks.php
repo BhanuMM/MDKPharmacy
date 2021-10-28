@@ -8,7 +8,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                 Return Stock Details
             </h2>
             <h5>
-                Supplier Agency
+                Supplier Agency Name
             </h5>
             <select class="input1" name="supplier" id="supplier" required>
                 <option value="heyleys">Hayleys Lifesciences(Pvt)Ltd</option>
@@ -21,11 +21,11 @@ require APPROOT . '/views/includes/Adminhead.php';
                 Brand Name
             </h5>
             <select class="input1" name="brand" id="brand" required>
-                <option value="">  </option>
-                <option value=""></option>
-                <option value=""> </option>
-                <option value=""> </option>
-                <option value=""></option>
+                <option value=" Omez"> Omez</option>
+                <option value="Paracetamol"> Paracetamol</option>
+                <option value="Amoxil"> Amoxil</option>
+                <option value="Absorica">Absorica </option>
+                <option value="Alimta">Alimta</option>
             </select>
             <h5>
                 Generic Name
@@ -48,6 +48,10 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <option value="expired"> Expired</option>
                 <option value="damaged"> Damaged</option>
             </select>
+            <h5>
+               Stock Purchased Date
+            </h5>
+            <input class="input1" type="date" id="pur" name="pur" size=15 required>
                 
             <br><br><br>
             <input class="button button1" type="reset" value="Refresh">

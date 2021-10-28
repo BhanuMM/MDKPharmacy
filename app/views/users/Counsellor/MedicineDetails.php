@@ -13,10 +13,10 @@ require APPROOT . '/views/includes/Counsellorhead.php';
                
                 <table id="customers">
                 <tr>
-                      <th>Medicine ID</th>
+                <th>Medicine ID</th>
                       <th>Generic Name</th>
                       <th>Brand Name</th>
-                      <th>Importer</th>
+                      <th>Supplier Agency Name</th>
                       <th>Remaining Quantity</th>
                       <th>Unit Price</th>
                     </tr>
@@ -24,7 +24,7 @@ require APPROOT . '/views/includes/Counsellorhead.php';
                       <td>M001</td>
                       <td>Omeprazole</td>
                       <td>Omez</td>
-                      <td>Heyleys</td>
+                      <td>Hayleys</td>
                       <td>400</td>
                       <td>10.00</td>
                     </tr>

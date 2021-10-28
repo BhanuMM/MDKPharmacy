@@ -8,7 +8,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                 Stock Details
             </h2>
             <h5>
-                Supplier Agency
+                Supplier Agency Name
             </h5>
             <select class="input1" name="supplier" id="supplier" required>
                 <option value="heyleys">Hayleys Lifesciences(Pvt)Ltd</option>
@@ -21,6 +21,16 @@ require APPROOT . '/views/includes/Adminhead.php';
                 Brand Name
             </h5>
             <select class="input1" name="brand" id="brand" required>
+                <option value=" Omez"> Omez</option>
+                <option value="Paracetamol"> Paracetamol</option>
+                <option value="Amoxil"> Amoxil</option>
+                <option value="Absorica">Absorica </option>
+                <option value="Alimta">Alimta</option>
+            </select>
+            <h5>
+                Generic Name
+            </h5>
+            <select class="input1" name="generic" id="generic" required>
                 <option value="amoxicillin"> Amoxicillin capsule 250mg </option>
                 <option value="amoxicillin"> Amoxycillin capsule 500mg</option>
                 <option value="flucloxacillin"> Flucloxacillin capsule 250mg </option>

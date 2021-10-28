@@ -6,11 +6,11 @@ require APPROOT . '/views/includes/Adminhead.php';
     <form  method="post" class="data" action="<?php echo URLROOT; ?>/admins/addsupplier">
 
         <h2 style="margin-top: 3%;">
-            Supplier Details
+            Supplier Agency Details
         </h2>
 
         <h5>
-            Agency Name
+            Supplier Agency Name
         </h5>
         <input class="input1"  id="supname" name="supname" type="text" placeholder="A. K. Perera" value="<?php echo $data['suppliername']; ?>" required >
         <h5>
