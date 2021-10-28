@@ -22,7 +22,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="pharmacist")){
         <li><a href = "<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
         <li><a href = "#"> Online Orders</a></li>
         <li><a href = "<?php echo URLROOT ?>/pharmacists/viewmedicineavailability">Medicine Availability</a></li>
-        <li><a href = "#">Deliveries</a></li>
+<!--        <li><a href = "#">Deliveries</a></li>-->
         <li><a href = "<?php echo URLROOT ?>/pharmacists/profilesettings">Profile Settings</a></li>
     </ul>
 </div>

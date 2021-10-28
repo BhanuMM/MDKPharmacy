@@ -35,26 +35,26 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <th>Expiry Date</th>
                     </tr>
                     <tr>
-                      <th>M1</th>
-                      <th>Hayleys Lifesciences Pvt(Ltd)</th>
-                      <th>Omez</th>
-                      <th>Omeprazole</th>
-                      <th>500</th>
-                      <th>10.00</th>
-                      <th>15.00</th>
-                      <th>2021-10-06</th>
-                      <th>2022-10-06</th>
+                      <td>M1</td>
+                      <td>Hayleys Lifesciences Pvt(Ltd)</td>
+                      <td>Omez</td>
+                      <td>Omeprazole</td>
+                      <td>500</td>
+                      <td>10.00</td>
+                      <td>15.00</td>
+                      <td>2021-10-06</td>
+                      <td>2022-10-06</td>
                     </tr>
                     <tr>
-                      <th>M2</th>
-                      <th>IJ Medicals</th>
-                      <th>panadol</th>
-                      <th>Paracetamol</th>
-                      <th>1000</th>
-                      <th>3.00</th>
-                      <th>5.00</th>
-                      <th>2021-11-06</th>
-                      <th>2023-10-06</th>
+                      <td>M2</td>
+                      <td>IJ Medicals</td>
+                      <td>panadol</td>
+                      <td>Paracetamol</td>
+                      <td>1000</td>
+                      <td>3.00</td>
+                      <td>5.00</td>
+                      <td>2021-11-06</td>
+                      <td>2023-10-06</td>
                     </tr>
 
                      <!-- <?php foreach($data['stocks'] as $allstocks): ?>
