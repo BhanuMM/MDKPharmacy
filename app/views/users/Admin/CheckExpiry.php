@@ -13,14 +13,14 @@ require APPROOT . '/views/includes/Adminhead.php';
                 </ul>
 <p></p>
 <div class="w3-bar w3-black">
-  <button class="w3-bar-item w3-button" onclick="expiry('already')">Expired</button>
-  <button class="w3-bar-item w3-button" onclick="expiry('one')">Expired within one month</button>
-  <button class="w3-bar-item w3-button" onclick="expiry('three')">Expired within three months</button>
+  <button class="w3-bar-item w3-button tablink w3-blue" onclick="openCity(event,'already')">Expired</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'one')">Expired within one month</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'three')">Expired within three months</button>
 </div>
 
 <div id="already" class="w3-container w3-display-container city">
-  <span onclick="this.parentElement.style.display='none'"
-  class="w3-button w3-large w3-display-topright">&times;</span>
+<!--  <span onclick="this.parentElement.style.display='none'"-->
+<!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
   <table id="customers">
     <tr>
@@ -56,8 +56,8 @@ require APPROOT . '/views/includes/Adminhead.php';
 </div>
 
 <div id="one" class="w3-container w3-display-container city" style="display:none">
-  <span onclick="this.parentElement.style.display='none'"
-  class="w3-button w3-large w3-display-topright">&times;</span>
+<!--  <span onclick="this.parentElement.style.display='none'"-->
+<!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
   <table id="customers">
   <tr>
@@ -83,8 +83,8 @@ require APPROOT . '/views/includes/Adminhead.php';
 </div>
 
 <div id="three" class="w3-container w3-display-container city" style="display:none">
-  <span onclick="this.parentElement.style.display='none'"
-  class="w3-button w3-large w3-display-topright">&times;</span>
+<!--  <span onclick="this.parentElement.style.display='none'"-->
+<!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
   <table id="customers">
   <tr>
@@ -118,16 +118,21 @@ require APPROOT . '/views/includes/Adminhead.php';
                 </p>
 </div>
 
-<script>
-function expiry(cityName) {
-  var i;
-  var x = document.getElementsByClassName("city");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  document.getElementById(cityName).style.display = "block";  
-}
-</script>
+    <script>
+        function openCity(evt, cityName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-blue", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " w3-blue";
+        }
+    </script>
 
 </body>
 </html>
