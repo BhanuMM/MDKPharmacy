@@ -11,8 +11,8 @@ require APPROOT . '/views/includes/Adminhead.php';
                  ?>
                 </span> <br>
                 <a href="<?php echo URLROOT ?>/Admins/addstock"><button class="button button1">Add New Stock +</button></a>
-                <a href="<?php echo URLROOT ?>/Admins/"><button class="button button1">Return Stocks</button></a>
-                <a href="<?php echo URLROOT ?>/Admins/"><button class="button button1">Check Expiry</button></a>
+                <a href="<?php echo URLROOT ?>/Admins/returnstocks"><button class="button button1">Return Stocks</button></a>
+                <a href="<?php echo URLROOT ?>/Admins/checkexpiry"><button class="button button1">Check Expiry</button></a>
                 <a href="<?php echo URLROOT ?>/Admins/"><button class="button button1">View Return Stocks</button></a>
                 <ul style="padding-left: 0px; list-style-type: none; ">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> Stock Details</h3></li>
