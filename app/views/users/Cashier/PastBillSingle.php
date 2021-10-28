@@ -21,8 +21,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
         <div class="bill-body">
             <div class="bill-row">
                 <div class="bill-col">
-                    	<h2>Prescription No: </h2>
-                    	<p>Bill No: </p>
+                    	<h2>Bill No: </h2>
+                    	<p>Prescription No: </p>
                     	<p>Order Date: </p>
 			            <p>Patient Type: </p>
                     	<p>Patient Name:  </p>

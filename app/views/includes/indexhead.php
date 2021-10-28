@@ -50,8 +50,7 @@
                 <li><a href="#op" onclick="return hashNoHistory(this)">Pharmacy</a></li>
                 <!-- <li><a href="">Surgeries</a></li> -->
                 <li><a href="#fac" onclick="return hashNoHistory(this)">Facilities</a></li>
-                <li><a href="#location" onclick="return hashNoHistory(this)"
->Location</a></li>
+                <li><a href="#location" onclick="return hashNoHistory(this)">Contact Us</a></li>
 
 <!--                <li><a href="--><?php //echo URLROOT; ?><!--/users/login">Log In</a></li>-->
             </ul>
