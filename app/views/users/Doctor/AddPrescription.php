@@ -43,15 +43,16 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
         <div class="column" style="margin-left:35%;padding:1px;">
             <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
-                <li><h3>Added Medicine List</h3></li>
+                <li><h3>Prescription</h3></li>
             </ul>
             <table style="padding: 12px;">
                 <tr>
                     <th>Medicine ID</th>
                     <th>Medicine</th>
-                    <th>Quantity</th>
+                    <th>Dosage</th>
                     <th></th> 
                 </tr>
+
                 <tr>
                     <th>M001</th>
                     <td>Paracetamol</td>

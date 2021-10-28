@@ -22,7 +22,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="receptionist")){
     <ul style="list-style-type: none; padding-left: 0px;">
         <li><a href = "<?php echo URLROOT ?>/receptionists/receptionistdashboard">Dashboard</a></li>
         <li><a href = "<?php echo URLROOT ?>/receptionists/viewpatients">Patients </a></li>
-        <li><a href = "#">Doctors </a></li>
+<!--        <li><a href = "#">Doctors </a></li>-->
         <li><a href = "<?php echo URLROOT ?>/receptionists/profilesettings">Profile Settings</a></li>
     </ul>
 </div>
