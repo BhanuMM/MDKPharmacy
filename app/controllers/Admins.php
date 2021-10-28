@@ -207,4 +207,10 @@ class Admins extends Controller {
     public function checkexpiry() {
         $this->view('users/Admin/CheckExpiry');
     }
+
+    public function viewreturns() {
+        $this->view('users/Admin/ViewReturns');
+    }
+
+    
 }
