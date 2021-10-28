@@ -199,4 +199,18 @@ class Admins extends Controller {
     public function profilesettings() {
         $this->view('users/Admin/AdminProfileSetting');
     }
+
+    public function returnstocks() {
+        $this->view('users/Admin/ReturnStocks');
+    }
+
+    public function checkexpiry() {
+        $this->view('users/Admin/CheckExpiry');
+    }
+
+    public function viewreturns() {
+        $this->view('users/Admin/ViewReturns');
+    }
+
+    
 }

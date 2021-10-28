@@ -11,10 +11,11 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 </ul>
                
                 <table id="customers">
-                    <tr>
-                      <th>Medicine ID</th>
+                <tr>
+                    <th>Medicine ID</th>
                       <th>Generic Name</th>
                       <th>Brand Name</th>
+                      <th>Supplier Agency Name</th>
                       <th>Remaining Quantity</th>
                       <th>Unit Price</th>
                     </tr>
@@ -22,7 +23,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
                       <td>M001</td>
                       <td>Omeprazole</td>
                       <td>Omez</td>
-                      <td>Heyleys</td>
+                      <td>Hayleys</td>
+                      <td>400</td>
                       <td>10.00</td>
                     </tr>
                     <tr>
@@ -30,6 +32,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                       <td>Paracetamol</td>
                       <td>Panadol</td>
                       <td>Coniferr International</td>
+                      <td>300</td>
                       <td>7.00</td>
                     </tr>
                     <tr>
@@ -37,6 +40,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                       <td>Amoxicillin</td>
                       <td>Amoxil</td>
                       <td>Agvet Pharma</td>
+                      <td>500</td>
                       <td>12.00</td>
                     </tr>
                   </table>

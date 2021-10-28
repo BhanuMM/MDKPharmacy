@@ -3,9 +3,9 @@ require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
     <div style="margin-left:20%;  padding:1px 16px; width: 40%">
-        <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/addstock">
+        <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/returnstocks">
             <h2 style="margin-top: 3%;">
-                Stock Details
+                Return Stock Details
             </h2>
             <h5>
                 Supplier Agency Name
@@ -38,29 +38,20 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <option value="oseltamivir">Oseltamivir capsule 45mg</option>
             </select>
             <h5>
-                Package Size
-            </h5>
-            <input class="input1" type="number" id="pack" name="pack" placeholder="100" required>
-            <h5>
-                Quantity
+                Return Quantity
             </h5>
             <input class="input1" type="number" id="quantity" name="quantity" placeholder="18" required>
             <h5>
-                Purchasing unit price (Rs.)
+                Reason to return the stock
             </h5>
-            <input class="input1" type="number" id="purchprice" name="purchprice" placeholder="10.00" required>
+            <select class="input1" name="return" id="return" required>
+                <option value="expired"> Expired</option>
+                <option value="damaged"> Damaged</option>
+            </select>
             <h5>
-                Selling unit price (Rs.)
+               Stock Purchased Date
             </h5>
-            <input class="input1" type="number" id="sellprice" name="sellprice" placeholder="13.00" required>
-            <h5>
-                Purchase Date
-            </h5>
-            <input class="input1" type="date" id="purchdate" name="purchdate" placeholder="2021-01-02"required>
-            <h5>
-                Expiry Date
-            </h5>
-            <input class="input1" type="date" id="expdate" name="expdate" placeholder="2023-01-02" required>
+            <input class="input1" type="date" id="pur" name="pur" size=15 required>
                 
             <br><br><br>
             <input class="button button1" type="reset" value="Refresh">

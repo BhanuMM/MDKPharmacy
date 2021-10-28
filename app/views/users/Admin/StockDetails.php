@@ -11,27 +11,53 @@ require APPROOT . '/views/includes/Adminhead.php';
                  ?>
                 </span> <br>
                 <a href="<?php echo URLROOT ?>/Admins/addstock"><button class="button button1">Add New Stock +</button></a>
+                <a href="<?php echo URLROOT ?>/Admins/returnstocks"><button class="button button1">Add Return Stocks</button></a>
+                <a href="<?php echo URLROOT ?>/Admins/checkexpiry"><button class="button button1">Check Expiry</button></a>
+                <a href="<?php echo URLROOT ?>/Admins/viewreturns"><button class="button button1">View Return Stocks</button></a>
                 <ul style="padding-left: 0px; list-style-type: none; ">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> Stock Details</h3></li>
                     <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
                             <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
                         <li Style="float: right; vertical-align: middle; display: inline;">
-                            <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Stock ID"></li></form>
+                            <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Medicine ID"></li></form>
                 </ul>
 
                 <table id="customers">
                     <tr>
-                      <th>Item Code</th>
+                      <th>Medicine ID</th>
+                      <th>Supplier Agency Name</th>
+                      <th>Brand Name</th>
+                      <th>Generic Name</th>
                       <th>Quantity</th>
                       <th>Purchase unit price</th>
                       <th>Selling unit price</th>
                       <th>Purchase Date</th>
                       <th>Expiry Date</th>
-<!--                      <th>Update</th>-->
-<!--                      <th>Delete</th>-->
                     </tr>
-                    <?php foreach($data['stocks'] as $allstocks): ?>
+                    <tr>
+                      <th>M1</th>
+                      <th>Hayleys Lifesciences Pvt(Ltd)</th>
+                      <th>Omez</th>
+                      <th>Omeprazole</th>
+                      <th>500</th>
+                      <th>10.00</th>
+                      <th>15.00</th>
+                      <th>2021-10-06</th>
+                      <th>2022-10-06</th>
+                    </tr>
+                    <tr>
+                      <th>M2</th>
+                      <th>IJ Medicals</th>
+                      <th>panadol</th>
+                      <th>Paracetamol</th>
+                      <th>1000</th>
+                      <th>3.00</th>
+                      <th>5.00</th>
+                      <th>2021-11-06</th>
+                      <th>2023-10-06</th>
+                    </tr>
 
+                     <!-- <?php foreach($data['stocks'] as $allstocks): ?>
                         <tr>
                             <td><?php echo $allstocks->itemcode; ?></td>
                             <td><?php echo $allstocks->quantity; ?></td>
@@ -40,8 +66,8 @@ require APPROOT . '/views/includes/Adminhead.php';
                             <td><?php echo $allstocks->purchdate; ?></td>
                             <td><?php echo $allstocks->expdate; ?></td>
                         </tr>
+                        <?php endforeach; ?> -->
 
-                    <?php endforeach; ?>
                   </table>
 
             </div>
