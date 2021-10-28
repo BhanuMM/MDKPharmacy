@@ -220,4 +220,16 @@ class Users extends Controller {
         unset($_SESSION['urole']);
         header('location:' . URLROOT . '/users/login');
     }
+    public function forgetpass() {
+        $this->view('users/forgetpass');
+
+    }
+    public function entercode() {
+        $this->view('users/entercode');
+
+    }
+    public function resetpass() {
+        $this->view('users/resetpass');
+
+    }
 }
