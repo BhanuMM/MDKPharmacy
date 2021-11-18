@@ -1,33 +1,21 @@
+/*Body style of web pages*/
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;  
+}
 
-  }
-  
-/* Time and Date */
-/* 
-#myDiv{
-  float: left;
-  display: inline:
-  padding-left: 4%;
-  padding-right: 60%;
- 
-}  */
-
-
- /* side bar navigation  */
-
+/*Styles of side Navigation bar*/
 .sidebar{
     position: fixed;
     left: 0;
     width : 17%;
-    height: 100%; 
+    height: 100%;
     background-color: #0a0a2e;
     margin: 7px 7px 7px 7px;
     border: solid 2px #0a0a2e;
     border-radius: 15px 15px 15px 15px;
 }
-
+/*Side Nav bar header styles*/
 .sidebar header{
     font-size: 18px;
     color: white;
@@ -35,10 +23,9 @@ body {
     padding-top: 8.5%;
     padding-bottom: 8.5%;
     text-align: center;
-    /* background-color: #0a0a2e; */
     user-select: none;
 }
-
+/*Side Navigation bar href styles*/
 .sidebar ul a{
     display: block;
     font-family: "Poppins";
@@ -54,21 +41,20 @@ body {
     transition: .4s;
 }
 
+/*Side Navigation bar href hover styles*/
 ul li a:hover{
     background-color: white;
     color:#0a0a2e;
     border-left: 10px solid #0a0a2e;
-} 
+}
 
-  /*---------------------------------------------------------------------*/
+/* nav-bar = top navigation bar*/
+.nav-bar{
+    align-items:right;
+}
 
-  /* nav-bar = top navigation bar*/
-
-  .nav-bar{
-   align-items:right;
-  }
-
-  #list {
+/*--------------------------------------------------------------------------------*/
+#list {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -77,51 +63,49 @@ ul li a:hover{
     position: fixed;
     height: 100%;
     overflow: hidden;
-      text-decoration: none;
-  }
-  
-  #list a {
+    text-decoration: none;
+}
+
+#list a {
     display: block;
     color: #ffffff;
     padding: 8px 16px;
     text-decoration: none;
     font-family: arial;
-  }
-  
-  #list a.active {
-    background-color: #3C3B54;
-    color: white;
-  }
-  
-  #list a:hover:not(.active) {
-    background-color: #3C3B54;
-    color: white;
-  }
+}
 
-  #list2{
+#list a.active {
+    background-color: #3C3B54;
+    color: white;
+}
+
+#list a:hover:not(.active) {
+    background-color: #3C3B54;
+    color: white;
+}
+
+#list2{
       list-style-type: none;
       margin: 0;
       /* margin-left: 20px; */
       padding-top: 0.2%;
       padding-bottom: 1%;
-      padding-left: 87%; 
+      padding-left: 87%;
       /* added to get the element to the corner */
-  }
+}
 
-  #list2 li{
+#list2 li{
       display: inline;
       vertical-align: middle;
       padding-left: 1%;
-  }
-/* 
-  .column {
-       float: left;
-      flex: 50%; 
-  } */
-  .row:after {
+}
+/*--------------------------------------------------------------------------------*/
+
+.row:after {
       display: flex;
-  }
-  .button {
+}
+/*Form button styles*/
+.button {
       padding: 10px;
       text-align: center;
       text-decoration: none;
@@ -129,30 +113,31 @@ ul li a:hover{
       font-size: 14px;
       margin: 4px 2px;
       cursor: pointer;
-  }
-  .button1{
+}
+
+.button1{
       border: solid 2px #0a0a2e;
       /*border: none;*/
       color: #0a0a2e;
-      border-radius: 15px; 
+      border-radius: 15px;
       margin-top: 10px;
       padding-left: 30px;
       padding-right: 30px;
-      
-  }
+}
 
-  .button1:hover{
+.button1:hover{
       background-color: #0a0a2e;
       color:#ffff;
-    }
-  .button2{
+}
+
+.button2{
       border-width: thin;
       border-color: #3C3B54;
       background-color: #afafaf;
       color: #3C3B54;
       border-radius: 6px;
-  }
-
+}
+/*--------------------------------------------------------------------------------*/
 /* Only for Profile Settings Form Fields */
 .input-ps{
   width: 40%;
@@ -162,8 +147,8 @@ ul li a:hover{
   box-sizing: border-box;
   border:none;
   background-color: #d8d8da;
-
 }
+
 .input1{
     width: 100%;
     padding: 10px 15px;
@@ -173,7 +158,8 @@ ul li a:hover{
     border:none;
     background-color: #d8d8da;
 }
-  .input2{
+
+.input2{
       /*width: 400px;*/
       width: 100%;
       height: 100px;
@@ -183,37 +169,41 @@ ul li a:hover{
       box-sizing: border-box;
       border:none;
       background-color: #d8d8da;
-  }
-  #customers {
+}
+
+#customers {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
-  }
+}
   
-  #customers td, #customers th {
+#customers td, #customers th {
     border: 1px solid #ddd;
     padding: 8px;
-  }
+}
   
-  #customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(even){
+    background-color: #f2f2f2;
+}
   
-  #customers tr:hover {background-color: #ddd;}
+#customers tr:hover {
+      background-color: #ddd;
+}
   
-  #customers th {
+#customers th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
     background-color: #F5F6FA;
     color: #707070;
-  }
+}
 
-  #backbutton {
+#backbutton {
   background-color: white;
   color: black;
   border: 2px solid #4CAF50;
 }
 
-  /*------------------------------------------------------------------------------*/
 /*Dropdown Content*/
 .dropdown {
     position: relative;
@@ -301,18 +291,14 @@ ul li a:hover{
     padding-left: 30px;
     padding-right: 30px;
     transition: transform .2s;
-    
-    
 }
-
 .form-submit:hover{
     background-color: #0a0a2e;
     color:#ffff;
     transform: scale(1.1);
-  }
+}
 
 /* outpatient bill create bill button */
-
 .opbill-form-submit{
   padding: 10px;
   width : 200px;
@@ -331,8 +317,6 @@ ul li a:hover{
   padding-left: 30px;
   padding-right: 30px;
   transition: transform .2s;
-  
-  
 }
 
 .opbill-form-submit:hover{
@@ -361,9 +345,6 @@ ul li a:hover{
   background-color: #0a0a2e;
   color:#ffff;
 }
-
-
-
 
 /* Online Order(OO) Prepare */
 
@@ -394,9 +375,6 @@ ul li a:hover{
   transform: translate(-50%, -50%);
   text-align: center;
 }
- 
-
-
 
 /* Search bar for Doctor - add prescription.php */
 
@@ -407,7 +385,6 @@ ul li a:hover{
   padding-right:5%;
 }
 
-
 input#searchmed-search-bar{
   margin: 0 auto;
   width: 100%;
@@ -416,7 +393,6 @@ input#searchmed-search-bar{
   font-size: 1rem;
   border: 2px solid #0a0a2e;
   outline: none;
-
  }
 
 .searchmed-search-icon{
@@ -428,9 +404,6 @@ input#searchmed-search-bar{
   top: -48px;
   /* right: -45px; */
 }
-
-
-
 
 /*Search Bar*/
   
@@ -449,7 +422,6 @@ input#search-bar{
   font-size: 1rem;
   border: 2px solid #0a0a2e;
   outline: none;
-
  }
 
 .search-icon{
@@ -461,8 +433,7 @@ input#search-bar{
   /* right: -45px; */
 }
 
-
-  /*------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------*/
 /*Bill Content*/
 .bill{
   width: 80%;
