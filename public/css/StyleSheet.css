@@ -4,6 +4,16 @@ body {
     font-family: 'Poppins', sans-serif;  
 }
 
+/* Time and Date */
+/*
+#myDiv{
+  float: left;
+  display: inline:
+  padding-left: 4%;
+  padding-right: 60%;
+
+}  */
+
 /*Styles of side Navigation bar*/
 .sidebar{
     position: fixed;
