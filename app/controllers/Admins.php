@@ -187,6 +187,65 @@ class Admins extends Controller {
         
        
         }
+        /*------------------------------------------------------------------------------------------------------*/
+
+    public function updatesupplier($supplierid)
+    {
+        $sup = $this->adminModel->findSupplierById($supplierid);
+
+        $data = [
+            'supplierid' => $sup->supplierid,
+            'suppliername' => $sup->agencyname,
+            'supplieraddress' => $sup->agencyadrs,
+            'suppliertelno' => $sup->agencytel,
+            'suppliermail' => $sup->agencyemail,
+            'nameError' => '',
+            'telError' => ''
+
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'supplierid' => $sup->supplierid,
+                'suppliername' => trim($_POST['supname']),
+                'supplieraddress' => trim($_POST['supadrs']),
+                'suppliertelno' => trim($_POST['suptelno']),
+                'suppliermail' => trim($_POST['supemail']),
+            ];
+
+            // Validate telephone on length, numeric values,
+            $telValidation = "/^[0-9]+$/";
+            if(strlen($data['suppliertelno']) ==10 && preg_match($telValidation, $data['suppliertelno']) ){
+                $data['telError'] = '';
+            }else{
+                $data['telError'] = 'Invalid Contact Number';
+            }
+
+            // Make sure that errors are empty
+            if (empty($data['nameError']) && empty($data['telError'])) {
+
+
+                //Register user from model function
+                if ($this->adminModel->updatesupplier($data)) {
+                    //Redirect to the viewtable page
+                    $recadded = ' Supplier details has been Successfully Updated!';
+                    header('location: ' . URLROOT . '/admins/viewsupplier?msg='.$recadded);
+                } else {
+                    die('Something went wrong!');
+                }
+            }
+
+        }
+        $this->view('users/Admin/UpdateSupplier',$data);
+    }
+
+
+     /*-----------------------------------------------------------------------------------------------------------------*/
+
+
+
 
     public function viewreport() {
         $this->view('users/Admin/ReportDetails');

@@ -43,6 +43,36 @@ class Admin {
         }
     }
 
+
+    /*--------------------------------------------------------------------------------------------------*/
+    public function findSupplierById($supplierid) {
+        $this->db->query('SELECT * from supplier WHERE supplierid =:supplierid');
+
+        $this->db->bind(':supplierid',$supplierid);
+
+        $row = $this->db->single();
+        return $row;
+    }
+
+    public function updatesupplier($data) {
+
+        $this->db->query('UPDATE supplier SET agencyname = :supname, agencyadrs = :supadrs, agencytel = :suptel, agencyemail = :supemail WHERE supplierid = :supid' );
+
+        $this->db->bind(':supname', $data['suppliername']);
+        $this->db->bind(':supemail', $data['suppliermail']);
+        $this->db->bind(':suptel', $data['suppliertelno']);
+        $this->db->bind(':supadrs', $data['supplieraddress']);
+        $this->db->bind(':supid', $data['supplierid']);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    /*--------------------------------------------------------------------------------------------------*/
+
     public function registermedicine($data) {
         $this->db->query('INSERT INTO medicine (medgenname,medbrand,medimporter,meddealer,medpurchprice,medsellprice,medprofit,medacslvl) 
         VALUES(:medname,:medbrand,:importer,:dealer,:purchprice,:sellprice,:profit,:acslvl)');
