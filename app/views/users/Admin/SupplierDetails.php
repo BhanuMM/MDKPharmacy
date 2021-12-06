@@ -28,7 +28,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                         <th>Address</th>
                         <th>Phone Number</th>
                         <th>Email</th>
-<!--                      <th>Update</th>-->
+                        <th>Update</th>
 <!--                      <th>Delete</th>-->
                     </tr> <?php foreach($data['suppliers'] as $allsuppliers): ?>
 
@@ -38,6 +38,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                             <td><?php echo $allsuppliers->agencyadrs; ?></td>
                             <td><?php echo $allsuppliers->agencytel; ?></td>
                             <td><?php echo $allsuppliers->agencyemail; ?></td>
+                            <td><a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/admins/updatesupplier/".$allsuppliers->supplierid ?>" >Update</a></td>
                         </tr>
 
                     <?php endforeach; ?>
