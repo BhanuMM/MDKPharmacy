@@ -21,7 +21,7 @@ require APPROOT . '/views/includes/Adminhead.php';
 
                 <table id="customers">
                     <tr>
-                        <th>Medicine ID</th>
+                      <th>Medicine ID</th>
                       <th>Generic Name</th>
                       <th>Brand Name</th>
                       <th>Importer Name</th>
@@ -29,14 +29,14 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <th>Purchase Price</th>
                       <th>Selling Price</th>
                       <th>Profit Margin</th>
-                        <th>Access Level</th>
-<!--                      <th>Update</th>-->
-<!--                      <th>Delete</th>-->
+                      <th>Access Level</th>
+                      <th>Update</th>
+                      <th>Delete</th>
                     </tr>
                     <?php foreach($data['medicines'] as $allmedicines): ?>
 
                         <tr>
-                            <td>M<?php echo $allmedicines->medid; ?></td>
+                            <td><?php echo $allmedicines->medid; ?></td>
                             <td><?php echo $allmedicines->medgenname; ?></td>
                             <td><?php echo $allmedicines->medbrand; ?></td>
                             <td><?php echo $allmedicines->medimporter; ?></td>
@@ -45,9 +45,38 @@ require APPROOT . '/views/includes/Adminhead.php';
                             <td><?php echo $allmedicines->medsellprice; ?></td>
                             <td><?php echo $allmedicines->medprofit; ?></td>
                             <td><?php echo $allmedicines->medacslvl; ?></td>
-                        </tr>
+                            
+                            <td>
+                               
+                            
+                                        
+                            <a href="<?php echo URLROOT . "/Admins/updatemed/" . $allmedicines->medid ?>">
+                                Update 
+                            </a> 
+                            
+                           
+                            
+                            </td>
+                             
 
+                            <td>
+                           
+                            <form action="<?php echo URLROOT . "/Admins/deletemed/" . $allmedicines->medid ?>" method="POST">
+                                <input Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
+                            </form>
+                            </td>
+                           
+                        </tr>
+                        
                     <?php endforeach; ?>
+
                   </table>
 
             </div>
+
+            <script>
+                function ConfirmDelete()
+            {
+                return confirm("Are you sure you want to delete the selected medicine ?");
+            }
+            </script> 

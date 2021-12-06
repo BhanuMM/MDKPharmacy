@@ -74,6 +74,99 @@ class Admins extends Controller {
         $this->view('users/Admin/AddMedicine',$data);
     }
 
+    public function updatemed($medid){
+
+        $med = $this->adminModel->findMedbById($medid);
+
+        // if(!isLoggedIn()) {
+        //     header("Location: " . URLROOT . "/users/Admin/UpdateMedicine");
+        // }
+        // } elseif($med->user_id != $_SESSION['user_id']){
+        //     header("Location: " . URLROOT . "/users/Admin/UpdateMedicine");
+        // }
+
+        $data = [
+            // 'med' => $med,
+            'medid' => $med->medid,
+            'genericname' => $med->medgenname,
+            'brandname' => $med->medbrand,
+            'importername' => $med->medimporter,
+            'dealer' => $med->meddealer,
+            'purchaseprice' => $med->medpurchprice,
+            'sellingprice' => $med->medsellprice,
+            'profitmargin' => $med->medprofit,
+            'acslvl'=> $med->medacslvl,
+            'nameError' => ''
+        ];
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $data = [
+                'medid'=>trim($_POST['medid']),
+                // 'med'=> $med,
+                // 'user_id'=> $_SESSION['user_id'], 
+                'genericname' => trim($_POST['medname']),
+                'brandname' => trim($_POST['brandname']),
+                'importername' => trim($_POST['imname']),
+                'dealer' => trim($_POST['dealer']),
+                'purchaseprice' => $_POST['purchprice'],
+                'sellingprice' => $_POST['sellprice'],
+                'profitmargin' => $_POST['profit'],
+                'acslvl'=>$_POST['acslvl']
+            ];
+
+            if (empty($data['nameError'])) {
+    
+    
+                //update user from model function
+                if ($this->adminModel->updateMedicine($data)) {
+                    //Redirect to the view table page
+                    $recupdated = ' Medicine Details Updated Successfully';
+                    header('location: ' . URLROOT . '/admins/viewmed?msg='.$recupdated);
+                } else {
+                    die('Something went wrong.');
+                }
+            }
+     
+        }
+        $this->view('users/Admin/UpdateMedicine', $data);
+    }
+
+    // public function upmed(){
+    //     $this->view('users/Admin/UpdateMedicine');
+    
+    // }
+
+    public function deletemed($medid){
+        $med = $this->adminModel->findMedbById($medid);
+
+        $data = [
+            'med' => $med,
+            'genericname' => '',
+            'brandname' => '',
+            'importername' => '',
+            'dealer' => '',
+            'purchaseprice' => '',
+            'sellingprice' => '',
+            'profitmargin' => '',
+            'acslvl'=>'',
+            'nameError' => ''
+        ];
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            if($this->adminModel->deleteMedicine($medid)) {
+                header("Location: " . URLROOT . "/admins/viewmed");
+            } else {
+            die('Something went wrong!');
+            }
+    
+    
+        }
+    }
+
     public function viewstock() {
         $allstocks = $this->adminModel->viewstock();
 
