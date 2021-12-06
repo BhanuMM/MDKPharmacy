@@ -30,6 +30,8 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                         <th>Email</th>
                         <th>Date of Birth</th>
                         <th>Gender</th>
+                        <th>Update</th>
+                        <th>Delete</th>
 
                     </tr>
                     <?php foreach($data['patients'] as $allpatients): ?>
@@ -43,8 +45,14 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                             <td><?php echo $allpatients->patemail; ?></td>
                             <td><?php echo $allpatients->patdob; ?></td>
                             <td><?php echo $allpatients->patgen; ?></td>
+                            
+                            <td align="center">                   
+                                <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/receptionists/updatepatient/".$allpatients->patid ?>" >Update</a>
+                            </td>
+                            
+                            <td align="center"><button class="button button1" style="background-color: #ff9797;" href="<?php echo URLROOT ."/receptionists/deletepatient/".$allpatients->patid ?>">Delete</button></td>
                         </tr>
-
+ 
                     <?php endforeach; ?>
                   </table>
 
