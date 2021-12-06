@@ -76,6 +76,50 @@ class Admin {
 
     }
 
+    public function findMedbById($medid) {
+        $this->db->query('SELECT * FROM medicine WHERE medid = :medid');
+
+        $this->db->bind(':medid', $medid);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
+
+    public function updateMedicine($data) {
+        $this->db->query('UPDATE medicine SET medgenname = :medname, medbrand = :medbrand, medimporter = :importer, meddealer = :dealer, medpurchprice = :purchprice, medsellprice = :sellprice, medprofit = :profit, medacslvl = :acslvl WHERE medid = :medid');
+
+        $this->db->bind(':medid', $data['medid']);
+        $this->db->bind(':medname', $data['genericname']); 
+        $this->db->bind(':medbrand', $data['brandname']);
+        $this->db->bind(':importer', $data['importername']);
+        $this->db->bind(':dealer', $data['dealer']);
+        $this->db->bind(':purchprice', $data['purchaseprice']);
+        $this->db->bind(':sellprice', $data['sellingprice']);
+        $this->db->bind(':profit', $data['profitmargin']);
+        $this->db->bind(':acslvl', $data['acslvl']);
+
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function deleteMedicine($medid) {
+        $this->db->query('DELETE FROM medicine WHERE medid = :medid');
+
+        $this->db->bind(':medid', $medid);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public function registerstock($data) {
         $this->db->query('INSERT INTO stock (itemcode,quantity,purchprice,sellprice,purchdate,expdate) VALUES(:item,:quantity,:purchprice,:sellprice,:purchdate,:expdate)');
 
