@@ -29,7 +29,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                         <th>Phone Number</th>
                         <th>Email</th>
                         <th>Update</th>
-<!--                      <th>Delete</th>-->
+                        <th>Delete</th>
                     </tr> <?php foreach($data['suppliers'] as $allsuppliers): ?>
 
                         <tr>
@@ -39,6 +39,12 @@ require APPROOT . '/views/includes/Adminhead.php';
                             <td><?php echo $allsuppliers->agencytel; ?></td>
                             <td><?php echo $allsuppliers->agencyemail; ?></td>
                             <td><a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/admins/updatesupplier/".$allsuppliers->supplierid ?>" >Update</a></td>
+                            <td>
+
+                                <form action="<?php echo URLROOT . "/Admins/deletesupplier/" . $allsuppliers->supplierid ?>" method="POST">
+                                    <input Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
+                                </form>
+                            </td>
                         </tr>
 
                     <?php endforeach; ?>

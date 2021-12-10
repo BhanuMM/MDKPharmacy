@@ -10,14 +10,8 @@ require APPROOT . '/views/includes/Adminhead.php';
                  }
                  ?>
                 </span> <br>
-                <a href="<?php echo URLROOT ?>/Admins/addstock"><button class="button button1" style="width: 150px; height: 60px;">Add New Stock</button></a>
-                <a href="<?php echo URLROOT ?>/Admins/purchasedstocks"><button class="button button1" style="width: 150px; height: 60px;">Purchased Stocks</button></a>
-                <a href="<?php echo URLROOT ?>/Admins/returnstocks"><button class="button button1" style="width: 150px; height: 60px;">Add Return Stocks</button></a>
-                <a href="<?php echo URLROOT ?>/Admins/viewreturns"><button class="button button1" style="width: 150px; height: 60px;">Return Stocks</button></a>
-                <a href="<?php echo URLROOT ?>/Admins/checkexpiry"><button class="button button1" style="width: 150px; height: 60px;">Check Expiry</button></a>
-                <a href="<?php echo URLROOT ?>/Admins/stockreorder"><button class="button button1" style="width: 150px; height: 60px;">Stock Reorder</button></a>
                 <ul style="padding-left: 0px; list-style-type: none; ">
-                    <li Style="float: left; vertical-align: middle; display: inline;"><h3> Full Stock Details</h3></li>
+                    <li Style="float: left; vertical-align: middle; display: inline;"><h3> Stock Purchasing Details</h3></li>
                     <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
                             <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
                         <li Style="float: right; vertical-align: middle; display: inline;">
@@ -30,7 +24,11 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <th>Supplier Agency Name</th>
                       <th>Brand Name</th>
                       <th>Generic Name</th>
-                      <th>Remaining Quantity</th>
+                      <th>Quantity</th>
+                      <th>Purchase unit price</th>
+                      <th>Selling unit price</th>
+                      <th>Purchase Date</th>
+                      <th>Expiry Date</th>
                     </tr>
                     <tr>
                       <td>M1</td>
@@ -38,6 +36,10 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <td>Omez</td>
                       <td>Omeprazole</td>
                       <td>500</td>
+                      <td>10.00</td>
+                      <td>15.00</td>
+                      <td>2021-10-06</td>
+                      <td>2022-10-06</td>
                     </tr>
                     <tr>
                       <td>M2</td>
@@ -45,6 +47,10 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <td>panadol</td>
                       <td>Paracetamol</td>
                       <td>1000</td>
+                      <td>3.00</td>
+                      <td>5.00</td>
+                      <td>2021-11-06</td>
+                      <td>2023-10-06</td>
                     </tr>
 
                      <!-- <?php foreach($data['stocks'] as $allstocks): ?>

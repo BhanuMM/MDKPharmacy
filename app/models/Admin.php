@@ -71,6 +71,23 @@ class Admin {
             return false;
         }
     }
+
+    public function deletesupplier($supplierid) {
+        $this->db->query('DELETE FROM supplier WHERE supplierid = :supid');
+
+        $this->db->bind(':supid', $supplierid);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+
+
     /*--------------------------------------------------------------------------------------------------*/
 
     public function registermedicine($data) {
