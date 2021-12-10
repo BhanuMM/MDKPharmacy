@@ -335,6 +335,34 @@ class Admins extends Controller {
     }
 
 
+
+    public function deletesupplier($supplierid){
+        $sup = $this->adminModel->findSupplierById($supplierid);
+
+        $data = [
+            'supplierid' => $sup->supplierid,
+            'suppliername' => $sup->agencyname,
+            'supplieraddress' => $sup->agencyadrs,
+            'suppliertelno' => $sup->agencytel,
+            'suppliermail' => $sup->agencyemail,
+            'nameError' => '',
+            'telError' => ''
+        ];
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            if($this->adminModel->deletesupplier($supplierid)) {
+                //Redirect to the viewtable page
+                $recadded = ' Supplier details has been Successfully Deleted!';
+                header('location: ' . URLROOT . '/admins/viewsupplier?msg='.$recadded);
+            } else {
+                die('Something went wrong!');
+            }
+
+
+        }
+    }
      /*-----------------------------------------------------------------------------------------------------------------*/
 
 
