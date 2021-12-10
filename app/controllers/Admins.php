@@ -364,5 +364,13 @@ class Admins extends Controller {
         $this->view('users/Admin/ViewReturns');
     }
 
+    public function stockreorder() {
+        $this->view('users/Admin/StockReorder');
+    }
+
+    public function purchasedstocks() {
+        $this->view('users/Admin/PurchasedStocks');
+    }
+
     
 }
