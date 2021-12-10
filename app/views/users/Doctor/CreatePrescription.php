@@ -26,7 +26,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                       <td><?php echo $data['nic'] ?></td>
                       <td><?php echo $data['name'] ?></td>
                       <td><?php echo $data['dob'] ?></td>
-                      <td><a href="<?php echo URLROOT ?>/doctors/addprescription"><button class="button button1" >Create Prescription</button></a></td>
+                      <td><a href="<?php echo URLROOT. "/doctors/addprescription/". $data['id'] ?>"><button class="button button1" >Create Prescription</button></a></td>
                     </tr>
 
                   </table><br /><br /><br /><br />

@@ -61,8 +61,19 @@ class Doctors extends Controller {
         $this->view('users/Doctor/CreatePrescription',$data);
     }
 
-    public function addprescription() {
-        $this->view('users/Doctor/AddPrescription');
+    public function addprescription($patid) {
+        $pat = $this->doctorModel->searchpatientbyId($patid);
+        $patdata = [
+
+                'id'=>$pat->patid,
+                'nic'=>$pat->patnic,
+                'name'=>$pat->patname,
+                'dob'=>$pat->patdob,
+                'tel'=>$pat->pattelno,
+                'gender'=>$pat->patgen
+
+        ];
+        $this->view('users/Doctor/AddPrescription',$patdata);
     }
 
     public function viewprescriptions() {

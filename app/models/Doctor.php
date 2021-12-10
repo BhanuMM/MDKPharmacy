@@ -12,14 +12,13 @@ class Doctor {
         $this->db->bind(':patientnic', $nic);
         $row = $this->db->single();
         return $row;
-//        if($this->db->rowCount() > 0){
-//            return  $row;
-//
-//        } else {
-//            return false;
-//        }
-
-
     }
+    public function searchpatientbyId($id) {
+        $this->db->query('SELECT * FROM patient WHERE patid = :patientid');
 
+        //Bind value
+        $this->db->bind(':patientid', $id);
+        $row = $this->db->single();
+        return $row;
+    }
 }

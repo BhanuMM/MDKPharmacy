@@ -8,9 +8,10 @@ require APPROOT . '/views/includes/Doctorhead.php';
     <div class="patient-card">
         <div class="welcome">
             <div class="patientdetails">
-                Name: Ruwan Perera <br>
-                Age: 42 years <br>
-                Gender: Male <br>
+                Name: <?php echo $data['name'] ?> <br>
+                Age: <?php echo $data['dob'] ?><br>
+                Gender: <?php echo $data['gender'] ?> <br>
+                Tel No: <?php echo $data['tel'] ?> <br>
             </div>
         </div>
     </div> <br><br>
@@ -21,7 +22,16 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
         <div class="column" style="margin-left:5%; ">
         <form class="searchmed-search-container">
+            <select class="input1" name="generic" id="generic" required>
+                <option value="amoxicillin"> Amoxicillin capsule 250mg </option>
+                <option value="amoxicillin"> Amoxycillin capsule 500mg</option>
+                <option value="flucloxacillin"> Flucloxacillin capsule 250mg </option>
+                <option value="mebendazole"> Mebendazole tablet 500mg</option>
+                <option value="oseltamivir">Oseltamivir capsule 45mg</option>
+            </select>
+            <button style="margin-left: 80px" class="form-submit">SEARCH</button>
          <input type="text" id="searchmed-search-bar" placeholder="Search Medicine">
+
         <a href="#"><img class="searchmed-search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
         </form><br><br><br>
 
