@@ -52,7 +52,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                                
                             
                                         
-                            <a href="<?php echo URLROOT . "/Admins/updatemed/" . $allmedicines->medid ?>">
+                            <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT . "/Admins/updatemed/" . $allmedicines->medid ?>">
                                 Update 
                             </a> 
                             
@@ -64,7 +64,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                             <td>
                            
                             <form action="<?php echo URLROOT . "/Admins/deletemed/" . $allmedicines->medid ?>" method="POST">
-                                <input Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
+                                <input class="button button1" style="background-color: #fc92a1;" Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
                             </form>
                             </td>
                            

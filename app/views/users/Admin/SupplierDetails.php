@@ -42,7 +42,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                             <td>
 
                                 <form action="<?php echo URLROOT . "/Admins/deletesupplier/" . $allsuppliers->supplierid ?>" method="POST">
-                                    <input Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
+                                    <input class="button button1" style="background-color: #fc92a1;" Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
                                 </form>
                             </td>
                         </tr>
@@ -54,6 +54,12 @@ require APPROOT . '/views/includes/Adminhead.php';
 
            
         </div>
+<script>
+    function ConfirmDelete()
+    {
+        return confirm("Are you sure you want to delete the selected medicine ?");
+    }
+</script>
 
-    </body>
+</body>
 </html>
