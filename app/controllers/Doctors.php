@@ -1,8 +1,9 @@
 <?php
 class Doctors extends Controller {
     public function __construct() {
-//        $this->pharmacistModel = $this->model('Pharmacist');
+        $this->doctorModel = $this->model('Doctor');
     }
+
 
     public function doctordashboard() {
         $this->view('users/Doctor/DoctorDashboard');
@@ -20,8 +21,44 @@ class Doctors extends Controller {
         $this->view('users/Doctor/MedicineDetails');
     }
 
-    public function createprescription() {
-        $this->view('users/Doctor/CreatePrescription');
+    public function createprescription()
+    {
+        $data=[
+            'id'=>'',
+            'nic'=>'',
+            'name'=>'',
+            'dob'=>'',
+            'tel'=>''
+        ];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $datanic = trim($_POST['UISearchbar']);
+            $searchpatient = $this->doctorModel->searchnic($datanic);
+
+            if ($searchpatient) {
+                $data=[
+                    'id'=>$searchpatient->patid,
+                    'nic'=>$searchpatient->patnic,
+                    'name'=>$searchpatient->patname,
+                    'dob'=>$searchpatient->patdob,
+                    'tel'=>$searchpatient->pattelno
+                ];
+            }
+            else{
+                $data=[
+                    'id'=>'',
+                    'nic'=>'',
+                    'name'=>'',
+                    'dob'=>'',
+                    'tel'=>'',
+                    'nofound' => 'No Record'
+                ];
+            }
+
+        }
+        $this->view('users/Doctor/CreatePrescription',$data);
     }
 
     public function addprescription() {
