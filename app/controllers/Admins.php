@@ -338,6 +338,26 @@ class Admins extends Controller {
      /*-----------------------------------------------------------------------------------------------------------------*/
 
 
+    public function automedsearch(){
+        if(isset($_POST["query"]))
+        {
+            $condition = preg_replace('/[^A-Za-z0-9\- ]/', '', $_POST["query"]);
+            $automed = $this->adminModel->automedview($condition);
+
+
+            $replace_string = '<b>'.$condition.'</b>';
+
+            foreach($result as $results)
+            {
+                $data[] =[
+                    'med_genname'		=>	str_ireplace($condition, $replace_string, $results["medgenname"])
+                ];
+            }
+            $this->view('users/Admin/MedicineDetails',json_encode($data));
+//            echo json_encode($data);
+        }
+    }
+
 
 
     public function viewreport() {

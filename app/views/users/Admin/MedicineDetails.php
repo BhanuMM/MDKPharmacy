@@ -16,7 +16,9 @@ require APPROOT . '/views/includes/Adminhead.php';
                     <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
                             <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
                         <li Style="float: right; vertical-align: middle; display: inline;">
-                            <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Generic Name"></li></form>
+                            <input type="text" name="search_box"   style="height: 35px;" placeholder="Generic Name" id="search_box" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onkeyup="javascript:load_data(this.value)" >
+                            <span id="search_result"></span>
+                        </li></form>
                 </ul>
 
                 <table id="customers">
@@ -73,6 +75,86 @@ require APPROOT . '/views/includes/Adminhead.php';
                   </table>
 
             </div>
+
+<script>
+    function get_text(event)
+    {
+        var string = event.textContent;
+
+        //fetch api
+
+        fetch("<?php echo URLROOT . "/Admins/automedsearch"?>", {
+
+            method:"POST",
+
+            body: JSON.stringify({
+                search_query : string
+            }),
+
+            headers : {
+                "Content-type" : "application/json; charset=UTF-8"
+            }
+        }).then(function(response){
+
+            return response.json();
+
+        }).then(function(responseData){
+
+            document.getElementsByName('search_box')[0].value = string;
+
+            document.getElementById('search_result').innerHTML = '';
+
+        });
+
+
+
+    }
+    function load_data(query)
+    {
+        if(query.length > 2)
+        {
+            var form_data = new FormData();
+
+            form_data.append('query', query);
+
+            var ajax_request = new XMLHttpRequest();
+
+            ajax_request.open('POST', '<?php echo URLROOT . "/Admins/automedsearch"?>');
+
+            ajax_request.send(form_data);
+
+            ajax_request.onreadystatechange = function()
+            {
+                if(ajax_request.readyState == 4 && ajax_request.status == 200)
+                {
+                    var response = JSON.parse(ajax_request.responseText);
+
+                    var html = '<div class="list-group">';
+
+                    if(response.length > 0)
+                    {
+                        for(var count = 0; count < response.length; count++)
+                        {
+                            html += '<a href="#" class="list-group-item list-group-item-action" onclick="get_text(this)">'+response[count].post_title+'</a>';
+                        }
+                    }
+                    else
+                    {
+                        html += '<a href="#" class="list-group-item list-group-item-action disabled">No Data Found</a>';
+                    }
+
+                    html += '</div>';
+
+                    document.getElementById('search_result').innerHTML = html;
+                }
+            }
+        }
+        else
+        {
+            document.getElementById('search_result').innerHTML = '';
+        }
+    }
+</script>
 
             <script>
                 function ConfirmDelete()
