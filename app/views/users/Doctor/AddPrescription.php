@@ -21,31 +21,31 @@ require APPROOT . '/views/includes/Doctorhead.php';
     <div class="row">
 
         <div class="column" style="margin-left:5%; ">
-        <form class="searchmed-search-container">
-            <select class="input1" name="generic" id="generic" required>
-                <option value="amoxicillin"> Amoxicillin capsule 250mg </option>
-                <option value="amoxicillin"> Amoxycillin capsule 500mg</option>
-                <option value="flucloxacillin"> Flucloxacillin capsule 250mg </option>
-                <option value="mebendazole"> Mebendazole tablet 500mg</option>
-                <option value="oseltamivir">Oseltamivir capsule 45mg</option>
-            </select>
-            <button style="margin-left: 80px" class="form-submit">SEARCH</button>
-         <input type="text" id="searchmed-search-bar" placeholder="Search Medicine">
+            <select name="employee_list" id="employee_list" class="form-control">
+                <option value="">Select Medicine</option>
+                <?php
+                 foreach($data['medicines'] as $allmedicines):
+                {
+                    echo '<option value="'.$allmedicines->medid.'">'.$allmedicines->medgenname.'</option>';
 
-        <a href="#"><img class="searchmed-search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
-        </form><br><br><br>
+                }
+                 endforeach; ?>
+            </select>
+            <button type="button" name="search" id="search" class="btn btn-info">Search</button>
+
 
             <table>
                 <tr>
                     <th>Medicine ID</th>
                     <th>Medicine</th>
-                    <th>Remaining Quantity</th>
+                    <th>Dosage</th>
                     <th></th> 
                 </tr>
                 <tr>
-                    <th>M001</th>
-                    <td>Paracetamol</td>
-                    <td style="text-align: center;">50</td>
+
+                    <td style="text-align: center;"><span id="med_id"></span></td>
+                    <td style="text-align: center;"><span id="med_name"></span></td>
+                    <td style="text-align: center;"><input type="number" class="input1"></td>
                     <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
                 </tr>
               </table>
@@ -66,27 +66,27 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 <tr>
                     <th>M001</th>
                     <td>Paracetamol</td>
-                    <td><input type="number" class="input1"></td>
+                    <td>32</td>
                     <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
                 </tr>
-                <tr>
-                    <th>M002</th>
-                    <td>Omeprazole</td>
-                    <td><input type="number" class="input1"></td>
-                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
-                </tr>
-                <tr>
-                    <th>M003</th>
-                    <td>Amoxicillin</td>
-                    <td><input type="number" class="input1"></td>
-                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
-                </tr>
-                <tr>
-                    <th>M004</th>
-                    <td>Vitamin-C</td>
-                    <td><input type="number" class="input1"></td>
-                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
-                </tr>
+<!--                <tr>-->
+<!--                    <th>M002</th>-->
+<!--                    <td>Omeprazole</td>-->
+<!--                    <td><input type="number" class="input1"></td>-->
+<!--                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <th>M003</th>-->
+<!--                    <td>Amoxicillin</td>-->
+<!--                    <td><input type="number" class="input1"></td>-->
+<!--                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <th>M004</th>-->
+<!--                    <td>Vitamin-C</td>-->
+<!--                    <td><input type="number" class="input1"></td>-->
+<!--                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>-->
+<!--                </tr>-->
               </table>
             <a href="<?php echo URLROOT ?>/doctors/viewprescriptions"><button class="opbill-form-submit" style="margin-left: 200px;">Create Prescription</button></a>
             <br> <br> <br> <br> <br>
@@ -94,3 +94,31 @@ require APPROOT . '/views/includes/Doctorhead.php';
             
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#search').click(function(){
+                var id= $('#employee_list').val();
+                if(id != '')
+                {
+                    $.ajax({
+                        url:"<?php echo URLROOT. "/doctors/addprescription/". $data['id'] ?>",
+                        method:"POST",
+                        data:{id:id},
+                        dataType:"JSON",
+                        success:function(data)
+                        {
+                            // $('#employee_details').css("display", "block");
+                            $('#med_id').text(data.medid);
+                            $('#med_name').text(data.medgenname);
+                        }
+                    })
+                }
+                else
+                {
+                    alert("Please Select a Medicine");
+                    // $('#employee_details').css("display", "none");
+                }
+            });
+        });
+    </script>

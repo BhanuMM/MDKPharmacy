@@ -63,17 +63,61 @@ class Doctors extends Controller {
 
     public function addprescription($patid) {
         $pat = $this->doctorModel->searchpatientbyId($patid);
-        $patdata = [
-
-                'id'=>$pat->patid,
-                'nic'=>$pat->patnic,
-                'name'=>$pat->patname,
-                'dob'=>$pat->patdob,
-                'tel'=>$pat->pattelno,
-                'gender'=>$pat->patgen
+        $med = $this->doctorModel->loadmed();
+        $data = [
+            'medicines' => $med,
+//            'medid' => $med->medid,
+//            'genericname' => $med->medgenname,
+            'id'=>$pat->patid,
+            'nic'=>$pat->patnic,
+            'name'=>$pat->patname,
+            'dob'=>$pat->patdob,
+            'tel'=>$pat->pattelno,
+            'gender'=>$pat->patgen
 
         ];
-        $this->view('users/Doctor/AddPrescription',$patdata);
+        echo json_encode($data);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          if(isset($_POST["search"])){
+              $med = $this->doctorModel->loadmed();
+              $data = [
+                  'medicines' => $med,
+//                  'medid' => $med->medid,
+//                  'genericname' => $med->medgenname,
+                  'id'=>$pat->patid,
+                  'nic'=>$pat->patnic,
+                  'name'=>$pat->patname,
+                  'dob'=>$pat->patdob,
+                  'tel'=>$pat->pattelno,
+                  'gender'=>$pat->patgen
+
+              ];
+//              echo json_encode($patdata);
+              $this->view('users/Doctor/AddPrescription',$data);
+          }
+
+        }
+
+//        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//            if(isset($_POST["search"])){
+//
+//                $medid = $this->doctorModel->loadmedid($_POST['generic']);
+//                $patdata = [
+//                    'medicines' => $med,
+//                    'medid' => $medid->medid,
+//                    'genericname' => $medid->medgenname,
+//                    'id'=>$pat->patid,
+//                    'nic'=>$pat->patnic,
+//                    'name'=>$pat->patname,
+//                    'dob'=>$pat->patdob,
+//                    'tel'=>$pat->pattelno,
+//                    'gender'=>$pat->patgen
+//
+//                ];
+//                $this->view('users/Doctor/AddPrescription',$patdata);
+//            }
+//        }
+        $this->view('users/Doctor/AddPrescription',$data);
     }
 
     public function viewprescriptions() {
