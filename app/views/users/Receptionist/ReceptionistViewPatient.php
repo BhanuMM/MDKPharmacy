@@ -50,7 +50,11 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                                 <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/receptionists/updatepatient/".$allpatients->patid ?>" >Update</a>
                             </td>
                             
-                            <td align="center"><button class="button button1" style="background-color: #ff9797;" href="<?php echo URLROOT ."/receptionists/deletepatient/".$allpatients->patid ?>">Delete</button></td>
+                            
+                        <td align="center"><button class="button button1" style="background-color: #ff9797;">
+                        <form action="<?php echo URLROOT . "/Receptionists/deletepatient/" . $allpatients->patid ?>" method="POST">
+                                <input Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">Delete</form></button>
+                        </td>
                         </tr>
  
                     <?php endforeach; ?>

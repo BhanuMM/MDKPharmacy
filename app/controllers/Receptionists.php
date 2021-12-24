@@ -188,7 +188,7 @@ class Receptionists extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        if ($this->receptionistModel->deletepatient($data)) {
+        if ($this->receptionistModel->deletepatient($patid)) {
          //Redirect to the viewtable page
         $recadded = ' Patient details has been Deleted!';
         header('location: ' . URLROOT . '/receptionists/viewpatients');

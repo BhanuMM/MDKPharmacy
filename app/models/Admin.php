@@ -15,6 +15,51 @@ class Admin {
 
     }
 
+
+    public function findUserById($staffid) {
+        $this->db->query('SELECT * FROM staff WHERE staffid = :staffid');
+
+        $this->db->bind(':staffid', $staffid);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
+
+    public function updateuser($data) {
+        $this->db->query('UPDATE staff SET snic = :snic, sname = :sname, semail = :semail, stelno = :stelno, uname = :uname  WHERE staffid = :staffid');
+
+        $this->db->bind(':staffid', $data['staffid']);
+        $this->db->bind(':snic', $data['snic']); 
+        $this->db->bind(':sname', $data['sname']);
+        $this->db->bind(':semail', $data['semail']);
+        $this->db->bind(':stelno', $data['stelno']);
+        $this->db->bind(':uname', $data['uname']);
+        // $this->db->bind(':upswrd', $data['upswrd']);
+        // $this->db->bind(':urepswrd', $data['urepswrd']);
+        // $this->db->bind(':urole', $data['urole']);
+
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function deleteuser($staffid) {
+        $this->db->query('DELETE FROM staff WHERE staffid = :staffid');
+
+        $this->db->bind(':staffid', $staffid);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public function viewsupplier() {
 
         $this->db->query('SELECT * FROM supplier');
