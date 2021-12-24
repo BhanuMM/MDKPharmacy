@@ -4,6 +4,9 @@ class Admins extends Controller {
         $this->adminModel = $this->model('Admin');
     }
 
+
+
+
     public function viewuser() {
         $allusers = $this->adminModel->viewusers();
 
@@ -11,6 +14,116 @@ class Admins extends Controller {
                 'users' => $allusers
             ];
         $this->view('users/Admin/UserDetails',$data);
+    }
+
+    public function updateuser($staffid){
+
+        $user = $this->adminModel->findUserById($staffid);
+
+        $data = [
+            'staffid' => $user->staffid,
+            'snic' => $user->snic,
+            'sname' => $user->sname,
+            'semail' => $user->semail,
+            'stelno' => $user->stelno,
+            'uname' => $user->uname,
+            'upswrd' => $user->upswrd,
+            'urepswrd' => $user->upswrd,
+            'urole' => $user->urole,
+            'nicError' => '',
+            'telError' => '',
+            'nameError' => '',
+            'usernameError' => '',
+            'passwordError' => '',
+            'confirmPasswordError' => ''
+
+        ];
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $data = [
+                'staffid'=>$user->staffid,
+                'snic' => trim($_POST['Rnic']),
+                'sname' => trim($_POST['Rfname']),
+                'semail' => trim($_POST['Remail']),
+                'stelno' => trim($_POST['Rtelno']),
+                'uname' => $_POST['Runame'],
+                'upswrd' => $_POST['Rpass'],
+                'urepswrd' => $_POST['Repass'],
+                // 'urole' => $_POST['']
+            ];
+
+
+
+            // Validate nic on length, numeric values,
+            $nicValidation = "/^([0-9]{9}[x|X|v|V]|[0-9]{12})$/";
+            if( preg_match($nicValidation, $data['snic']) ){
+                $data['nicError'] = '';
+            }else{
+                $data['nicError'] = 'Invalid NIC Number';
+            }
+
+
+            // Validate telephone on length, numeric values,
+            $telValidation = "/^[0-9]+$/";
+            if(strlen($data['stelno']) ==10 && preg_match($telValidation, $data['stelno']) ){
+                $data['telError'] = '';
+            }else{
+                $data['telError'] = 'Invalid Contact Number';
+            }
+
+
+            if (empty($data['nameError']) && empty($data['telError']) && empty($data['nicError'])) {
+    
+    
+                //update user from model function
+                if ($this->adminModel->updateuser($data)) {
+                    //Redirect to the view table page
+                    $recupdated = ' User Details Updated Successfully';
+                    header('location: ' . URLROOT . '/admins/viewuser?msg='.$recupdated);
+                } else {
+                    die('Something went wrong.');
+                }
+            }
+     
+        }
+        $this->view('users/Admin/UpdateUser', $data);
+    }
+
+    public function deleteuser($staffid){
+        $user = $this->adminModel->findUserById($staffid);
+
+        $data = [
+            'staffid' => $user->staffid,
+            'snic' => '',
+            'sname' => '',
+            'semail' => '',
+            'stelno' => '',
+            'uname' => '',
+            'upswrd' => '',
+            'urepswrd' => '',
+            'urole' => '',
+            'nicError' => '',
+            'telError' => '',
+            'nameError' => '',
+            'usernameError' => '',
+            'passwordError' => '',
+            'confirmPasswordError' => ''
+
+        ];
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            if($this->adminModel->deleteuser($staffid)) {
+                header("Location: " . URLROOT . "/admins/viewuser");
+            } else {
+            die('Something went wrong!');
+            }
+    
+    
+        }
     }
 
     public function admindashboard() {

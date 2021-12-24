@@ -85,7 +85,7 @@ public function updatepatient($data) {
 
 public function deletepatient($patid){
     $this->db->query('DELETE FROM patient WHERE patid = :patid' );
-    $this->db->bind(':patid', $data['patientid']);
+    $this->db->bind(':patid', $patid);
     //Execute function
     if ($this->db->execute()) {
         return true;
