@@ -168,6 +168,16 @@ class Admin {
 
     }
 
+    public function automedview($condition) {
+
+        $this->db->query('SELECT * FROM medicine WHERE medgenname LIKE %. $condition.%  ORDER BY id DESC LIMIT 10');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
     public function findMedbById($medid) {
         $this->db->query('SELECT * FROM medicine WHERE medid = :medid');
 
