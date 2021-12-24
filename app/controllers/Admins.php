@@ -78,13 +78,6 @@ class Admins extends Controller {
 
         $med = $this->adminModel->findMedbById($medid);
 
-        // if(!isLoggedIn()) {
-        //     header("Location: " . URLROOT . "/users/Admin/UpdateMedicine");
-        // }
-        // } elseif($med->user_id != $_SESSION['user_id']){
-        //     header("Location: " . URLROOT . "/users/Admin/UpdateMedicine");
-        // }
-
         $data = [
             // 'med' => $med,
             'medid' => $med->medid,
@@ -376,8 +369,59 @@ class Admins extends Controller {
         $this->view('users/Admin/AddReport');
     }
 
-    public function profilesettings() {
-        $this->view('users/Admin/AdminProfileSetting');
+    // public function profilesettings(){
+    //     $this->view('users/Admin/AdminProfileSetting');
+    // }
+
+    public function profilesettings($psid){
+
+        $profile = $this->adminModel->findProfilebyId($psid);
+
+        $data = [
+            'psid' => $profile->staffid,
+            'psname' => $profile->sname,
+            'psnic' => $profile->snic,
+            'psemail' => $profile->semail,
+            'psusername' => $profile->uname,
+            'pspswrd' => $profile->upswrd
+            //'psnewpassword' => ''
+            
+        ];
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $userdata = [
+                'psid' => $profile->staffid,
+                'psname' => trim($_POST['Rfname']),
+                'psnic' => trim($_POST['Rnic']),
+                'psemail' => trim($_POST['Remail']),
+                'psusername' => trim($_POST['Runame']),
+                'pspswrd' => $profile->upswrd,
+                'enteredpswrd' => trim($_POST['Rpass'])
+                //'psnewpassword' => 
+            ];
+        
+        if(password_verify($userdata['enteredpswrd'],$userdata['pspswrd'])){
+            if ($this->adminModel->updateprofilesettings($userdata)) {
+                //Redirect to the viewtable page
+                $recadded = 'Updated ';
+                header('location: ' . URLROOT . '/admins/viewstock?msg='.$recadded);
+            } else {
+                die('Something went wrong.');
+            }
+        }else{
+            die('Weda nah.');
+        }
+        
+
+        
+
+
+        }
+
+
+        $this->view('users/Admin/AdminProfileSetting',$data);
     }
 
     public function returnstocks() {
