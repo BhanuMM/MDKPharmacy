@@ -13,13 +13,11 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <ul style="padding-left: 0px; list-style-type: none; ">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> User Details</h3></li>
 
-                    <form method="get">  
-                        <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
-                            <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a>
-                        </li>
+                    <form method="post" class="data" action="<?php echo URLROOT. "/admins/viewuser/". $data['id'] ?>">
+                    <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
                         <li Style="float: right; vertical-align: middle; display: inline;">
-                            <input name="find" type="text" id="UISearchbar" style="height: 35px;" placeholder="NIC">
-                        </li>
+                            <input type="text" id="UISearchbar" name="UISearchbar" style="height: 35px;" placeholder="User NIC"></li>
+                        <button style="margin-left: 1080px" class="form-submit">SEARCH</button>
                     </form>
                 </ul>
 
@@ -35,30 +33,27 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <th>Update</th>
                       <th>Delete</th>
                     </tr>
-                    <?php foreach($data['users'] as $allusers): ?>
 
                         <tr>
-                            <td><?php echo $allusers->staffid; ?></td>
-                            <td><?php echo $allusers->sname; ?></td>
-                            <td><?php echo $allusers->snic; ?></td>
-                            <td><?php echo $allusers->semail; ?></td>
-                            <td><?php echo $allusers->stelno; ?></td>
-                            <td><?php echo $allusers->uname; ?></td>
-                            <td><?php echo $allusers->urole; ?></td>
+                            <td><?php echo $data['id'] ?></td>
+                            <td><?php echo $data['name'] ?></td>
+                            <td><?php echo $data['nic'] ?></td>
+                            <td><?php echo $data['email'] ?></td>
+                            <td><?php echo $data['tel'] ?></td>
+                            <td><?php echo $data['uname'] ?></td>
+                            <td><?php echo $data['urole'] ?></td>
 
                             <td align="center">                   
-                                <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/admins/updateuser/".$allusers->staffid ?>" >Update</a>
+                                <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/admins/updateuser/".$data['id']?>" >Update</a>
                             </td>
                             
                             
                             <td align="center"><button class="button button1" style="background-color: #ff9797;">
-                            <form action="<?php echo URLROOT . "/admins/deleteuser/" . $allusers->staffid ?>" method="POST">
+                            <form action="<?php echo URLROOT . "/admins/deleteuser/" . $data['id'] ?>" method="POST">
                                 <input Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">Delete</form></button>
                             </td>
 
                         </tr>
-
-                    <?php endforeach; ?>
 
 
                   </table>

@@ -14,10 +14,12 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                 </span> <br>                <a href="<?php echo URLROOT ?>/receptionists/registerpatient"><button class="button button1">Add New Patient +</button></a>
                 <ul style="margin-top: 5%; padding-left: 0px; list-style-type: none;">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3>Patient Details</h3></li>
-                    <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
-                            <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
+                    <form method="post" class="data" action="<?php echo URLROOT. "/receptionists/viewpatients/". $data['id'] ?>">
+                    <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
                         <li Style="float: right; vertical-align: middle; display: inline;">
-                            <input type="text" id="UISearchbar" style="height: 35px;" placeholder="NIC"></li></form>
+                            <input type="text" id="UISearchbar" name="UISearchbar" style="height: 35px;" placeholder="Patient NIC"></li>
+                        <button style="margin-left: 1080px" class="form-submit">SEARCH</button>
+                    </form>
                 </ul>
 
                 <table id="customers">
@@ -34,30 +36,31 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                         <th>Delete</th>
 
                     </tr>
-                    <?php foreach($data['patients'] as $allpatients): ?>
+                   
 
                         <tr>
-                            <td><?php echo $allpatients->patid; ?></td>
-                            <td><?php echo $allpatients->patname; ?></td>
-                            <td><?php echo $allpatients->patnic; ?></td>
-                            <td><?php echo $allpatients->pattelno; ?></td>
-                            <td><?php echo $allpatients->patadrs; ?></td>
-                            <td><?php echo $allpatients->patemail; ?></td>
-                            <td><?php echo $allpatients->patdob; ?></td>
-                            <td><?php echo $allpatients->patgen; ?></td>
-                            
+                            <td><?php echo $data['id'] ?></td>
+                            <td><?php echo $data['name'] ?></td>
+                            <td><?php echo $data['nic'] ?></td>
+                            <td><?php echo $data['tel'] ?></td>
+                            <td><?php echo $data['adrs'] ?></td>
+                            <td><?php echo $data['email'] ?></td>
+                            <td><?php echo $data['dob'] ?></td>
+                            <td><?php echo $data['gender'] ?></td>
+
+
                             <td align="center">                   
-                                <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/receptionists/updatepatient/".$allpatients->patid ?>" >Update</a>
+                                <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/receptionists/updatepatient/".$data['id']?>" >Update</a>
                             </td>
                             
                             
                         <td align="center"><button class="button button1" style="background-color: #ff9797;">
-                        <form action="<?php echo URLROOT . "/Receptionists/deletepatient/" . $allpatients->patid ?>" method="POST">
+                        <form action="<?php echo URLROOT . "/Receptionists/deletepatient/" . $data['id']?>" method="POST">
                                 <input Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">Delete</form></button>
                         </td>
                         </tr>
  
-                    <?php endforeach; ?>
+                   
                   </table>
 
             </div>

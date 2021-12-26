@@ -5,16 +5,53 @@ class Admins extends Controller {
     }
 
 
-
-
     public function viewuser() {
-        $allusers = $this->adminModel->viewusers();
-
-            $data = [
-                'users' => $allusers
+            $data=[
+                'id'=>'',
+                'nic'=>'',
+                'name'=>'',
+                'email'=>'',
+                'tel'=>'',
+                'uname'=>'',
+                'urole'=>''
             ];
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                //Sanitize post data
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+                $datanic = trim($_POST['UISearchbar']);
+                $searchuser = $this->adminModel->searchusernic($datanic);
+
+                if ($searchuser) {
+                    $data=[
+                        'id'=>$searchuser->staffid,
+                        'nic'=>$searchuser->snic,
+                        'name'=>$searchuser->sname,
+                        'email'=>$searchuser->semail,
+                        'tel'=>$searchuser->stelno,
+                        'uname'=>$searchuser->uname,
+                        'urole'=>$searchuser->urole
+                    ];
+                }
+                else{
+                    $data=[
+                        'id'=>'',
+                        'nic'=>'',
+                        'name'=>'',
+                        'email'=>'',
+                        'tel'=>'',
+                        'uname'=>'',
+                        'urole'=>'',
+                        'nofound' => 'No Record'
+                    ];
+                }
+    
+            }
+
         $this->view('users/Admin/UserDetails',$data);
     }
+
 
     public function updateuser($staffid){
 
@@ -133,14 +170,58 @@ class Admins extends Controller {
     }
 
     public function viewmed() {
-        $allmedicines = $this->adminModel->viewmed();
-
-        $data = [
-            'medicines' => $allmedicines
+        $data=[
+            'id'=>'',
+            'name'=>'',
+            'brand'=>'',
+            'importer'=>'',
+            'dealer'=>'',
+            'purchprice'=>'',
+            'sellprice'=>'',
+            'profit'=>'',
+            'access'=>''
         ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datamed= trim($_POST['UISearchbar']);
+            $searchmed = $this->adminModel->searchmed($datamed);
+
+            if ($searchmed) {
+                $data=[
+                    'id'=>$searchmed->medid,
+                    'name'=>$searchmed->medgenname,
+                    'brand'=>$searchmed->medbrand,
+                    'importer'=>$searchmed->medimporter,
+                    'dealer'=>$searchmed->meddealer,
+                    'purchprice'=>$searchmed->medpurchprice,
+                    'sellprice'=>$searchmed->medsellprice,
+                    'profit'=>$searchmed->medprofit,
+                    'access'=>$searchmed->medacslvl
+                ];
+            }
+            else{
+                $data=[
+                    'id'=>'',
+                    'name'=>'',
+                    'brand'=>'',
+                    'importer'=>'',
+                    'dealer'=>'',
+                    'purchprice'=>'',
+                    'sellprice'=>'',
+                    'profit'=>'',
+                    'access'=>'',
+                    'nofound' => 'No Record'
+                ];
+            }
+
+        }
         $this->view('users/Admin/MedicineDetails',$data);
     }
 
+   
     public function addmed() {
 
             $data = [

@@ -13,16 +13,55 @@ class Receptionists extends Controller
 
     public function viewpatients()
     {
-        $allpatients = $this->receptionistModel->viewpatient();
-
-        $data = [
-            'patients' => $allpatients
+        $data=[
+            'id'=>'',
+            'nic'=>'',
+            'name'=>'',
+            'email'=>'',
+            'tel'=>'',
+            'adrs'=>'',
+            'dob'=>'',
+            'gender'=>''
         ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datanic = trim($_POST['UISearchbar']);
+            $searchpatient = $this->receptionistModel->searchpatientnic($datanic);
+
+            if ($searchpatient) {
+                $data=[
+                    'id'=>$searchpatient->patid,
+                    'nic'=>$searchpatient->patnic,
+                    'name'=>$searchpatient->patname,
+                    'email'=>$searchpatient->patemail,
+                    'adrs'=>$searchpatient->patadrs,
+                    'tel'=>$searchpatient->pattelno,
+                    'dob'=>$searchpatient->patdob,
+                    'gender'=>$searchpatient->patgen
+                ];
+            }
+            else{
+                $data=[
+                    'id'=>'',
+                    'nic'=>'',
+                    'name'=>'',
+                    'email'=>'',
+                    'adrs'=>'',
+                    'tel'=>'',
+                    'dob'=>'',
+                    'gender'=>'',
+                    'nofound' => 'No Record'
+                ];
+            }
+
+        }
+
         $this->view('users/Receptionist/ReceptionistViewPatient',$data);
     }
-
-
-
+        
 
     public function registerpatient()
     {
