@@ -168,6 +168,33 @@ class Admin {
 
     }
 
+    public function returnstock($data){
+        $this->db->query('INSERT INTO returnstock(medid,purchdate,rquantity,reason) VALUES(:medid,:purchdate,:rquantity,:reason)');
+
+
+        //Bind values
+        $this->db->bind(':medid', $data['medid']);
+        $this->db->bind(':purchdate', $data['purchdate']);
+        $this->db->bind(':rquantity', $data['returnqty']);
+        $this->db->bind(':reason', $data['reason']);
+        
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public function viewreturnstock(){
+        $this->db->query('SELECT * FROM returnstock INNER JOIN medicine ON returnstock.medid = medicine.medid');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
     public function automedview($condition) {
 
         $this->db->query('SELECT * FROM medicine WHERE medgenname LIKE %. $condition.%  ORDER BY id DESC LIMIT 10');
@@ -252,11 +279,11 @@ class Admin {
 
 
     public function registerstock($data) {
-        $this->db->query('INSERT INTO stock (itemcode,quantity,purchprice,sellprice,purchdate,expdate) VALUES(:item,:quantity,:purchprice,:sellprice,:purchdate,:expdate)');
+        $this->db->query('INSERT INTO purchstock (medid,quantity,purchprice,sellprice,purchdate,expdate) VALUES(:item,:quantity,:purchprice,:sellprice,:purchdate,:expdate)');
 
 
         //Bind values
-        $this->db->bind(':item', $data['itemcode']);
+        $this->db->bind(':item', $data['medid']);
         $this->db->bind(':quantity', $data['quantity']);
         $this->db->bind(':purchprice', $data['purchaseprice']);
         $this->db->bind(':sellprice', $data['sellingprice']);
@@ -273,13 +300,52 @@ class Admin {
 
     public function viewstock() {
 
-        $this->db->query('SELECT * FROM stock');
+        $this->db->query('SELECT * FROM fullstock INNER JOIN medicine ON fullstock.medid = medicine.medid');
 
         $results = $this->db->resultSet();
 
         return $results;
 
     }
+
+    public function purchstock() {
+
+        $this->db->query('SELECT * FROM purchstock INNER JOIN medicine ON purchstock.medid = medicine.medid');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
+    public function updatequantity($data){
+        $this->db->query('UPDATE fullstock SET quantity = :qty  WHERE medid = :medid');
+
+        $this->db->bind(':medid', $data['medid']);
+        $this->db->bind(':qty', $data['newquantity']);
+        
+       
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+     
+    }
+
+    public function viewstockquantity($medid){
+        
+        $this->db->query('SELECT quantity FROM fullstock WHERE medid= :medid' );
+
+        $this->db->bind(':medid', $medid);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
+
+   
+    
+
     //Find user by email. Email is passed in by the Controller.
 //    public function findUserByEmail($email) {
 //        //Prepared statement

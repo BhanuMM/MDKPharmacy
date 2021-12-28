@@ -11,8 +11,8 @@ require APPROOT . '/views/includes/Adminhead.php';
                  ?>
                 </span> <br>
                 <a href="<?php echo URLROOT ?>/Admins/addstock"><button class="button button1" style="width: 150px; height: 60px;">Add New Stock</button></a>
-                <a href="<?php echo URLROOT ?>/Admins/purchasedstocks"><button class="button button1" style="width: 150px; height: 60px;">Purchased Stocks</button></a>
-                <a href="<?php echo URLROOT ?>/Admins/returnstocks"><button class="button button1" style="width: 150px; height: 60px;">Add Return Stocks</button></a>
+                <a href="<?php echo URLROOT ?>/Admins/purchstock"><button class="button button1" style="width: 150px; height: 60px;">Purchased Stocks</button></a>
+                <a href="<?php echo URLROOT ?>/Admins/returnstock"><button class="button button1" style="width: 150px; height: 60px;">Add Return Stocks</button></a>
                 <a href="<?php echo URLROOT ?>/Admins/viewreturns"><button class="button button1" style="width: 150px; height: 60px;">Return Stocks</button></a>
                 <a href="<?php echo URLROOT ?>/Admins/checkexpiry"><button class="button button1" style="width: 150px; height: 60px;">Check Expiry</button></a>
                 <a href="<?php echo URLROOT ?>/Admins/stockreorder"><button class="button button1" style="width: 150px; height: 60px;">Stock Reorder</button></a>
@@ -32,31 +32,16 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <th>Generic Name</th>
                       <th>Remaining Quantity</th>
                     </tr>
-                    <tr>
-                      <td>M1</td>
-                      <td>Hayleys Lifesciences Pvt(Ltd)</td>
-                      <td>Omez</td>
-                      <td>Omeprazole</td>
-                      <td>500</td>
-                    </tr>
-                    <tr>
-                      <td>M2</td>
-                      <td>IJ Medicals</td>
-                      <td>panadol</td>
-                      <td>Paracetamol</td>
-                      <td>1000</td>
-                    </tr>
-
-                     <!-- <?php foreach($data['stocks'] as $allstocks): ?>
+                    
+                     <?php foreach($data['stocks'] as $allstocks): ?>
                         <tr>
-                            <td><?php echo $allstocks->itemcode; ?></td>
+                            <td><?php echo $allstocks->medid; ?></td>
+                            <td><?php echo $allstocks->medimporter; ?></td>
+                            <td><?php echo $allstocks->medbrand; ?></td>
+                            <td><?php echo $allstocks->medgenname; ?></td>
                             <td><?php echo $allstocks->quantity; ?></td>
-                            <td><?php echo $allstocks->purchprice; ?></td>
-                            <td><?php echo $allstocks->sellprice; ?></td>
-                            <td><?php echo $allstocks->purchdate; ?></td>
-                            <td><?php echo $allstocks->expdate; ?></td>
                         </tr>
-                        <?php endforeach; ?> -->
+                        <?php endforeach; ?>
 
                   </table>
 

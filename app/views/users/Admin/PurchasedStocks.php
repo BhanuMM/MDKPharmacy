@@ -30,39 +30,21 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <th>Purchase Date</th>
                       <th>Expiry Date</th>
                     </tr>
-                    <tr>
-                      <td>M1</td>
-                      <td>Hayleys Lifesciences Pvt(Ltd)</td>
-                      <td>Omez</td>
-                      <td>Omeprazole</td>
-                      <td>500</td>
-                      <td>10.00</td>
-                      <td>15.00</td>
-                      <td>2021-10-06</td>
-                      <td>2022-10-06</td>
-                    </tr>
-                    <tr>
-                      <td>M2</td>
-                      <td>IJ Medicals</td>
-                      <td>panadol</td>
-                      <td>Paracetamol</td>
-                      <td>1000</td>
-                      <td>3.00</td>
-                      <td>5.00</td>
-                      <td>2021-11-06</td>
-                      <td>2023-10-06</td>
-                    </tr>
+                   
 
-                     <!-- <?php foreach($data['stocks'] as $allstocks): ?>
+                     <?php foreach($data['purchstock'] as $allstocks): ?>
                         <tr>
-                            <td><?php echo $allstocks->itemcode; ?></td>
+                            <td><?php echo $allstocks->medid; ?></td>
+                            <td><?php echo $allstocks->medimporter; ?></td>
+                            <td><?php echo $allstocks->medbrand; ?></td>
+                            <td><?php echo $allstocks->medgenname; ?></td>
                             <td><?php echo $allstocks->quantity; ?></td>
                             <td><?php echo $allstocks->purchprice; ?></td>
                             <td><?php echo $allstocks->sellprice; ?></td>
                             <td><?php echo $allstocks->purchdate; ?></td>
                             <td><?php echo $allstocks->expdate; ?></td>
                         </tr>
-                        <?php endforeach; ?> -->
+                        <?php endforeach; ?>
 
                   </table>
 
