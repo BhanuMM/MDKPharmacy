@@ -7,7 +7,7 @@ require APPROOT . '/views/includes/Adminhead.php';
             <h2 style="margin-top: 3%;">
                 Stock Details
             </h2>
-            <h5>
+            <!-- <h5>
                 Supplier Agency Name
             </h5>
             <select class="input1" name="supplier" id="supplier" required>
@@ -37,10 +37,21 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <option value="mebendazole"> Mebendazole tablet 500mg</option>
                 <option value="oseltamivir">Oseltamivir capsule 45mg</option>
             </select>
+            <h5> -->
             <h5>
+            Medicine ID
+            </h5>
+            <select class="input1" name="medid" id="generic" required>
+            <?php foreach($data['medicines'] as $allmeds): ?>   
+                <option value="<?php echo $allmeds->medid; ?>"> <?php echo $allmeds->medgenname; ?> </option>
+            
+            <?php endforeach; ?>
+            </select>
+            <h5>
+                
                 Package Size
             </h5>
-            <input class="input1" type="number" id="pack" name="pack" placeholder="100" required>
+            <input class="input1" type="number" id="pack" name="package" placeholder="100" required>
             <h5>
                 Quantity
             </h5>

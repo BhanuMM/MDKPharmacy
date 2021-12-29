@@ -21,33 +21,21 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <th>Return Quantity</th>
                       <th>Reason to return the stock</th>
                     </tr>
+                    <?php foreach($data['allreturnstock'] as $allmedicines): ?>
+
                     <tr>
-                    <td>2020-10-06</td>
-                    <td>M1</td>
-                    <td>Hayleys Lifesciences Pvt(Ltd)</td>
-                    <td>Omez</td>
-                    <td>Omeprazole</td>
-                    <td>500</td>
-                    <td>Expired</td>
+                         <td><?php echo $allmedicines->purchdate; ?></td>
+                         <td><?php echo $allmedicines->medid; ?></td>
+                         <td><?php echo $allmedicines->medimporter; ?></td>
+                         <td><?php echo $allmedicines->medbrand; ?></td>
+                         <td><?php echo $allmedicines->medgenname; ?></td>
+                         <td><?php echo $allmedicines->rquantity; ?></td>
+                         <td><?php echo $allmedicines->reason; ?></td>
+                         
                     </tr>
-                    <tr>
-                    <td>2020-10-07</td>
-                    <td>M4</td>
-                    <td>Hayleys Lifesciences Pvt(Ltd)</td>
-                    <td>Panadol</td>
-                    <td>Paracetamol</td>
-                    <td>100</td>
-                    <td>Damaged</td>
-                    </tr>
-                    <tr>
-                    <td>2020-09-07</td>
-                    <td>M4</td>
-                    <td>IJ Medicals</td>
-                    <td>Amoxil</td>
-                    <td>Amoxicillin</td>
-                    <td>200</td>
-                    <td>Expired</td>
-                    </tr>
+                        
+                     <?php endforeach; ?>
+
                   </table>
 
             </div>

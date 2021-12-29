@@ -358,15 +358,31 @@ class Admins extends Controller {
         $allstocks = $this->adminModel->viewstock();
 
         $data = [
+        
             'stocks' => $allstocks
         ];
         $this->view('users/Admin/StockDetails',$data);
     }
 
-    public function addstock() {
+    public function purchstock() {
+        $allstocks = $this->adminModel->purchstock();
 
         $data = [
-            'itemcode' => '',
+        
+            'purchstock' => $allstocks
+        ];
+        $this->view('users/Admin/PurchasedStocks',$data);
+    }
+
+    
+
+    public function addstock() {
+
+    $allmednames = $this->adminModel->viewmed();
+    
+        $data = [
+            'medicines'=> $allmednames,
+            'medid' => '',
             'quantity' => '',
             'purchaseprice' => '',
             'sellingprice' => '',
@@ -379,14 +395,20 @@ class Admins extends Controller {
             // Process form
             // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $quantity = $this->adminModel->viewstockquantity($_POST['medid']);
+
+            $newquantity = (int)$quantity->quantity + (int)$_POST['quantity'];
 
             $data = [
-                'itemcode' => trim($_POST['item']),
+                'medid' => trim($_POST['medid']),
+                'packagesize' => trim($_POST['package']),
                 'quantity' => trim($_POST['quantity']),
                 'purchaseprice' => trim($_POST['purchprice']),
                 'sellingprice' => trim($_POST['sellprice']),
                 'purchasedate' => $_POST['purchdate'],
-                'expirydate' => $_POST['expdate']
+                'expirydate' => $_POST['expdate'],
+                'newquantity' => $newquantity
             ];
             // Make sure that errors are empty
             if (empty($data['nameError'])) {
@@ -394,16 +416,90 @@ class Admins extends Controller {
 
                 //Register user from model function
                 if ($this->adminModel->registerstock($data)) {
+                    if($this->adminModel->updatequantity($data)){
+                        $recadded = 'New Stock has been Successfully Added!';
+                        header('location: ' . URLROOT . '/admins/viewstock?msg='.$recadded);
+                    }else{
+                        die('Update error.');
+                    }
                     //Redirect to the viewtable page
-                    $recadded = 'New Stock has been Successfully Added!';
-                    header('location: ' . URLROOT . '/admins/viewstock?msg='.$recadded);
+                    
                 } else {
                     die('Something went wrong.');
                 }
             }
         }
-        $this->view('users/Admin/AddStock');
+        $this->view('users/Admin/AddStock', $data);
     }
+
+    public function returnstock() {
+
+        $allmednames = $this->adminModel->viewmed();
+
+        $data = [
+            'medicines'=> $allmednames,
+            'medid' => '',
+            'returnqty' => '',
+            'reason' => '',
+            'purchdate' => '',
+            'nameError' => ''
+            
+        ];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            
+            $quantity = $this->adminModel->viewstockquantity($_POST['medid']);
+
+            $newquantity = (int)$quantity->quantity - (int)$_POST['returnqty'];
+
+            $data = [
+                'medid' => trim($_POST['medid']),
+                'purchdate' => trim($_POST['purchdate']),
+                'returnqty' => trim($_POST['returnqty']),
+                'reason' => trim($_POST['reason']),
+                'newquantity' => $newquantity
+            ];
+            // Make sure that errors are empty
+            if (empty($data['nameError'])) {
+
+
+                //Register user from model function
+                if ($this->adminModel->returnstock($data)) {
+                    if($this->adminModel->updatequantity($data)){
+                        $recadded = 'New Stock has been Successfully Added!';
+                        header('location: ' . URLROOT . '/admins/viewstock?msg='.$recadded);
+                    }else{
+                        die('Update error.');
+                    }
+                    //Redirect to the viewtable page
+                    
+                } else {
+                    die('Something went wrong.');
+                }
+            }
+        }
+        
+        $this->view('users/Admin/ReturnStocks',$data);
+    }
+
+
+    public function viewreturns() {
+
+        $returnstock = $this->adminModel->viewreturnstock();
+
+        $data = [
+        
+            'allreturnstock' => $returnstock
+        ];
+
+        $this->view('users/Admin/ViewReturns',$data);
+    }
+        
+  
+
+
 
     public function viewsupplier() {
         $allsuppliers = $this->adminModel->viewsupplier();
@@ -638,17 +734,13 @@ class Admins extends Controller {
         $this->view('users/Admin/AdminProfileSetting',$data);
     }
 
-    public function returnstocks() {
-        $this->view('users/Admin/ReturnStocks');
-    }
+    
 
     public function checkexpiry() {
         $this->view('users/Admin/CheckExpiry');
     }
 
-    public function viewreturns() {
-        $this->view('users/Admin/ViewReturns');
-    }
+    
 
     public function stockreorder() {
         $this->view('users/Admin/StockReorder');
