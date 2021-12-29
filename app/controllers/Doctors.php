@@ -67,7 +67,7 @@ class Doctors extends Controller {
         $data = [
             'medicines' => $med,
 //            'medid' => $med->medid,
-//            'genericname' => $med->medgenname,
+//            'medgenname' => $med->medgenname,
             'id'=>$pat->patid,
             'nic'=>$pat->patnic,
             'name'=>$pat->patname,
@@ -76,27 +76,27 @@ class Doctors extends Controller {
             'gender'=>$pat->patgen
 
         ];
-        echo json_encode($data);
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          if(isset($_POST["search"])){
-              $med = $this->doctorModel->loadmed();
-              $data = [
-                  'medicines' => $med,
-//                  'medid' => $med->medid,
-//                  'genericname' => $med->medgenname,
-                  'id'=>$pat->patid,
-                  'nic'=>$pat->patnic,
-                  'name'=>$pat->patname,
-                  'dob'=>$pat->patdob,
-                  'tel'=>$pat->pattelno,
-                  'gender'=>$pat->patgen
-
-              ];
-//              echo json_encode($patdata);
-              $this->view('users/Doctor/AddPrescription',$data);
-          }
-
-        }
+//        echo json_encode($data);
+//        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//          if(isset($_POST["search"])){
+//              $med = $this->doctorModel->loadmed();
+//              $data = [
+//                  'medicines' => $med,
+////                  'medid' => $med->medid,
+////                  'genericname' => $med->medgenname,
+//                  'id'=>$pat->patid,
+//                  'nic'=>$pat->patnic,
+//                  'name'=>$pat->patname,
+//                  'dob'=>$pat->patdob,
+//                  'tel'=>$pat->pattelno,
+//                  'gender'=>$pat->patgen
+//
+//              ];
+////              echo json_encode($patdata);
+//              $this->view('users/Doctor/AddPrescription',$data);
+//          }
+//
+//        }
 
 //        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 //            if(isset($_POST["search"])){
@@ -121,6 +121,74 @@ class Doctors extends Controller {
     }
 
     public function viewprescriptions() {
+        $data = [
+            'genericname' => '',
+            'brandname' => '',
+            'importername' => '',
+            'dealer' => '',
+            'purchaseprice' => '',
+            'sellingprice' => '',
+            'profitmargin' => '',
+            'acslvl'=>'',
+            'nameError' => ''
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $count = count($_POST['medid']);
+            $medid =$_POST['medid'];
+            $meddose =$_POST['meddos'];
+
+
+
+            $data=[
+                'patid'=>$_POST['patid'],
+                'docid' => $_POST['docid'],
+                'prestime'=>date("h:i:sa"),
+                'presdate'=>date("Y/m/d"),
+                'specialnote'=>"note"
+            ];
+
+            if ($this->doctorModel->createpres($data)){
+                $maxpres =$this->doctorModel->getlatestpres();
+                $presid = $maxpres->maxpres ;
+                for($i=0; $i< $count; $i++){
+                    $data=[
+                        'medid'=> $medid [$i],
+                        'meddose'=> $meddose[$i],
+                        'presid'=>$presid
+
+                    ];
+                    $this->doctorModel->addtopres($data);
+//                echo  $medid [$i] . "-" . $meddose[$i] ."<br>";
+                }
+
+            }else {
+                   die('Something went wrong.');
+              }
+
+
+
+
+//
+            // Make sure that errors are empty
+//            if (empty($data['nameError'])) {
+
+
+                //Register user from model function
+//                if ($this->adminModel->registermedicine($data)) {
+//                    //Redirect to the viewtable page
+//                    $recadded = 'New Medicine has been Successfully Added!';
+//                    header('location: ' . URLROOT . '/admins/viewmed?msg='.$recadded);
+//                } else {
+//                    die('Something went wrong.');
+//                }
+//            }
+        }
+
         $this->view('users/Doctor/ViewPrescription');
     }
 

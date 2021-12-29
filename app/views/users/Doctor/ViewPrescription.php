@@ -40,7 +40,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 <thead>
                 <tr>
                     <th>Medicine</th>
-                    <th class="table-field">Quantity</th>
+                    <th class="table-field">Dosage</th>
 <!--                    <th class="table-field">Total</th>-->
                 </tr>
                 </thead>
