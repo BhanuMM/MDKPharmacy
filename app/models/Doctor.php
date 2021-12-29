@@ -40,4 +40,52 @@ class Doctor {
         return $row;
 
     }
+    public function createpres($data) {
+
+        $this->db->query('INSERT INTO prescription (patid,docid,pretime,presdate,specialnote)VALUES( :pat ,:doc ,:prestime ,:presdate , :note)');
+
+
+        //Bind values
+//        $this->db->bind(':presid', $data['presid']);
+        $this->db->bind(':pat', $data['patid']);
+        $this->db->bind(':doc', $data['docid']);
+        $this->db->bind(':prestime', $data['prestime']);
+        $this->db->bind(':presdate', $data['presdate']);
+        $this->db->bind(':note', $data['specialnote']);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public function addtopres($data) {
+
+        $this->db->query('INSERT INTO presmed (presid,medid,dosage)VALUES(:presid,:medid,:meddose)');
+
+
+        //Bind values
+        $this->db->bind(':presid', $data['presid']);
+        $this->db->bind(':medid', $data['medid']);
+        $this->db->bind(':meddose', $data['meddose']);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    public function getlatestpres() {
+
+        $this->db->query('SELECT MAX(presid) AS maxpres FROM prescription ');
+
+        $row = $this->db->single();
+        return $row;
+
+    }
 }
