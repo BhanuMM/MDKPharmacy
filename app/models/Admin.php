@@ -5,14 +5,14 @@ class Admin {
         $this->db = new Database;
     }
 
-    public function viewusers() {
 
-        $this->db->query('SELECT * FROM staff  ');
+    public function searchusernic($snic) {
+        $this->db->query('SELECT * FROM staff WHERE snic = :usernic');
 
-        $results = $this->db->resultSet();
-
-        return $results;
-
+        //Bind value
+        $this->db->bind(':usernic', $snic);
+        $row = $this->db->single();
+        return $row;
     }
 
 
@@ -177,6 +177,17 @@ class Admin {
         return $results;
 
     }
+
+    public function searchmed() {
+
+        $this->db->query('SELECT * FROM medicine WHERE medgenname LIKE %. $medgenname.% ');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
 
     public function findMedbById($medid) {
         $this->db->query('SELECT * FROM medicine WHERE medid = :medid');

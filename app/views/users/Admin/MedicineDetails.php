@@ -13,12 +13,12 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <a href="<?php echo URLROOT ?>/Admins/addmed"><button class="button button1">Add New Medicine +</button></a>
                 <ul style="padding-left: 0px; list-style-type: none; ">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> Medicine Details</h3></li>
-                    <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
-                            <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
+                    <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/viewmed">
+                    <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
                         <li Style="float: right; vertical-align: middle; display: inline;">
-                            <input type="text" name="search_box"   style="height: 35px;" placeholder="Generic Name" id="search_box" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onkeyup="javascript:load_data(this.value)" >
-                            <span id="search_result"></span>
-                        </li></form>
+                            <input type="text" id="UISearchbar" name="UISearchbar" style="height: 35px;" placeholder="Medicine Name"></li>
+                        <button style="margin-left: 1080px" class="form-submit">SEARCH</button>
+                    </form>
                 </ul>
 
                 <table id="customers">
@@ -35,24 +35,23 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <th>Update</th>
                       <th>Delete</th>
                     </tr>
-                    <?php foreach($data['medicines'] as $allmedicines): ?>
 
                         <tr>
-                            <td><?php echo $allmedicines->medid; ?></td>
-                            <td><?php echo $allmedicines->medgenname; ?></td>
-                            <td><?php echo $allmedicines->medbrand; ?></td>
-                            <td><?php echo $allmedicines->medimporter; ?></td>
-                            <td><?php echo $allmedicines->meddealer; ?></td>
-                            <td><?php echo $allmedicines->medpurchprice; ?></td>
-                            <td><?php echo $allmedicines->medsellprice; ?></td>
-                            <td><?php echo $allmedicines->medprofit; ?></td>
-                            <td><?php echo $allmedicines->medacslvl; ?></td>
+                            <td><?php echo $data['id'] ?></td>
+                            <td><?php echo $data['name'] ?></td>
+                            <td><?php echo $data['brand'] ?></td>
+                            <td><?php echo $data['importer'] ?></td>
+                            <td><?php echo $data['dealer'] ?></td>
+                            <td><?php echo $data['purchprice'] ?></td>
+                            <td><?php echo $data['sellprice'] ?></td>
+                            <td><?php echo $data['profit'] ?></td>
+                            <td><?php echo $data['access'] ?></td>
                             
                             <td>
                                
                             
                                         
-                            <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT . "/Admins/updatemed/" . $allmedicines->medid ?>">
+                            <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT . "/Admins/updatemed/" .$data['id'] ?>">
                                 Update 
                             </a> 
                             
@@ -63,14 +62,14 @@ require APPROOT . '/views/includes/Adminhead.php';
 
                             <td>
                            
-                            <form action="<?php echo URLROOT . "/Admins/deletemed/" . $allmedicines->medid ?>" method="POST">
+                            <form action="<?php echo URLROOT . "/Admins/deletemed/" .$data['id'] ?>" method="POST">
                                 <input class="button button1" style="background-color: #fc92a1;" Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
                             </form>
                             </td>
                            
                         </tr>
                         
-                    <?php endforeach; ?>
+
 
                   </table>
 

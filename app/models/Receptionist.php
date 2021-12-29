@@ -62,6 +62,15 @@ public function findPatientById($patid) {
     return $row;
 }
 
+public function searchpatientnic($patnic) {
+    $this->db->query('SELECT * FROM patient WHERE patnic = :patnic');
+
+    //Bind value
+    $this->db->bind(':patnic', $patnic);
+    $row = $this->db->single();
+    return $row;
+}
+
 public function updatepatient($data) {
 
     $this->db->query('UPDATE patient SET patname = :patname, patnic = :patnic, patadrs = :patadrs, pattelno = :pattelno, patemail = :patemail, patdob = :patdob, patgen = :patgen WHERE patid = :patid' );
