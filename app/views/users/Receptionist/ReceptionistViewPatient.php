@@ -11,7 +11,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                      echo $_GET['msg']; // print_r($_GET);
                  }
                  ?>
-                </span> <br>                <a href="<?php echo URLROOT ?>/receptionists/registerpatient"><button class="button button1">Add New Patient +</button></a>
+                </span> <br> <a href="<?php echo URLROOT ?>/receptionists/registerpatient"><button class="button button1">Add New Patient +</button></a>
                 <ul style="margin-top: 5%; padding-left: 0px; list-style-type: none;">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3>Patient Details</h3></li>
                     <form method="post" class="data" action="<?php echo URLROOT. "/receptionists/viewpatients/". $data['id'] ?>">

@@ -150,6 +150,7 @@ class Admin {
         $this->db->bind(':profit', $data['profitmargin']);
         $this->db->bind(':acslvl', $data['acslvl']);
 
+
         //Execute function
         if ($this->db->execute()) {
             return true;

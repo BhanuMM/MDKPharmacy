@@ -13,45 +13,21 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
     <table id="customers">
         <tr>
-            <th>Patient ID</th>
-            <th>Views</th>
-            <th>Views</th>
-            <th>Views</th>
-            <th>Views</th>
-            <th>Views</th>
-            <th>Country</th>
-            <th>View</th>
+            <th>Prescription ID</th>
+            <th>Doctor ID</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th></th>
         </tr>
+        <?php foreach($data['pat'] as $allpat): ?>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button class="button button1"><a href="<?php echo URLROOT ?>/doctors/viewprescriptions">View</a></button></td>
+            <td><?php echo $allpat->presid ?></td>
+            <td><?php echo $allpat->docid ?></td>
+            <td><?php echo $allpat->pretime ?></td>
+            <td><?php echo $allpat->presdate ?></td>
+            <td><button class="button button1"><a href="<?php echo URLROOT. "/doctors/pastsingleprescription/".$allpat->presid ?>"> View</a></button></td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button class="button button1"><a href="<?php echo URLROOT ?>/doctors/viewprescriptions">View</a></button></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button class="button button1"><a href="<?php echo URLROOT ?>/doctors/viewprescriptions">View</a></button></td>
-        </tr>
+        <?php endforeach; ?>
     </table>
 
 </div>

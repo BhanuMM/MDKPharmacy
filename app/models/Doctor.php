@@ -88,4 +88,43 @@ class Doctor {
         return $row;
 
     }
+
+    public function viewpatient() {
+        $this->db->query('SELECT * FROM patient');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+    public function viewprescriptions($patid) {
+
+    $this->db->query('SELECT * FROM prescription WHERE patid = :pid');
+        $this->db->bind(':pid',$patid);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+    public function getprespatdata($presid) {
+
+        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid WHERE prescription.presid = :pid ');
+        $this->db->bind(':pid',$presid);
+
+        $row = $this->db->single();
+
+        return $row;
+
+    }
+    public function getpresdata($presid) {
+
+        $this->db->query('SELECT * FROM presmed INNER JOIN medicine ON medicine.medid= presmed.medid  WHERE presid = :pid');
+        $this->db->bind(':pid',$presid);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
 }
