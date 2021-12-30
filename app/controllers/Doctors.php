@@ -10,11 +10,22 @@ class Doctors extends Controller {
     }
 
     public function viewpatientdetails() {
-        $this->view('users/Doctor/PatientDetails');
+        $pat = $this->doctorModel->viewpatient();
+
+        $data = [
+
+            'pat' => $pat
+        ];
+        $this->view('users/Doctor/PatientDetails',$data);
     }
 
-    public function allprescriptions() {
-        $this->view('users/Doctor/Prescriptions');
+    public function allprescriptions($patid) {
+        $patpres = $this->doctorModel->viewprescriptions($patid);
+        $data = [
+
+            'pat' => $patpres
+        ];
+        $this->view('users/Doctor/Prescriptions',$data);
     }
 
     public function viewmedicineavailability() {
@@ -154,7 +165,7 @@ class Doctors extends Controller {
 
             if ($this->doctorModel->createpres($data)){
                 $maxpres =$this->doctorModel->getlatestpres();
-                $presid = $maxpres->maxpres ;
+                $presid = $maxpres->maxpres;
                 for($i=0; $i< $count; $i++){
                     $data=[
                         'medid'=> $medid [$i],
@@ -192,6 +203,25 @@ class Doctors extends Controller {
         $this->view('users/Doctor/ViewPrescription');
     }
 
+    public function pastsingleprescription($presid) {
+        $patdata =$this->doctorModel->getprespatdata($presid);
+        $predata =$this->doctorModel->getpresdata($presid);
+        $data = [
+            'presid' => $patdata->presid,
+            'presdate' => $patdata->presdate,
+            'prestime' => $patdata->pretime,
+            'presnote' => $patdata->specialnote,
+            'patname' => $patdata->patname,
+            'patage' => $patdata->patdob,
+            'patgen' => $patdata->patgen,
+            'meds'=> $predata
+//            'medgenname' => $med->medgenname,
+
+
+        ];
+
+        $this->view('users/Doctor/SinglePrescription',$data);
+    }
     public function patientprofile() {
         $this->view('users/Doctor/PatientProfile');
     }

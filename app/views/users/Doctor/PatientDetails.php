@@ -26,39 +26,23 @@ require APPROOT . '/views/includes/Doctorhead.php';
                         <th>View Prescriptions</th>
 
                     </tr>
+                    <?php foreach($data['pat'] as $allpat): ?>
                     <tr>
-                      <td>P004</td>
-                      <td>H.J.K.Gunasena</td>
-                      <td>547896321V</td>
-                      <td>0756547485</td>
-                      <td>145,Kandy Rd, Colombo.</td>
-                      <td>gunasena@gmail.com</td>
-                      <td>1954-10-23</td>
-                      <td>Male</td>
-                      <td><a href="<?php echo URLROOT ?>/doctors/patientprofile"><button class="button button1">View</button></a></td>
+                        <td><?php echo $allpat->patid ?></td>
+                        <td><?php echo $allpat->patname ?></td>
+                        <td><?php echo $allpat->patnic ?></td>
+                        <td><?php echo $allpat->pattelno ?></td>
+                        <td><?php echo $allpat->patadrs ?></td>
+                        <td><?php echo $allpat->patemail ?></td>
+                        <td><?php echo $allpat->patdob ?></td>
+                        <td><?php echo $allpat->patgen ?></td>
+                        <td align="center">
+                            <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/doctors/allprescriptions/".$allpat->patid ?>" >view</a>
+                        </td>
+
+
                     </tr>
-                    <tr>
-                      <td>P012</td>
-                      <td>K.L.Chandradasa</td>
-                      <td>647346321V</td>
-                      <td>0777747485</td>
-                      <td>14,Horana Rd, Colombo.</td>
-                      <td>chandradasa@gmail.com</td>
-                      <td>1964-10-23</td>
-                      <td>Male</td>
-                      <td><a href="<?php echo URLROOT ?>/doctors/patientprofile"><button class="button button1">View</button></a></td>
-                    </tr>
-                    <tr>
-                      <td>P045</td>
-                      <td>G.N.S.Silva</td>
-                      <td>847896321V</td>
-                      <td>0716547485</td>
-                      <td>145,Kandy Rd, Colombo.</td>
-                      <td>nilanthi@gmail.com</td>
-                      <td>1984-11-23</td>
-                      <td>Female</td>
-                      <td><a href="<?php echo URLROOT ?>/doctors/patientprofile"><button class="button button1">View</button></a></td>
-                    </tr>
+                    <?php endforeach; ?>
                   </table>
 
             </div>
