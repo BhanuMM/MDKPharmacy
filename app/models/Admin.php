@@ -5,6 +5,15 @@ class Admin {
         $this->db = new Database;
     }
 
+    public function viewusers() {
+
+        $this->db->query('SELECT * FROM staff');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
 
     public function searchusernic($snic) {
         $this->db->query('SELECT * FROM staff WHERE snic = :usernic');
@@ -63,6 +72,21 @@ class Admin {
     public function viewsupplier() {
 
         $this->db->query('SELECT * FROM supplier');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
+    public function searchsupplier($agencyname) {
+        $where = "WHERE `agencyname` like :agency ";
+
+        $param1 = '%'.$agencyname.'%'  ;
+       
+
+        $this->db->query("SELECT * FROM supplier ".$where."");
+        $this->db->bind(':agency', $param1);
 
         $results = $this->db->resultSet();
 
@@ -178,9 +202,14 @@ class Admin {
 
     }
 
-    public function searchmed() {
+    public function searchmed($medgenname) {
+        $where = "WHERE `medgenname` like :medname ";
 
-        $this->db->query('SELECT * FROM medicine WHERE medgenname LIKE %. $medgenname.% ');
+        $param1 = '%'.$medgenname.'%'  ;
+       
+
+        $this->db->query("SELECT * FROM medicine ".$where."");
+        $this->db->bind(':medname', $param1);
 
         $results = $this->db->resultSet();
 

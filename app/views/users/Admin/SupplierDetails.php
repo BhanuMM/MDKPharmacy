@@ -14,10 +14,12 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <a href="<?php echo URLROOT ?>/Admins/addsupplier"><button class="button button1">Add New Supplier +</button></a>
                 <ul style="padding-left: 0px; list-style-type: none;">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> Supplier Details</h3></li>
-                    <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
-                            <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
+                    <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/viewsupplier">
+                    <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
                         <li Style="float: right; vertical-align: middle; display: inline;">
-                            <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Supplier Agency ID"></li></form>
+                            <input type="text" id="UISearchbar" name="UISearchbar" style="height: 35px;" placeholder="Supplier Name"></li>
+                        <button style="margin-left: 1080px" class="form-submit">SEARCH</button>
+                    </form>
                 </ul>
 
 

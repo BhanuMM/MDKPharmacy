@@ -35,23 +35,24 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <th>Update</th>
                       <th>Delete</th>
                     </tr>
+                    <?php foreach($data['med'] as $allmed): ?>
 
                         <tr>
-                            <td><?php echo $data['id'] ?></td>
-                            <td><?php echo $data['name'] ?></td>
-                            <td><?php echo $data['brand'] ?></td>
-                            <td><?php echo $data['importer'] ?></td>
-                            <td><?php echo $data['dealer'] ?></td>
-                            <td><?php echo $data['purchprice'] ?></td>
-                            <td><?php echo $data['sellprice'] ?></td>
-                            <td><?php echo $data['profit'] ?></td>
-                            <td><?php echo $data['access'] ?></td>
+                            <td><?php echo $allmed->medid;  ?></td>
+                            <td><?php echo $allmed->medgenname; ?></td>
+                            <td><?php echo $allmed->medbrand;  ?></td>
+                            <td><?php echo $allmed->medimporter; ?></td>
+                            <td><?php echo $allmed->meddealer; ?></td>
+                            <td><?php echo $allmed->medpurchprice;  ?></td>
+                            <td><?php echo  $allmed->medsellprice ?></td>
+                            <td><?php echo  $allmed->medprofit ?></td>
+                            <td><?php echo  $allmed->medacslvl?></td>
                             
                             <td>
                                
                             
                                         
-                            <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT . "/Admins/updatemed/" .$data['id'] ?>">
+                            <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT . "/admins/updatemed/" .  $allmed->medid ?>">
                                 Update 
                             </a> 
                             
@@ -62,20 +63,20 @@ require APPROOT . '/views/includes/Adminhead.php';
 
                             <td>
                            
-                            <form action="<?php echo URLROOT . "/Admins/deletemed/" .$data['id'] ?>" method="POST">
+                            <form action="<?php echo URLROOT . "/admins/deletemed/" . $allmed->medid?>" method="POST">
                                 <input class="button button1" style="background-color: #fc92a1;" Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
                             </form>
                             </td>
                            
                         </tr>
                         
-
+                        <?php endforeach; ?>
 
                   </table>
 
             </div>
 
-<script>
+<!-- <script>
     function get_text(event)
     {
         var string = event.textContent;
@@ -153,7 +154,7 @@ require APPROOT . '/views/includes/Adminhead.php';
             document.getElementById('search_result').innerHTML = '';
         }
     }
-</script>
+</script> -->
 
             <script>
                 function ConfirmDelete()
