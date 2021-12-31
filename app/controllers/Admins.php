@@ -6,14 +6,11 @@ class Admins extends Controller {
 
 
     public function viewuser() {
-            $data=[
-                'id'=>'',
-                'nic'=>'',
-                'name'=>'',
-                'email'=>'',
-                'tel'=>'',
-                'uname'=>'',
-                'urole'=>''
+
+        $allusers = $this->adminModel->viewusers();
+
+            $data = [
+                'users' => $allusers
             ];
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -170,17 +167,12 @@ class Admins extends Controller {
     }
 
     public function viewmed() {
-        $data=[
-            'id'=>'',
-            'name'=>'',
-            'brand'=>'',
-            'importer'=>'',
-            'dealer'=>'',
-            'purchprice'=>'',
-            'sellprice'=>'',
-            'profit'=>'',
-            'access'=>''
+       $allmedicines = $this->adminModel->viewmed();
+
+        $data = [
+            'med' => $allmedicines
         ];
+
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Sanitize post data
@@ -189,33 +181,10 @@ class Admins extends Controller {
             $datamed= trim($_POST['UISearchbar']);
             $searchmed = $this->adminModel->searchmed($datamed);
 
-            if ($searchmed) {
-                $data=[
-                    'id'=>$searchmed->medid,
-                    'name'=>$searchmed->medgenname,
-                    'brand'=>$searchmed->medbrand,
-                    'importer'=>$searchmed->medimporter,
-                    'dealer'=>$searchmed->meddealer,
-                    'purchprice'=>$searchmed->medpurchprice,
-                    'sellprice'=>$searchmed->medsellprice,
-                    'profit'=>$searchmed->medprofit,
-                    'access'=>$searchmed->medacslvl
-                ];
-            }
-            else{
-                $data=[
-                    'id'=>'',
-                    'name'=>'',
-                    'brand'=>'',
-                    'importer'=>'',
-                    'dealer'=>'',
-                    'purchprice'=>'',
-                    'sellprice'=>'',
-                    'profit'=>'',
-                    'access'=>'',
-                    'nofound' => 'No Record'
-                ];
-            }
+
+            $data = [
+                'med' => $searchmed
+            ];
 
         }
         $this->view('users/Admin/MedicineDetails',$data);
@@ -507,8 +476,24 @@ class Admins extends Controller {
         $data = [
             'suppliers' => $allsuppliers
         ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datasupplier= trim($_POST['UISearchbar']);
+            $searchsupplier = $this->adminModel->searchsupplier($datasupplier);
+
+
+            $data = [
+                'suppliers' => $searchsupplier
+            ];
+
+        }
+
         $this->view('users/Admin/SupplierDetails',$data);
     }
+
 
     public function addsupplier() 
         {

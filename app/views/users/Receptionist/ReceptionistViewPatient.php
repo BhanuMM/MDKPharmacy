@@ -14,7 +14,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                 </span> <br> <a href="<?php echo URLROOT ?>/receptionists/registerpatient"><button class="button button1">Add New Patient +</button></a>
                 <ul style="margin-top: 5%; padding-left: 0px; list-style-type: none;">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3>Patient Details</h3></li>
-                    <form method="post" class="data" action="<?php echo URLROOT. "/receptionists/viewpatients/". $data['id'] ?>">
+                    <form method="post" class="data" action="<?php echo URLROOT; ?>/receptionists/viewpatients">
                     <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
                         <li Style="float: right; vertical-align: middle; display: inline;">
                             <input type="text" id="UISearchbar" name="UISearchbar" style="height: 35px;" placeholder="Patient NIC"></li>
@@ -37,33 +37,38 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
 
                     </tr>
                    
-
+                    <?php foreach($data['patients'] as $allpatients): ?>
                         <tr>
-                            <td><?php echo $data['id'] ?></td>
-                            <td><?php echo $data['name'] ?></td>
-                            <td><?php echo $data['nic'] ?></td>
-                            <td><?php echo $data['tel'] ?></td>
-                            <td><?php echo $data['adrs'] ?></td>
-                            <td><?php echo $data['email'] ?></td>
-                            <td><?php echo $data['dob'] ?></td>
-                            <td><?php echo $data['gender'] ?></td>
+                            <td><?php echo $allpatients->patid; ?></td>
+                            <td><?php echo $allpatients->patname; ?></td>
+                            <td><?php echo $allpatients->patnic; ?></td>
+                            <td><?php echo $allpatients->pattelno; ?></td>
+                            <td><?php echo $allpatients->patadrs;?></td>
+                            <td><?php echo $allpatients->patid; ?></td>
+                            <td><?php echo $allpatients->patdob; ?></td>
+                            <td><?php echo $allpatients->patgen; ?></td>
 
 
                             <td align="center">                   
-                                <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/receptionists/updatepatient/".$data['id']?>" >Update</a>
+                                <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/receptionists/updatepatient/".$allpatients->patid?>" >Update</a>
                             </td>
                             
                             
                         <td align="center"><button class="button button1" style="background-color: #ff9797;">
-                        <form action="<?php echo URLROOT . "/Receptionists/deletepatient/" . $data['id']?>" method="POST">
+                        <form action="<?php echo URLROOT . "/Receptionists/deletepatient/" . $allpatients->patid?>" method="POST">
                                 <input Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">Delete</form></button>
                         </td>
                         </tr>
- 
+                        <?php endforeach; ?>
                    
                   </table>
-
+                
+            </div>
             </div>
 
-
-        </div>
+            <script>
+                function ConfirmDelete()
+            {
+                return confirm("Are you sure you want to delete the selected User ?");
+            }
+            </script> 

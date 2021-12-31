@@ -13,16 +13,12 @@ class Receptionists extends Controller
 
     public function viewpatients()
     {
-        $data=[
-            'id'=>'',
-            'nic'=>'',
-            'name'=>'',
-            'email'=>'',
-            'tel'=>'',
-            'adrs'=>'',
-            'dob'=>'',
-            'gender'=>''
+        $allpatients = $this->receptionistModel->viewpatient();
+
+        $data = [
+            'patients' => $allpatients
         ];
+
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Sanitize post data
@@ -30,6 +26,7 @@ class Receptionists extends Controller
         
             $datanic = trim($_POST['UISearchbar']);
             $searchpatient = $this->receptionistModel->searchpatientnic($datanic);
+
 
             if ($searchpatient) {
                 $data=[
@@ -61,7 +58,7 @@ class Receptionists extends Controller
 
         $this->view('users/Receptionist/ReceptionistViewPatient',$data);
     }
-        
+
 
     public function registerpatient()
     {
