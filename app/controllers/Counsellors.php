@@ -1,7 +1,7 @@
 <?php
 class Counsellors extends Controller {
     public function __construct() {
-//        $this->pharmacistModel = $this->model('Pharmacist');
+       $this->counsellorModel = $this->model('Counsellor');
     }
 
     public function counsellordashboard() {
@@ -9,6 +9,24 @@ class Counsellors extends Controller {
     }
 
     public function seemedicineavailability() {
+        $allmedicines = $this->counsellorModel->viewmed();
+
+        $data = [
+            'med' => $allmedicines
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datamed= trim($_POST['UISearchbar']);
+            $searchmed = $this->counsellorModel->searchmed($datamed);
+
+            $data = [
+                'med' => $searchmed
+            ];
+        }
+
         $this->view('users/Counsellor/MedicineDetails');
     }
 

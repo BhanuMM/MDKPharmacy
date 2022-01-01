@@ -185,7 +185,7 @@ class Admin {
 
     public function viewmed() {
 
-        $this->db->query('SELECT * FROM medicine');
+        $this->db->query('SELECT * FROM medicine ');
 
         $results = $this->db->resultSet();
 

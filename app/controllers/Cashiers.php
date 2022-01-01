@@ -1,7 +1,7 @@
 <?php
 class Cashiers extends Controller {
     public function __construct() {
-//        $this->adminModel = $this->model('Admin');
+       $this->cashierModel = $this->model('Cashier');
     }
 
     public function cashierdashboard() {
@@ -41,6 +41,24 @@ class Cashiers extends Controller {
     }
 
     public function medicineavailability() {
+        $allmedicines = $this->cashierModel->viewmed();
+
+        $data = [
+            'med' => $allmedicines
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datamed= trim($_POST['UISearchbar']);
+            $searchmed = $this->cashierModel->searchmed($datamed);
+
+            $data = [
+                'med' => $searchmed
+            ];
+        }
+
         $this->view('users/Cashier/MedicineAvailability');
     }
 

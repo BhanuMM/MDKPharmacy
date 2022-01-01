@@ -29,7 +29,24 @@ class Doctors extends Controller {
     }
 
     public function viewmedicineavailability() {
-        $this->view('users/Doctor/MedicineDetails');
+        $allmedicines = $this->doctorModel->viewmed();
+
+        $data = [
+            'med' => $allmedicines
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datamed= trim($_POST['UISearchbar']);
+            $searchmed = $this->doctorModel->searchmed($datamed);
+
+            $data = [
+                'med' => $searchmed
+            ];
+        }
+        $this->view('users/Doctor/MedicineDetails',$data);
     }
 
     public function createprescription()
