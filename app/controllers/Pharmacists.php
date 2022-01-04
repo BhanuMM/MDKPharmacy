@@ -1,7 +1,7 @@
 <?php
 class Pharmacists extends Controller {
     public function __construct() {
-//        $this->pharmacistModel = $this->model('Pharmacist');
+        $this->pharmacistModel = $this->model('Pharmacist');
     }
 
     public function pharmacistdashboard() {
@@ -9,11 +9,34 @@ class Pharmacists extends Controller {
     }
 
     public function prescriptiondetails() {
-        $this->view('users/Pharmacist/PrescriptionDetails');
+        $pres = $this->pharmacistModel->viewpres();
+
+        $data = [
+
+            'pres' => $pres
+        ];
+
+        $this->view('users/Pharmacist/PrescriptionDetails',$data);
     }
 
-    public function viewprescription() {
-        $this->view('users/Pharmacist/PharmacistPrescription');
+    public function viewprescription($presid) {
+        $patdata =$this->pharmacistModel->getprespatdata($presid);
+        $predata =$this->pharmacistModel->getpresdata($presid);
+        $data = [
+            'presid' => $patdata->presid,
+            'presdate' => $patdata->presdate,
+            'prestime' => $patdata->pretime,
+            'presnote' => $patdata->specialnote,
+            'patname' => $patdata->patname,
+            'patage' => $patdata->patdob,
+            'patgen' => $patdata->patgen,
+            'meds'=> $predata
+//            'medgenname' => $med->medgenname,
+
+
+        ];
+
+        $this->view('users/Pharmacist/SinglePrescription',$data);
     }
 
     public function viewmedicineavailability() {
