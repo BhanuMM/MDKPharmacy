@@ -67,8 +67,9 @@ public function searchpatientnic($patnic) {
 
     //Bind value
     $this->db->bind(':patnic', $patnic);
-    $row = $this->db->single();
-    return $row;
+    $results = $this->db->resultSet();
+
+    return $results;
 }
 
 public function updatepatient($data) {

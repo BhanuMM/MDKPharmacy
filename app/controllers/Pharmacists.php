@@ -9,7 +9,27 @@ class Pharmacists extends Controller {
     }
 
     public function prescriptiondetails() {
-        $this->view('users/Pharmacist/PrescriptionDetails');
+            $allprescriptions = $this->pharmacistModel->viewprescription();
+     
+             $data = [
+                 'prescription' => $allprescriptions
+             ];
+     
+     
+             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                 //Sanitize post data
+                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+             
+                 $dataprescription= trim($_POST['UISearchbar']);
+                 $searchprescription = $this->pharmacistModel-> searchprescriptionbynic($dataprescription);
+     
+     
+                 $data = [
+                     'prescription' => $searchprescription
+                 ];
+     
+             }
+        $this->view('users/Pharmacist/PrescriptionDetails',$data);
     }
 
     public function viewprescription() {

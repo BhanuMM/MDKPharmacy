@@ -27,33 +27,9 @@ class Receptionists extends Controller
             $datanic = trim($_POST['UISearchbar']);
             $searchpatient = $this->receptionistModel->searchpatientnic($datanic);
 
-
-            if ($searchpatient) {
-                $data=[
-                    'id'=>$searchpatient->patid,
-                    'nic'=>$searchpatient->patnic,
-                    'name'=>$searchpatient->patname,
-                    'email'=>$searchpatient->patemail,
-                    'adrs'=>$searchpatient->patadrs,
-                    'tel'=>$searchpatient->pattelno,
-                    'dob'=>$searchpatient->patdob,
-                    'gender'=>$searchpatient->patgen
-                ];
-            }
-            else{
-                $data=[
-                    'id'=>'',
-                    'nic'=>'',
-                    'name'=>'',
-                    'email'=>'',
-                    'adrs'=>'',
-                    'tel'=>'',
-                    'dob'=>'',
-                    'gender'=>'',
-                    'nofound' => 'No Record'
-                ];
-            }
-
+            $data = [
+                'patients' => $searchpatient
+            ];
         }
 
         $this->view('users/Receptionist/ReceptionistViewPatient',$data);

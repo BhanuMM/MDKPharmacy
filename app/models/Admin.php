@@ -20,8 +20,9 @@ class Admin {
 
         //Bind value
         $this->db->bind(':usernic', $snic);
-        $row = $this->db->single();
-        return $row;
+        $results = $this->db->resultSet();
+
+        return $results;
     }
 
 
@@ -220,6 +221,22 @@ class Admin {
         return $results;
     }
 
+    public function searchreturn($medgenname) {
+        $where = "WHERE `medgenname` like :medname ";
+
+        $param1 = '%'.$medgenname.'%'  ;
+       
+
+        $this->db->query("SELECT * FROM medicine INNER JOIN returnstock ON returnstock.medid = medicine.medid ".$where."");
+        $this->db->bind(':medname', $param1);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
+
     public function automedview($condition) {
 
         $this->db->query('SELECT * FROM medicine WHERE medgenname LIKE %. $condition.%  ORDER BY id DESC LIMIT 10');
@@ -245,6 +262,22 @@ class Admin {
 
     }
 
+    public function searchpurchmed($medgenname) {
+        $where = "WHERE `medgenname` like :medname ";
+
+        $param1 = '%'.$medgenname.'%'  ;
+       
+
+        $this->db->query("SELECT * FROM purchstock INNER JOIN medicine ON purchstock.medid=medicine.medid ".$where."");
+        $this->db->bind(':medname', $param1);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
+   
 
     public function findMedbById($medid) {
         $this->db->query('SELECT * FROM medicine WHERE medid = :medid');

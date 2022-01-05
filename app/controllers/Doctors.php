@@ -16,6 +16,18 @@ class Doctors extends Controller {
 
             'pat' => $pat
         ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datanic = trim($_POST['UISearchbar']);
+            $searchpatient = $this->doctorModel->searchnic($datanic);
+
+            $data = [
+                'pat' => $searchpatient
+            ];
+        }
         $this->view('users/Doctor/PatientDetails',$data);
     }
 

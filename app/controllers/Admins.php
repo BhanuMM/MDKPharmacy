@@ -19,31 +19,10 @@ class Admins extends Controller {
             
                 $datanic = trim($_POST['UISearchbar']);
                 $searchuser = $this->adminModel->searchusernic($datanic);
-
-                if ($searchuser) {
-                    $data=[
-                        'id'=>$searchuser->staffid,
-                        'nic'=>$searchuser->snic,
-                        'name'=>$searchuser->sname,
-                        'email'=>$searchuser->semail,
-                        'tel'=>$searchuser->stelno,
-                        'uname'=>$searchuser->uname,
-                        'urole'=>$searchuser->urole
-                    ];
-                }
-                else{
-                    $data=[
-                        'id'=>'',
-                        'nic'=>'',
-                        'name'=>'',
-                        'email'=>'',
-                        'tel'=>'',
-                        'uname'=>'',
-                        'urole'=>'',
-                        'nofound' => 'No Record'
-                    ];
-                }
-    
+                $data = [
+                    'users' => $searchuser
+                ];
+                
             }
 
         $this->view('users/Admin/UserDetails',$data);
@@ -330,6 +309,21 @@ class Admins extends Controller {
         
             'stocks' => $allstocks
         ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datamed= trim($_POST['UISearchbar']);
+            $searchmed = $this->adminModel->searchmed($datamed);
+
+
+            $data = [
+        
+                'stocks' => $searchmed
+            ];
+
+        }
         $this->view('users/Admin/StockDetails',$data);
     }
 
@@ -340,6 +334,21 @@ class Admins extends Controller {
         
             'purchstock' => $allstocks
         ];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datamed= trim($_POST['UISearchbar']);
+            $searchmed = $this->adminModel->searchpurchmed($datamed);
+
+
+            $data = [
+        
+                'purchstock' => $searchmed
+            ];
+
+        }
+        
         $this->view('users/Admin/PurchasedStocks',$data);
     }
 
@@ -463,12 +472,24 @@ class Admins extends Controller {
             'allreturnstock' => $returnstock
         ];
 
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datareturn= trim($_POST['UISearchbar']);
+            $searchreturn = $this->adminModel->searchreturn($datareturn);
+
+
+            $data = [
+                'med' => $searchreturn
+            ];
+
+        }
+
         $this->view('users/Admin/ViewReturns',$data);
     }
         
   
-
-
 
     public function viewsupplier() {
         $allsuppliers = $this->adminModel->viewsupplier();
@@ -731,9 +752,6 @@ class Admins extends Controller {
         $this->view('users/Admin/StockReorder');
     }
 
-    public function purchasedstocks() {
-        $this->view('users/Admin/PurchasedStocks');
-    }
 
     
 }

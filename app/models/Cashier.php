@@ -7,10 +7,9 @@ class Cashier {
 
     public function viewmed() {
 
-        $this->db->query('SELECT * FROM medicine INNER JOIN stock ON medicine.medid=stock.itemcode');
+        $this->db->query('SELECT * FROM medicine INNER JOIN fullstock ON medicine.medid=fullstock.medid');
 
         $results = $this->db->resultSet();
-
         return $results;
 
     }
@@ -21,11 +20,10 @@ class Cashier {
         $param1 = '%'.$medgenname.'%'  ;
        
 
-        $this->db->query("SELECT * FROM medicine INNER JOIN stock ON medicine.medid=stock.itemcode ".$where." ");
+        $this->db->query("SELECT * FROM medicine INNER JOIN fullstock ON medicine.medid=fullstock.medid ".$where." ");
         $this->db->bind(':medname', $param1);
 
         $results = $this->db->resultSet();
-
         return $results;
 
     }
