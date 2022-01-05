@@ -1,6 +1,10 @@
 <?php
 require APPROOT . '/views/includes/Deliveryhead.php';
 ?>
+<div style="margin-left:20%; padding:1px 16px; width: 40%">
+    <button class="prebtn"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/deliverys/viewcurrentdeliveries"> << Previous </a> </span></button>
+</div>
+
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
 <div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: ">
                 <ul style="margin-top: 5%; padding-left: 0px; list-style-type: none; overflow: auto;">
