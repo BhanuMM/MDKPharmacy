@@ -21,12 +21,15 @@ require APPROOT . '/views/includes/Doctorhead.php';
     <div class="row">
 
         <div class="column" style="margin-left:5%; ">
-            <select name="med_list" id="med_list" class="form-control">
+<!--            <input list="med_list" name="med_list" id="med_list">-->
+            <select name="med_list" id="med_list" class="form-control" >
+
                 <option value="">Select Medicine</option>
                 <?php
                  foreach($data['medicines'] as $allmedicines):
                 {
                     echo '<option value="'.$allmedicines->medid.'" name="'.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</option>';
+//                    echo '<option value="'.$allmedicines->medgenname.'" >';
 
                 }
                  endforeach; ?>

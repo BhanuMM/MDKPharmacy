@@ -39,61 +39,29 @@
     <!--also include css of facilities in index page-->
 
     <section id="products" class= "products">
+    <?php 
+      if(isset($_POST['post']))
+      {
+        $productsQuery = "SELECT medgenname,medbrand,medimporter,medsellprice FROM medicine";
+        $productsQuery_run = $conn->query($productsQuery);
+
+      if($productsQuery_run)
+      {
+        while($products = $productsQuery_run->fetch(PDO::FETCH_OBJ))
+        {
+          echo ' <tr> 
+                    <th> '.$products->medgenname.' </th>
+                    <th> '.$products->medbrand.' </th>
+                    <th> '.$products->medimporter.' </th>
+                    <th> '.$products->medsellprice.' </th>
+                </tr> ';
+                    
+        }
+
+      }
+      }
     
-    <div class="row">
-    <div class="products-col">
-    <div class="container">
-  <div class="card">
-  <img src="<?php echo URLROOT ?>/public/images/pandol.png "/>
-  
-    <div class="card-body">
-      <div class="row">
-        <div class="card-title">
-          <h3>Panadol</h3>
-          <!-- <h3>Rs. 20 / card</h3> -->
-        </div>
-        <div class="view-btn">
-          <a href="">In Stock</a>
-          <br><br>
-        </div>
-      </div>
-      <hr />
-      <p><br>
-      provide effective relief of aches and pains, such as headaches, migraines, sore throatsand dental pain. <br>
-      </p>
-     
-    </div>
-  </div>
-  
-</div>
-    </div>
-    <div class="products-col">
-    <div class="container">
-  <div class="card">
-  <img src="<?php echo URLROOT ?>/public/images/panadol-syrup.jpg " />
-  
-    <div class="card-body">
-      <div class="row">
-        <div class="card-title">
-          <h3>Panadol Syrup</h3>
-          <!-- <h3>Rs. 20 / card</h3> -->
-        </div>  
-        <div class="view-btn">
-          <a href="">In Stock</a>
-          <br><br>
-        </div>
-      </div>
-      <hr />
-      <p><br>
-      provide effective relief of aches and pains, such as headaches, migraines, sore throatsand dental pain. <br>
-      </p>
-     
-    </div>
-  </div>
-  
-</div>
-    </div>
-   
+  ?>
 
 
     </section>

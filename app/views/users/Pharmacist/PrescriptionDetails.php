@@ -22,42 +22,29 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                         <button style="margin-left: 1080px" class="form-submit">SEARCH</button>
                     </form>
     </ul>
-                
-                <table id="customers">
+
+
+        <table id="customers">
+            <tr>
+                <th>Prescription ID</th>
+                <th>Patient Name</th>
+                <th>Patient NIC</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            <?php foreach($data['pres'] as $allpres): ?>
                 <tr>
-                      <th>Prescription ID</th>
-                      <th>Patient Name</th>
-                      <th>Patient NIC</th>
-                      <th>Date</th>
-                      <th>View</th>
-                    </tr>
-                    <?php foreach($data['prescription'] as $allprescriptions): ?>
-
-                        <tr>
-                            <td><?php echo $allprescriptions->presid;  ?></td>
-                            <td><?php echo $allprescriptions->patname; ?></td>
-                            <td><?php echo $allprescriptions->patnic;  ?></td>
-                            <td><?php echo $allprescriptions->presdate; ?></td>
-                            <td>
-                               
-                            
-                                        
-                               <a class="button button1" href="<?php echo URLROOT . "/pharmacists/viewprescriptions/" .  $allprescriptions->presid ?>">
-                                   View 
-                               </a> 
-                               
-                              
-                               
-                               </td>
-
-
-
-
-                        </tr>
-                        
-                        <?php endforeach; ?>
-
-                  </table>
+                    <td><?php echo $allpres->presid ?></td>
+                    <td><?php echo $allpres->patname ?></td>
+                    <td><?php echo $allpres->patnic ?></td>
+                    <td><?php echo $allpres->pretime ?></td>
+                    <td><?php echo $allpres->presdate ?></td>
+                    <td><button class="button button1"><a href="<?php echo URLROOT. "/pharmacists/viewprescription/".$allpres->presid ?>"> View</a></button></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+>
 
             </div>
 

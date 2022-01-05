@@ -5,15 +5,27 @@ class Pharmacist {
         $this->db = new Database;
     }
 
+
     public function viewmed() {
 
         $this->db->query('SELECT * FROM medicine INNER JOIN fullstock ON medicine.medid=fullstock.medid');
+      $results = $this->db->resultSet();
+
+        return $results;
+}
+
+
+
+    public function viewpres() {
+        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid ORDER BY prescription.presid DESC');
+
 
         $results = $this->db->resultSet();
 
         return $results;
 
     }
+
 
     public function searchmed($medgenname) {
         $where = "WHERE `medgenname` like :medname ";
@@ -30,15 +42,28 @@ class Pharmacist {
 
     }
 
-    public function viewprescription() {
+    public function getprespatdata($presid) {
 
-        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid');
+        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid WHERE prescription.presid = :pid ');
+        $this->db->bind(':pid',$presid);
+
+        $row = $this->db->single();
+
+        return $row;
+
+    }
+    public function getpresdata($presid) {
+
+        $this->db->query('SELECT * FROM presmed INNER JOIN medicine ON medicine.medid= presmed.medid  WHERE presid = :pid');
+        $this->db->bind(':pid',$presid);
+
 
         $results = $this->db->resultSet();
 
         return $results;
 
     }
+
 
     public function searchprescriptionbynic($patnic) {
         $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid WHERE patient.patnic=:pnic');
@@ -46,5 +71,6 @@ class Pharmacist {
         $results = $this->db->resultSet();
         return $results;
     }
+
 
 }
