@@ -192,7 +192,7 @@ class Users extends Controller {
                     $data['passwordError'] = '*Password or username is incorrect. Please try again.';
 
 
-                    $this->view('users/login', $data);
+                    $this->view('pages/index', $data);
                 }
             }
 
@@ -204,7 +204,7 @@ class Users extends Controller {
                 'passwordError' => ''
             ];
         }
-        $this->view('users/login', $data);
+        $this->view('pages/index', $data);
     }
 
     public function createUserSession($user) {
