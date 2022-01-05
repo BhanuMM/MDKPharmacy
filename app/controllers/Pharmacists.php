@@ -1,7 +1,9 @@
 <?php
 class Pharmacists extends Controller {
     public function __construct() {
+
         $this->pharmacistModel = $this->model('Pharmacist');
+
     }
 
     public function pharmacistdashboard() {
@@ -9,12 +11,29 @@ class Pharmacists extends Controller {
     }
 
     public function prescriptiondetails() {
+
+     
+             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                 //Sanitize post data
+                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+             
+                 $dataprescription= trim($_POST['UISearchbar']);
+                 $searchprescription = $this->pharmacistModel-> searchprescriptionbynic($dataprescription);
+     
+     
+                 $data = [
+                     'prescription' => $searchprescription
+                 ];
+     
+             }
+
         $pres = $this->pharmacistModel->viewpres();
 
         $data = [
 
             'pres' => $pres
         ];
+
 
         $this->view('users/Pharmacist/PrescriptionDetails',$data);
     }
@@ -40,8 +59,26 @@ class Pharmacists extends Controller {
     }
 
     public function viewmedicineavailability() {
-        $this->view('users/Pharmacist/MedicineDetails');
+        $allmedicines = $this->pharmacistModel->viewmed();
+
+        $data = [
+            'med' => $allmedicines
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datamed= trim($_POST['UISearchbar']);
+            $searchmed = $this->pharmacistModel->searchmed($datamed);
+
+            $data = [
+                'med' => $searchmed
+            ];
+        }
+        $this->view('users/Pharmacist/MedicineDetails',$data);
     }
+
     public function viewonlineorders() {
         $this->view('users/Pharmacist/ViewOnlineOrders');
     }

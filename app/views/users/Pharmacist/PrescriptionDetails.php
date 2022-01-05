@@ -15,11 +15,14 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 
     <ul style="margin-top: 5%; padding-left: 0px; padding-top: 2%; list-style-type: none; ">
         <li Style="float: left; vertical-align: middle; display: inline;"><h3>Prescriptions</h3></li>
-        <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
-                <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
-            <li Style="float: right; vertical-align: middle; display: inline;">
-                <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Patient NIC"></li></form>
+        <form method="post" class="data" action="<?php echo URLROOT; ?>/pharmacists/prescriptiondetails">
+                    <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
+                        <li Style="float: right; vertical-align: middle; display: inline;">
+                            <input type="text" id="UISearchbar" name="UISearchbar" style="height: 35px;" placeholder="Patient NIC"></li>
+                        <button style="margin-left: 1080px" class="form-submit">SEARCH</button>
+                    </form>
     </ul>
+
 
         <table id="customers">
             <tr>
@@ -41,6 +44,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 </tr>
             <?php endforeach; ?>
         </table>
+>
 
             </div>
 
