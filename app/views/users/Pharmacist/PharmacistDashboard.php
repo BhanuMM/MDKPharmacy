@@ -10,6 +10,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
             <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
             <div class="welcome-names">
                 Welcome ,<?php echo $_SESSION['username'] ?> !
+                <p style="font-size: 14px;">Pharmacist</p>
             </div>
         </div>
     </div>
