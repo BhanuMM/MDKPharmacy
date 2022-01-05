@@ -74,6 +74,7 @@ class Doctors extends Controller {
 
     public function addprescription($patid) {
         $pat = $this->doctorModel->searchpatientbyId($patid);
+
         $med = $this->doctorModel->loadmed();
         $data = [
             'medicines' => $med,
@@ -199,8 +200,8 @@ class Doctors extends Controller {
 //                }
 //            }
         }
-
-        $this->view('users/Doctor/ViewPrescription');
+        $this->pastsingleprescription($presid);
+//        $this->view('users/Doctor/ViewPrescription');
     }
 
     public function pastsingleprescription($presid) {

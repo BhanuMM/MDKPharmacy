@@ -20,37 +20,27 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
             <li Style="float: right; vertical-align: middle; display: inline;">
                 <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Patient NIC"></li></form>
     </ul>
-                
-                <table id="customers">
-                    <tr>
-                      <th>Prescription ID</th>
-                      <th>Patient Name</th>
-                      <th>Patient NIC</th>
-                      <th>Date</th>
-                      <th>View</th>
-                    </tr>
-                    <tr>
-                      <td>Pr009</td>
-                      <td>G.H.K.Perera</td>
-                      <td>7589456521V</td>
-                      <td>2021-10-08</td>
-                      <td align="center"><a href="<?php echo URLROOT?>/pharmacists/viewprescription"><button class="button button1">View</button></a></td>
-                    </tr>
-                    <tr>
-                        <td>Pr007</td>
-                      <td>G.H.K.Perera</td>
-                      <td>7589456521V</td>
-                      <td>2021-10-08</td>
-                      <td align="center"><a href="<?php echo URLROOT?>/pharmacists/viewprescription"><button class="button button1">View</button></a></td>
-                    </tr>
-                    <tr>
-                        <td>Pr005</td>
-                        <td>R.Y.T.Silva</td>
-                        <td>851263457V</td>
-                        <td>2021-09-08</td>
-                        <td align="center"><a href="<?php echo URLROOT?>/pharmacists/viewprescription"><button class="button button1">View</button></a></td>
-                    </tr>
-                  </table>
+
+        <table id="customers">
+            <tr>
+                <th>Prescription ID</th>
+                <th>Patient Name</th>
+                <th>Patient NIC</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+            <?php foreach($data['pres'] as $allpres): ?>
+                <tr>
+                    <td><?php echo $allpres->presid ?></td>
+                    <td><?php echo $allpres->patname ?></td>
+                    <td><?php echo $allpres->patnic ?></td>
+                    <td><?php echo $allpres->pretime ?></td>
+                    <td><?php echo $allpres->presdate ?></td>
+                    <td><button class="button button1"><a href="<?php echo URLROOT. "/pharmacists/viewprescription/".$allpres->presid ?>"> View</a></button></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
 
             </div>
 
