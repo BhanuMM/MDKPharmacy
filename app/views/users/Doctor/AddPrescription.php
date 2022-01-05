@@ -22,7 +22,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
         <div class="column" style="margin-left:5%; ">
 <!--            <input list="med_list" name="med_list" id="med_list">-->
-            <select name="med_list" id="med_list" class="form-control">
+            <select name="med_list" id="med_list" class="form-control" >
 
                 <option value="">Select Medicine</option>
                 <?php

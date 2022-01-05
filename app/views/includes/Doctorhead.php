@@ -62,3 +62,5 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="doctor")){
 </div>
 <script src="<?php echo URLROOT ?>/public/js/main.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
