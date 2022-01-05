@@ -547,6 +547,7 @@ input#UISearchbar{
 }
 
 
+
 /*Style set of the previous button on every sub-page*/
 .prebtn {
     align-content: left;
@@ -590,3 +591,4 @@ input#UISearchbar{
 .prebtn a {
     color: #FFFFFF;
 }
+

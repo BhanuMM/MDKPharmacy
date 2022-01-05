@@ -10,9 +10,12 @@ class Doctor {
 
         //Bind value
         $this->db->bind(':patientnic', $nic);
-        $row = $this->db->single();
-        return $row;
+        $results = $this->db->resultSet();
+
+        return $results;
+
     }
+
     public function searchpatientbyId($id) {
         $this->db->query('SELECT * FROM patient WHERE patid = :patientid');
 
@@ -21,6 +24,32 @@ class Doctor {
         $row = $this->db->single();
         return $row;
     }
+
+    public function viewmed() {
+
+        $this->db->query('SELECT * FROM medicine INNER JOIN fullstock ON medicine.medid=fullstock.medid');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
+    public function searchmed($medgenname) {
+        $where = "WHERE `medgenname` like :medname ";
+
+        $param1 = '%'.$medgenname.'%'  ;
+       
+
+        $this->db->query("SELECT * FROM medicine INNER JOIN fullstock ON medicine.medid=fullstock.medid ".$where." ");
+        $this->db->bind(':medname', $param1);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
     public function loadmed() {
 
         $this->db->query('SELECT * FROM medicine ORDER BY medgenname ASC');

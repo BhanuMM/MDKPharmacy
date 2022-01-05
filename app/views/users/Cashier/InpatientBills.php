@@ -10,37 +10,25 @@ require APPROOT . '/views/includes/Cashierhead.php';
                         <li Style="float: right; vertical-align: middle; display: inline;">
                             <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Prescription ID"></li></form>
                 </ul>
-               
-                <table id="customers">
-                    <tr>
-                      <th>Prescription ID</th>
-                      <th>Patient Name</th>
-                      <th>Patient NIC</th>
-                      <th>Date</th>
-                      <th>Create Bills</th>
-                    </tr>
-                    <tr>
-                      <td>Pr001</td>
-                      <td>D.S.Kulathunga</td>
-                      <td>785236954V</td>
-                      <td>2021-10-12</td>
-                      <td><a href="<?php echo URLROOT ?>/cashiers/inpatientsingle"><button class="button button1">Create Bill</button></a></td>
-                    </tr>
-                    <tr>
-                      <td>Pr002</td>
-                      <td>R.S.Perera</td>
-                      <td>697854124V</td>
-                      <td>2021-10-23</td>
-                      <td><a href="<?php echo URLROOT ?>/cashiers/inpatientsingle"><button class="button button1">Create Bill</button></a></td>
-                    </tr>
-                    <tr>
-                      <td>Pr003</td>
-                      <td>D.N.Silva</td>
-                      <td>854565751V</td>
-                      <td>2021-10-14</td>
-                      <td><a href="<?php echo URLROOT ?>/cashiers/inpatientsingle"><button class="button button1">Create Bill</button></a></td>
-                    </tr>
-                  </table>
+
+    <table id="customers">
+        <tr>
+            <th>Prescription ID</th>
+            <th>Patient Name</th>
+            <th>Patient NIC</th>
+            <th>Date</th>
+            <th></th>
+        </tr>
+        <?php foreach($data['pres'] as $allpres): ?>
+            <tr>
+                <td><?php echo $allpres->presid ?></td>
+                <td><?php echo $allpres->patname ?></td>
+                <td><?php echo $allpres->patnic ?></td>
+                <td><?php echo $allpres->presdate ?></td>
+                <td><button class="button button1"><a href="<?php echo URLROOT. "/cashiers/inpatientsingle/".$allpres->presid ?>"> CREATE BILL</a></button></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
 
             </div>
 

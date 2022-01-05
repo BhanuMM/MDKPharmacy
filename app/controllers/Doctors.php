@@ -16,6 +16,18 @@ class Doctors extends Controller {
 
             'pat' => $pat
         ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datanic = trim($_POST['UISearchbar']);
+            $searchpatient = $this->doctorModel->searchnic($datanic);
+
+            $data = [
+                'pat' => $searchpatient
+            ];
+        }
         $this->view('users/Doctor/PatientDetails',$data);
     }
 
@@ -29,7 +41,24 @@ class Doctors extends Controller {
     }
 
     public function viewmedicineavailability() {
-        $this->view('users/Doctor/MedicineDetails');
+        $allmedicines = $this->doctorModel->viewmed();
+
+        $data = [
+            'med' => $allmedicines
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datamed= trim($_POST['UISearchbar']);
+            $searchmed = $this->doctorModel->searchmed($datamed);
+
+            $data = [
+                'med' => $searchmed
+            ];
+        }
+        $this->view('users/Doctor/MedicineDetails',$data);
     }
 
     public function createprescription()
@@ -74,6 +103,7 @@ class Doctors extends Controller {
 
     public function addprescription($patid) {
         $pat = $this->doctorModel->searchpatientbyId($patid);
+
         $med = $this->doctorModel->loadmed();
         $data = [
             'medicines' => $med,
@@ -199,8 +229,8 @@ class Doctors extends Controller {
 //                }
 //            }
         }
-
-        $this->view('users/Doctor/ViewPrescription');
+        $this->pastsingleprescription($presid);
+//        $this->view('users/Doctor/ViewPrescription');
     }
 
     public function pastsingleprescription($presid) {

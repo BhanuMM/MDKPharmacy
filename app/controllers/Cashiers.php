@@ -1,7 +1,9 @@
 <?php
 class Cashiers extends Controller {
     public function __construct() {
-//        $this->adminModel = $this->model('Admin');
+
+        $this->cashierModel = $this->model('Cashier');
+
     }
 
     public function cashierdashboard() {
@@ -9,11 +11,33 @@ class Cashiers extends Controller {
     }
 
     public function inpatientbills() {
-        $this->view('users/Cashier/InpatientBills');
+        $pres = $this->cashierModel->viewpres();
+
+        $data = [
+
+            'pres' => $pres
+        ];
+
+        $this->view('users/Cashier/InpatientBills',$data);
     }
 
-    public function inpatientsingle() {
-        $this->view('users/Cashier/InpatientSingle');
+    public function inpatientsingle($presid) {
+        $patdata =$this->cashierModel->getprespatdata($presid);
+        $predata =$this->cashierModel->getpresdata($presid);
+        $data = [
+            'presid' => $patdata->presid,
+            'presdate' => $patdata->presdate,
+            'prestime' => $patdata->pretime,
+            'presnote' => $patdata->specialnote,
+            'patname' => $patdata->patname,
+            'patage' => $patdata->patdob,
+            'patgen' => $patdata->patgen,
+            'meds'=> $predata
+//            'medgenname' => $med->medgenname,
+
+
+        ];
+        $this->view('users/Cashier/InpatientSingle',$data);
     }
 
     public function onlineorderbills() {
@@ -41,6 +65,24 @@ class Cashiers extends Controller {
     }
 
     public function medicineavailability() {
+        $allmedicines = $this->cashierModel->viewmed();
+
+        $data = [
+            'med' => $allmedicines
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datamed= trim($_POST['UISearchbar']);
+            $searchmed = $this->cashierModel->searchmed($datamed);
+
+            $data = [
+                'med' => $searchmed
+            ];
+        }
+
         $this->view('users/Cashier/MedicineAvailability');
     }
 

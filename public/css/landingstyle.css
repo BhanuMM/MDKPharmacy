@@ -881,9 +881,73 @@ input[type=submit]:hover {
 
 
 
+/* Login Popup */
 
+.bg-modal{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top:0;
+  justify-content: center;
+  align-items: center;
+  display: none;
 
+}
 
+.modal-content{
+  width: 500px;
+  height: 600px;
+  background-color: white;
+  border-radius: 4px;
+  text-align: 20px;
+  position: relative;
+}
+
+.modal-content p{
+  color: #0a0a2e;
+  width: 50%;
+  padding-left:125px;
+  font-weight: 500;
+}
+.modal-content input[type=text]{
+ 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width:54%;
+  display:block;
+  margin:15px auto;
+  margin-left: 120px;
+  padding: 12px 10px;
+}
+
+.modal-content input[type=password]{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width:50%;
+  display:block;
+  margin:15px auto;
+  margin-left: 120px; 
+  padding: 12px 10px;
+}
+
+.close{
+  position: absolute;
+  top:0;
+  right: 14px;
+  font-size: 36px;
+  transform: rotate(45deg);
+  cursor:pointer;
+}
+
+.login-btn{
+  background-color:#0a0a2e;
+  width: 20%;
+  color: #ffffff;
+  padding:10px 20px 10px 20px;
+  text-decoration: none;
+  margin-bottom:-50px;
+}
 
 
 
