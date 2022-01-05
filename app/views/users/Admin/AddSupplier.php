@@ -3,6 +3,7 @@ require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
 <div style="margin-left:20%; padding:1px 16px; width: 40%">
+    <button class="prebtn"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewsupplier"> << Previous </a> </span></button>
     <form  method="post" class="data" action="<?php echo URLROOT; ?>/admins/addsupplier">
 
         <h2 style="margin-top: 3%;">

@@ -2,12 +2,15 @@
 require APPROOT . '/views/includes/Pharmacisthead.php';
 ?>
 
+<div style="margin-left:20%; padding:1px 16px; width: 40%">
+    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/viewonlineorders"> << Previous </a> </span></button>
+</div>
 
   
 <div style="margin-left: 300px; margin-top:250px; margin-right:0%; padding:1px 16px; width: 70%; ">
 
 <div class="split left">
-  
+
 <div class="centered"> 
 <img src="<?php echo URLROOT ?>/public/images/side.png" alt="prescription"width="400" height="500" style="margin-left:350px; z-index=-1;">
 </div>

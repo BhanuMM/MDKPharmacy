@@ -9,6 +9,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
             <div class="welcome-names">
                 Welcome ,<?php echo $_SESSION['username'] ?> <?php echo $_SESSION['user_id'] ?> !
+                <p style="font-size: 14px;">Admin</p>
             </div>
         </div>
     </div>

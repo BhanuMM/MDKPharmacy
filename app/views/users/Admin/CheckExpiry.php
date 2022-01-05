@@ -2,6 +2,11 @@
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
+<div style="margin-left:20%; padding:1px 16px; width: 40%">
+    <br />
+    <button class="prebtn"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewstock"> << Previous </a> </span></button>
+</div>
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
                 <ul style="padding-left: 0px; list-style-type: none;">

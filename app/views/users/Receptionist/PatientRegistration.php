@@ -2,6 +2,8 @@
 require APPROOT . '/views/includes/Reciptionisthead.php';
 ?>
 
+<div style="margin-left:20%; padding:1px 16px; width: 40%">
+    <button class="prebtn"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/receptionists/viewpatients"> << Previous </a> </span></button>
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
             <div class="column">
                 <form method="post" class="data" action="<?php echo URLROOT; ?>/receptionists/registerpatient">

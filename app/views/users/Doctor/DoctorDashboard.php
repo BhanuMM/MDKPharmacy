@@ -9,6 +9,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
             <div class="welcome-names">
                 Welcome ,Dr.<?php echo $_SESSION['username'] ?> !
+                <p style="font-size: 14px;">Doctor</p>
             </div>
         </div>
     </div>

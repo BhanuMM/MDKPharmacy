@@ -2,7 +2,12 @@
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
+<div style="margin-left:20%; padding:1px 16px; width: 40%">
+    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewmed"> << Previous </a> </span></button>
+</div>
+
     <div style="margin-left:20%; padding:1px 16px; width: 40%">
+
         <form class="data" action="<?php echo URLROOT; ?>/admins/updatemed/<?php echo $data['medid'] ?>" method="POST">
         <div class="form-left">
 
