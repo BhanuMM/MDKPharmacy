@@ -6,7 +6,9 @@ class Pages extends Controller {
 
     public function index() {
         $data = [
-            'title' => 'Home page'
+            'title' => 'Home page',
+            'usernameError' => '',
+            'passwordError' => ''
         ];
 
         $this->view('index', $data);
