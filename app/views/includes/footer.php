@@ -33,7 +33,7 @@
 
 <!-- Login Popup -->
 
-<div class="bg-modal" style="display:none;">
+<div class="bg-modal" style="<?php if( $data['passwordError']!= '' ) {echo 'display:flex;';}else {echo "display:none;";} ?> ">
     <div class="modal-content">
        
        <div class="close">+</div>
@@ -54,7 +54,7 @@
            <a href="<?php echo URLROOT; ?>/users/forgetpass" style="font-size: 14px; padding-left:120px;">Forgot Password?</a>
            <br><br>
            <center>
-           <span class="invalidFeedback" style="margin-top: 30px">
+           <span class="invalidFeedback" style="margin-top: 30px" >
                 <?php echo "<br><br><br>"; ?>
                 <?php echo $data['passwordError']; ?>
                 </span>
