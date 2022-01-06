@@ -10,9 +10,8 @@ class Doctor {
 
         //Bind value
         $this->db->bind(':patientnic', $nic);
-        $results = $this->db->resultSet();
-
-        return $results;
+        $row = $this->db->single();
+        return $row;
 
     }
 

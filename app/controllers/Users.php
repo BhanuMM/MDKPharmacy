@@ -192,7 +192,7 @@ class Users extends Controller {
                     $data['passwordError'] = '*Password or username is incorrect. Please try again.';
 
 
-                    $this->view('pages/index', $data);
+                    $this->view('/index', $data);
                 }
             }
 
@@ -204,7 +204,8 @@ class Users extends Controller {
                 'passwordError' => ''
             ];
         }
-        $this->view('pages/index', $data);
+//        $this->view('users/forgetpass');
+        $this->view('/index', $data);
     }
 
     public function createUserSession($user) {
@@ -218,7 +219,7 @@ class Users extends Controller {
         unset($_SESSION['user_id']);
         unset($_SESSION['username']);
         unset($_SESSION['urole']);
-        header('location:' . URLROOT . '/users/login');
+        header('location:' . URLROOT . '/index');
     }
     public function forgetpass() {
         $this->view('users/forgetpass');
