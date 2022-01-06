@@ -2,9 +2,11 @@
 require APPROOT . '/views/includes/Reciptionisthead.php';
 ?>
 
-<!-- Old Dashboard  -->
+<div style="margin-left:17%; padding:1px 16px; width: 40%">
+    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/receptionists/receptionistdashboard"> << </a> </span></button>
+</div>   
 
-<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
+<div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
 <span class="successadded">
                  <?php
                  if(isset($_GET['msg'])){
@@ -12,13 +14,18 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                  }
                  ?>
                 </span> <br> <a href="<?php echo URLROOT ?>/receptionists/registerpatient"><button class="button button1">Add New Patient +</button></a>
-                <ul style="margin-top: 5%; padding-left: 0px; list-style-type: none;">
+
+                <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3>Patient Details</h3></li>
-                    <form method="post" class="data" action="<?php echo URLROOT; ?>/receptionists/viewpatients">
-                    <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
-                        <li Style="float: right; vertical-align: middle; display: inline;">
-                            <input type="text" id="UISearchbar" name="UISearchbar" style="height: 35px;" placeholder="Patient NIC"></li>
-                        <button style="margin-left: 1080px" class="form-submit">SEARCH</button>
+                    <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/receptionists/viewpatients">
+                    <table>
+                    <tr>
+                      <th><li Style="float: right; vertical-align: middle; display: inline;">
+                      <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 575px; height: 35px; width: 200px;" placeholder="Patient NIC"></li>
+                      </th>
+                      <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
+                    </tr>
+                    </table>
                     </form>
                 </ul>
 
@@ -52,12 +59,12 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                             <td align="center">                   
                                 <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/receptionists/updatepatient/".$allpatients->patid?>" >Update</a>
                             </td>
-                            
-                            
-                        <td align="center"><button class="button button1" style="background-color: #ff9797;">
-                        <form action="<?php echo URLROOT . "/Receptionists/deletepatient/" . $allpatients->patid?>" method="POST">
-                                <input Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">Delete</form></button>
-                        </td>
+
+                            <td>
+                            <form action="<?php echo URLROOT . "/Receptionists/deletepatient/" . $allpatients->patid?>" method="POST">
+                                <input class="button button1" style="background-color: #fc92a1;" Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
+                            </form>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                    

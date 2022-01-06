@@ -2,11 +2,13 @@
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
-<div style="margin-left:20%; padding:1px 16px; width: 40%">
-    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewstock"> << Previous </a> </span></button>
+<div style="margin-left:17%; padding:1px 16px; width: 40%">
+    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewstock"> <<</a> </span></button>
 </div>
+
 <div style="margin-left:20%; padding:1px 16px; width: 40%">
         <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/addstock">
+        <div class="form-left">
             <h2 style="margin-top: 3%;">
                 Stock Details
             </h2>
@@ -63,6 +65,8 @@ require APPROOT . '/views/includes/Adminhead.php';
                 Purchasing unit price (Rs.)
             </h5>
             <input class="input1" type="number" id="purchprice" name="purchprice" placeholder="10.00" required>
+            </div>
+            <div class="form-right">
             <h5>
                 Selling unit price (Rs.)
             </h5>
@@ -79,6 +83,7 @@ require APPROOT . '/views/includes/Adminhead.php';
             <br><br><br>
             <input class="button button1" type="reset" value="Refresh">
             <button class="form-submit">Submit</button>
+            </div>
         </form>
     </div>
     <br><br><br><br><br><br>

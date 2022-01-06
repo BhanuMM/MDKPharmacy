@@ -2,9 +2,33 @@
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
-<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
-    <button class="prebtn"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewstock"> << Previous </a> </span></button>
-    <ul style="padding-left: 0px; list-style-type: none; ">
+<div style="margin-left:17%; padding:1px 16px; width: 40%">
+                <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewstock"> << </a> </span></button>
+                </div>  
+
+
+<div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
+
+<ul style="padding-left: 0px; list-style-type: none; margin-top:25px; ">
+                    <li Style="float: left; vertical-align: middle; display: inline;"><h3> View Return Stocks</h3></li>
+                    <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/viewreturns">
+                    <table>
+                        <tr>
+                        <th><li Style="float: right; vertical-align: middle; display: inline;">
+                        <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 500px; height: 35px; width: 200px;" placeholder="Medicine Name"></li>
+                        </th>
+                        <th>
+                        <button style="margin-left: 10px" class="form-submit">SEARCH</button>
+                        </th>
+                        </tr>
+                    </table>
+                    </form>
+                </ul>
+
+
+
+
+    <!-- <ul style="padding-left: 0px; list-style-type: none; ">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3>View Return Stocks</h3></li>
                     <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/viewreturns">
                     <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
@@ -12,7 +36,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                             <input type="text" id="UISearchbar" name="UISearchbar" style="height: 35px;" placeholder="Medicine Name"></li>
                         <button style="margin-left: 1080px" class="form-submit">SEARCH</button>
                     </form>
-                </ul>
+                </ul> -->
                 
                 <table id="customers">
                     <tr>
