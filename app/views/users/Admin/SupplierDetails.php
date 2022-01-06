@@ -2,8 +2,11 @@
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
+<div style="margin-left:17%; padding:1px 16px; width: 40%">
+    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/admindashboard"> << </a> </span></button>
+</div>   
 
-<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
+<div style="margin-left: 350px; margin-top:5px; padding:1px 16px; width: 70%; ">
              <span class="successadded">
                  <?php
                  if(isset($_GET['msg'])){
@@ -12,13 +15,18 @@ require APPROOT . '/views/includes/Adminhead.php';
                  ?>
                 </span> <br>
                 <a href="<?php echo URLROOT ?>/Admins/addsupplier"><button class="button button1">Add New Supplier +</button></a>
-                <ul style="padding-left: 0px; list-style-type: none;">
+
+                <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> Supplier Details</h3></li>
-                    <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/viewsupplier">
-                    <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
-                        <li Style="float: right; vertical-align: middle; display: inline;">
-                            <input type="text" id="UISearchbar" name="UISearchbar" style="height: 35px;" placeholder="Supplier Name"></li>
-                        <button style="margin-left: 1080px" class="form-submit">SEARCH</button>
+                    <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/admins/viewsupplier">
+                    <table>
+                    <tr>
+                      <th><li Style="float: right; vertical-align: middle; display: inline;">
+                      <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 550px; height: 35px; width: 200px;" placeholder="Supplier Agency Name"></li>
+                      </th>
+                      <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
+                    </tr>
+                    </table>
                     </form>
                 </ul>
 

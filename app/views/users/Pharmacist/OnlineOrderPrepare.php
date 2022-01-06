@@ -2,9 +2,9 @@
 require APPROOT . '/views/includes/Pharmacisthead.php';
 ?>
 
-<div style="margin-left:20%; padding:1px 16px; width: 40%">
-    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/viewonlineorders"> << Previous </a> </span></button>
-</div>
+<div style="margin-left:17%; padding:1px 16px; width: 40%">
+    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/viewonlineorders"> << </a> </span></button>
+</div>  
 
   
 <div style="margin-left: 300px; margin-top:250px; margin-right:0%; padding:1px 16px; width: 70%; ">
@@ -22,8 +22,20 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 
 <div class="row" style="margin-top:130%; ">
         <!-- <div class="column" style="margin-left:25%; padding:1px 16px;"> -->
-        <input type="text" id="search-bar" placeholder="Search Medicine">
-    <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+        <!-- <input type="text" id="search-bar" placeholder="Search Medicine">
+    <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a> -->
+    <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
+   <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/doctors/viewpatientdetails">
+      <table>
+       <tr>
+        <th><li Style="float: right; vertical-align: middle; display: inline;">
+        <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 50px; height: 35px; width: 200px;" placeholder="Medicine Name"></li>
+         </th>
+      <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
+       </tr>
+     </table>
+     </form>
+ </ul>
   </form>
 
             </ul>

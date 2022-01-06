@@ -2,27 +2,32 @@
 require APPROOT . '/views/includes/Pharmacisthead.php';
 ?>
 
-    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
-        <div class="welcome-card">
-            <div class="welcome">
-                <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
-                <div class="welcome-names">
-                    Welcome , Mr.<?php echo $_SESSION['username'] ?> !
-                </div>
-            </div>
-        </div>
+<div style="margin-left:17%; padding:1px 16px; width: 40%">
+    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard"> << </a> </span></button>
+</div>  
 
+<div style="margin-left: 350px; margin-top:5px; padding:1px 16px; width: 70%; ">
+    <span class="successadded">
+         <?php
+         if(isset($_GET['msg'])){
+         echo $_GET['msg']; // print_r($_GET);
+        }
+         ?>
+        </span> <br>
 
-    <ul style="margin-top: 5%; padding-left: 0px; padding-top: 2%; list-style-type: none; ">
-        <li Style="float: left; vertical-align: middle; display: inline;"><h3>Prescriptions</h3></li>
-        <form method="post" class="data" action="<?php echo URLROOT; ?>/pharmacists/prescriptiondetails">
-                    <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
-                        <li Style="float: right; vertical-align: middle; display: inline;">
-                            <input type="text" id="UISearchbar" name="UISearchbar" style="height: 35px;" placeholder="Patient NIC"></li>
-                        <button style="margin-left: 1080px" class="form-submit">SEARCH</button>
+        <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
+                    <li Style="float: left; vertical-align: middle; display: inline;"><h3> Prescriptions</h3></li>
+                    <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/pharmacists/prescriptiondetails">
+                    <table>
+                    <tr>
+                      <th><li Style="float: right; vertical-align: middle; display: inline;">
+                      <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 550px; height: 35px; width: 200px;" placeholder="Patient NIC"></li>
+                      </th>
+                      <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
+                    </tr>
+                    </table>
                     </form>
-    </ul>
-
+         </ul>
 
         <table id="customers">
             <tr>
@@ -51,5 +56,3 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
            
         </div>
 
-    </body>
-</html>
