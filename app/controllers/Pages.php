@@ -36,53 +36,51 @@ class Pages extends Controller {
             'nameError' => ''
          ];
 
-//        -----------------------------------------
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            $output_dir = "/public/uploads";/* Path for file upload */
-            $RandomNum   = time();
-            $ImageName      = str_replace(' ','-',strtolower($_FILES['image']['name'][0]));
-            $ImageType      = $_FILES['image']['type'][0];
-
-            $ImageExt = substr($ImageName, strrpos($ImageName, '.'));
-            $ImageExt       = str_replace('.','',$ImageExt);
-            $ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
-            $NewImageName = $ImageName.'-'.$RandomNum.'.'.$ImageExt;
-            $ret[$NewImageName]= $output_dir.$NewImageName;
-
-            /* Try to create the directory if it does not exist */
-            if (!file_exists($output_dir))
-            {
-                @mkdir($output_dir, 0777);
-            }
-            move_uploaded_file($_FILES["image"]["tmp_name"][0], $output_dir."/".$NewImageName );
-
-
-//            -------------------------------------------------------------
             $data = [
                 'fullname' => trim($_POST['fullname']),
-                'telno' => $_POST['contact'],
+                'telnumber' => trim($_POST['contact']),
+                'address' => trim($_POST['address'])
+                ];
+
+            $upload_dir ='../OnlinePrescriptions/' ;
+            $type = $_FILES['imagefile']['type'];
+            $name = $_FILES['imagefile']['name'];
+            $tmp_name = $_FILES['imagefile']['tmp_name'];
+            $fileExtension = explode(".",$name);
+            $fileExtension = end($fileExtension);
+
+            $n1 = rand(1,10000);
+            $n2 = date("ymd");
+            $n3 = time();
+            @$newName =$n1.$n2.$n3.".".$fileExtension;
+            $filePath = $upload_dir.$newName;
+
+            $data = [
+                'fullname' => trim($_POST['fullname']),
+                'telnumber' => trim($_POST['contact']),
                 'address' => trim($_POST['address']),
-                'image' =>$NewImageName
+                'image'=> $newName
             ];
-            if (empty($data['nameError'])) {
 
-
-                //Register user from model function
-                if ( $this->pageModel->fileupload($data)) {
-                    //Redirect to the login page
-
-                    header('location: ' . URLROOT . '/Pages/product');
-
+//            move_uploaded_file($tmp_name,$filePath);
+            if($type == "image/jpeg" || $type=="image/png" || $type=="application/pdf"){
+                move_uploaded_file($tmp_name,$filePath);
+                if($this->pageModel->fileupload($data)) {
+                    //Redirect to the viewtable page
+                    $recadded = 'Prescription Successfully Submited';
+                    header('location: ' . URLROOT . '/pages/product?msg='.$recadded);
                 } else {
                     die('Something went wrong.');
                 }
+            }else {
+                die('Wrong Data Format');
             }
-
-
-            echo "Image Uploaded Successfully";
         }
+
+
+
 
 
         $this->view('upload');

@@ -93,7 +93,7 @@ class Doctors extends Controller {
                     'name'=>'',
                     'dob'=>'',
                     'tel'=>'',
-                    'nofound' => 'No Record'
+                    'nofound' => 'No Record Found'
                 ];
             }
 

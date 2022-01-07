@@ -24,37 +24,47 @@ require APPROOT . '/views/includes/Doctorhead.php';
     <div class="row">
 
         <div class="column" style="margin-left:5%; ">
-<!--            <input list="med_list" name="med_list" id="med_list">-->
-            <select name="med_list" id="med_list" class="form-control" >
+            <div class="container">
+                <h2>ADD</h2>
 
-                <option value="">Select Medicine</option>
-                <?php
-                 foreach($data['medicines'] as $allmedicines):
-                {
-                    echo '<option value="'.$allmedicines->medid.'" name="'.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</option>';
-//                    echo '<option value="'.$allmedicines->medgenname.'" >';
-
-                }
-                 endforeach; ?>
-            </select>
-            <button type="button" name="search" id="search" class="btn btn-info">Search</button>
+                <div class="select-box">
+                    <div class="options-container">
+                        <?php
+                        foreach($data['medicines'] as $allmedicines):
+                            {
+                                echo ' <div class="option" id ="'.$allmedicines->medid.'"> <input type="radio" class="radio" id="medl" name="category" /> <label id ="med" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
 
 
-            <table>
-                <tr>
-                    <th>Medicine ID</th>
-                    <th>Medicine</th>
-<!--                    <th>Dosage</th>-->
-                    <th></th> 
-                </tr>
-                <tr>
+                            }
+                        endforeach; ?>
 
-                    <td style="text-align: center;"><span id="med_id"></span></td>
-                    <td style="text-align: center;"><span id="medname"></span></td>
-<!--                    <td style="text-align: center;"><input type="number" id="dos" class="input1"></td>-->
-                    <td align="center"><button id="addbtn" class="button button1" style="background-color: #97ff9c;">ADD</button></td>
-                </tr>
-              </table>
+
+                    </div>
+
+                    <div class="selected" id="1">Select Medicine</div>
+
+                    <div class="search-box">
+                        <input type="text" placeholder="Start Typing..." />
+                    </div>
+                </div>
+            </div>
+
+<!--            <select name="med_list" id="med_list" class="form-control"  onmousedown="if(this.options.length>5){this.size=3}"-->
+<!--                    onchange='this.blur()' onblur="this.removeAttribute('size')">-->
+<!--               <option value="">Select Medicine</option>-->
+<!--                --><?php
+//                 foreach($data['medicines'] as $allmedicines):
+//                {
+//                    echo '<option value="'.$allmedicines->medid.'" name="'.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</option>';
+////
+//
+//                }
+//                 endforeach; ?>
+<!--            </select>-->
+            <button id="addbtn" class="button button1" style="background-color: #97ff9c;">ADD</button>
+
+
+
             <h3>Special Notes</h3> <br>
             <textarea name="Text1" class="input2" rows="5" r></textarea>
         </div>
@@ -94,16 +104,68 @@ require APPROOT . '/views/includes/Doctorhead.php';
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+ <script>
+     const selected = document.querySelector(".selected");
+     const optionsContainer = document.querySelector(".options-container");
+     const searchBox = document.querySelector(".search-box input");
+
+     const optionsList = document.querySelectorAll(".option");
+
+     selected.addEventListener("click", () => {
+         optionsContainer.classList.toggle("active");
+
+         searchBox.value = "";
+         filterList("");
+
+         if (optionsContainer.classList.contains("active")) {
+             searchBox.focus();
+         }
+     });
+
+     optionsList.forEach(o => {
+         o.addEventListener("click", () => {
+             selected.innerHTML = o.querySelector("label").innerHTML;
+             // selected.attr('id'); = o.querySelector("label").attr('id');
+             optionsContainer.classList.remove("active");
+         });
+     });
+
+     searchBox.addEventListener("keyup", function(e) {
+         filterList(e.target.value);
+     });
+
+     const filterList = searchTerm => {
+         searchTerm = searchTerm.toLowerCase();
+         optionsList.forEach(option => {
+             let label = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
+             if (label.indexOf(searchTerm) != -1) {
+                 option.style.display = "block";
+             } else {
+                 option.style.display = "none";
+             }
+         });
+     };
+ </script>
+
     <script>
         $(document).ready(function(){
             // var tid="";
             $('#addbtn').click(function(){
                 // var inputval= $('#dos').val();
-                var medname= $('#medname').text();
-                var medid= $('#med_id').text();
-                if(medname != ''){
+
+                var label = $('.selected');
+                var medid = label.attr('id');
+                // var medname = label.attr('medname');
+                var medname = label.text();
+
+                if(medname != 'Select Medicine'){
+                    alert(medid);
                     // count ++;
                     $("#medlist tbody").append('<tr><td><input class="input1" type="text" id="medid" name="medid[]" value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="meddos" name="meddos[]" placeholder="Enter Dosage" required> </td><td align="center"><button id="removebtn" class="button_button1" style="background-color: #ff9797;">Remove</button></td></tr>')
+                }else
+                {
+                    alert("Please Select a Medicine");
+                    // $('#employee_details').css("display", "none");
                 }
             });
              $('#medlist tbody ').on('click','#removebtn' ,function (){
@@ -120,35 +182,3 @@ require APPROOT . '/views/includes/Doctorhead.php';
     </script>
 
 
-    <script>
-        $(document).ready(function(){
-            $('#search').click(function(){
-                var id= $('#med_list').val();
-                var mname= $('#med_list').find('option:selected').attr("name");
-                if(id != '')
-                {
-
-                    $('#med_id').empty().append(id)
-                    $('#medname').empty().append(mname)
-                    // alert(id);
-                    //$.ajax({
-                    //    //url:"<?php ////echo URLROOT. "/doctors/addprescription/". $data['id'] ?>////",
-                    //    method:"POST",
-                    //    data:{medid:id},
-                    //    dataType:"JSON",
-                    //    success:function(data)
-                    //    {
-                    //        // $('#employee_details').css("display", "block");
-                    //        $('#med_id').text(data.medid);
-                    //        $('#med_name').text(data.medgenname);
-                    //    }
-                    //})
-                }
-                else
-                {
-                    alert("Please Select a Medicine");
-                    // $('#employee_details').css("display", "none");
-                }
-            });
-        });
-    </script>
