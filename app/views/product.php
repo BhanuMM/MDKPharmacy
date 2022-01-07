@@ -5,7 +5,11 @@
 
 <body>
 
-    
+<?php
+if(isset($_GET['msg'])){
+    echo ('<script>alert("Prescription Successfully Submited")</script>'); // print_r($_GET);
+}
+?>
   <!-- <br>
   <br>
 

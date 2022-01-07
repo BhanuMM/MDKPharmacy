@@ -1,3 +1,6 @@
+
+
+
 function showDateTime() {
     var myDiv = document.getElementById("myDiv");
 
@@ -29,3 +32,5 @@ function showDateTime() {
     myDiv.innerText = `Date :  ${today} \n Time : ${time}`;
 }
 setInterval(showDateTime, 1000);
+
+

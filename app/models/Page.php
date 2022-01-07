@@ -12,7 +12,7 @@ class Page {
 
         //Bind values
         $this->db->bind(':fname', $data['fullname']);
-        $this->db->bind(':telno', $data['telno']);
+        $this->db->bind(':telno', $data['telnumber']);
         $this->db->bind(':adrs', $data['address']);
         $this->db->bind(':img', $data['image']);
 

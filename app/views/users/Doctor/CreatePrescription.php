@@ -7,13 +7,13 @@ require APPROOT . '/views/includes/Doctorhead.php';
 </div>  
 
 <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%;">
-<span class="successadded">
-     <?php
-      if(isset($_GET['msg'])){
-      echo $_GET['msg']; // print_r($_GET);
-      }
-     ?>
-</span> <br>
+<span style="color: red">
+                 <?php
+                 if(isset($data['nofound'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
 
 <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
   <li Style="float: left; vertical-align: middle; display: inline;"><h3>Select Patient</h3></li>
@@ -28,6 +28,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
      </table>
      </form>
  </ul>
+
                
                 <table id="customers">
                     <tr>
