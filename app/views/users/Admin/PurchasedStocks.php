@@ -6,7 +6,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewstock"> << </a> </span></button>
                 </div>  
 
-<div style="margin-left: 340px; margin-top:2px; padding:1px 16px; width: 70%; ">
+<div style="margin-left: 340px; margin-top:1px; padding:1px 16px; width: 70%; ">
     <span class="successadded">
                  <?php
                  if(isset($_GET['msg'])){

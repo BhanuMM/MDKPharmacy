@@ -27,7 +27,7 @@ class Counsellors extends Controller {
             ];
         }
 
-        $this->view('users/Counsellor/MedicineDetails');
+        $this->view('users/Counsellor/MedicineDetails',$data);
     }
 
     public function pastbills() {
