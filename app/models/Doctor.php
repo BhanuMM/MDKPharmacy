@@ -5,14 +5,22 @@ class Doctor {
         $this->db = new Database;
     }
 
-    public function searchnic($nic) {
+    public function searchnic($patnic) {
         $this->db->query('SELECT * FROM patient WHERE patnic = :patientnic');
 
         //Bind value
-        $this->db->bind(':patientnic', $nic);
+        $this->db->bind(':patientnic', $patnic);
         $row = $this->db->single();
         return $row;
+    }
 
+    public function searchpatientnic($patnic) {
+        $this->db->query('SELECT * FROM patient WHERE patnic = :patientnic');
+
+        //Bind value
+        $this->db->bind(':patientnic', $patnic);
+        $results = $this->db->resultSet();
+        return $results;
     }
 
     public function searchpatientbyId($id) {
@@ -20,8 +28,8 @@ class Doctor {
 
         //Bind value
         $this->db->bind(':patientid', $id);
-        $row = $this->db->single();
-        return $row;
+        $results = $this->db->resultSet();
+        return $results;
     }
 
     public function viewmed() {
