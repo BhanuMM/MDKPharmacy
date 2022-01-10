@@ -28,24 +28,14 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                       <th>Telephone Number</th>
                       <th>View</th>
                     </tr>
-                    <tr>
-                      <td>Or001</td>
-                      <td>G.K.W.Weerasinha</td>
-                      <td>0112589632</td>
-                      <td><a href="<?php echo URLROOT?>/pharmacists/onlineorderprepare"><button class="button button1">View</button></a></td>
-                    </tr>
-                    <tr>
-                    <td>Or002</td>
-                      <td>B.U.W.Gamage</td>
-                      <td>0772589632</td>
-                      <td><a href="<?php echo URLROOT?>/pharmacists/onlineorderprepare"><button class="button button1">View</button></a></td>
-                    </tr>
-                    <tr>
-                    <td>Or003</td>
-                      <td>R.K.W.Medagama</td>
-                      <td>0712589632</td>
-                      <td><a href="<?php echo URLROOT?>/pharmacists/onlineorderprepare"><button class="button button1">View</button></a></td>
-                    </tr>
+                    <?php foreach($data['orders'] as $allorders): ?>
+                        <tr>
+                            <td><?php echo $allorders->onlineoid ?></td>
+                            <td><?php echo $allorders->onlinefname ?></td>
+                            <td><?php echo $allorders->onlinetelno ?></td>
+                            <td><button class="button button1"><a href="<?php echo URLROOT. "/pharmacists/onlineorderprepare/".$allorders->onlineoid ?>"> View</a></button></td>
+                        </tr>
+                    <?php endforeach; ?>
                   </table>
 
             </div>
