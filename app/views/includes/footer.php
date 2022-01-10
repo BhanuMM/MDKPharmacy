@@ -17,7 +17,7 @@
             <li><a href="<?php echo URLROOT; ?>/pages/product">Pharmacy</a></li>
             <li><a href="#location" onclick="return hashNoHistory(this)">Location</a></li>
             <li><a href="#about" onclick="return hashNoHistory(this)">About Us</a></li>
-            <li><button id="button">Staff Login</button></li>
+            <li><button id="button" style="color:white; background-color: #0a0a2e; border:none; cursor:pointer; font-size:16px;">Staff Login</button></li>
          </ul> </p>
 </div>
 
@@ -75,7 +75,7 @@
 
   document.querySelector('.close').addEventListener('click',function(){
       document.querySelector('.bg-modal').style.display = 'none';
-  })
+  });
 
 </script>
 

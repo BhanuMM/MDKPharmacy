@@ -2,31 +2,46 @@
 require APPROOT . '/views/includes/Doctorhead.php';
 ?>
 
+
+<div style="margin-left:20%; padding:8px 16px;">
+    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/doctors/createprescription"> &#8249; </a> </span></button>
+</div> 
+
 <div style="margin-left:17%; padding:1px 16px; width: 40%">
     <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/doctors/createprescription"> << </a> </span></button>
 </div> 
 
 <!-- --------------------------------------------------------------------------------------------- -->
 
-<div style="margin-left: 300px; margin-top: 1%; margin-right:0%; padding:1px 16px; width: 70%; ">
-    <div class="patient-card">
-        <div class="welcome">
-            <div class="patientdetails">
-                Name: <?php echo $data['name'] ?> <br>
-                Age: <?php echo $data['dob'] ?><br>
-                Gender: <?php echo $data['gender'] ?> <br>
-                Tel No: <?php echo $data['tel'] ?> <br>
+<div style="margin-left: 280px; margin-top: 1%; margin-right:0%; ">
+            <h3 style="margin-left: 48px;">Patient Details</h3><br><br>
+            <div class="table-patientdetails"> 
+        
+            <table>
+            <tr> 
+                <th> Name:</th>
+                <td><?php echo $data['name'] ?> </td>
+                <th>Age: </th>
+                <td><?php echo $data['dob'] ?> </td>
+            </tr>
+            <tr>
+                <th>Gender: </th>
+                <td><?php echo $data['gender'] ?></td>
+                <th>Tel No:  </th>
+                <td><?php echo $data['tel'] ?></td>
+            </tr>
+            </table>
             </div>
-        </div>
-    </div> <br><br>
+   
+    
      
                    
      <!-- --------------------------------------------------------------------------------------------- -->             
     <div class="row">
 
-        <div class="column" style="margin-left:5%; ">
+        <div class="column" style="margin-left:4%; ">
             <div class="container">
-                <h2>ADD</h2>
+                <h3>Add Medicine</h3>
 
                 <div class="select-box">
                     <div class="options-container">
@@ -62,40 +77,45 @@ require APPROOT . '/views/includes/Doctorhead.php';
 //                }
 //                 endforeach; ?>
 <!--            </select>-->
-            <button id="addbtn" class="button button1" style="background-color: #97ff9c;">ADD</button>
+    <br> 
+            <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">Add + </button>
 
 
 
-            <h3>Special Notes</h3> <br>
-            <textarea name="Text1" class="input2" rows="5" r></textarea>
+         
         </div>
 
-        <div class="column" style="margin-left:35%;padding:1px;">
-            <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
+        <div class="column" style="margin-left:27%;padding:1px; margin-top:-14.5%;">
+
+             
+            <!-- <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
                 <li><h3>Prescription</h3></li>
-            </ul>
+            </ul> -->
             <form method="post" action="<?php echo URLROOT; ?>/doctors/viewprescriptions">
-            <table style="padding: 12px;" id="medlist">
+           
+            <h3>Create Prescription</h3> 
+            <div class="table-prescription">
+            <table id="medlist">
                 <thead>
                 <tr>
                     <th>Medicine ID</th>
                     <th>Medicine</th>
                     <th>Dosage</th>
-                    <th></th>
+                    <th>Time</th>
+                    <th>Remove</th>
                 </tr>
                 </thead>
                 <tbody>
                     <input class="input1" type="text" id="patid" name="patid" value="<?php echo $data['id'] ?>"  hidden>
                     <input class="input1" type="text" id="docid" name="docid" value="<?php echo $_SESSION['user_id'] ?>" hidden >
-
-
-
-
+                    <input class="input1" type="text" id="time" name="time" value="<?php echo $_SESSION['user_id'] ?>" hidden >
                 </tbody>
-
-
               </table>
-            <input type="submit" name="submitbutton4" value="Create Prescription" class="opbill-form-submit" style="margin-left: 200px;" >
+
+            <h3>Special Notes</h3> 
+            <textarea name="Text1"  rows="3" cols="100" style="border:1px solid #0a0a2e; background-color: white; width: 100%; padding:4px 8px;"></textarea>
+
+            <input type="submit" name="submitbutton4" value="Create" class="opbill-form-submit" style="font-family:'Poppins', sans-serif; margin-left: 300px;" >
 
 <!--            <a href="--><?php //echo URLROOT ?><!--/doctors/viewprescriptions"><button class="opbill-form-submit" style="margin-left: 200px;">Create Prescription</button></a>-->
             <br> <br> <br> <br> <br>
@@ -162,7 +182,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 if(medname != 'Select Medicine'){
                     alert(medid);
                     // count ++;
-                    $("#medlist tbody").append('<tr><td><input class="input1" type="text" id="medid" name="medid[]" value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="meddos" name="meddos[]" placeholder="Enter Dosage" required> </td><td align="center"><button id="removebtn" class="button_button1" style="background-color: #ff9797;">Remove</button></td></tr>')
+                    $("#medlist tbody").append('<tr><td><input class="input1" type="text" id="medid" name="medid[]" value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="meddos" name="meddos[]" placeholder="Enter Dosage" required> </td> <td> <select id="time" name="time"><option value="Bd">Twice a day</option><option value="Tds">Three times a day</option><option value="Nocte">In the night</option><option value="Mane">in the morning</option><option value="Daily">One time a day</option></select></td> <td align="center"><button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: white; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button></td></tr>')
                 }else
                 {
                     alert("Please Select a Medicine");
