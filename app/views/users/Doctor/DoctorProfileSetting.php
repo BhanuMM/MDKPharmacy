@@ -2,7 +2,7 @@
 require APPROOT . '/views/includes/Doctorhead.php';
 ?>
 
-<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
+<div style="margin-left: 320px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
     <form method="post" class="data" action="<?php echo URLROOT; ?>/users/register" style="background-color: white; ">
         <h2 style="margin-top: 3%;">
             User Details
@@ -33,8 +33,9 @@ require APPROOT . '/views/includes/Doctorhead.php';
         </h5>
 
         <input class="input-ps" type="text" id="Runame" name="Runame" size=40 placeholder="abc_78" readonly>
-
-
+        </div>
+<div class="change-pwd-class">
+        <div class="close">+</div>
         <h5>
            Current Password
         </h5>
@@ -49,13 +50,27 @@ require APPROOT . '/views/includes/Doctorhead.php';
             Re-enter Password
         </h5>
         <input class="input-ps" type="password" id="Repass" name="Repass" minlength="4" placeholder="***********" required>
-
-        <br><br><br>
-        <input class="button button1" type="reset" value="Refresh">
-        <input class="form-submit" type="submit" name="submitbutton1" Value="Save Settings">
+</div>
+<div class="ps-btn" style="margin-left: 340px; margin-top:7%">
+        
+        
+        <button id="change-pwd" style="font-family: 'Poppins', sans-serif;">Update Password</button><br>
+        <input class="button button1" style="font-family: 'Poppins', sans-serif;" type="reset" value="Refresh">
+        <input class="form-submit" style="font-family: 'Poppins', sans-serif;" type="submit" name="submitbutton1" Value="Save Settings">
         <br><br><br><br>
     </form>
 </div>
+</div>
+
+<script>
+  document.getElementById('change-pwd').addEventListener('click',function(){
+        document.querySelector('.change-pwd-class').style.display = 'block';
+        
+  });
+  document.querySelector('.close').addEventListener('click',function(){
+      document.querySelector('.change-pwd-class').style.display = 'none';
+  })
+</script>
 
 
 </div>

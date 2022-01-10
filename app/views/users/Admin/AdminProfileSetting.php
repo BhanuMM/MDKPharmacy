@@ -32,7 +32,6 @@ require APPROOT . '/views/includes/Adminhead.php';
 
         <input class="input-ps" type="text" id="Runame" name="Runame"  value="<?php echo $data['psusername']?>" size=40  >
 
-
         <h5>
            Current Password
         </h5>

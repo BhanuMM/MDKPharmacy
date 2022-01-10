@@ -33,6 +33,8 @@ require APPROOT . '/views/includes/Deliveryhead.php';
 
         <input class="input-ps" type="text" id="Runame" name="Runame" size=40 placeholder="abc_78" readonly>
 
+<div class="change-pwd-class" style="margin-left: 47%; margin-top:-33%">
+        <div class="close" style="margin-right:25%;">+</div>
 
         <h5>
            Current Password
@@ -48,13 +50,23 @@ require APPROOT . '/views/includes/Deliveryhead.php';
             Re-enter Password
         </h5>
         <input class="input-ps" type="password" id="Repass" name="Repass" minlength="4" placeholder="***********" required>
-
-        <br><br><br>
+</div>
+<div class="ps-btn" style="margin-top:8%">
+<br>
+        <button id="change-pwd" >Update Password</button><br>
         <input class="button button1" type="reset" value="Refresh">
         <input class="form-submit" type="submit" name="submitbutton1" Value="Save Settings">
-        <br><br>
+        <br><br><br><br>
     </form>
 </div>
-
+<script>
+  document.getElementById('change-pwd').addEventListener('click',function(){
+        document.querySelector('.change-pwd-class').style.display = 'block';
+        
+  });
+  document.querySelector('.close').addEventListener('click',function(){
+      document.querySelector('.change-pwd-class').style.display = 'none';
+  })
+</script>
 
 </div>

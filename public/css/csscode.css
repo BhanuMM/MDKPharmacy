@@ -1,3 +1,4 @@
+
 .right-body {
     
     flex: 1;
@@ -92,13 +93,13 @@
 .select-box {
     position: relative;
     display: flex;
-    width: 400px;
+    width: 300px;
     flex-direction: column;
 }
 
 .select-box .options-container {
-    background: #2f3640;
-    color: #f5f6fa;
+    background: #fff;
+    color: #0a0a2e;
     max-height: 0;
     width: 100%;
     opacity: 0;
@@ -110,7 +111,7 @@
 }
 
 .selected {
-    background: #2f3640;
+    background: #0a0a2e;
     border-radius: 8px;
     margin-bottom: 8px;
     color: #f5f6fa;
@@ -153,7 +154,7 @@
 }
 
 .select-box .options-container::-webkit-scrollbar-thumb {
-    background: #525861;
+    background: #0a0a2e;
     border-radius: 0 8px 8px 0;
 }
 
@@ -164,7 +165,8 @@
 }
 
 .select-box .option:hover {
-    background: #414b57;
+    background: #0a0a2e;
+    color: #fff;
 }
 
 .select-box label {
@@ -178,14 +180,14 @@
 /* Searchbox */
 
 .search-box input {
-    width: 100%;
+    width: 90%;
     padding: 12px 16px;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     position: absolute;
-    border-radius: 8px 8px 0 0;
+    border-radius: 8px;
     z-index: 100;
-    border: 8px solid #2f3640;
+    border: 1px solid #0a0a2e;
 
     opacity: 0;
     pointer-events: none;
