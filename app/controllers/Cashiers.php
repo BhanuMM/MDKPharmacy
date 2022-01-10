@@ -17,7 +17,17 @@ class Cashiers extends Controller {
 
             'pres' => $pres
         ];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $databill = trim($_POST['UISearchbar']);
+            $searchbill = $this->cashierModel-> searchbill($databill);
 
+            $data = [
+                'pres' => $searchbill
+            ];
+        }
         $this->view('users/Cashier/InpatientBills',$data);
     }
 
@@ -83,7 +93,7 @@ class Cashiers extends Controller {
             ];
         }
 
-        $this->view('users/Cashier/MedicineAvailability');
+        $this->view('users/Cashier/MedicineAvailability',$data);
     }
 
     public function profilesettings() {

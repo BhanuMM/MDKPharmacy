@@ -22,7 +22,7 @@ class Doctors extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
             $datanic = trim($_POST['UISearchbar']);
-            $searchpatient = $this->doctorModel->searchnic($datanic);
+            $searchpatient = $this->doctorModel->searchpatientnic($datanic);
 
             $data = [
                 'pat' => $searchpatient

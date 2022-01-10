@@ -1,16 +1,25 @@
 <?php
 require APPROOT . '/views/includes/Cashierhead.php';
 ?>
+<div style="margin-left:17%; padding:1px 16px; width: 40%">
+    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/cashierdashboard"> << </a> </span></button>
+</div>  
 <div style="margin-left: 265px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
     <div class="row">
         <div class="column" style="margin-left:5%; padding:1px 16px;">
-            <ul style="padding-left: 0px; list-style-type: none; overflow: auto; width: 200%; margin-left:-17%;">
-            
-            <form class="searchmed-search-container">
-                <input type="text" id="searchmed-search-bar" placeholder="Search Medicine">
-                <a href="#"><img class="searchmed-search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
-            </form><br><br><br>
-            </ul>
+        <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
+    <li Style="float: left; vertical-align: middle; display: inline;"><h3> Create Outpatient Bills</h3></li>
+        <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/outpatientbills">
+            <table>
+                <tr>
+                <th><li Style="float: right; vertical-align: middle; display: inline;">
+                <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left:5px; height: 35px; width: 200px;" placeholder="Medicine Name"></li>
+                </th>
+                <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
+                </tr>
+            </table>
+        </form>
+</ul>
             <table>
                 <tr>
                     <th>Medicine ID</th>

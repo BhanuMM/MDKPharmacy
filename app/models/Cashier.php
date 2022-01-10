@@ -41,23 +41,26 @@ class Cashier {
 
         $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid WHERE prescription.presid = :pid ');
         $this->db->bind(':pid',$presid);
-
         $row = $this->db->single();
-
         return $row;
-
     }
-    public function getpresdata($presid) {
 
+    public function getpresdata($presid) {
         $this->db->query('SELECT * FROM presmed INNER JOIN medicine ON medicine.medid= presmed.medid  WHERE presid = :pid');
         $this->db->bind(':pid',$presid);
-
         $results = $this->db->resultSet();
-
-
         return $results;
 
     }
+
+    public function searchbill($presid) {
+        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE prescription.presid = :pid');
+        //Bind value
+        $this->db->bind(':pid', $presid);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
 
 
 }

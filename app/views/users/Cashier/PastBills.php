@@ -1,16 +1,25 @@
 <?php
 require APPROOT . '/views/includes/Cashierhead.php';
 ?>
+<div style="margin-left:17%; padding:1px 16px; width: 40%">
+    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/cashierdashboard"> << </a> </span></button>
+</div>  
 
             <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">
-                <ul style="margin-top: 5%; padding-left: 0px; padding-top: 2%; list-style-type: none;">
-                    <li Style="float: left; vertical-align: middle; display: inline;"><h3>Previous Bill Details</h3></li>
-                    <form><li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;">
-                            <a style="border-left: 0px solid !important" href="#"><img src="<?php echo URLROOT ?>/public/images/Search.png" alt="Search" style="opacity: 0.5; height: 25px; margin-top: 8px; position:relative; margin-right: 10px; "></a></li>
-                        <li Style="float: right; vertical-align: middle; display: inline;">
-                            <input type="text" id="UISearchbar" style="height: 35px;" placeholder="Bill ID"></li></form>
-                </ul>
-               
+            <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
+    <li Style="float: left; vertical-align: middle; display: inline;"><h3> Previous Bill Details</h3></li>
+        <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/pastbills">
+            <table>
+                <tr>
+                <th><li Style="float: right; vertical-align: middle; display: inline;">
+                <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 520px; height: 35px; width: 200px;" placeholder="Bill ID"></li>
+                </th>
+                <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
+                </tr>
+            </table>
+        </form>
+</ul>
+
                 <table id="customers">
                     <tr>
                       <th>Prescription ID</th>
