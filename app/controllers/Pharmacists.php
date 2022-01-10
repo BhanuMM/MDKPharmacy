@@ -80,10 +80,44 @@ class Pharmacists extends Controller {
     }
 
     public function viewonlineorders() {
-        $this->view('users/Pharmacist/ViewOnlineOrders');
+
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $dataprescription= trim($_POST['UISearchbar']);
+            $searchprescription = $this->pharmacistModel-> searchprescriptionbynic($dataprescription);
+
+
+            $data = [
+                'prescription' => $searchprescription
+            ];
+
+        }
+
+        $orders = $this->pharmacistModel->viewonlineorders();
+
+        $data = [
+
+            'orders' => $orders
+        ];
+
+
+        $this->view('users/Pharmacist/ViewOnlineOrders',$data);
+
     }
-    public function onlineorderprepare() {
-        $this->view('users/Pharmacist/OnlineOrderPrepare');
+    public function onlineorderprepare($orderid) {
+        $order = $this->pharmacistModel->singleonlineorder($orderid);
+
+        $data = [
+
+            'orderid' => $order->onlineoid,
+            'orderimg' => $order->filename
+        ];
+
+
+        $this->view('users/Pharmacist/OnlineOrderPrepare',$data);
     }
 
 

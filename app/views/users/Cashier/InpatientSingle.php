@@ -1,6 +1,7 @@
 <?php
 require APPROOT . '/views/includes/Cashierhead.php';
 ?>
+
 <div style="margin-left:17%; padding:1px 16px; width: 40%">
     <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/inpatientbills"> << </a> </span></button>
 </div>  
@@ -55,14 +56,14 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 <?php foreach($data['meds'] as $allmeds): ?>
                     <tr>
                         <td><?php echo $allmeds->medgenname ?></td>
-                        <td></td>
-                         <td><?php echo $allmeds->dosage ?></td>
-                        <td></td>
+                        <td class="sellp"><?php echo $allmeds->medsellprice ?></td>
+                         <td class="sellp"><?php echo $allmeds->dosage ?></td>
+                        <td id="price"></td>
                     </tr>
                 <?php endforeach; ?>
                     <tr>
-                        <td colspan="3" class="text-right">Sub Total</td>
-                        <td></td>
+                        <td colspan="3"  class="text-right">Sub Total</td>
+                        <td id="subtot"> </td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right">Discount</td>
@@ -79,9 +80,27 @@ require APPROOT . '/views/includes/Cashierhead.php';
         <br><br>
         <button class="form-submit">Print Bill</button> 
 </div>      
-    </div>  
+    </div>
     <br><br><br>
-</div>   
+</div>
 
-</body>
-</html>
+<script>
+    $(document).ready(function (){
+        var subtot =0;
+        $('tr').each(function (){
+            var tot =0;
+            $(this).find('.sellp').each(function (){
+                var unitp =$(this).text();
+                if(unitp.length !==0){
+                    tot += parseFloat(unitp);
+                    subtot += tot;
+                }
+            });
+            $(this).find('#price').html(tot);
+            $(this).find('#subtot').html(subtot);
+        });
+
+    });
+
+
+</script>

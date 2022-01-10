@@ -44,7 +44,7 @@ class Pages extends Controller {
                 'address' => trim($_POST['address'])
                 ];
 
-            $upload_dir ='../OnlinePrescriptions/' ;
+            $upload_dir ='../Public/images/OnlinePrescriptions/' ;
             $type = $_FILES['imagefile']['type'];
             $name = $_FILES['imagefile']['name'];
             $tmp_name = $_FILES['imagefile']['tmp_name'];

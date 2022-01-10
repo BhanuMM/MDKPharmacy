@@ -25,6 +25,24 @@ class Pharmacist {
         return $results;
 
     }
+    public function viewonlineorders() {
+        $this->db->query('SELECT * FROM onlineorder  ORDER BY onlineoid DESC');
+
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+    public function singleonlineorder($orderid) {
+        $this->db->query('SELECT * FROM onlineorder  WHERE onlineoid = :oid ');
+        $this->db->bind(':oid',$orderid);
+
+        $row = $this->db->single();
+
+        return $row;
+
+    }
 
 
     public function searchmed($medgenname) {
