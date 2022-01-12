@@ -7,9 +7,6 @@ require APPROOT . '/views/includes/Doctorhead.php';
     <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/doctors/createprescription"> &#8249; </a> </span></button>
 </div> 
 
-<div style="margin-left:17%; padding:1px 16px; width: 40%">
-    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/doctors/createprescription"> << </a> </span></button>
-</div> 
 
 <!-- --------------------------------------------------------------------------------------------- -->
 
@@ -48,7 +45,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                         <?php
                         foreach($data['medicines'] as $allmedicines):
                             {
-                                echo ' <div class="option" id ="'.$allmedicines->medid.'"> <input type="radio" class="radio" id="medl" name="category" /> <label id ="med" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
+                                echo ' <div class="option" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
 
 
                             }
@@ -57,7 +54,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
                     </div>
 
-                    <div class="selected" id="1">Select Medicine</div>
+                    <div class="selected" medid="test" id="1">Select Medicine</div>
 
                     <div class="search-box">
                         <input type="text" placeholder="Start Typing..." />
@@ -102,18 +99,19 @@ require APPROOT . '/views/includes/Doctorhead.php';
                     <th>Medicine</th>
                     <th>Dosage</th>
                     <th>Time</th>
+                    <th>Duration</th>
                     <th>Remove</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <input class="input1" type="text" id="patid" name="patid" value="<?php echo $data['id'] ?>"  hidden>
-                    <input class="input1" type="text" id="docid" name="docid" value="<?php echo $_SESSION['user_id'] ?>" hidden >
-                    <input class="input1" type="text" id="time" name="time" value="<?php echo $_SESSION['user_id'] ?>" hidden >
+                <input class="input1" type="text" id="patid" name="patid" value="<?php echo $data['id'] ?>"  hidden>
+                <input class="input1" type="text" id="docid" name="docid" value="<?php echo $_SESSION['user_id'] ?>" hidden >
+
                 </tbody>
               </table>
 
             <h3>Special Notes</h3> 
-            <textarea name="Text1"  rows="3" cols="100" style="border:1px solid #0a0a2e; background-color: white; width: 100%; padding:4px 8px;"></textarea>
+            <textarea name="specialnote"  rows="4" cols="80" ></textarea>
 
             <input type="submit" name="submitbutton4" value="Create" class="opbill-form-submit" style="font-family:'Poppins', sans-serif; margin-left: 300px;" >
 
@@ -146,7 +144,8 @@ require APPROOT . '/views/includes/Doctorhead.php';
      optionsList.forEach(o => {
          o.addEventListener("click", () => {
              selected.innerHTML = o.querySelector("label").innerHTML;
-             // selected.attr('id'); = o.querySelector("label").attr('id');
+             var id = o.querySelector("label").getAttribute('medid');
+             selected.setAttribute("medid",id);
              optionsContainer.classList.remove("active");
          });
      });
@@ -175,14 +174,14 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 // var inputval= $('#dos').val();
 
                 var label = $('.selected');
-                var medid = label.attr('id');
+                var medid = label.attr('medid');
                 // var medname = label.attr('medname');
                 var medname = label.text();
 
                 if(medname != 'Select Medicine'){
-                    alert(medid);
+
                     // count ++;
-                    $("#medlist tbody").append('<tr><td><input class="input1" type="text" id="medid" name="medid[]" value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="meddos" name="meddos[]" placeholder="Enter Dosage" required> </td> <td> <select id="time" name="time"><option value="Bd">Twice a day</option><option value="Tds">Three times a day</option><option value="Nocte">In the night</option><option value="Mane">in the morning</option><option value="Daily">One time a day</option></select></td> <td align="center"><button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: white; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button></td></tr>')
+                    $("#medlist tbody").append('<tr><td><input class="input1" type="text" id="medid" name="medid[]" value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="meddos" name="meddos[]" placeholder="Enter Dosage" required> </td> <td> <select id="time" name="time[]"><option value="Bd">Twice a day</option><option value="Tds">Three times a day</option><option value="Nocte">In the night</option><option value="Mane">in the morning</option><option value="Daily">One time a day</option></select></td><td><input class="input1" type="text" id="medduration" name="medduration[]" placeholder="Enter Days" required> </td> <td align="center"><button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: white; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button></td></tr>')
                 }else
                 {
                     alert("Please Select a Medicine");

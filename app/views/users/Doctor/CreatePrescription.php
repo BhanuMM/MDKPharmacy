@@ -16,8 +16,8 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 </span> <br>
 
 <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
-  <li Style="float: left; vertical-align: middle; display: inline;"><h3>Select Patient</h3></li>
-   <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/doctors/createprescription">
+  <li Style="float: left; vertical-align: middle; display: inline;"><h3>Select Patient</h3></li> </ul>
+   <form method="post" class="data"  action="<?php echo URLROOT; ?>/doctors/createprescription">
       <table>
        <tr>
         <th><li Style="float: right; vertical-align: middle; display: inline;">
@@ -27,10 +27,20 @@ require APPROOT . '/views/includes/Doctorhead.php';
        </tr>
      </table>
      </form>
- </ul>
+    <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/doctors/createprescription">
+        <table>
+            <tr>
+                <th><li Style="float: right; vertical-align: middle; display: inline;">
+                        <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 550px; height: 35px; width: 200px;" placeholder="Patient Name"></li>
+                </th>
+                <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
+            </tr>
+        </table>
+    </form>
+
 
                
-                <table id="customers">
+                <table id="customers" >
                     <tr>
                       <th>Patient ID</th>
                       <th>Patient NIC</th>
