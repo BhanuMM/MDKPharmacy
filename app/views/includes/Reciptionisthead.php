@@ -42,7 +42,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="receptionist")){
                 </span>
 
                 <div class="dropdown-content">
-                    <p><a href="<?php echo URLROOT ?>/receptionists/profilesettings"><button class="btn-ddc">Settings</button></a></p>
+                    <p><a href="<?php echo URLROOT . "/Receptionists/profilesettings/" . $_SESSION['user_id'] ?>"><button class="btn-ddc">Settings</button></a></p>
 
                     <p> <a href="<?php echo URLROOT ?>/users/logout"> <button class="btn-ddc">Logout</button> </a></p>
 

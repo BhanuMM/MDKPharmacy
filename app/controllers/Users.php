@@ -221,6 +221,8 @@ class Users extends Controller {
         unset($_SESSION['urole']);
         header('location:' . URLROOT . '/index');
     }
+
+
     public function forgetpass() {
         $this->view('users/forgetpass');
 

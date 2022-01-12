@@ -1,7 +1,11 @@
 <?php
 require APPROOT . '/views/includes/Reciptionisthead.php';
 ?>
-
+<?php
+if(isset($_GET['msg'])){
+    echo ('<script>alert("User Details Updated")</script>'); // print_r($_GET);
+}
+?>
 
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
     <div class="welcome-card">

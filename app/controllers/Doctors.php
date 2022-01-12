@@ -105,6 +105,9 @@ class Doctors extends Controller {
         $pat = $this->doctorModel->searchpatientbyId($patid);
 
         $med = $this->doctorModel->loadmed();
+        $dob =$pat->patdob;
+        $today = date("Y-m-d");
+        $diff = date_diff(date_create($dob), date_create($today));
         $data = [
             'medicines' => $med,
 //            'medid' => $med->medid,
@@ -112,7 +115,7 @@ class Doctors extends Controller {
             'id'=>$pat->patid,
             'nic'=>$pat->patnic,
             'name'=>$pat->patname,
-            'dob'=>$pat->patdob,
+            'dob'=>$diff->format('%y'),
             'tel'=>$pat->pattelno,
             'gender'=>$pat->patgen
 
@@ -182,6 +185,8 @@ class Doctors extends Controller {
             $count = count($_POST['medid']);
             $medid =$_POST['medid'];
             $meddose =$_POST['meddos'];
+            $medtime =$_POST['time'];
+            $meddur =$_POST['medduration'];
 
 
 
@@ -190,7 +195,7 @@ class Doctors extends Controller {
                 'docid' => $_POST['docid'],
                 'prestime'=>date("h:i:sa"),
                 'presdate'=>date("Y/m/d"),
-                'specialnote'=>"note"
+                'specialnote'=>$_POST['specialnote']
             ];
 
             if ($this->doctorModel->createpres($data)){
@@ -200,6 +205,8 @@ class Doctors extends Controller {
                     $data=[
                         'medid'=> $medid [$i],
                         'meddose'=> $meddose[$i],
+                        'medtime'=> $medtime[$i],
+                        'meddur'=> $meddur[$i],
                         'presid'=>$presid
 
                     ];
@@ -236,14 +243,18 @@ class Doctors extends Controller {
     public function pastsingleprescription($presid) {
         $patdata =$this->doctorModel->getprespatdata($presid);
         $predata =$this->doctorModel->getpresdata($presid);
+
+        $dob =$patdata->patdob;
+        $today = date("Y-m-d");
+        $diff = date_diff(date_create($dob), date_create($today));
         $data = [
             'presid' => $patdata->presid,
             'presdate' => $patdata->presdate,
             'prestime' => $patdata->pretime,
             'presnote' => $patdata->specialnote,
             'patname' => $patdata->patname,
-            'patage' => $patdata->patdob,
-            'patgen' => $patdata->patgen,
+            'patage' => $diff->format('%y'),
+            'patgen' => ucwords($patdata->patgen) ,
             'meds'=> $predata
 //            'medgenname' => $med->medgenname,
 
