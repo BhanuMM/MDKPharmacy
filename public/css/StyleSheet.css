@@ -151,6 +151,8 @@ ul li a:hover{
       color: #3C3B54;
       border-radius: 6px;
 }
+
+
 /*--------------------------------------------------------------------------------*/
 /* Only for Profile Settings Form Fields */
 .input-ps{
@@ -687,3 +689,34 @@ input#UISearchbar{
   transform: rotate(45deg);
   cursor:pointer;
 }
+
+
+/* View for confirm page - buttons */
+
+.confirm-btn{
+  background-color: #0a0a2e;
+  color:white;
+  padding:15px 50px;
+  text-decoration: none;
+  border-radius: 8px; 
+  cursor:pointer;
+}
+
+
+.table-patientdetails2 table{
+  font-size: 17px;  
+  border-collapse: collapse;
+  margin-top:-45px; 
+  margin-right: 43px;
+  width: 10%;
+  
+}
+
+.table-patientdetails2 th,td{
+  text-align: left;  
+  padding: 15px;
+  border: 1px solid #ddd; 
+  border-collapse: collapse;
+}
+
+

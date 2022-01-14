@@ -44,6 +44,35 @@ class Pharmacist {
 
     }
 
+    //Copied from the Doctor controller for prescription confirmation 
+    public function searchpatientbyId($id) {
+        $this->db->query('SELECT * FROM patient WHERE patid = :patientid');
+
+        //Bind value
+        $this->db->bind(':patientid', $id);
+        $row = $this->db->single();
+        return $row;
+    }
+
+    public function loadmed() {
+
+        $this->db->query('SELECT * FROM medicine ORDER BY medgenname ASC');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
+    public function viewforconfirm($orderid) {
+        $this->db->query('SELECT * FROM onlineorder  WHERE onlineoid = :oid ');
+        $this->db->bind(':oid',$orderid);
+
+        $row = $this->db->single();
+
+        return $row;
+
+    }
 
     public function searchmed($medgenname) {
         $where = "WHERE `medgenname` like :medname ";
