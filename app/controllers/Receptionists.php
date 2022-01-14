@@ -292,14 +292,7 @@ class Receptionists extends Controller
 
                 $this->view('users/Receptionist/ReceptionistProfileSetting',$userdata);
             }
-
-
-
-
-
         }
-
-
         $this->view('users/Receptionist/ReceptionistProfileSetting',$data);
     }
 }

@@ -118,6 +118,31 @@ class Pharmacist {
         $results = $this->db->resultSet();
         return $results;
     }
+    public function findProfilebyId($psid) {
+        $this->db->query('SELECT * FROM staff WHERE staffid = :proid');
 
+        $this->db->bind(':proid', $psid);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
+    public function updateprofilesettings($data){
+        $this->db->query('UPDATE staff SET snic = :psnic, sname = :psname, semail = :psemail, uname = :psuname ,upswrd= :pswrd WHERE staffid = :psid');
+
+        $this->db->bind(':psid', $data['psid']);
+        $this->db->bind(':psnic', $data['psnic']);
+        $this->db->bind(':psname', $data['psname']);
+        $this->db->bind(':psemail', $data['psemail']);
+        $this->db->bind(':psuname', $data['psusername']);
+        $this->db->bind(':pswrd', $data['pspswrd']);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 
 }
