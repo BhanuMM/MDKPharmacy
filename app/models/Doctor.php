@@ -100,13 +100,15 @@ class Doctor {
 
     public function addtopres($data) {
 
-        $this->db->query('INSERT INTO presmed (presid,medid,dosage)VALUES(:presid,:medid,:meddose)');
+        $this->db->query('INSERT INTO presmed (presid,medid,dosage,medtime,duration)VALUES(:presid,:medid,:meddose,:medtime,:meddur)');
 
 
         //Bind values
         $this->db->bind(':presid', $data['presid']);
         $this->db->bind(':medid', $data['medid']);
         $this->db->bind(':meddose', $data['meddose']);
+        $this->db->bind(':medtime', $data['medtime']);
+        $this->db->bind(':meddur', $data['meddur']);
 
         //Execute function
         if ($this->db->execute()) {
@@ -135,7 +137,7 @@ class Doctor {
     }
     public function viewprescriptions($patid) {
 
-    $this->db->query('SELECT * FROM prescription WHERE patid = :pid');
+    $this->db->query('SELECT * FROM prescription WHERE patid = :pid ORDER BY presid DESC');
         $this->db->bind(':pid',$patid);
 
         $results = $this->db->resultSet();
