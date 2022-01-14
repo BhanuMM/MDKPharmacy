@@ -4,12 +4,9 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
 
 <div style="margin-left:20%; padding:8px 16px;">
-    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/doctors/createprescription"> &#8249; </a> </span></button>
-</div> 
-
-<div style="margin-left:17%; padding:1px 16px; width: 40%">
     <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/doctors/createprescription"> << </a> </span></button>
 </div> 
+
 
 <!-- --------------------------------------------------------------------------------------------- -->
 
@@ -108,7 +105,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 <tbody>
                     <input class="input1" type="text" id="patid" name="patid" value="<?php echo $data['id'] ?>"  hidden>
                     <input class="input1" type="text" id="docid" name="docid" value="<?php echo $_SESSION['user_id'] ?>" hidden >
-                    <input class="input1" type="text" id="time" name="time" value="<?php echo $_SESSION['user_id'] ?>" hidden >
+                    
                 </tbody>
               </table>
 

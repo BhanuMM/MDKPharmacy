@@ -28,8 +28,8 @@ class Doctor {
 
         //Bind value
         $this->db->bind(':patientid', $id);
-        $results = $this->db->resultSet();
-        return $results;
+        $row = $this->db->single();
+        return $row;
     }
 
     public function viewmed() {

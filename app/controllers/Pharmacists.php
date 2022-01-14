@@ -107,19 +107,88 @@ class Pharmacists extends Controller {
         $this->view('users/Pharmacist/ViewOnlineOrders',$data);
 
     }
+
+    
+
+
+
+    // public function onlineorderprepare($orderid, $patid) {
+    //     $order = $this->pharmacistModel->singleonlineorder($orderid);
+    //     $pat = $this->pharmacistModel->searchpatientbyId($patid);
+    //     $med = $this->pharmacistModel->loadmed();
+
+    //     $data = [
+    //         'medicines' => $med,
+    //         'id'=>$pat->patid,
+    //         'nic'=>$pat->patnic,
+    //         'name'=>$pat->patname,
+    //         'dob'=>$pat->patdob,
+    //         'tel'=>$pat->pattelno,
+    //         'gender'=>$pat->patgen,
+    //         'orderid' => $order->onlineoid,
+    //         'orderimg' => $order->filename
+    //     ];
+
+    //     $this->view('users/Pharmacist/OnlineOrderPrepare',$data);
+    // }
+
+    
     public function onlineorderprepare($orderid) {
         $order = $this->pharmacistModel->singleonlineorder($orderid);
-
+        
         $data = [
-
+        
             'orderid' => $order->onlineoid,
             'orderimg' => $order->filename
         ];
 
-
         $this->view('users/Pharmacist/OnlineOrderPrepare',$data);
     }
 
+
+
+
+    
+    public function confirmprescription($orderid){
+        
+        $order = $this->pharmacistModel->singleonlineorder($orderid);
+
+        $data = [
+        
+            'orderid' => $order->onlineoid,
+            'orderimg' => $order->filename
+        ];
+
+        $this->view('users/Pharmacist/OnlineOrderPrepare',$data);
+        
+
+    }
+
+   
+
+    public function viewforconfirm($orderid){
+
+        // $pat = $this->pharmacistModel->searchpatientbyId($patid);
+        $order = $this->pharmacistModel->viewforconfirm($orderid);
+        $orders = $this->pharmacistModel->viewonlineorders();
+
+    
+        $data = [
+
+            'orders' => $orders,
+            'orderid' => $order->onlineoid,
+            'orderimg' => $order->filename,
+            // 'id'=>$pat->patid,
+            // 'nic'=>$pat->patnic,
+            // 'name'=>$pat->patname,
+            // 'dob'=>$pat->patdob,
+            // 'tel'=>$pat->pattelno,
+            // 'gender'=>$pat->patgen
+        ];
+
+        $this->view('users/Pharmacist/PrescriptionConfirm',$data);
+
+    }
 
     public function profilesettings() {
         $this->view('users/Pharmacist/PharmacistProfileSetting');

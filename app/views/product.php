@@ -18,7 +18,6 @@ if(isset($_GET['msg'])){
 <br><br>
 
 
-  
 <div class="hero-image">
   
 <a href="<?php echo URLROOT; ?>/pages/upload"> <button class="upload-button1">Upload Prescription + </button></a>
