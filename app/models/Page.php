@@ -7,7 +7,7 @@ class Page {
 
     public function fileupload($data) {
 
-        $this->db->query('INSERT INTO onlineorder (onlinefname, onlinetelno, onlineadrs,filename) VALUES(:fname,:telno,:adrs,:img)');
+        $this->db->query('INSERT INTO onlineorder (onlinefname, onlinetelno, onlineadrs,filename,orderstatus) VALUES(:fname,:telno,:adrs,:img, :stat )');
 
 
         //Bind values
@@ -15,6 +15,8 @@ class Page {
         $this->db->bind(':telno', $data['telnumber']);
         $this->db->bind(':adrs', $data['address']);
         $this->db->bind(':img', $data['image']);
+        $this->db->bind(':stat', $data['stat']);
+
 
         if ($this->db->execute()) {
             return true;

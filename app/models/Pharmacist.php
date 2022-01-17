@@ -26,14 +26,40 @@ class Pharmacist {
 
     }
     public function viewonlineorders() {
-        $this->db->query('SELECT * FROM onlineorder  ORDER BY onlineoid DESC');
-
+        $stat = "pending";  
+        $this->db->query('SELECT * FROM onlineorder WHERE orderstatus = :stat ORDER BY onlineoid DESC ');
+        $this->db->bind(':stat',$stat);
+            
 
         $results = $this->db->resultSet();
 
         return $results;
 
     }
+
+    public function viewconfirmedorders() {
+        $stat = "confirmed";  
+        $this->db->query('SELECT * FROM onlineorder WHERE orderstatus = :stat ORDER BY onlineoid DESC ');
+        $this->db->bind(':stat',$stat);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
+    public function viewrejectedorders() {
+        $stat = "rejected";  
+        $this->db->query('SELECT * FROM onlineorder WHERE orderstatus = :stat ORDER BY onlineoid DESC ');
+        $this->db->bind(':stat',$stat);
+            
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
     public function singleonlineorder($orderid) {
         $this->db->query('SELECT * FROM onlineorder  WHERE onlineoid = :oid ');
         $this->db->bind(':oid',$orderid);
@@ -43,6 +69,21 @@ class Pharmacist {
         return $row;
 
     }
+
+    public function setprescriptionstatus($data) {
+        $this->db->query('UPDATE onlineorder SET orderstatus = :ostat WHERE onlineoid = :oid');
+
+        $this->db->bind(':oid', $data['id']);
+        $this->db->bind(':ostat', $data['stat']); 
+     
+      
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     //Copied from the Doctor controller for prescription confirmation 
     public function searchpatientbyId($id) {
@@ -120,4 +161,57 @@ class Pharmacist {
     }
 
 
+    public function createpres($data) {
+
+        $this->db->query('INSERT INTO onlineprescription (onlineorderid,pretime,presdate)VALUES( :oid ,:prestime ,:presdate)');
+
+
+        //Bind values
+//        $this->db->bind(':presid', $data['presid']);
+        $this->db->bind(':oid', $data['orderid']);
+        $this->db->bind(':prestime', $data['prestime']);
+        $this->db->bind(':presdate', $data['presdate']);
+       
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public function getlatestpres() {
+
+        $this->db->query('SELECT MAX(onlinepresid) AS maxpres FROM onlineprescription ');
+
+        $row = $this->db->single();
+        return $row;
+
+    }
+
+    
+    public function addtopres($data) {
+
+        $this->db->query('INSERT INTO onlinepresmed (onlinepresid,medid,dosage,medtime,duration)VALUES(:onpresid,:medid,:meddose,:medtime,:meddur)');
+
+
+        //Bind values
+        $this->db->bind(':onpresid', $data['presid']);
+        $this->db->bind(':medid', $data['medid']);
+        $this->db->bind(':meddose', $data['meddose']);
+        $this->db->bind(':medtime', $data['medtime']);
+        $this->db->bind(':meddur', $data['meddur']);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 }
+
+

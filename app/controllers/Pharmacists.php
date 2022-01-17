@@ -96,11 +96,16 @@ class Pharmacists extends Controller {
 
         }
 
-        $orders = $this->pharmacistModel->viewonlineorders();
+        $pendingorders = $this->pharmacistModel->viewonlineorders();
+        $confirmedorders = $this->pharmacistModel->viewconfirmedorders();
+        $rejectedorders = $this->pharmacistModel->viewrejectedorders();
 
         $data = [
 
-            'orders' => $orders
+            'pendingorders' => $pendingorders,
+            'confirmedorders' => $confirmedorders,
+            'rejectedorders' => $rejectedorders
+
         ];
 
 
@@ -112,57 +117,72 @@ class Pharmacists extends Controller {
 
 
 
-    // public function onlineorderprepare($orderid, $patid) {
+    public function onlineorderprepare($orderid){
+
+        // $orderstat = $this->pharmacistModel->setprescriptionstatus($orderid);
+    
+        $data = [
+            // 'med' => $med,
+            'id'=> $orderid,
+            'stat'=> "confirmed"
+        ];
+
+                if ($this->pharmacistModel->setprescriptionstatus($data)) {
+                    $order = $this->pharmacistModel->singleonlineorder($orderid);
+                    $med = $this->pharmacistModel->loadmed();
+        
+                    $data = [
+                        'medicines' => $med,
+                        'orderid' => $order->onlineoid,
+                        'orderimg' => $order->filename
+                    ];
+            
+                    $this->view('users/Pharmacist/OnlineOrderPrepare',$data);
+                }
+                else {
+                    $this-> viewonlineorders();
+                }
+    
+    }
+
+    
+    public function rejectorder($orderid){
+
+        // $orderstat = $this->pharmacistModel->setprescriptionstatus($orderid);
+    
+        $data = [
+            // 'med' => $med,
+            'id'=> $orderid,
+            'stat'=> "rejected"
+        ];
+
+                if ($this->pharmacistModel->setprescriptionstatus($data)) {
+                    $this-> viewonlineorders();
+                }
+                else {
+                    $this-> viewonlineorders();
+                }
+    
+    }
+
+
+
+
+    
+    // public function confirmprescription($orderid){
+        
     //     $order = $this->pharmacistModel->singleonlineorder($orderid);
-    //     $pat = $this->pharmacistModel->searchpatientbyId($patid);
-    //     $med = $this->pharmacistModel->loadmed();
 
     //     $data = [
-    //         'medicines' => $med,
-    //         'id'=>$pat->patid,
-    //         'nic'=>$pat->patnic,
-    //         'name'=>$pat->patname,
-    //         'dob'=>$pat->patdob,
-    //         'tel'=>$pat->pattelno,
-    //         'gender'=>$pat->patgen,
+        
     //         'orderid' => $order->onlineoid,
     //         'orderimg' => $order->filename
     //     ];
 
     //     $this->view('users/Pharmacist/OnlineOrderPrepare',$data);
+        
+
     // }
-
-    
-    public function onlineorderprepare($orderid) {
-        $order = $this->pharmacistModel->singleonlineorder($orderid);
-        
-        $data = [
-        
-            'orderid' => $order->onlineoid,
-            'orderimg' => $order->filename
-        ];
-
-        $this->view('users/Pharmacist/OnlineOrderPrepare',$data);
-    }
-
-
-
-
-    
-    public function confirmprescription($orderid){
-        
-        $order = $this->pharmacistModel->singleonlineorder($orderid);
-
-        $data = [
-        
-            'orderid' => $order->onlineoid,
-            'orderimg' => $order->filename
-        ];
-
-        $this->view('users/Pharmacist/OnlineOrderPrepare',$data);
-        
-
-    }
 
    
 
@@ -170,14 +190,20 @@ class Pharmacists extends Controller {
 
         // $pat = $this->pharmacistModel->searchpatientbyId($patid);
         $order = $this->pharmacistModel->viewforconfirm($orderid);
-        $orders = $this->pharmacistModel->viewonlineorders();
+        // $orders = $this->pharmacistModel->viewonlineorders();
 
     
         $data = [
 
-            'orders' => $orders,
+            // 'orders' => $orders,
+            
             'orderid' => $order->onlineoid,
             'orderimg' => $order->filename,
+            'ordername' => $order->onlinefname,
+            'ordertelno' => $order->onlinetelno,
+            'orderadrs' => $order->onlineadrs
+
+
             // 'id'=>$pat->patid,
             // 'nic'=>$pat->patnic,
             // 'name'=>$pat->patname,
@@ -190,8 +216,100 @@ class Pharmacists extends Controller {
 
     }
 
+
+    
+
     public function profilesettings() {
         $this->view('users/Pharmacist/PharmacistProfileSetting');
     }
 
+
+    public function viewprescriptions() {
+        // $data = [
+        //     'genericname' => '',
+        //     'brandname' => '',
+        //     'importername' => '',
+        //     'dealer' => '',
+        //     'purchaseprice' => '',
+        //     'sellingprice' => '',
+        //     'profitmargin' => '',
+        //     'acslvl'=>'',
+        //     'nameError' => ''
+        // ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $count = count($_POST['medid']);
+            $medid =$_POST['medid'];
+            $meddose =$_POST['meddos'];
+            $medtime =$_POST['time'];
+            $meddur =$_POST['medduration'];
+
+
+
+            $data=[
+                'orderid'=>$_POST['oid'],
+                'prestime'=>date("h:i:sa"),
+                'presdate'=>date("Y/m/d")
+                
+            ];
+
+            if ($this->pharmacistModel->createpres($data)){
+                $maxpres =$this->pharmacistModel->getlatestpres();
+                $presid = $maxpres->maxpres;
+                for($i=0; $i< $count; $i++){
+                    $data=[
+                        'medid'=> $medid [$i],
+                        'meddose'=> $meddose[$i],
+                        'medtime'=> $medtime[$i],
+                        'meddur'=> $meddur[$i],
+                        'presid'=>$presid
+
+                    ];
+                    $this->pharmacistModel->addtopres($data);
+                }
+  
+            }else {
+                   die('Something went wrong.');
+              }
+              
+
+
+        }
+        $this->view('users/Pharmacist/PharmacistDashboard');
+
+        // $this->pastsingleprescription($presid);
+        
+
+    }
+
+    // public function pastsingleprescription($presid) {
+    //     $patdata =$this->pharmacistModel->getprespatdata($presid);
+    //     $predata =$this->pharmacistModel->getpresdata($presid);
+
+    //     $dob =$patdata->patdob;
+    //     $today = date("Y-m-d");
+    //     $diff = date_diff(date_create($dob), date_create($today));
+    //     $data = [
+    //         'presid' => $patdata->presid,
+    //         'presdate' => $patdata->presdate,
+    //         'prestime' => $patdata->pretime,
+    //         'presnote' => $patdata->specialnote,
+    //         'patname' => $patdata->patname,
+    //         'patage' => $diff->format('%y'),
+    //         'patgen' => ucwords($patdata->patgen) ,
+    //         'meds'=> $predata
+
+
+    //     ];
+
+    //     $this->view('users/Doctor/SinglePrescription',$data);
+    // }
 }
+
+
+
+
