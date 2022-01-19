@@ -27,7 +27,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 
 <!-- <div class="w3-container" > -->
 <div class="w3-bar" style="background-color:#0a0a2e; color:white; ">
-  <button class="w3-bar-item w3-button" onclick="openSection('all')">All Orders</button>
+  <button class="w3-bar-item w3-button" onclick="openSection('all')">Pending Orders</button>
   <button class="w3-bar-item w3-button" onclick="openSection('accepted')">Accepted Orders</button>
   <button class="w3-bar-item w3-button" onclick="openSection('rejected')">Rejected Orders</button>
 </div>
@@ -41,7 +41,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                       <th>Telephone Number</th>
                       <th>View</th>
                     </tr>
-                    <?php foreach($data['orders'] as $allorders): ?>
+                    <?php foreach($data['pendingorders'] as $allorders): ?>
                         <tr>
                             <td><?php echo $allorders->onlineoid ?></td>
                             <td><?php echo $allorders->onlinefname ?></td>
@@ -61,12 +61,12 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                       <th>Telephone Number</th>
                       <th>View</th>
                     </tr>
-                    <?php foreach($data['orders'] as $allorders): ?>
+                    <?php foreach($data['confirmedorders'] as $allconorders): ?>
                         <tr>
-                            <td><?php echo $allorders->onlineoid ?></td>
-                            <td><?php echo $allorders->onlinefname ?></td>
-                            <td><?php echo $allorders->onlinetelno ?></td>
-                            <td><button class="button button1"><a href="<?php echo URLROOT. "/pharmacists/viewforconfirm/".$allorders->onlineoid ?>">View</a></button></td>
+                            <td><?php echo $allconorders->onlineoid ?></td>
+                            <td><?php echo $allconorders->onlinefname ?></td>
+                            <td><?php echo $allconorders->onlinetelno ?></td>
+                            <td><button class="button button1"><a href="<?php echo URLROOT. "/pharmacists/viewforconfirm/".$allconorders->onlineoid ?>">View</a></button></td>
                         </tr>
                     <?php endforeach; ?>
                   </table>
@@ -83,12 +83,12 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                       <th>Telephone Number</th>
                       <th>View</th>
                     </tr>
-                    <?php foreach($data['orders'] as $allorders): ?>
+                    <?php foreach($data['rejectedorders'] as $allrejorders): ?>
                         <tr>
-                            <td><?php echo $allorders->onlineoid ?></td>
-                            <td><?php echo $allorders->onlinefname ?></td>
-                            <td><?php echo $allorders->onlinetelno ?></td>
-                            <td><button class="button button1"><a href="<?php echo URLROOT. "/pharmacists/viewforconfirm/".$allorders->onlineoid ?>">View</a></button></td>
+                            <td><?php echo $allrejorders->onlineoid ?></td>
+                            <td><?php echo $allrejorders->onlinefname ?></td>
+                            <td><?php echo $allrejorders->onlinetelno ?></td>
+                            <td><button class="button button1"><a href="<?php echo URLROOT. "/pharmacists/viewforconfirm/".$allrejorders->onlineoid ?>">View</a></button></td>
                         </tr>
                     <?php endforeach; ?>
                   </table>

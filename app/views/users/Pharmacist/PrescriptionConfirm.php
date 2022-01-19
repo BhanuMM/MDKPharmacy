@@ -29,26 +29,26 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
             <table>
             <tr> 
                 <th> Name:</th>
-                <td><?php echo $data['name'] ?> </td>
-                <th>Age: </th>
-                <td><?php echo $data['dob'] ?> </td>
+                <td><?php echo $data['ordername'] ?> </td>
+                <th>Tel No: </th>
+                <td><?php echo $data['ordertelno'] ?> </td>
             </tr>
             <tr>
-                <th>Gender: </th>
-                <td><?php echo $data['gender'] ?></td>
+                <th>Address: </th>
+                <td><?php echo $data['orderadrs'] ?></td>
                 <th>Tel No:  </th>
-                <td><?php echo $data['tel'] ?></td>
+                <td><?php echo $data['orderid'] ?></td>
             </tr>
             </table>
             <br><br>
         Please confirm the prescription to continue ? 
         <br><br>
-        <?php foreach($data['orders'] as $allorders): ?>
+        
                         
-                         <a style="background-color: #4BB543; ; color:white; padding:8px 30px; text-decoration: none; border-radius: 8px;" href="<?php echo URLROOT. "/pharmacists/onlineorderprepare/".$allorders->onlineoid ?>"> Confirm </a>
+                         <a style="background-color: #4BB543; ; color:white; padding:8px 30px; text-decoration: none; border-radius: 8px;" href="<?php echo URLROOT. "/pharmacists/onlineorderprepare/".$data['orderid']?>"> Confirm </a>
                         
-                         <a style="background-color: #d11a2a;; ; color:white; padding:8px 38px; text-decoration: none; margin-left:30px; border-radius: 8px;" href="<?php echo URLROOT. "/pharmacists/onlineorderprepare/".$allorders->onlineoid ?>"> Reject </a>
-                    <?php endforeach; ?>
+                         <a style="background-color: #d11a2a;; ; color:white; padding:8px 38px; text-decoration: none; margin-left:30px; border-radius: 8px;" href="<?php echo URLROOT. "/pharmacists/rejectorder/".$data['orderid'] ?>"> Reject </a>
+                   
           
     </div> 
     
