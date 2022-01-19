@@ -25,7 +25,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="cashier")){
         <li><a href = "<?php echo URLROOT ?>/cashiers/outpatientbills">Out-Patient Bills</a></li>
         <li><a href = "<?php echo URLROOT ?>/cashiers/pastbills">Previous Bills</a></li>
         <li><a href = "<?php echo URLROOT ?>/cashiers/medicineavailability">Medicine Availability</a></li>
-        <li><a href = "<?php echo URLROOT ?>/cashiers/profilesettings">Profile Settings</a></li>
+        <li><a href = "<?php echo URLROOT . "/cashiers/profilesettings/" . $_SESSION['user_id'] ?>">Profile Settings</a></li>
        <!-- <li><a href = "--><?php //echo URLROOT ?><!--/cashiers/prescriptionview"> Users</a></li> -->
 <!--        <li><a href = "../Admin/ReportDetails.html">Reports </a></li>-->
 <!--        <li><a href = "../Admin/SupplierDetails.html">Suppliers</a></li>-->
@@ -48,7 +48,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="cashier")){
                 </span>
 
                 <div class="dropdown-content">
-                    <p><a href="<?php echo URLROOT ?>/cashiers/profilesettings"><button class="btn-ddc">Settings</button></a></p>
+                    <p><a href="<?php echo URLROOT . "/cashiers/profilesettings/" . $_SESSION['user_id'] ?>"><button class="btn-ddc">Settings</button></a></p>
 
                     <p> <a href="<?php echo URLROOT ?>/users/logout"> <button class="btn-ddc">Logout</button> </a></p>
 

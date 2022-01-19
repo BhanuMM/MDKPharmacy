@@ -22,7 +22,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="doctor")){
         <li><a href = "<?php echo URLROOT ?>/doctors/doctordashboard">Dashboard</a></li>
         <li><a href = "<?php echo URLROOT ?>/doctors/viewpatientdetails">Patient History</a></li>
         <li><a href = "<?php echo URLROOT ?>/doctors/viewmedicineavailability">Medicine Availability</a></li>
-        <li><a href = "<?php echo URLROOT ?>/doctors/profilesettings">Profile Settings</a></li>
+        <li><a href = "<?php echo URLROOT . "/doctors/profilesettings/" . $_SESSION['user_id'] ?>">Profile Settings</a></li>
     </ul>
 </div>
 
@@ -41,7 +41,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="doctor")){
                 </span>
 
                 <div class="dropdown-content">
-                    <p><a href="<?php echo URLROOT ?>/doctors/profilesettings"><button class="btn-ddc">Settings</button></a></p>
+                    <p><a href="<?php echo URLROOT . "/doctors/profilesettings/" . $_SESSION['user_id'] ?>"><button class="btn-ddc">Settings</button></a></p>
 
                     <p> <a href="<?php echo URLROOT ?>/users/logout"> <button class="btn-ddc">Logout</button> </a></p>
 

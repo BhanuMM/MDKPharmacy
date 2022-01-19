@@ -51,7 +51,7 @@ class Receptionist {
 //            return false;
 //        }
 //    }
-public function findProfilebyId($psid) {
+    public function findProfilebyId($psid) {
     $this->db->query('SELECT * FROM staff WHERE staffid = :proid');
 
     $this->db->bind(':proid', $psid);
