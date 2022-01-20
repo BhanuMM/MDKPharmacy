@@ -98,7 +98,7 @@ class Cashiers extends Controller {
 
     public function profilesettings($psid){
 
-        $profile = $this->adminModel->findProfilebyId($psid);
+        $profile = $this->cashierModel->findProfilebyId($psid);
 
         $data = [
             'psid' => $profile->staffid,
@@ -129,9 +129,9 @@ class Cashiers extends Controller {
                             'pspswrd' => $pswrd
                         ];
 
-                        if ($this->adminModel->updateprofilesettings($userdata)) {
+                        if ($this->cashierModel->updateprofilesettings($userdata)) {
                             $recadded = 'Updated ';
-                            header('location: ' . URLROOT . '/admins/admindashboard?msg='.$recadded);
+                            header('location: ' . URLROOT . '/cashiers/cashierdashboard?msg='.$recadded);
                         } else {
                             die('Something went wrong.');
                         }
@@ -146,7 +146,7 @@ class Cashiers extends Controller {
                             'wrongp' => "New Passwords Does Not Match!"
                         ];
 
-                        $this->view('users/Admin/AdminProfileSetting',$userdata);
+                        $this->view('users/Cashier/CashierProfileSetting',$userdata);
                     }
                 }else{
 
@@ -159,9 +159,9 @@ class Cashiers extends Controller {
                         'psusername' => trim($_POST['Runame']),
                         'pspswrd' => $pswrd
                     ];
-                    if ($this->adminModel->updateprofilesettings($userdata)) {
+                    if ($this->cashierModel->updateprofilesettings($userdata)) {
                         $recadded = 'Updated ';
-                        header('location: ' . URLROOT . '/admins/admindashboard?msg='.$recadded);
+                        header('location: ' . URLROOT . '/cashiers/cashierashboard?msg='.$recadded);
                     } else {
                         die('Something went wrong.');
                     }
@@ -177,9 +177,9 @@ class Cashiers extends Controller {
                     'wrongp' => "Incorrect Password !"
                 ];
 
-                $this->view('users/Admin/AdminProfileSetting',$userdata);
+                $this->view('users/Cashier/CashierProfileSetting',$userdata);
             }
         }
-        $this->view('users/Admin/AdminProfileSetting',$data);
+        $this->view('users/Cashier/CashierProfileSetting',$data);
     }
 }

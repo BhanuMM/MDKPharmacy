@@ -43,7 +43,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                              Report Management 
                           </div>
                         </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewreport"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/reports/viewReport"><button class="button button1">View</button></a>
                       </div>
                     </div>
 
