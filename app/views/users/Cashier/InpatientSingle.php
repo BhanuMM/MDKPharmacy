@@ -42,7 +42,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
         <div class="bill-body">
             <h3>Ordered Items</h3>
             <br>
-            <table class="table-bordered">
+            <table class="table-bordered" id="tableData">
                 <thead>
                     <tr>
                         <th>Medicine</th>
@@ -54,24 +54,24 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 <tbody>
                 <tbody>
                 <?php foreach($data['meds'] as $allmeds): ?>
-                    <tr>
+                    <tr class="item">
                         <td><?php echo $allmeds->medgenname ?></td>
                         <td class="sellp"><?php echo $allmeds->medsellprice ?></td>
-                         <td class="sellp"><?php echo $allmeds->dosage ?></td>
-                        <td id="price"></td>
+                         <td class="sellq"><?php echo $allmeds->dosage ?></td>
+                        <td class="price"></td>
                     </tr>
                 <?php endforeach; ?>
                     <tr>
                         <td colspan="3"  class="text-right">Sub Total</td>
-                        <td id="subtot"> </td>
+                        <td class="subtot"> </td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right">Discount</td>
-                        <td></td>
+                        <td> <input id="dis" type="text"></td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right">Gross Total</td>
-                        <td></td>
+                        <td class="grnadtot"></td>
                     </tr>
                 </tbody>
             </table>
@@ -85,22 +85,54 @@ require APPROOT . '/views/includes/Cashierhead.php';
 </div>
 
 <script>
+    $(document).ready(function() {
+        var subtotal = 0;
+        $('.item').each(function() {
+            var qty = $(this).find('.sellq').text();
+            var price = $(this).find('.sellp').text();
+            var total = parseFloat(qty) * parseFloat(price);
+            $(this).find('.price').text(total);
+            if(!isNaN(total))
+                subtotal +=total;
+        });
+        $(".subtot").html(subtotal);
+
+
+
+    });
     $(document).ready(function (){
-        var subtot =0;
-        $('tr').each(function (){
-            var tot =0;
-            $(this).find('.sellp').each(function (){
-                var unitp =$(this).text();
-                if(unitp.length !==0){
-                    tot += parseFloat(unitp);
-                    subtot += tot;
-                }
-            });
-            $(this).find('#price').html(tot);
-            $(this).find('#subtot').html(subtot);
+        $("#dis").keyup(function() {
+
+            var grandtotal =0;
+            var dis = $("#dis").val();
+            var subtotal = $(".subtot").val();
+            if(dis !=0){
+                grandtotal = parseFloat(dis) *  parseFloat(subtotal);
+            }
+
+            $(".grnadtot").html(grandtotal);
+
+
         });
 
     });
+
+    // $(document).ready(function (){
+    //     var subtot =0;
+    //     $('tr').each(function (){
+    //         var tot =0;
+    //         $(this).find('.sellp').each(function (){
+    //             var unitp =$(this).text();
+    //             if(unitp.length !==0){
+    //                 tot += parseFloat(unitp);
+    //                 subtot += tot;
+    //             }
+    //         });
+    //         $(this).find('.price').html(tot);
+    //         $(this).find('#subtot').html(subtot);
+    //     });
+    //
+    // });
 
 
 </script>
