@@ -76,6 +76,7 @@ class Pages extends Controller {
                 'fullname' => trim($_POST['fullname']),
                 'telnumber' => trim($_POST['contact']),
                 'address' => trim($_POST['address']),
+                'stat' => "pending",
                 'image'=> $newName
             ];
 

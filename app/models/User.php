@@ -47,6 +47,17 @@ class User {
         }
 
 
+
+    }
+
+    public function findProfilebyId($psid) {
+        $this->db->query('SELECT * FROM staff WHERE staffid = :proid');
+
+        $this->db->bind(':proid', $psid);
+
+        $row = $this->db->single();
+
+        return $row;
     }
 
     //Find user by email. Email is passed in by the Controller.

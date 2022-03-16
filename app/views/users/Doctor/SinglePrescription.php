@@ -45,6 +45,8 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 <tr>
                     <th>Medicine</th>
                     <th class="table-field">Dosage</th>
+                    <th class="table-field">Time</th>
+                    <th class="table-field">Duration</th>
 <!--                    <th class="table-field">Total</th>-->
                 </tr>
                 </thead>
@@ -53,6 +55,24 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 <tr>
                     <td><?php echo $allmeds->medgenname ?></td>
                     <td><?php echo $allmeds->dosage ?></td>
+                    <td><?php switch ($allmeds->medtime) {
+                            case 'Bd':
+                                echo "Twice A Day";
+                                    break;
+                            case 'Tds':
+                                echo "Three times a day";
+                                break;
+                            case 'Nocte':
+                                echo "In the night";
+                                break;
+                            case 'Mane':
+                                echo "in the morning";
+                                break;
+
+                            default:
+                                echo "One time a day";
+                        } ?></td>
+                    <td><?php echo $allmeds->duration ?></td>
 <!--                    <td></td>-->
                 </tr>
                 <?php endforeach; ?>

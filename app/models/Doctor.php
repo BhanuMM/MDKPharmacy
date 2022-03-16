@@ -38,8 +38,8 @@ class Doctor {
 
         //Bind value
         $this->db->bind(':patientid', $id);
-        $results = $this->db->resultSet();
-        return $results;
+        $row = $this->db->single();
+        return $row;
     }
 
     public function viewmed() {
@@ -88,7 +88,7 @@ class Doctor {
     }
     public function createpres($data) {
 
-        $this->db->query('INSERT INTO prescription (patid,docid,pretime,presdate,specialnote)VALUES( :pat ,:doc ,:prestime ,:presdate , :note)');
+        $this->db->query('INSERT INTO prescription (patid,docid,pretime,presdate,specialnote,billed)VALUES( :pat ,:doc ,:prestime ,:presdate , :note,:billed)');
 
 
         //Bind values
@@ -98,6 +98,7 @@ class Doctor {
         $this->db->bind(':prestime', $data['prestime']);
         $this->db->bind(':presdate', $data['presdate']);
         $this->db->bind(':note', $data['specialnote']);
+        $this->db->bind(':billed', $data['billed']);
 
         //Execute function
         if ($this->db->execute()) {
@@ -110,13 +111,15 @@ class Doctor {
 
     public function addtopres($data) {
 
-        $this->db->query('INSERT INTO presmed (presid,medid,dosage)VALUES(:presid,:medid,:meddose)');
+        $this->db->query('INSERT INTO presmed (presid,medid,dosage,medtime,duration)VALUES(:presid,:medid,:meddose,:medtime,:meddur)');
 
 
         //Bind values
         $this->db->bind(':presid', $data['presid']);
         $this->db->bind(':medid', $data['medid']);
         $this->db->bind(':meddose', $data['meddose']);
+        $this->db->bind(':medtime', $data['medtime']);
+        $this->db->bind(':meddur', $data['meddur']);
 
         //Execute function
         if ($this->db->execute()) {
@@ -145,7 +148,7 @@ class Doctor {
     }
     public function viewprescriptions($patid) {
 
-    $this->db->query('SELECT * FROM prescription WHERE patid = :pid');
+    $this->db->query('SELECT * FROM prescription WHERE patid = :pid ORDER BY presid DESC');
         $this->db->bind(':pid',$patid);
 
         $results = $this->db->resultSet();
@@ -171,6 +174,32 @@ class Doctor {
         $results = $this->db->resultSet();
 
         return $results;
+
+    }
+    public function findProfilebyId($psid) {
+        $this->db->query('SELECT * FROM staff WHERE staffid = :proid');
+
+        $this->db->bind(':proid', $psid);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
+    public function updateprofilesettings($data){
+        $this->db->query('UPDATE staff SET snic = :psnic, sname = :psname, semail = :psemail, uname = :psuname ,upswrd= :pswrd WHERE staffid = :psid');
+
+        $this->db->bind(':psid', $data['psid']);
+        $this->db->bind(':psnic', $data['psnic']);
+        $this->db->bind(':psname', $data['psname']);
+        $this->db->bind(':psemail', $data['psemail']);
+        $this->db->bind(':psuname', $data['psusername']);
+        $this->db->bind(':pswrd', $data['pspswrd']);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 }

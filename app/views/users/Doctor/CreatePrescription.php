@@ -40,8 +40,9 @@ require APPROOT . '/views/includes/Doctorhead.php';
     
  </ul>
 
+
                
-                <table id="customers">
+                <table id="customers" >
                     <tr>
                       <th>Patient ID</th>
                       <th>Patient NIC</th>

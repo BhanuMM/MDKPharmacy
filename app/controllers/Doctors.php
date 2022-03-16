@@ -134,6 +134,9 @@ class Doctors extends Controller {
         $pat = $this->doctorModel->searchpatientbyId($patid);
 
         $med = $this->doctorModel->loadmed();
+        $dob =$pat->patdob;
+        $today = date("Y-m-d");
+        $diff = date_diff(date_create($dob), date_create($today));
         $data = [
             'medicines' => $med,
 //            'medid' => $med->medid,
@@ -141,7 +144,7 @@ class Doctors extends Controller {
             'id'=>$pat->patid,
             'nic'=>$pat->patnic,
             'name'=>$pat->patname,
-            'dob'=>$pat->patdob,
+            'dob'=>$diff->format('%y'),
             'tel'=>$pat->pattelno,
             'gender'=>$pat->patgen
 
@@ -211,6 +214,8 @@ class Doctors extends Controller {
             $count = count($_POST['medid']);
             $medid =$_POST['medid'];
             $meddose =$_POST['meddos'];
+            $medtime =$_POST['time'];
+            $meddur =$_POST['medduration'];
 
 
 
@@ -219,7 +224,8 @@ class Doctors extends Controller {
                 'docid' => $_POST['docid'],
                 'prestime'=>date("h:i:sa"),
                 'presdate'=>date("Y/m/d"),
-                'specialnote'=>"note"
+                'specialnote'=>$_POST['specialnote'],
+                'billed' => "no"
             ];
 
             if ($this->doctorModel->createpres($data)){
@@ -229,6 +235,8 @@ class Doctors extends Controller {
                     $data=[
                         'medid'=> $medid [$i],
                         'meddose'=> $meddose[$i],
+                        'medtime'=> $medtime[$i],
+                        'meddur'=> $meddur[$i],
                         'presid'=>$presid
 
                     ];
@@ -265,14 +273,18 @@ class Doctors extends Controller {
     public function pastsingleprescription($presid) {
         $patdata =$this->doctorModel->getprespatdata($presid);
         $predata =$this->doctorModel->getpresdata($presid);
+
+        $dob =$patdata->patdob;
+        $today = date("Y-m-d");
+        $diff = date_diff(date_create($dob), date_create($today));
         $data = [
             'presid' => $patdata->presid,
             'presdate' => $patdata->presdate,
             'prestime' => $patdata->pretime,
             'presnote' => $patdata->specialnote,
             'patname' => $patdata->patname,
-            'patage' => $patdata->patdob,
-            'patgen' => $patdata->patgen,
+            'patage' => $diff->format('%y'),
+            'patgen' => ucwords($patdata->patgen) ,
             'meds'=> $predata
 //            'medgenname' => $med->medgenname,
 
@@ -285,8 +297,91 @@ class Doctors extends Controller {
         $this->view('users/Doctor/PatientProfile');
     }
 
-    public function profilesettings() {
-        $this->view('users/Doctor/DoctorProfileSetting');
+    public function profilesettings($psid){
+
+        $profile = $this->doctorModel->findProfilebyId($psid);
+
+        $data = [
+            'psid' => $profile->staffid,
+            'psname' => $profile->sname,
+            'psnic' => $profile->snic,
+            'psemail' => $profile->semail,
+            'psusername' => $profile->uname,
+            'pspswrd' => $profile->upswrd
+
+        ];
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            if(password_verify($_POST['Rpass'],$profile->upswrd)){
+
+                if((trim($_POST['Rnewpass']))!=null && (trim($_POST['Repass']))!=null ){
+                    $newp =trim($_POST['Rnewpass']);
+                    $renewp =trim($_POST['Repass']);
+                    if($newp== $renewp){
+                        $pswrd = password_hash($newp, PASSWORD_DEFAULT);
+                        $userdata = [
+                            'psid' => $profile->staffid,
+                            'psname' => trim($_POST['Rfname']),
+                            'psnic' => trim($_POST['Rnic']),
+                            'psemail' => trim($_POST['Remail']),
+                            'psusername' => trim($_POST['Runame']),
+                            'pspswrd' => $pswrd
+                        ];
+
+                        if ($this->doctorModel->updateprofilesettings($userdata)) {
+                            $recadded = 'Updated ';
+                            header('location: ' . URLROOT . '/doctors/doctordashboard?msg='.$recadded);
+                        } else {
+                            die('Something went wrong.');
+                        }
+
+                    } else{
+                        $userdata = [
+                            'psid' => $profile->staffid,
+                            'psname' => trim($_POST['Rfname']),
+                            'psnic' => trim($_POST['Rnic']),
+                            'psemail' => trim($_POST['Remail']),
+                            'psusername' => trim($_POST['Runame']),
+                            'wrongp' => "New Passwords Does Not Match!"
+                        ];
+
+                        $this->view('users/Doctor/DoctorProfileSetting',$userdata);
+                    }
+                }else{
+
+                    $pswrd=$profile->upswrd;
+                    $userdata = [
+                        'psid' => $profile->staffid,
+                        'psname' => trim($_POST['Rfname']),
+                        'psnic' => trim($_POST['Rnic']),
+                        'psemail' => trim($_POST['Remail']),
+                        'psusername' => trim($_POST['Runame']),
+                        'pspswrd' => $pswrd
+                    ];
+                    if ($this->doctorModel->updateprofilesettings($userdata)) {
+                        $recadded = 'Updated ';
+                        header('location: ' . URLROOT . '/doctors/doctordashboard?msg='.$recadded);
+                    } else {
+                        die('Something went wrong.');
+                    }
+                }
+
+            }else{
+                $userdata = [
+                    'psid' => $profile->staffid,
+                    'psname' => trim($_POST['Rfname']),
+                    'psnic' => trim($_POST['Rnic']),
+                    'psemail' => trim($_POST['Remail']),
+                    'psusername' => trim($_POST['Runame']),
+                    'wrongp' => "Incorrect Password !"
+                ];
+
+                $this->view('users/Doctor/DoctorProfileSetting',$userdata);
+            }
+        }
+        $this->view('users/Doctor/DoctorProfileSetting',$data);
     }
 
     public function pastprescription() {

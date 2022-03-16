@@ -700,43 +700,79 @@ class Admins extends Controller {
             'psemail' => $profile->semail,
             'psusername' => $profile->uname,
             'pspswrd' => $profile->upswrd
-            //'psnewpassword' => ''
-            
+
         ];
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-            
-            $userdata = [
-                'psid' => $profile->staffid,
-                'psname' => trim($_POST['Rfname']),
-                'psnic' => trim($_POST['Rnic']),
-                'psemail' => trim($_POST['Remail']),
-                'psusername' => trim($_POST['Runame']),
-                'pspswrd' => $profile->upswrd,
-                'enteredpswrd' => trim($_POST['Rpass'])
-                //'psnewpassword' => 
-            ];
-        
-        if(password_verify($userdata['enteredpswrd'],$userdata['pspswrd'])){
-            if ($this->adminModel->updateprofilesettings($userdata)) {
-                //Redirect to the viewtable page
-                $recadded = 'Updated ';
-                header('location: ' . URLROOT . '/admins/viewstock?msg='.$recadded);
-            } else {
-                die('Something went wrong.');
+
+            if(password_verify($_POST['Rpass'],$profile->upswrd)){
+
+                if((trim($_POST['Rnewpass']))!=null && (trim($_POST['Repass']))!=null ){
+                    $newp =trim($_POST['Rnewpass']);
+                    $renewp =trim($_POST['Repass']);
+                    if($newp== $renewp){
+                        $pswrd = password_hash($newp, PASSWORD_DEFAULT);
+                        $userdata = [
+                            'psid' => $profile->staffid,
+                            'psname' => trim($_POST['Rfname']),
+                            'psnic' => trim($_POST['Rnic']),
+                            'psemail' => trim($_POST['Remail']),
+                            'psusername' => trim($_POST['Runame']),
+                            'pspswrd' => $pswrd
+                        ];
+
+                        if ($this->adminModel->updateprofilesettings($userdata)) {
+                            $recadded = 'Updated ';
+                            header('location: ' . URLROOT . '/admins/admindashboard?msg='.$recadded);
+                        } else {
+                            die('Something went wrong.');
+                        }
+
+                    } else{
+                        $userdata = [
+                            'psid' => $profile->staffid,
+                            'psname' => trim($_POST['Rfname']),
+                            'psnic' => trim($_POST['Rnic']),
+                            'psemail' => trim($_POST['Remail']),
+                            'psusername' => trim($_POST['Runame']),
+                            'wrongp' => "New Passwords Does Not Match!"
+                        ];
+
+                        $this->view('users/Admin/AdminProfileSetting',$userdata);
+                    }
+                }else{
+
+                    $pswrd=$profile->upswrd;
+                    $userdata = [
+                        'psid' => $profile->staffid,
+                        'psname' => trim($_POST['Rfname']),
+                        'psnic' => trim($_POST['Rnic']),
+                        'psemail' => trim($_POST['Remail']),
+                        'psusername' => trim($_POST['Runame']),
+                        'pspswrd' => $pswrd
+                    ];
+                    if ($this->adminModel->updateprofilesettings($userdata)) {
+                        $recadded = 'Updated ';
+                        header('location: ' . URLROOT . '/admins/admindashboard?msg='.$recadded);
+                    } else {
+                        die('Something went wrong.');
+                    }
+                }
+
+            }else{
+                $userdata = [
+                    'psid' => $profile->staffid,
+                    'psname' => trim($_POST['Rfname']),
+                    'psnic' => trim($_POST['Rnic']),
+                    'psemail' => trim($_POST['Remail']),
+                    'psusername' => trim($_POST['Runame']),
+                    'wrongp' => "Incorrect Password !"
+                ];
+
+                $this->view('users/Admin/AdminProfileSetting',$userdata);
             }
-        }else{
-            die('Weda nah.');
         }
-        
-
-        
-
-
-        }
-
-
         $this->view('users/Admin/AdminProfileSetting',$data);
     }
 

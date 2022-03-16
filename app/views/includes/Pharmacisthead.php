@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="pharmacist")){
 <head>
     <link rel="shortcut icon" type="MDK/jpg" href="<?php echo URLROOT ?>/public/images/MDK.jpg"/>
     <title>
-        Stocks
+        MDK Pharmacy
     </title>
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/StyleSheet.css">
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/csscode.css">
@@ -23,7 +23,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="pharmacist")){
         <li><a href = "<?php echo URLROOT?>/pharmacists/viewonlineorders"> Online Orders</a></li>
         <li><a href = "<?php echo URLROOT ?>/pharmacists/viewmedicineavailability">Medicine Availability</a></li>
 <!--        <li><a href = "#">Deliveries</a></li>-->
-        <li><a href = "<?php echo URLROOT ?>/pharmacists/profilesettings">Profile Settings</a></li>
+        <li><a href = "<?php echo URLROOT . "/pharmacists/profilesettings/" . $_SESSION['user_id'] ?>">Profile Settings</a></li>
     </ul>
 </div>
 
@@ -44,7 +44,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="pharmacist")){
                 </span>
 
                 <div class="dropdown-content">
-                    <p><a href="<?php echo URLROOT ?>/pharmacists/profilesettings"><button class="btn-ddc">Settings</button></a></p>
+                    <p><a href="<?php echo URLROOT . "/pharmacists/profilesettings/" . $_SESSION['user_id'] ?>"><button class="btn-ddc">Settings</button></a></p>
 
                     <p> <a href="<?php echo URLROOT ?>/users/logout"> <button class="btn-ddc">Logout</button> </a></p>
 

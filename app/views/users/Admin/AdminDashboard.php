@@ -8,7 +8,7 @@ require APPROOT . '/views/includes/Adminhead.php';
         <div class="welcome">
                 <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
             <div class="welcome-names">
-                Welcome ,<?php echo $_SESSION['username'] ?> <?php echo $_SESSION['user_id'] ?> !
+                Welcome ,<?php echo $_SESSION['username'] ?>  !
                 <p style="font-size: 14px;">Admin</p>
             </div>
         </div>
@@ -43,7 +43,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                              Report Management 
                           </div>
                         </div>
-                            <a href="<?php echo URLROOT ?>/admins/viewreport"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/reports/viewReport"><button class="button button1">View</button></a>
                       </div>
                     </div>
 
