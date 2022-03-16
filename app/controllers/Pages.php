@@ -20,12 +20,27 @@ class Pages extends Controller {
         $this->view('about');
     }
 
-
     public function product(){
-        $this->view('product');
+        $allmedicines = $this->pageModel->viewmed();
+
+        $data = [
+            'med' => $allmedicines
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datamed= trim($_POST['UISearchbar']);
+            $searchmed = $this->pageModel->searchmed($datamed);
+
+            $data = [
+                'med' => $searchmed
+            ];
+        }
+        $this->view('product',$data);
 
     }
-
     
     public function upload(){
         $data = [

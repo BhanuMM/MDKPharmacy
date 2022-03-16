@@ -71,7 +71,8 @@ class Doctors extends Controller {
             'tel'=>''
         ];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //Sanitize post data
+            if (isset($_POST['btnid'])) {
+               //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $datanic = trim($_POST['UISearchbar']);
@@ -96,8 +97,36 @@ class Doctors extends Controller {
                     'nofound' => 'No Record Found'
                 ];
             }
-
+              } else {
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+            $dataname = trim($_POST['UISearchbar1']);
+            $searchpatient = $this->doctorModel->searchpatientname($dataname);
+    
+            if ($searchpatient) {
+                $data=[
+                    'id'=>$searchpatient->patid,
+                    'nic'=>$searchpatient->patnic,
+                    'name'=>$searchpatient->patname,
+                    'dob'=>$searchpatient->patdob,
+                    'tel'=>$searchpatient->pattelno
+                ];
+            }
+            else{
+                $data=[
+                    'id'=>'',
+                    'nic'=>'',
+                    'name'=>'',
+                    'dob'=>'',
+                    'tel'=>'',
+                    'nofound' => 'No Record Found'
+                ];
+            }
+              }
+            
+           
         }
+
         $this->view('users/Doctor/CreatePrescription',$data);
     }
 

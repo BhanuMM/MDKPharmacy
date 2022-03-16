@@ -16,27 +16,29 @@ require APPROOT . '/views/includes/Doctorhead.php';
                 </span> <br>
 
 <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
-  <li Style="float: left; vertical-align: middle; display: inline;"><h3>Select Patient</h3></li> </ul>
-   <form method="post" class="data"  action="<?php echo URLROOT; ?>/doctors/createprescription">
+  <li Style="float: left; vertical-align: middle; display: inline;"><h3>Select Patient</h3></li>
+  <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/doctors/createprescription">
       <table>
        <tr>
         <th><li Style="float: right; vertical-align: middle; display: inline;">
-        <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 550px; height: 35px; width: 200px;" placeholder="Patient NIC"></li>
+        <input type="text" id="UISearchbar1" name="UISearchbar1" style="margin-left: 100px; height: 35px; width: 200px;" placeholder="Patient Name"></li>
          </th>
-      <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
+      <th><button style="margin-left: 10px;" class="form-submit" name="btnname">SEARCH</button></th>
        </tr>
      </table>
      </form>
-    <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/doctors/createprescription">
-        <table>
-            <tr>
-                <th><li Style="float: right; vertical-align: middle; display: inline;">
-                        <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 550px; height: 35px; width: 200px;" placeholder="Patient Name"></li>
-                </th>
-                <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
-            </tr>
-        </table>
-    </form>
+   <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/doctors/createprescription">
+      <table>
+       <tr>
+        <th><li Style="float: right; vertical-align: middle; display: inline;">
+        <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 100px; height: 35px; width: 200px;" placeholder="Patient NIC"></li>
+         </th>
+      <th><button style="margin-left: 10px;" class="form-submit" name="btnid">SEARCH</button></th>
+       </tr>
+     </table>
+     </form>
+    
+ </ul>
 
 
                

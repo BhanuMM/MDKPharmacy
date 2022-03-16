@@ -112,7 +112,24 @@ class Cashiers extends Controller {
     }
 
     public function pastbills() {
-        $this->view('users/Cashier/PastBills');
+        $inpast = $this->cashierModel->viewpres();
+
+        $data = [
+
+            'inpast' => $inpast
+        ];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $datainpast = trim($_POST['UISearchbar']);
+            $searchinpast = $this->cashierModel-> searchbill($datainpast);
+
+            $data = [
+                'inpast' => $searchinpast
+            ];
+        }
+        $this->view('users/Cashier/PastBills',$data);
     }
 
     public function pastbillsingle() {

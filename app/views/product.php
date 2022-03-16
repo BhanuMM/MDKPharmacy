@@ -29,10 +29,30 @@ if(isset($_GET['msg'])){
 <br> 
 <br><br>
 <section class="product-header">
-  <form class="search-container">
-    <input type="text" id="search-bar" placeholder="  Check Medicine Availability">
-    <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
-  </form>
+
+<form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/pages/product">
+  <table>
+    <tr>
+    <th><li Style="float: right; vertical-align: middle; display: inline;">
+    <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 400px; height: 50px; width: 300px;" placeholder="Check Medicine Availability"></li>
+    </th>
+    <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
+    </tr>
+  </table>
+</form>
+<p></p>
+
+<br>
+<div class="card" style="height: 200px;">
+<?php foreach($data['med'] as $allmed): ?>
+  <h1><?php echo $allmed->medgenname; ?></h1>
+  <p class="price">Rs.<?php echo  $allmed->medsellprice ?></p>
+  <p>Brand: <?php echo $allmed->medbrand;  ?></p>
+  <p>Importer: <?php echo $allmed->medimporter; ?></p>
+  <p>Remaining Quantity: <?php echo $allmed->quantity; ?></p>
+  <?php endforeach; ?>
+</div>
+
 
 <!-- 
 

@@ -23,6 +23,16 @@ class Doctor {
         return $results;
     }
 
+    public function searchpatientname($patname) {
+        $where = "WHERE `patname` like :patname ";
+        $param1 = '%'.$patname.'%'  ;
+        $this->db->query("SELECT * FROM patient ".$where."");
+        $this->db->bind(':patname', $param1);
+        $row = $this->db->single();
+        return $row;
+
+    }
+
     public function searchpatientbyId($id) {
         $this->db->query('SELECT * FROM patient WHERE patid = :patientid');
 
