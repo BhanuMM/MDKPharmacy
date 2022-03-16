@@ -195,7 +195,8 @@ class Doctors extends Controller {
                 'docid' => $_POST['docid'],
                 'prestime'=>date("h:i:sa"),
                 'presdate'=>date("Y/m/d"),
-                'specialnote'=>$_POST['specialnote']
+                'specialnote'=>$_POST['specialnote'],
+                'billed' => "no"
             ];
 
             if ($this->doctorModel->createpres($data)){

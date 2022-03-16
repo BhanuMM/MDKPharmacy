@@ -78,7 +78,7 @@ class Doctor {
     }
     public function createpres($data) {
 
-        $this->db->query('INSERT INTO prescription (patid,docid,pretime,presdate,specialnote)VALUES( :pat ,:doc ,:prestime ,:presdate , :note)');
+        $this->db->query('INSERT INTO prescription (patid,docid,pretime,presdate,specialnote,billed)VALUES( :pat ,:doc ,:prestime ,:presdate , :note,:billed)');
 
 
         //Bind values
@@ -88,6 +88,7 @@ class Doctor {
         $this->db->bind(':prestime', $data['prestime']);
         $this->db->bind(':presdate', $data['presdate']);
         $this->db->bind(':note', $data['specialnote']);
+        $this->db->bind(':billed', $data['billed']);
 
         //Execute function
         if ($this->db->execute()) {
