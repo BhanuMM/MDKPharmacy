@@ -34,8 +34,10 @@ class Cashiers extends Controller {
     public function inpatientsingle($presid) {
         $patdata =$this->cashierModel->getprespatdata($presid);
         $predata =$this->cashierModel->getpresdata($presid);
+        $maxbillid =$this->cashierModel->getlatestbill();
         $data = [
             'presid' => $patdata->presid,
+            'billid'=> $maxbillid->maxbill+1,
             'presdate' => $patdata->presdate,
             'prestime' => $patdata->pretime,
             'presnote' => $patdata->specialnote,
@@ -48,6 +50,49 @@ class Cashiers extends Controller {
 
         ];
         $this->view('users/Cashier/InpatientSingle',$data);
+    }
+    public function savebills() {
+        $data = [
+            'billid' => '',
+            'presid' => '',
+            'billdate' => '',
+            'billtime' => '',
+            'subtotal' => '',
+            'discount' => '',
+            'grosstotal' => '',
+            'custype'=>'',
+            'cashierid' => ''
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'billid' => $_POST['billid'],
+                'presid' => $_POST['presid'],
+                'billdate' => date("Y/m/d"),
+                'billtime' => date("h:i:sa"),
+                'subtotal' => trim($_POST['subtot']),
+                'discount' => trim($_POST['dis']),
+                'grosstotal' => trim($_POST['grandt']),
+                'custype'=>$_POST['custype'],
+                'cashierid' => $_POST['cashierid'],
+                'billed' => "yes"
+            ];
+            // Make sure that errors are empty
+            if (!empty($data['billid'])) {
+
+                if ($this->cashierModel->savebill($data) && $this->cashierModel->updateprestable($data) ) {
+                    //Redirect to the viewtable page
+                    $recadded = 'Bill has been Saved';
+                    header('location: ' . URLROOT . '/cashiers/inpatientbills?msg='.$recadded);
+                } else {
+                    die('Something went wrong.');
+                }
+            }
+        }
     }
 
     public function onlineorderbills() {

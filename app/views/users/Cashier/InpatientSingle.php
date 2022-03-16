@@ -25,9 +25,10 @@ require APPROOT . '/views/includes/Cashierhead.php';
         </div>
 
         <div class="bill-body">
+
             <div class="bill-row">
                 <div class="bill-col">
-                    <h2>Bill No: </h2>
+                    <h2>Bill No: <?php echo $data['billid']?></h2>
                     <p>Prescription No: <?php echo $data['presid']?></p>
                     <p>Date: <?php echo $data['presdate']?> </p>
                     <p>Time: <?php echo $data['prestime']?> </p>
@@ -41,7 +42,12 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
         <div class="bill-body">
             <h3>Ordered Items</h3>
+            <form method="post" class="data"  action="<?php echo URLROOT; ?>/cashiers/savebills">
             <br>
+            <input class="input1" type="text" id="billid" name="billid" value="<?php echo $data['billid'] ?>"  hidden>
+            <input class="input1" type="text" id="presid" name="presid" value="<?php echo $data['presid'] ?>"  hidden>
+            <input class="input1" type="text" id="custype" name="custype" value="in"  hidden>
+            <input class="input1" type="text" id="cashierid" name="cashierid" value="<?php echo $_SESSION['user_id'] ?>" hidden >
             <table class="table-bordered" id="tableData">
                 <thead>
                     <tr>
@@ -63,22 +69,23 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 <?php endforeach; ?>
                     <tr>
                         <td colspan="3"  class="text-right">Sub Total</td>
-                        <td class="subtot"> </td>
+                        <td ><input id="subtot" name="subtot" type="text" readonly> </td>
                     </tr>
                     <tr>
-                        <td colspan="3" class="text-right">Discount</td>
-                        <td> <input id="dis" type="text"></td>
+                        <td colspan="3" class="text-right">Discount (%)</td>
+                        <td> <input  id="dis" name="dis" type="text" autocomplete="off"></td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right">Gross Total</td>
-                        <td class="grnadtot"></td>
+                        <td ><input id="grandt"  name="grandt" type="text" readonly></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div style="margin-left:85%;">
-        <br><br>
-        <button class="form-submit">Print Bill</button> 
+            <div style="margin-left:85%;">
+             <br><br>
+             <button class="form-submit">Print Bill</button>
+            </form>
 </div>      
     </div>
     <br><br><br>
@@ -91,48 +98,29 @@ require APPROOT . '/views/includes/Cashierhead.php';
             var qty = $(this).find('.sellq').text();
             var price = $(this).find('.sellp').text();
             var total = parseFloat(qty) * parseFloat(price);
-            $(this).find('.price').text(total);
+            $(this).find('.price').text(total.toFixed(2));
             if(!isNaN(total))
                 subtotal +=total;
         });
-        $(".subtot").html(subtotal);
+        $("#subtot").val(subtotal.toFixed(2));
+        $('#grandt').val(subtotal.toFixed(2));
 
 
 
     });
-    $(document).ready(function (){
-        $("#dis").keyup(function() {
+    $(document).on("change keyup blur", "#dis", function() {
 
-            var grandtotal =0;
-            var dis = $("#dis").val();
-            var subtotal = $(".subtot").val();
-            if(dis !=0){
-                grandtotal = parseFloat(dis) *  parseFloat(subtotal);
-            }
+        var grandtotal =0;
+        var dis = $("#dis").val();
+        var subtotal = $("#subtot").val();
+        if(dis !=0){
+            grandtotal =  (parseFloat(subtotal)*(100-parseFloat(dis)))/100;
 
-            $(".grnadtot").html(grandtotal);
-
-
-        });
+            $('#grandt').val( grandtotal.toFixed(2));
+        }
 
     });
 
-    // $(document).ready(function (){
-    //     var subtot =0;
-    //     $('tr').each(function (){
-    //         var tot =0;
-    //         $(this).find('.sellp').each(function (){
-    //             var unitp =$(this).text();
-    //             if(unitp.length !==0){
-    //                 tot += parseFloat(unitp);
-    //                 subtot += tot;
-    //             }
-    //         });
-    //         $(this).find('.price').html(tot);
-    //         $(this).find('#subtot').html(subtot);
-    //     });
-    //
-    // });
 
 
 </script>
