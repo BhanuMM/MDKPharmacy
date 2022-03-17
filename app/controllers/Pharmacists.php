@@ -360,35 +360,98 @@ class Pharmacists extends Controller {
 
 
         }
-        $this->view('users/Pharmacist/PharmacistDashboard');
+        // $this->view('users/Pharmacist/PharmacistDashboard');
 
-        // $this->pastsingleprescription($presid);
+        $this->pastsingleprescription($_POST['oid']);
         
 
     }
 
-    // public function pastsingleprescription($presid) {
-    //     $patdata =$this->pharmacistModel->getprespatdata($presid);
-    //     $predata =$this->pharmacistModel->getpresdata($presid);
+    
+    // public function viewonlineprescriptions() {
+    //     // $data = [
+    //     //     'genericname' => '',
+    //     //     'brandname' => '',
+    //     //     'importername' => '',
+    //     //     'dealer' => '',
+    //     //     'purchaseprice' => '',
+    //     //     'sellingprice' => '',
+    //     //     'profitmargin' => '',
+    //     //     'acslvl'=>'',
+    //     //     'nameError' => ''
+    //     // ];
 
-    //     $dob =$patdata->patdob;
-    //     $today = date("Y-m-d");
-    //     $diff = date_diff(date_create($dob), date_create($today));
-    //     $data = [
-    //         'presid' => $patdata->presid,
-    //         'presdate' => $patdata->presdate,
-    //         'prestime' => $patdata->pretime,
-    //         'presnote' => $patdata->specialnote,
-    //         'patname' => $patdata->patname,
-    //         'patage' => $diff->format('%y'),
-    //         'patgen' => ucwords($patdata->patgen) ,
-    //         'meds'=> $predata
+    //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //         // Process form
+    //         // Sanitize POST data
+    //         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            
+    //         $medid = '';
+    //         $meddose =$_POST['meddos'];
+    //         $medtime =$_POST['time'];
+    //         $meddur =$_POST['medduration'];
 
 
-    //     ];
 
-    //     $this->view('users/Doctor/SinglePrescription',$data);
+    //         $data=[
+    //             'orderid'=>$_POST['oid'],
+    //             'prestime'=>date("h:i:sa"),
+    //             'presdate'=>date("Y/m/d")
+                
+    //         ];
+
+    //         if ($this->pharmacistModel->createpres($data)){
+    //             $maxpres =$this->pharmacistModel->getlatestpres();
+    //             $presid = $maxpres->maxpres;
+    //             for($i=0; $i< $count; $i++){
+    //                 $data=[
+    //                     'medid'=> $medid [$i],
+    //                     'meddose'=> $meddose[$i],
+    //                     'medtime'=> $medtime[$i],
+    //                     'meddur'=> $meddur[$i],
+    //                     'presid'=>$presid
+
+    //                 ];
+    //                 $this->pharmacistModel->addtopres($data);
+    //             }
+  
+    //         }else {
+    //                die('Something went wrong.');
+    //           }
+              
+
+
+    //     }
+    //     $this->view('users/Pharmacist/PharmacistDashboard');
+
+    //     // $this->pastsingleprescription($presid);
+        
+
     // }
+
+    public function pastsingleprescription($onlineoid) {
+        $opatdata =$this->pharmacistModel->getonlinepatdata($onlineoid);
+        $opredata =$this->pharmacistModel->getonlinepresdata($opatdata->onlinepresid);
+
+        //$dob =$patdata->patdob;
+        
+        $data = [
+            'presid' => $opatdata->onlinepresid,
+            'presdate' => $opatdata->presdate,
+            'prestime' => $opatdata->prestime,
+            // 'presnote' => $opatdata->specialnote,
+            'patname' => $opatdata->onlinefname,
+            // 'patage' => $diff->format('%y'),
+            // 'patgen' => ucwords($opatdata->patgen) ,
+
+            'meds'=> $opredata
+
+
+        ];
+
+        $this->view('users/Pharmacist/SingleOnlinePrescription',$data);
+    }
 }
 
 
