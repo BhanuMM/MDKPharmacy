@@ -25,27 +25,22 @@ require APPROOT . '/views/includes/Adminhead.php';
 <!--  <span onclick="this.parentElement.style.display='none'"-->
 <!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
-  <table id="customers">
-    <tr>
-        <th>Medicine ID</th>
-        <th>Supplier Agency Name</th>
-        <th>Brand Name</th>
-        <th>Generic Name</th>
-    </tr>
-    <tr>
-      <td>M1</td>
-      <td>Hayleys Lifesciences Pvt(Ltd)</td>
-      <td>Omez</td>
-      <td>Omeprazole</td>
-    </tr>  
-    <tr>
-      <td>M2</td>
-      <td>Mediquipment Limited</td>
-      <td>panadol</td>
-      <td>Paracetamol</td>
-    </tr>
-    
-    </table> 
+    <table id="customers">
+        <tr>
+            <th>Medicine ID</th>
+            <th>Supplier Agency Name</th>
+            <th>Brand Name</th>
+            <th>Generic Name</th>
+        </tr>
+        <?php foreach($data['zerostock'] as $outstock): ?>
+            <tr>
+                <td><?php echo $outstock->medid; ?></td>
+                <td><?php echo $outstock->medimporter; ?></td>
+                <td><?php echo $outstock->medbrand; ?></td>
+                <td><?php echo $outstock->medgenname; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
                 </p>
 </div>
 
@@ -53,23 +48,25 @@ require APPROOT . '/views/includes/Adminhead.php';
 <!--  <span onclick="this.parentElement.style.display='none'"-->
 <!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
-  <table id="customers">
-  <tr>
-        <th>Medicine ID </th>
-        <th>Supplier Agency Name</th>
-        <th>Brand Name</th>
-        <th>Generic Name</th>
-        <th>Remaining Quantity</th>
-    </tr>
-    <tr>
-      <td>M2</td>
-      <td>IJ Medicals</td>
-      <td>panadol</td>
-      <td>Paracetamol</td>
-      <td>90</td>
-    </tr>
-    </table> 
-                </p>
+    <table id="customers">
+        <tr>
+            <th>Medicine ID </th>
+            <th>Supplier Agency Name</th>
+            <th>Brand Name</th>
+            <th>Generic Name</th>
+            <th>Remaining Quantity</th>
+        </tr>
+        <?php foreach($data['lowstock'] as $lowstock): ?>
+            <tr>
+                <td><?php echo $lowstock->medid; ?></td>
+                <td><?php echo $lowstock->medimporter; ?></td>
+                <td><?php echo $lowstock->medbrand; ?></td>
+                <td><?php echo $lowstock->medgenname; ?></td>
+                <td><?php echo $lowstock->quantity; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+    </p>
 </div>
 
     <script>
