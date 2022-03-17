@@ -97,6 +97,7 @@ public function searchpatientnic($patnic) {
     return $results;
 }
 
+
 public function updatepatient($data) {
 
     $this->db->query('UPDATE patient SET patname = :patname, patnic = :patnic, patadrs = :patadrs, pattelno = :pattelno, patemail = :patemail, patdob = :patdob, patgen = :patgen WHERE patid = :patid' );
@@ -128,5 +129,31 @@ public function deletepatient($patid){
         return false;
     }
 }
+    public function searchguardian($patnic) {
+        $this->db->query('SELECT * FROM patient WHERE patnic = :patnic');
+
+        //Bind value
+        $this->db->bind(':patnic', $patnic);
+        $row = $this->db->single();
+
+        return $row;
+    }
+    public function registerchildelder($data) {
+        $this->db->query('INSERT INTO childelder (guardianid, fullname,childeldergen,childelderdob) VALUES(:grdid,:fname, :cdob,:cgen)');
+
+
+        //Bind values
+        $this->db->bind(':grdid', $data['guardianid']);
+        $this->db->bind(':fname', $data['childeldername']);
+        $this->db->bind(':cgen', $data['childeldergen']);
+        $this->db->bind(':cdob', $data['childelderdob']);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

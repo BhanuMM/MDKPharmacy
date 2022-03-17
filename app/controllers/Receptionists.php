@@ -295,4 +295,79 @@ class Receptionists extends Controller
         }
         $this->view('users/Receptionist/ReceptionistProfileSetting',$data);
     }
+    public function childelderreg()
+    {
+        $this->view('users/Receptionist/childregistration');
+    }
+    public function viewguardian()
+    {
+
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $datanic = trim($_POST['UISearchbar']);
+            $searchpatient = $this->receptionistModel->searchguardian($datanic);
+
+            if ( $searchpatient != null){
+                $data = [
+                    'patientid' => $searchpatient->patid,
+                    'patientname' => $searchpatient->patname,
+                    'patientnic' => $searchpatient->patnic,
+                    'patientadrs' => $searchpatient->patadrs,
+                    'patienttel' => $searchpatient->pattelno,
+                    'norecord' => "found"
+
+
+                ];
+            } else{
+                $data = [
+                    'norecord' => "nofound"
+                ];
+            }
+
+        }
+        $this->view('users/Receptionist/childregistration',$data);
+    }
+    public function registerchildelder()
+    {
+        $data = [
+            'childeldername' => '',
+            'guardianid' => '',
+            'childelderdob' => '',
+            'childeldergen' => ''
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'childeldername' => trim($_POST['childname']),
+                'guardianid' => $_POST['guardianid'],
+                'childelderdob' =>$_POST['childdob'],
+                'childeldergen' => $_POST['childgen']
+            ];
+
+            if ( $_POST['guardianid']!= null  ){
+            //Register user from model function
+                if ($this->receptionistModel->registerchildelder($data)) {
+                    //Redirect to the viewtable page
+                    $recadded = 'New sub patient has been Successfully Added!';
+                    header('location: ' . URLROOT . '/receptionists/viewpatients?msg='.$recadded);
+                } else {
+                    die('Something went wrong.');
+                     }
+                }else{
+                $data = [
+                    'noguardian' => "nofound"
+                ];
+                $this->view('users/Receptionist/childregistration',$data);;
+            }
+             }
+
+
+    }
 }
