@@ -18,44 +18,38 @@ require APPROOT . '/views/includes/Adminhead.php';
 <p></p>
 <div class="w3-bar w3-black">
   <button class="w3-bar-item w3-button tablink w3-blue" onclick="openCity(event,'already')">Expired</button>
-  <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'one')">Expired within one month</button>
-  <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'three')">Expired within three months</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'one')">Expire within one month</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'three')">Expire within three months</button>
 </div>
 
 <div id="already" class="w3-container w3-display-container city">
 <!--  <span onclick="this.parentElement.style.display='none'"-->
 <!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
-  <table id="customers">
-    <tr>
-        <th>Medicine ID</th>
-        <th>Supplier Agency Name</th>
-        <th>Brand Name</th>
-        <th>Generic Name</th>
-        <th>Expired Quantity</th>
-        <th>Purchased Date</th>
-        <th>Expiry Date</th>
-    </tr>
-    <tr>
-      <td>M1</td>
-      <td>Hayleys Lifesciences Pvt(Ltd)</td>
-      <td>Omez</td>
-      <td>Omeprazole</td>
-      <td>500</td>
-      <td>2020-10-06</td>
-      <td>2021-10-06</td>
-    </tr>  
-    <tr>
-      <td>M2</td>
-      <td>Mediquipment Limited</td>
-      <td>panadol</td>
-      <td>Paracetamol</td>
-      <td>1000</td>
-      <td>2020-01-06</td>
-      <td>2021-10-25</td>
-    </tr>
-    
-    </table> 
+    <table id="customers">
+        <tr>
+            <th>Medicine ID</th>
+            <th>Supplier Agency Name</th>
+            <th>Brand Name</th>
+            <th>Generic Name</th>
+            <th>Expired Quantity</th>
+            <th>Purchased Date</th>
+            <th>Expiry Date</th>
+        </tr>
+
+
+        <?php foreach($data['expstock'] as $allstocks): ?>
+            <tr>
+                <td><?php echo $allstocks->medid; ?></td>
+                <td><?php echo $allstocks->medimporter; ?></td>
+                <td><?php echo $allstocks->medbrand; ?></td>
+                <td><?php echo $allstocks->medgenname; ?></td>
+                <td><?php echo $allstocks->quantity; ?></td>
+                <td><?php echo $allstocks->purchdate; ?></td>
+                <td><?php echo $allstocks->expdate; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
                 </p>
 </div>
 
@@ -63,26 +57,29 @@ require APPROOT . '/views/includes/Adminhead.php';
 <!--  <span onclick="this.parentElement.style.display='none'"-->
 <!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
-  <table id="customers">
-  <tr>
-        <th>Medicine ID </th>
-        <th>Supplier Agency Name</th>
-        <th>Brand Name</th>
-        <th>Generic Name</th>
-        <th>Expired Quantity</th>
-        <th>Purchased Date</th>
-        <th>Expiry Date</th>
-    </tr>
-    <tr>
-      <td>M2</td>
-      <td>IJ Medicals</td>
-      <td>panadol</td>
-      <td>Paracetamol</td>
-      <td>1000</td>
-      <td>2020-11-06</td>
-      <td>2021-11-20</td>
-    </tr>
-    </table> 
+    <table id="customers">
+        <tr>
+            <th>Medicine ID </th>
+            <th>Supplier Agency Name</th>
+            <th>Brand Name</th>
+            <th>Generic Name</th>
+            <th>Expired Quantity</th>
+            <th>Purchased Date</th>
+            <th>Expiry Date</th>
+        </tr>
+
+        <?php foreach($data['expone'] as $allexstocks): ?>
+            <tr>
+                <td><?php echo $allexstocks->medid; ?></td>
+                <td><?php echo $allexstocks->medimporter; ?></td>
+                <td><?php echo $allexstocks->medbrand; ?></td>
+                <td><?php echo $allexstocks->medgenname; ?></td>
+                <td><?php echo $allexstocks->quantity; ?></td>
+                <td><?php echo $allexstocks->purchdate; ?></td>
+                <td><?php echo $allexstocks->expdate; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
                 </p>
 </div>
 
@@ -90,36 +87,29 @@ require APPROOT . '/views/includes/Adminhead.php';
 <!--  <span onclick="this.parentElement.style.display='none'"-->
 <!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
-  <table id="customers">
-  <tr>
-        <th>Medicine ID</th>
-        <th>Supplier Agency Name</th>
-        <th>Brand Name</th>
-        <th>Generic Name</th>
-        <th>Expired Quantity</th>
-        <th>Purchased Date</th>
-        <th>Expiry Date</th>
-    </tr> 
-    <tr>
-      <td>M2</td>
-      <td>Mediquipment Limited</td>
-      <td>panadol</td>
-      <td>Paracetamol</td>
-      <td>1000</td>
-      <td>2020-01-06</td>
-      <td>2022-01-20</td>
-    </tr>
-    <tr>
-      <td>M2</td>
-      <td>IJ Medicals</td>
-      <td>Omez</td>
-      <td>Omeprazole</td>
-      <td>1000</td>
-      <td>2020-11-06</td>
-      <td>2022-01-20</td>
-    </tr>
-    </table> 
-                </p>
+    <table id="customers">
+        <tr>
+            <th>Medicine ID</th>
+            <th>Supplier Agency Name</th>
+            <th>Brand Name</th>
+            <th>Generic Name</th>
+            <th>Expired Quantity</th>
+            <th>Purchased Date</th>
+            <th>Expiry Date</th>
+        </tr>
+        <?php foreach($data['expthree'] as $allexpstocks): ?>
+            <tr>
+                <td><?php echo $allexpstocks->medid; ?></td>
+                <td><?php echo $allexpstocks->medimporter; ?></td>
+                <td><?php echo $allexpstocks->medbrand; ?></td>
+                <td><?php echo $allexpstocks->medgenname; ?></td>
+                <td><?php echo $allexpstocks->quantity; ?></td>
+                <td><?php echo $allexpstocks->purchdate; ?></td>
+                <td><?php echo $allexpstocks->expdate; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+    </p>
 </div>
 
     <script>

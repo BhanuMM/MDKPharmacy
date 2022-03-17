@@ -416,6 +416,55 @@ class Admin {
 
         return $row;
     }
+//  Check for the medicines that are already have been expired
+    public function checkexpiry() {
+
+        $this->db->query('SELECT * FROM purchstock INNER JOIN medicine on purchstock.medid = medicine.medid WHERE expdate <= CURRENT_TIMESTAMP');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
+//  Check for the medicines which expires within one month time
+    public function expireinmonth() {
+
+        $this->db->query('SELECT * FROM purchstock INNER JOIN medicine on purchstock.medid = medicine.medid WHERE (expdate BETWEEN CURDATE() AND DATE_ADD(NOW(), INTERVAL 1 MONTH))');
+
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+    //  Check for medicines which expires within three months
+    public function expireinthree() {
+
+        $this->db->query('SELECT * FROM purchstock INNER JOIN medicine on purchstock.medid = medicine.medid WHERE (expdate BETWEEN CURDATE() AND DATE_ADD(NOW(), INTERVAL 3 MONTH))');
+
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
+//  Check for the out-of-stock medicines
+    public function outofstock(){
+        $this->db->query('SELECT * FROM fullstock INNER JOIN medicine on fullstock.medid = medicine.medid WHERE quantity = 0');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+//  Check for the low stocks
+    public function lowstock(){
+        $this->db->query('SELECT * FROM fullstock INNER JOIN medicine on fullstock.medid = medicine.medid WHERE quantity < 50 && quantity > 0');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
+
 
    
     

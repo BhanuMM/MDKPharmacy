@@ -776,16 +776,36 @@ class Admins extends Controller {
         $this->view('users/Admin/AdminProfileSetting',$data);
     }
 
-    
 
+//Checking the expiry details
     public function checkexpiry() {
-        $this->view('users/Admin/CheckExpiry');
+
+        $allstocks = $this->adminModel->checkexpiry();
+        $allexstocks = $this->adminModel->expireinmonth();
+        $allexpstocks = $this->adminModel->expireinthree();
+
+        $data = [
+
+            'expstock' => $allstocks,
+            'expone' => $allexstocks,
+            'expthree' => $allexpstocks
+        ];
+
+        $this->view('users/Admin/CheckExpiry', $data);
     }
 
-    
 
     public function stockreorder() {
-        $this->view('users/Admin/StockReorder');
+        $outstock = $this->adminModel->outofstock();
+        $lowstock = $this->adminModel->lowstock();
+
+        $data = [
+
+            'zerostock' => $outstock,
+            'lowstock' => $lowstock
+        ];
+
+        $this->view('users/Admin/StockReorder', $data);
     }
 
 
