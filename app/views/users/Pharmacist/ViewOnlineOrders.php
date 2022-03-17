@@ -66,7 +66,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                             <td><?php echo $allconorders->onlineoid ?></td>
                             <td><?php echo $allconorders->onlinefname ?></td>
                             <td><?php echo $allconorders->onlinetelno ?></td>
-                            <td><button class="button button1"><a href="<?php echo URLROOT. "/pharmacists/viewforconfirm/".$allconorders->onlineoid ?>">View</a></button></td>
+                            <td><button class="button button1"><a href="<?php echo URLROOT. "/pharmacists/pastsingleprescription/".$allconorders->onlineoid ?>">View</a></button></td>
                         </tr>
                     <?php endforeach; ?>
                   </table>
@@ -88,7 +88,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                             <td><?php echo $allrejorders->onlineoid ?></td>
                             <td><?php echo $allrejorders->onlinefname ?></td>
                             <td><?php echo $allrejorders->onlinetelno ?></td>
-                            <td><button class="button button1"><a href="<?php echo URLROOT. "/pharmacists/viewforconfirm/".$allrejorders->onlineoid ?>">View</a></button></td>
+                            <!-- <td><button class="button button1"><a href="<?php echo URLROOT. "/pharmacists/pastsingleprescription/".$allrejorders->onlineoid ?>">View</a></button></td> -->
                         </tr>
                     <?php endforeach; ?>
                   </table>

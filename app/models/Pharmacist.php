@@ -152,6 +152,30 @@ class Pharmacist {
 
     }
 
+    public function getonlinepatdata($onlineoid) {
+
+        $this->db->query('SELECT * FROM onlineorder INNER JOIN onlineprescription ON onlineorder.onlineoid = onlineprescription. onlineorderid WHERE onlineorder.onlineoid = :oid ');
+        $this->db->bind(':oid',$onlineoid);
+
+        $row = $this->db->single();
+
+        return $row;
+
+    }
+
+
+    public function getonlinepresdata($onlinepresid) {
+
+        $this->db->query('SELECT * FROM onlinepresmed INNER JOIN medicine ON medicine.medid= onlinepresmed.medid  WHERE onlinepresid = :opid');
+        $this->db->bind(':opid',$onlinepresid);
+
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
 
     public function searchprescriptionbynic($patnic) {
         $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid WHERE patient.patnic=:pnic');
@@ -188,7 +212,7 @@ class Pharmacist {
 
     public function createpres($data) {
 
-        $this->db->query('INSERT INTO onlineprescription (onlineorderid,pretime,presdate)VALUES( :oid ,:prestime ,:presdate)');
+        $this->db->query('INSERT INTO onlineprescription (onlineorderid,prestime,presdate)VALUES( :oid ,:prestime ,:presdate)');
 
 
         //Bind values

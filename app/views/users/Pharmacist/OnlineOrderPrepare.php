@@ -2,34 +2,36 @@
 require APPROOT . '/views/includes/Pharmacisthead.php';
 ?>
 <br>
-<div style="margin-left:20%; padding:1px 16px; width: 40%">
+<div style="margin-left:20%; padding:1px 16px; width: 40% ">
     <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/viewonlineorders"> << </a> </span></button>
 </div>  
 
 
 <div style="margin-left: 300px; margin-top:250px; margin-right:0%; padding:1px 16px; width: 70%; ">
 
-<div class="split left">
+<div class="split left" style="z-index: -10;" >
 
 <div class="centered"> 
-<img src="<?php echo URLROOT ?>/public/images/OnlinePrescriptions/<?php echo $data['orderimg']?>"  alt="<?php echo $data['orderimg']?>" width="400"  style="margin-left:350px; z-index: -2; pointer-events: none;">
+<img src="<?php echo URLROOT ?>/public/images/OnlinePrescriptions/<?php echo $data['orderimg']?>"  alt="<?php echo $data['orderimg']?>" width="400" style="margin-left:350px;pointer-events: none; user-select: none; ">
 </div>
   </div>
 
 
-<div class="split right">
+<div class="split right" style=" z-index: 10">
 <div class="centered">
 
-<div class="row" style="margin-top:100px; z-index: 10">
+<div class="row" style="margin-top:-230px;">
 <div class="container">
-                <h3>Add Medicine</h3>
-
-                <div class="select-box">
-                    <div class="options-container">
+                <div style="margin-right:320px">
+                    <h3 >Add Medicine</h3>
+                </div>
+                <div style="margin-left:35px">
+                <div class="select-box" style=" position:fixed;" >
+                    <div class="options-container"  >
                         <?php
                         foreach($data['medicines'] as $allmedicines):
                             {
-                                echo ' <div class="option" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
+                                echo ' <div class="option" style="text-align:left;" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
 
 
                             }
@@ -37,54 +39,47 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 
 
                     </div>
-
+                    
+                    
                     <div class="selected" medid="test" id="1">Select Medicine</div>
 
-                    <div class="search-box">
+                    <div class="search-box" style= "margin-right:300px;">
                         <input type="text" placeholder="Start Typing..." />
                     </div>
                 </div>
             </div>
+                    </div>
 
-<!--            <select name="med_list" id="med_list" class="form-control"  onmousedown="if(this.options.length>5){this.size=3}"-->
-<!--                    onchange='this.blur()' onblur="this.removeAttribute('size')">-->
-<!--               <option value="">Select Medicine</option>-->
-<!--                --><?php
-//                 foreach($data['medicines'] as $allmedicines):
-//                {
-//                    echo '<option value="'.$allmedicines->medid.'" name="'.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</option>';
-////
-//
-//                }
-//                 endforeach; ?>
-<!--            </select>-->
-    <br> 
-            <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">Add + </button>
+
+    <br> <br> <br> 
+            <button id="addbtn" style="padding:8px 30px; margin-right: 330px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">Add + </button>
 
 
 
          
         </div>
 
-        <div class="column" style="margin-left:27%;padding:1px; margin-top:-14.5%;">
+        <div class="column" style="margin-left:12%; padding:1px;">
 
              
             <!-- <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
                 <li><h3>Prescription</h3></li>
             </ul> -->
+            <br><br>
             <form method="post" action="<?php echo URLROOT; ?>/pharmacists/viewprescriptions">
-           
-            <h3>Create Prescription</h3> 
+            <div style="margin-right:100px">
+                <h3>Create Prescription</h3>
+            </div> 
             <div class="table-prescription">
             <table id="medlist">
                 <thead>
                 <tr>
-                    <th>Medicine ID</th>
+                     <th>Medicine ID</th>
                     <th>Medicine</th>
                     <th>Dosage</th>
                     <th>Time</th>
                     <th>Duration</th>
-                    <th>Remove</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -162,18 +157,20 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 var medid = label.attr('medid');
                 // var medname = label.attr('medname');
                 var medname = label.text();
-
+                
                 if(medname != 'Select Medicine'){
 
                     // count ++;
-                    $("#medlist tbody").append('<tr><td><input class="input1" type="text" id="medid" name="medid[]" value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="meddos" name="meddos[]" placeholder="Enter Dosage" required> </td> <td> <select id="time" name="time[]"><option value="Bd">Twice a day</option><option value="Tds">Three times a day</option><option value="Nocte">In the night</option><option value="Mane">in the morning</option><option value="Daily">One time a day</option></select></td><td><input class="input1" type="text" id="medduration" name="medduration[]" placeholder="Enter Days" required> </td> <td align="center"><button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: white; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button></td></tr>')
+                    $("#medlist tbody").append('<tr><td><input class="input1" type="text" id="medid" name="medid[]"value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="meddos" name="meddos[]" placeholder="Enter Dosage" required> </td> <td> <select id="time" name="time[]"><option value="Bd">Twice a day</option><option value="Tds">Three times a day</option><option value="Nocte">In the night</option><option value="Mane">in the morning</option><option value="Daily">One time a day</option></select></td><td><input class="input1" type="text" id="medduration" name="medduration[]" placeholder="Enter Days" required> </td> <td align="center"><button id="closebtn" style="background-color: #d11a2a; color: white; border-style:none;">&times</button></td></tr>')
+
+                    // <button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: white; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button>
                 }else
                 {
                     alert("Please Select a Medicine");
                     // $('#employee_details').css("display", "none");
                 }
             });
-             $('#medlist tbody ').on('click','#removebtn' ,function (){
+             $('#medlist tbody ').on('click','#closebtn' ,function (){
                  $(this).closest('tr').remove();
              });
 
