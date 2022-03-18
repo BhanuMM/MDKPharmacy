@@ -134,7 +134,7 @@ class Cashiers extends Controller {
 
     public function pastbillsingle($billid) {
         $pastdata =$this->cashierModel->getpastbill($billid);
-        $patdata =$this->cashierModel->getprespatdata($pastdata->presid);
+        $patdata =$this->cashierModel->getpresdata($pastdata->presid);
         $data = [
             'presid' => $pastdata->presid,
             'billid'=> $pastdata->billid,
