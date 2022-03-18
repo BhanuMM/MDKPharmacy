@@ -15,21 +15,95 @@ class Receptionists extends Controller
     {
         $allpatients = $this->receptionistModel->viewpatient();
 
+        $allchildren = $this->receptionistModel->viewchild();
+
         $data = [
-            'patients' => $allpatients
+            'patients' => $allpatients,
+            'children' => $allchildren
         ];
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //Sanitize post data
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        
-            $datanic = trim($_POST['UISearchbar']);
-            $searchpatient = $this->receptionistModel->searchpatientnic($datanic);
+            if (isset($_POST['btnnic'])) {
+                //Sanitize post data
+             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+ 
+             $datanic = trim($_POST['UISearchbarnic']);
+             $searchpatient = $this->receptionistModel->searchpatientnic($datanic);
+ 
+             if ($searchpatient) {
+                 $data=[
+                    'patients' => $searchpatient
+                 ];
+             }
+             else{
+                 $data=[
+                    'patients' => '',
+                     'nofound' => 'No Record Found'
+                 ];
+             }
+            } 
 
-            $data = [
-                'patients' => $searchpatient
-            ];
+            elseif (isset($_POST['btnname'])) {
+
+                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+     
+             $dataname = trim($_POST['UISearchbarname']);
+             $searchpatient = $this->receptionistModel->searchpatientname($dataname);
+     
+             if ($searchpatient) {
+                 $data=[
+                    'patients' => $searchpatient
+                 ];
+             }
+             else{
+                 $data=[
+                    'patients' => '',
+                     'nofound' => 'No Record Found'
+                 ];
+             }
+            }
+
+            elseif (isset($_POST['btngnic'])) {
+
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+            $dataname = trim($_POST['UISearchbargnic']);
+            $searchpatient = $this->receptionistModel->searchguardiannic($dataname);
+    
+            if ($searchpatient) {
+                $data=[
+                    'children' => $searchpatient
+                ];
+            }
+            else{
+                $data=[
+                    'children' => '',
+                    'nofound' => 'No Record Found'
+                ];
+            }
+           }
+
+           elseif (isset($_POST['btnchildname'])) {
+
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $dataname = trim($_POST['UISearchbarcname']);
+            $searchpatient = $this->receptionistModel->searchchildname($dataname);
+
+            if ($searchpatient) {
+                $data=[
+                    'children' => $searchpatient
+                ];
+            }
+            else{
+                $data=[
+                    'children' => '',
+                    'nofound' => 'No Record Found'
+                ];
+            }
+        }
+
         }
 
         $this->view('users/Receptionist/ReceptionistViewPatient',$data);
@@ -370,4 +444,83 @@ class Receptionists extends Controller
 
 
     }
+
+    public function updatechild($childelderid)
+    {
+        $pat = $this->receptionistModel->findchildById($childelderid);
+
+        $data = [
+            'childid' => $pat->childelderid,
+            'guardianname' => $pat->patname,
+            'guardiannic' => $pat->patnic,
+            'guardianaddrs' => $pat->patadrs,
+            'telno' => $pat->pattelno,
+            'childname' => $pat->fullname,
+            'dob' => $pat->childelderdob,
+            'gender' => $pat->childeldergen,
+            'nameError' => ''
+
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'childid' => $pat->childelderid,
+                'guardianname' => trim($_POST['patname']),
+                'guardiannic' => trim($_POST['patnic']),
+                'guardianaddrs' => trim($_POST['patadrs']),
+                'telno' => trim($_POST['pattelno']),
+                'childname' => trim($_POST['childname']),
+                'dob' => $_POST['childdob'],
+                'gender' => $_POST['childgen']
+            ];
+
+
+
+                //Register user from model function
+                if ($this->receptionistModel->updatechild($data)) {
+                    //Redirect to the viewtable page
+                    $recadded = ' Patient details has been Successfully Updated!';
+                    header('location: ' . URLROOT . '/receptionists/viewpatients?msg='.$recadded);
+                } else {
+                    die('Something went wrong.');
+                }
+            
+            
+        }
+        $this->view('users/Receptionist/updatechild',$data);
+    }
+
+    public function deletechild($childelderid){
+        $pat = $this->receptionistModel->findchildById($childelderid);
+
+        $data = [
+            'childid' => $pat->childelderid,
+            'guardianname' => $pat->patname,
+            'guardiannic' => $pat->patnic,
+            'guardianaddrs' => $pat->patadrs,
+            'telno' => $pat->pattelno,
+            'childname' => $pat->fullname,
+            'dob' => $pat->childelderdob,
+            'gender' => $pat->childeldergen,
+            'nameError' => ''
+
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        if ($this->receptionistModel->deletechild($childelderid)) {
+         //Redirect to the viewtable page
+        $recadded = ' Patient details has been Deleted!';
+        header('location: ' . URLROOT . '/receptionists/viewpatients');
+         } else {
+        die('Something went wrong.');
+            }
+    }
+}
+
+
+
 }
