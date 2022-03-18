@@ -69,8 +69,8 @@ class Cashier {
     public function getpastbill($billid) {
         $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billid = :billid  ');
         $this->db->bind(':billid',$billid);
-        $results = $this->db->resultSet();
-        return $results;
+        $row = $this->db->single();
+        return $row;
 
     }
     

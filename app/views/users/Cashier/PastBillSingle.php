@@ -59,20 +59,36 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 <?php endforeach; ?>
                     <tr>
                         <td colspan="3"  class="text-right">Sub Total</td>
-                        <td ><input id="subtot" name="subtot" type="text" readonly> </td>
+                        <td ><input id="subtot" name="subtot" type="text" value="<?php echo $data['subtotal']?>" readonly> </td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right">Discount (%)</td>
-                        <td> <input  id="dis" name="dis" type="text" autocomplete="off" readonly></td>
+                        <td> <input  id="dis" name="dis" type="text" autocomplete="off" value="<?php echo $data['discount']?>" readonly></td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right">Gross Total</td>
-                        <td ><input id="grandt"  name="grandt" type="text" readonly></td>
+                        <td ><input id="grandt"  name="grandt" type="text" value="<?php echo $data['grosstotal']?>" readonly></td>
                     </tr>
                 </tbody>
             </table>
         </div>      
     </div>      
 </div>
-</body>
-</html>
+<script>
+    $(document).ready(function() {
+        var subtotal = 0;
+        $('.item').each(function() {
+            var qty = $(this).find('.sellq').text();
+            var price = $(this).find('.sellp').text();
+            var total = parseFloat(qty) * parseFloat(price);
+            $(this).find('.price').text(total.toFixed(2));
+            if(!isNaN(total))
+                subtotal +=total;
+        });
+        $("#subtot").val(subtotal.toFixed(2));
+        $('#grandt').val(subtotal.toFixed(2));
+
+
+
+    });
+</script>
