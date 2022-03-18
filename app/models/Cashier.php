@@ -46,9 +46,26 @@ class Cashier {
         return $results;
     }
 
+    public function viewonlinepres() {
+        $this->db->query('SELECT * FROM onlineprescription INNER JOIN onlineorder ON onlineprescription.onlineorderid = onlineorder.onlineoid WHERE orderstatus = "confirmed" and billed != "yes" ORDER BY onlineorder.onlineoid DESC');
+
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
+
+
     public function getprespatdata($presid) {
         $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid WHERE prescription.presid = :pid ');
         $this->db->bind(':pid',$presid);
+        $row = $this->db->single();
+        return $row;
+    }
+
+     
+    public function getonlineorderdata($opresid) {
+        $this->db->query('SELECT * FROM onlineprescription INNER JOIN onlineorder ON onlineprescription.onlineorderid = onlineorder.onlineoid WHERE onlineprescription.onlinepresid = :opresid ');
+        $this->db->bind(':opresid',$opresid);
         $row = $this->db->single();
         return $row;
     }
@@ -58,16 +75,34 @@ class Cashier {
         $this->db->bind(':pid',$presid);
         $results = $this->db->resultSet();
         return $results;
+    }
+
+    public function getonlinepresdata($opresid) {
+        $this->db->query('SELECT * FROM onlinepresmed INNER JOIN medicine ON medicine.medid= onlinepresmed.medid  WHERE onlinepresid = :opid');
+        $this->db->bind(':opid',$opresid);
+        $results = $this->db->resultSet();
+        return $results;
 
     }
 
-    public function searchbill($presid) {
-        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE prescription.presid = :pid');
+    public function searchbill($pnic) {
+        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE patient.patnic = :pnic');
         //Bind value
-        $this->db->bind(':pid', $presid);
+        $this->db->bind(':pnic', $pnic);
         $results = $this->db->resultSet();
         return $results;
     }
+
+    public function searchonlinebill($telno) {
+        $this->db->query('SELECT * FROM onlineorder INNER JOIN onlineprescription ON onlineorder.onlineoid=onlineprescription.onlineorderid  WHERE onlineorder.onlinetelno = :telno and onlineprescription.billed != "yes" ' );
+        //Bind value
+        $this->db->bind(':telno', $telno);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
+
+    
     public function findProfilebyId($psid) {
         $this->db->query('SELECT * FROM staff WHERE staffid = :proid');
 
@@ -115,6 +150,21 @@ class Cashier {
         }
 
     }
+
+    public function updateonlineprestable($data){
+        $this->db->query('UPDATE onlineprescription SET billed = :billed WHERE onlinepresid = :opresid');
+
+        $this->db->bind(':opresid', $data['presid']);
+        $this->db->bind(':billed', $data['billed']);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
     public function updateprofilesettings($data){
         $this->db->query('UPDATE staff SET snic = :psnic, sname = :psname, semail = :psemail, uname = :psuname ,upswrd= :pswrd WHERE staffid = :psid');
 

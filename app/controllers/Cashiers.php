@@ -31,6 +31,27 @@ class Cashiers extends Controller {
         $this->view('users/Cashier/InpatientBills',$data);
     }
 
+    public function onlineorderbills() {
+        $opres=$this->cashierModel->viewonlinepres();
+
+        $data = [
+
+            'opres' => $opres
+        ];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $odatabill = trim($_POST['UISearchbar']);
+            $searchonlinebill = $this->cashierModel-> searchonlinebill($odatabill);
+
+            $data = [
+                'opres' => $searchonlinebill
+            ];
+        }
+        $this->view('users/Cashier/OnlineorderBills',$data);
+    }
+
     public function inpatientsingle($presid) {
         $patdata =$this->cashierModel->getprespatdata($presid);
         $predata =$this->cashierModel->getpresdata($presid);
@@ -51,6 +72,27 @@ class Cashiers extends Controller {
         ];
         $this->view('users/Cashier/InpatientSingle',$data);
     }
+
+    public function onlineordersingle($opresid) {
+        $onlineorderdata =$this->cashierModel->getonlineorderdata($opresid);
+        $onlinepredata =$this->cashierModel->getonlinepresdata($opresid);
+        $maxbillid =$this->cashierModel->getlatestbill();
+        $data = [
+            'opresid' => $onlineorderdata->onlinepresid,
+            'billid'=> $maxbillid->maxbill+1,
+            'presdate' => $onlineorderdata->presdate,
+            'prestime' => $onlineorderdata->prestime,
+            'fname' => $onlineorderdata->onlinefname,
+            'telno' => $onlineorderdata->onlinetelno,
+            'meds'=> $onlinepredata
+//            'medgenname' => $med->medgenname,
+
+
+        ];
+        $this->view('users/Cashier/OnlineorderSingle',$data);
+    }
+
+
     public function savebills() {
         $data = [
             'billid' => '',
@@ -95,21 +137,65 @@ class Cashiers extends Controller {
         }
     }
 
-    public function onlineorderbills() {
-        $this->view('users/Cashier/OnlineorderBills');
-    }
 
-    public function onlineordersingle() {
-        $this->view('users/Cashier/OnlineorderSingle');
-    }
+    public function saveonlinebills() {
+        $data = [
+            'billid' => '',
+            'presid' => '',
+            'billdate' => '',
+            'billtime' => '',
+            'subtotal' => '',
+            'discount' => '',
+            'grosstotal' => '',
+            'custype'=>'',
+            'cashierid' => ''
+        ];
 
-    public function outpatientbills() {
-        $this->view('users/Cashier/OutpatientBills');
-    }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-    public function outpatientsingle() {
-        $this->view('users/Cashier/OutpatientSingle');
+            $data = [
+                'billid' => $_POST['billid'],
+                'presid' => $_POST['presid'],
+                'billdate' => date("Y/m/d"),
+                'billtime' => date("h:i:sa"),
+                'subtotal' => trim($_POST['subtot']),
+                'discount' => trim($_POST['dis']),
+                'grosstotal' => trim($_POST['grandt']),
+                'custype'=>$_POST['custype'],
+                'cashierid' => $_POST['cashierid'],
+                'billed' => "yes"
+            ];
+            // Make sure that errors are empty
+            if (!empty($data['billid'])) {
+
+                if ($this->cashierModel->savebill($data) && $this->cashierModel->updateonlineprestable($data) ) {
+                    //Redirect to the viewtable page
+                    $recadded = 'Bill has been Saved';
+                    header('location: ' . URLROOT . '/cashiers/onlineorderbills?msg='.$recadded);
+                } else {
+                    die('Something went wrong.');
+                }
+            }
+        }
     }
+    // public function onlineorderbills() {
+    //     $this->view('users/Cashier/OnlineorderBills');
+    // }
+
+    // public function onlineordersingle() {
+    //     $this->view('users/Cashier/OnlineorderSingle');
+    // }
+
+    // public function outpatientbills() {
+    //     $this->view('users/Cashier/OutpatientBills');
+    // }
+
+    // public function outpatientsingle() {
+    //     $this->view('users/Cashier/OutpatientSingle');
+    // }
 
     public function pastbills() {
         $inpast = $this->cashierModel->viewpres();
