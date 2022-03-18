@@ -25,11 +25,11 @@ require APPROOT . '/views/includes/Cashierhead.php';
         <div class="bill-body">
             <div class="bill-row">
                 <div class="bill-col">
-                    	<h2>Bill No: </h2>
-                    	<p>Prescription No: </p>
-                    	<p>Order Date: </p>
-			            <p>Patient Type: </p>
-                    	<p>Patient Name:  </p>
+                    	<h2>Bill No: <?php echo $data['billid']?></h2>
+                    	<p>Prescription No:<?php echo $data['presid']?> </p>
+                    	<p>Order Date: <?php echo $data['presdate']?>  </p>
+			            <p>Patient Type: <?php echo $data['custype']?> </p>
+                    	<p>Patient Name: <?php echo $data['patname']?> </p>
                 </div>
          	<div></div>
             </div>
@@ -38,33 +38,36 @@ require APPROOT . '/views/includes/Cashierhead.php';
         <div class="bill-body">
             <h3>Ordered Items</h3>
             <br>
-            <table class="table-bordered">
+            <table class="table-bordered" id="tableData">
                 <thead>
                     <tr>
                         <th>Medicine</th>
-                        <th class="table-field">Price</th>
+                        <th class="table-field">Unit Price</th>
                         <th class="table-field">Quantity</th>
                         <th class="table-field">Total</th>
                     </tr>
                 </thead>
                 <tbody>
+                <tbody>
+                <?php foreach($data['meds'] as $allmeds): ?>
+                    <tr class="item">
+                        <td><?php echo $allmeds->medgenname ?></td>
+                        <td class="sellp"><?php echo $allmeds->medsellprice ?></td>
+                         <td class="sellq"><?php echo $allmeds->dosage ?></td>
+                        <td class="price"></td>
+                    </tr>
+                <?php endforeach; ?>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td colspan="3"  class="text-right">Sub Total</td>
+                        <td ><input id="subtot" name="subtot" type="text" readonly> </td>
                     </tr>
                     <tr>
-                        <td colspan="3" class="text-right">Sub Total</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="text-right">Discount</td>
-                        <td></td>
+                        <td colspan="3" class="text-right">Discount (%)</td>
+                        <td> <input  id="dis" name="dis" type="text" autocomplete="off" readonly></td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right">Gross Total</td>
-                        <td></td>
+                        <td ><input id="grandt"  name="grandt" type="text" readonly></td>
                     </tr>
                 </tbody>
             </table>

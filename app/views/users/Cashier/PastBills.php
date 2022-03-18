@@ -32,20 +32,22 @@ require APPROOT . '/views/includes/Cashierhead.php';
   <p>
   <table id="customers">
     <tr>
+      <th>Bill ID</th>
       <th>Prescription ID</th>
       <th>Patient Name</th>
       <th>Patient NIC</th>
-      <th>Date</th>
+      <th>Bill Date</th>
       <th>View</th>
     </tr>
     <?php foreach($data['inpast'] as $inpast): ?>
 
 <tr>
+      <td><?php echo $inpast->billid; ?></td>
      <td><?php echo $inpast->presid; ?></td>
      <td><?php echo $inpast->patname; ?></td>
      <td><?php echo $inpast->patnic; ?></td>
      <td><?php echo $inpast->presdate; ?></td>
-     <td><?php echo $inpast->presid; ?></td>     
+     <td><button class="button button1"><a href="<?php echo URLROOT. "/cashiers/pastbillsingle/".$inpast->billid ?>"> VIEW BILL</a></button></td>     
 </tr>   
 <?php endforeach; ?>
 </table> 
