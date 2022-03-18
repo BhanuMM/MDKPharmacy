@@ -198,18 +198,18 @@ class Cashiers extends Controller {
     // }
 
     public function pastbills() {
-        $inpast = $this->cashierModel->viewpres();
-
+        $inpast = $this->cashierModel->viewbill();
         $data = [
 
             'inpast' => $inpast
         ];
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
             $datainpast = trim($_POST['UISearchbar']);
-            $searchinpast = $this->cashierModel-> searchbill($datainpast);
+            $searchinpast = $this->cashierModel-> searchpastbill($datainpast);
 
             $data = [
                 'inpast' => $searchinpast
@@ -218,8 +218,23 @@ class Cashiers extends Controller {
         $this->view('users/Cashier/PastBills',$data);
     }
 
-    public function pastbillsingle() {
-        $this->view('users/Cashier/PastBillSingle');
+    public function pastbillsingle($billid) {
+        $pastdata =$this->cashierModel->getpastbill($billid);
+        $patdata =$this->cashierModel->getpresdata($pastdata->presid);
+        $data = [
+            'presid' => $pastdata->presid,
+            'billid'=> $pastdata->billid,
+            'presdate' => $pastdata->presdate,
+            'patname' => $pastdata->patname,
+            'custype' => $pastdata->customertype,
+            'subtotal' => $pastdata->subtotal,
+            'grosstotal' => $pastdata->grosstotal,
+            'discount' => $pastdata->discount,
+            'meds' => $patdata
+
+
+        ];
+        $this->view('users/Cashier/PastBillSingle',$data);
     }
 
     public function medicineavailability() {
