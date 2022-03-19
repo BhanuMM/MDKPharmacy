@@ -29,6 +29,12 @@ class Cashier {
         return $results;
     }
 
+    public function viewonlinebill() {
+        $this->db->query('SELECT * FROM bill INNER JOIN onlineprescription ON bill.presid= onlineprescription.onlinepresid INNER JOIN onlineorder on onlineprescription.onlineorderid=onlineorder.onlineoid WHERE bill.customertype="online"');
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
     public function viewonlinepres() {
         $this->db->query('SELECT * FROM onlineprescription INNER JOIN onlineorder ON onlineprescription.onlineorderid = onlineorder.onlineoid WHERE orderstatus = "confirmed" and billed != "yes" ORDER BY onlineorder.onlineoid DESC');
 
@@ -108,6 +114,14 @@ class Cashier {
 
 
 
+    //Search particular bill details
+    public function searchbill($presid) {
+        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE prescription.presid = :pid');
+        //Bind value
+        $this->db->bind(':telno', $telno);
+        $results = $this->db->resultSet();
+        return $results;
+    }
 
     public function findProfilebyId($psid) {
         $this->db->query('SELECT * FROM staff WHERE staffid = :proid');

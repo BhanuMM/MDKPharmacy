@@ -76,12 +76,24 @@ require APPROOT . '/views/includes/Cashierhead.php';
   <p>
   <table id="customers">
   <tr>
+    <th>Bill ID</th>
     <th>Prescription ID</th>
     <th>Patient Name</th>
-    <th>Patient NIC</th>
+    <th>Patient Telephone Number</th>
     <th>Date</th>
     <th>View</th>
   </tr>
+  <?php foreach($data['online'] as $online): ?>
+
+<tr>
+    <td><?php echo $online->billid; ?></td>
+     <td><?php echo $online->presid; ?></td>
+     <td><?php echo $online->onlinefname; ?></td>
+     <td><?php echo $online->onlinetelno; ?></td>
+     <td><?php echo $online->presdate; ?></td>
+     <td><button class="button button1"><a href="<?php echo URLROOT. "/cashiers/pastbillsingle/".$online->billid ?>"> VIEW BILL</a></button></td>     
+</tr>   
+<?php endforeach; ?>
 </table> 
 </p>
 </div>
