@@ -30,13 +30,13 @@ class Counsellors extends Controller {
         $this->view('users/Counsellor/MedicineDetails',$data);
     }
 
-    public function pastbills() {
-        $this->view('users/Counsellor/PastBills');
-    }
+//    public function pastbills() {
+//        $this->view('users/Counsellor/PastBills');
+//    }
 
-    public function pastbillsingle() {
-        $this->view('users/Counsellor/PastBillSingle');
-    }
+//    public function pastbillsingle() {
+//        $this->view('users/Counsellor/PastBillSingle');
+//    }
 
     public function profilesettings($psid){
 
@@ -123,6 +123,68 @@ class Counsellors extends Controller {
             }
         }
         $this->view('users/Counsellor/CounsellorProfileSetting',$data);
+    }
+
+    public function pastbills() {
+        $inpast = $this->counsellorModel->viewinbill();
+        $outpast = $this->counsellorModel->viewoutbill();
+        $data = [
+            'inpast' => $inpast,
+            'outpast' => $outpast
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $datainpast = trim($_POST['UISearchbar']);
+            $searchinpast = $this->cashierModel-> searchpastbill($datainpast);
+
+            $data = [
+                'inpast' => $searchinpast
+            ];
+        }
+        $this->view('users/Counsellor/PastBills',$data);
+    }
+
+    public function pastbillsingle($billid) {
+        $pastdata =$this->counsellorModel->getpastbill($billid);
+        $patdata =$this->counsellorModel->getpresdata($pastdata->presid);
+        $data = [
+            'presid' => $pastdata->presid,
+            'billid'=> $pastdata->billid,
+            'presdate' => $pastdata->presdate,
+            'patname' => $pastdata->patname,
+            'custype' => $pastdata->customertype,
+            'subtotal' => $pastdata->subtotal,
+            'grosstotal' => $pastdata->grosstotal,
+            'discount' => $pastdata->discount,
+            'meds' => $patdata
+
+
+        ];
+        $this->view('users/Counsellor/PastBillSingle',$data);
+
+    }
+
+    public function pastoutbillsingle($billid) {
+        $pastdata =$this->counsellorModel->getpastbill($billid);
+        $patdata =$this->counsellorModel->getoutpresdata($pastdata->presid);
+        $data = [
+//            'presid' => $pastdata->presid,
+            'billid'=> $pastdata->billid,
+//            'presdate' => $pastdata->presdate,
+            'patname' => $pastdata->patname,
+//            'custype' => $pastdata->customertype,
+            'subtotal' => $pastdata->subtotal,
+            'grosstotal' => $pastdata->grosstotal,
+            'discount' => $pastdata->discount,
+            'meds' => $patdata
+
+
+        ];
+        $this->view('users/Counsellor/PastoutBillSingle',$data);
+
     }
 
 }

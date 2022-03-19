@@ -55,4 +55,45 @@ class Counsellor {
 
     }
 
+    public function viewinbill() {
+        $this->db->query('SELECT * FROM bill WHERE customertype = "in" ORDER BY bill.billid DESC');
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
+    public function viewoutbill() {
+        $this->db->query('SELECT * FROM bill WHERE customertype = "out" ORDER BY bill.billid DESC');
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
+    public function getpastbill($billid) {
+        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billid = :billid  ');
+        $this->db->bind(':billid',$billid);
+        $row = $this->db->single();
+        return $row;
+
+    }
+
+    public function getpresdata($presid) {
+        $this->db->query('SELECT * FROM presmed INNER JOIN medicine ON medicine.medid= presmed.medid  WHERE presid = :pid');
+        $this->db->bind(':pid',$presid);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
+    public function getpastoutbill($billid) {
+        $this->db->query('SELECT * FROM bill INNER JOIN outprescription ON bill.presid= outprescription.outpresid  WHERE bill.billid = :billid  ');
+        $this->db->bind(':billid',$billid);
+        $row = $this->db->single();
+        return $row;
+
+    }
+    public function getoutpresdata($presid) {
+        $this->db->query('SELECT * FROM outpresmed INNER JOIN medicine ON medicine.medid= outpresmed.medid  WHERE presid = :pid');
+        $this->db->bind(':pid',$presid);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
 }
