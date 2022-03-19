@@ -73,7 +73,14 @@ class Cashier {
         $results = $this->db->resultSet();
         return $results;
     }
-
+////Search particular bill details
+//    public function searchbill($presid) {
+//        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE prescription.presid = :pid');
+//        //Bind value
+//        $this->db->bind(':telno', $telno);
+//        $results = $this->db->resultSet();
+//        return $results;
+//    }
 
     public function searchonlinebill($telno) {
         $this->db->query('SELECT * FROM onlineorder INNER JOIN onlineprescription ON onlineorder.onlineoid=onlineprescription.onlineorderid  WHERE onlineorder.onlinetelno = :telno and onlineprescription.billed != "yes" ' );
@@ -100,14 +107,7 @@ class Cashier {
     }
 
 
-    //Search particular bill details
-    public function searchbill($presid) {
-        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE prescription.presid = :pid');
-        //Bind value
-        $this->db->bind(':telno', $telno);
-        $results = $this->db->resultSet();
-        return $results;
-    }
+
 
     public function findProfilebyId($psid) {
         $this->db->query('SELECT * FROM staff WHERE staffid = :proid');
