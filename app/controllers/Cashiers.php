@@ -5,11 +5,12 @@ class Cashiers extends Controller {
         $this->cashierModel = $this->model('Cashier');
 
     }
-
+//Show cashier Dashboard
     public function cashierdashboard() {
         $this->view('users/Cashier/CashierDashboard');
     }
 
+    //Show the inpatient bills
     public function inpatientbills() {
         $pres = $this->cashierModel->viewpres();
 
@@ -31,6 +32,7 @@ class Cashiers extends Controller {
         $this->view('users/Cashier/InpatientBills',$data);
     }
 
+    //View a single inpatient bill
     public function inpatientsingle($presid) {
         $patdata =$this->cashierModel->getprespatdata($presid);
         $predata =$this->cashierModel->getpresdata($presid);
@@ -51,6 +53,8 @@ class Cashiers extends Controller {
         ];
         $this->view('users/Cashier/InpatientSingle',$data);
     }
+
+
     public function savebills() {
         $data = [
             'billid' => '',
@@ -95,22 +99,105 @@ class Cashiers extends Controller {
         }
     }
 
+    //Show the online ordered bills
     public function onlineorderbills() {
         $this->view('users/Cashier/OnlineorderBills');
     }
 
+//View single bill in online orders
     public function onlineordersingle() {
         $this->view('users/Cashier/OnlineorderSingle');
     }
 
+    //Show the outpatient bill creation window
     public function outpatientbills() {
-        $this->view('users/Cashier/OutpatientBills');
+
+        $med = $this->cashierModel->loadmed();
+
+        $data = [
+            'medicines' => $med,
+
+        ];
+        $this->view('users/Cashier/Outpatientbills',$data);
     }
 
+//Show the newly created outpatient bill
     public function outpatientsingle() {
+        $data = [
+            'genericname' => '',
+            'brandname' => '',
+            'importername' => '',
+            'dealer' => '',
+            'purchaseprice' => '',
+            'sellingprice' => '',
+            'profitmargin' => '',
+            'acslvl'=>'',
+            'nameError' => ''
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $count = count($_POST['medid']);
+            $medid =$_POST['medid'];
+            $medqty =$_POST['medqty'];
+
+
+
+
+            $data=[
+                'prestime'=>date("h:i:sa"),
+                'presdate'=>date("Y/m/d"),
+            ];
+
+            if ($this->cashierModel->createoutpres($data)){
+                $maxoutpress =$this->cashierModel->getlatestoutpress();
+                $outpressid = $maxoutpress->maxout;
+                for($i=0; $i< $count; $i++){
+                    $data=[
+                        'medid'=> $medid [$i],
+                        'medqty'=> $medqty[$i],
+                        'presid'=>$outpressid
+                    ];
+                    $this->cashierModel->addtooutpressmed($data);
+
+                }
+
+            }else {
+                die('Something went wrong.');
+            }
+
+        }
+        $this->pastoutpatientsingle($outpressid);
         $this->view('users/Cashier/OutpatientSingle');
     }
 
+    public function pastoutpatientsingle($presid) {
+
+        $predata =$this->cashierModel->getoutpresdata($presid);
+        $maxbillid =$this->cashierModel->getlatestbill();
+        $data = [
+            'presid' => $presid,
+           'billid'=> $maxbillid->maxbill+1,
+//            'prestime' => $patdata->pretime,
+//            'presnote' => $patdata->specialnote,
+//            'patname' => $patdata->patname,
+//            'patage' => $diff->format('%y'),
+//            'patgen' => ucwords($patdata->patgen) ,
+            'meds'=> $predata
+//            'medgenname' => $med->medgenname,
+
+
+        ];
+
+        $this->view('users/Cashier/OutpatientSingle',$data);
+    }
+
+
+
+    //Show all the previous bills
     public function pastbills() {
         $inpast = $this->cashierModel->viewpres();
 
@@ -132,10 +219,12 @@ class Cashiers extends Controller {
         $this->view('users/Cashier/PastBills',$data);
     }
 
+    //View a single previous bill
     public function pastbillsingle() {
         $this->view('users/Cashier/PastBillSingle');
     }
 
+    //Check the availability details of the medicines
     public function medicineavailability() {
         $allmedicines = $this->cashierModel->viewmed();
 
@@ -158,6 +247,7 @@ class Cashiers extends Controller {
         $this->view('users/Cashier/MedicineAvailability',$data);
     }
 
+    //Show the profile settings
     public function profilesettings($psid){
 
         $profile = $this->cashierModel->findProfilebyId($psid);
