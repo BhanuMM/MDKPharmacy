@@ -36,7 +36,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
             <tr>
                 <th>Address: </th>
                 <td><?php echo $data['orderadrs'] ?></td>
-                <th>Tel No:  </th>
+                <th>Order ID:  </th>
                 <td><?php echo $data['orderid'] ?></td>
             </tr>
             </table>

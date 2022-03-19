@@ -29,8 +29,8 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="pharmacist")){
 
 
 
-<div style="box-shadow: 1px 1px 5px #888888; background-color: #ffffff;  padding-top:10px; padding-bottom: 0px; height: 4.7%; ">
-    <p style="margin-left: 20%; margin-top: 0; padding-left: 2%;  padding-right: 10%; float: left;"  id="myDiv"></p>
+<div style="z-index:15; box-shadow: 1px 1px 5px #888888; background-color: #ffffff;  padding-top:10px; padding-bottom: 0px; height: 4.7%; ">
+    <p style="margin-left: 20%; margin-top: 0; padding-left: 2%;  padding-right: 10%; float: left; "  id="myDiv"></p>
  <ul id="list2">
     <!-- Date and Time -->
   <!-- <li style="padding-left: 4%; padding-right: 60%; float: left;"><div id="myDiv"></div></li>  -->

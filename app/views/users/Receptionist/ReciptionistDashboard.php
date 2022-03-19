@@ -51,6 +51,17 @@ if(isset($_GET['msg'])){
                             <a href="<?php echo URLROOT ?>/receptionists/viewpatients"><button class="button button1">View</button></a>
                       </div>
                     </div>
+                    <div class="column">
+                        <div class="fn-card">
+                            <div class="welcome">
+                                <img src="<?php echo URLROOT ?>/public/images/report-icon.png" />
+                                <div class="fn-names">
+                                    Register Child / Elder
+                                </div>
+                            </div>
+                            <a href="<?php echo URLROOT ?>/receptionists/childelderreg"><button class="button button1">View</button></a>
+                        </div>
+                    </div>
 
                 <!-- View Doctors -->
 
