@@ -8,101 +8,149 @@ require APPROOT . '/views/includes/Cashierhead.php';
     <div class="row">
         <div class="column" style="margin-left:5%; padding:1px 16px;">
         <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
+<!--    Heading     -->
     <li Style="float: left; vertical-align: middle; display: inline;"><h3> Create Outpatient Bills</h3></li>
-        <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/outpatientbills">
-            <table>
-                <tr>
-                <th><li Style="float: right; vertical-align: middle; display: inline;">
-                <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left:5px; height: 35px; width: 200px;" placeholder="Medicine Name"></li>
-                </th>
-                <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
-                </tr>
-            </table>
-        </form>
-</ul>
-            <table>
-                <tr>
-                    <th>Medicine ID</th>
-                    <th>Medicine</th>
-                    <th>Remaining Quantity</th>
-                    <th></th> 
-                </tr>
-                <tr>
-                    <th>M001</th>
-                    <td>Paracetamol</td>
-                    <td style="text-align: center;">50</td>
-                    <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
-                </tr>
-                <tr>
-                    <th>M002</th>
-                    <td>Panadeine</td>
-                    <td style="text-align: center;">23</td>
-                    <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
-                </tr>
-                <tr>
-                    <th>M042</th>
-                    <td>Omeprazole</td>
-                    <td style="text-align: center;">70</td>
-                    <td align="center"><button class="button button1" style="background-color: #97ff9c;">ADD</button></td>
-                </tr>
-              </table>
-        </div>
 
-        <div class="column" style="margin-left:25%;padding:1px 16px;">
-            <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
-                <li Style="float: left; vertical-align: middle; display: inline;"><h3>Added Medicine List</h3></li>
-            </ul>
-            <table style="padding: 12px;">
-                <tr>
-                    <th>Medicine ID</th>
-                    <th>Medicine</th>
-                    <th style="width: 75px;">Qty</th>
-                    <th style="width: 75px;">Unit Price</th>
-                    <th style="width: 75px;">Total</th>
-                    <th></th> 
-                </tr>
-                <tr>
-                    <th>M001</th>
-                    <td>Paracetamol</td>
-                    <td><input  style="width: 75px;" type="number" class="input1"></td>
-                    <td><input style="width: 75px;" class="input1"></td>
-                    <td><input  style="width: 75px;" class="input1"></td>
-                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
-                </tr>
-                <tr>
-                    <th>M042</th>
-                    <td>Omeprazole</td>
-                    <td><input style="width: 75px;" type="number" class="input1"></td>
-                    <td><input style="width: 75px;" class="input1"></td>
-                    <td><input style="width: 75px;" class="input1"></td>
-                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
-                </tr>
-                <tr>
-                    <th>M003</th>
-                    <td>Abacavir</td>
-                    <td><input style="width: 75px;" type="number" class="input1"></td>
-                    <td><input style="width: 75px;" class="input1"></td>
-                    <td><input style="width: 75px;" class="input1"></td>
-                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
-                </tr>
-                <tr>
-                    <th>M064</th>
-                    <td>Vitamin-C</td>
-                    <td><input style="width: 75px;" type="number" class="input1"></td>
-                    <td><input style="width: 75px;" class="input1"></td>
-                    <td><input style="width: 75px;" class="input1"></td>
-                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
-                </tr>
-                <tr>
-                    <th>M035</th>
-                    <td>Amoxicillin</td>
-                    <td><input style="width: 75px;" type="number" class="input1"></td>
-                    <td><input style="width: 75px;" class="input1"></td>
-                    <td><input style="width: 75px;" class="input1"></td>
-                    <td align="center"><button class="button button1" style="background-color: #ff9797;">Remove</button></td>
-                </tr>
-              </table>
-            <a href="<?php echo URLROOT ?>/Cashiers/outpatientsingle"><button class="opbill-form-submit" style="margin-left: 335px;">Create Bill</button></a>
+            <div class="row">
+                <!--    Section to search medicines and add them to the list     -->
+                <div class="column" style="margin-left:4%; ">
+                    <div class="container">
+                        <h3>Add Medicine</h3>
+
+                        <div class="select-box">
+                            <div class="options-container">
+                                <?php
+                                foreach($data['medicines'] as $allmedicines):
+                                    {
+                                        echo ' <div class="option" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
+
+
+                                    }
+                                endforeach; ?>
+
+
+                            </div>
+                            <!--    Search button     -->
+                            <div class="selected" medid="test" id="1">Select Medicine</div>
+
+                            <div class="search-box">
+                                <input type="text" placeholder="Start Typing..." />
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">Add + </button>
+                 </div>
+
+                <div class="column" style="margin-left:27%;padding:1px; margin-top:-14.5%;">
+
+                    <form method="post" action="<?php echo URLROOT; ?>/Cashiers/outpatientsingle">
+
+                        <!--    Current medicine list to be sold    -->
+                        <div class="table-prescription" style="margin-left: 600px">
+                            <table id="medlist">
+                                <thead>
+                                <tr>
+                                    <th>Medicine ID</th>
+                                    <th>Medicine</th>
+                                    <th>Quantity</th>
+                                    <th>Remove</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
+
+
+                                </tbody>
+                            </table>
+
+
+
+                            <input type="submit" name="submitbutton4" value="Create" class="opbill-form-submit" style="font-family:'Poppins', sans-serif; margin-left: 300px;" >
+
+
+                            <br> <br> <br> <br> <br>
+
+                    </form>
+                </div>
+            </div>
+
+            <!--    Javascript part     -->
+            <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+            <script>
+                const selected = document.querySelector(".selected");
+                const optionsContainer = document.querySelector(".options-container");
+                const searchBox = document.querySelector(".search-box input");
+
+                const optionsList = document.querySelectorAll(".option");
+
+                selected.addEventListener("click", () => {
+                    optionsContainer.classList.toggle("active");
+
+                    searchBox.value = "";
+                    filterList("");
+
+                    if (optionsContainer.classList.contains("active")) {
+                        searchBox.focus();
+                    }
+                });
+
+                optionsList.forEach(o => {
+                    o.addEventListener("click", () => {
+                        selected.innerHTML = o.querySelector("label").innerHTML;
+                        var id = o.querySelector("label").getAttribute('medid');
+                        selected.setAttribute("medid",id);
+                        optionsContainer.classList.remove("active");
+                    });
+                });
+
+                searchBox.addEventListener("keyup", function(e) {
+                    filterList(e.target.value);
+                });
+
+                const filterList = searchTerm => {
+                    searchTerm = searchTerm.toLowerCase();
+                    optionsList.forEach(option => {
+                        let label = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
+                        if (label.indexOf(searchTerm) != -1) {
+                            option.style.display = "block";
+                        } else {
+                            option.style.display = "none";
+                        }
+                    });
+                };
+            </script>
+
+            <script>
+                $(document).ready(function(){
+                    // var tid="";
+                    $('#addbtn').click(function(){
+                        // var inputval= $('#dos').val();
+
+                        var label = $('.selected');
+                        var medid = label.attr('medid');
+                        // var medname = label.attr('medname');
+                        var medname = label.text();
+
+                        if(medname != 'Select Medicine'){
+
+                            // count ++;
+                            $("#medlist tbody").append('<tr><td><input class="input1" type="text" id="medid" name="medid[]" value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="medqty" name="medqty[]" placeholder="Enter Quantity" required> </td>  <td align="center"><button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: white; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button></td></tr>')
+                        }else
+                        {
+                            alert("Please Select a Medicine");
+                            // $('#employee_details').css("display", "none");
+                        }
+                    });
+                    $('#medlist tbody ').on('click','#removebtn' ,function (){
+                        $(this).closest('tr').remove();
+                    });
+
+
+                });
+            </script>
+            <!------------------------------------------------------------------------------------------------------------->
             <br>
             <br>
             

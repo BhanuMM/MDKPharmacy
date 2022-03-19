@@ -4,7 +4,7 @@ class Admins extends Controller {
         $this->adminModel = $this->model('Admin');
     }
 
-
+//  Show the user details
     public function viewuser() {
 
         $allusers = $this->adminModel->viewusers();
@@ -28,7 +28,7 @@ class Admins extends Controller {
         $this->view('users/Admin/UserDetails',$data);
     }
 
-
+//  Update the user details
     public function updateuser($staffid){
 
         $user = $this->adminModel->findUserById($staffid);
@@ -103,7 +103,7 @@ class Admins extends Controller {
         }
         $this->view('users/Admin/UpdateUser', $data);
     }
-
+//  delete the user details
     public function deleteuser($staffid){
         $user = $this->adminModel->findUserById($staffid);
 
@@ -138,13 +138,13 @@ class Admins extends Controller {
     
         }
     }
-
+//  Show the admin dashboard
     public function admindashboard() {
 
             $this->view('users/Admin/AdminDashboard');
 
     }
-
+//  Show the Medicine details
     public function viewmed() {
        $allmedicines = $this->adminModel->viewmed();
 
@@ -168,8 +168,7 @@ class Admins extends Controller {
         }
         $this->view('users/Admin/MedicineDetails',$data);
     }
-
-   
+//  Add a new medicine to the system
     public function addmed() {
 
             $data = [
@@ -215,7 +214,7 @@ class Admins extends Controller {
             }
         $this->view('users/Admin/AddMedicine',$data);
     }
-
+//  update an existing medicine of the system
     public function updatemed($medid){
 
         $med = $this->adminModel->findMedbById($medid);
@@ -273,6 +272,7 @@ class Admins extends Controller {
     
     // }
 
+//  delete an existing medicine from the system
     public function deletemed($medid){
         $med = $this->adminModel->findMedbById($medid);
 
@@ -301,7 +301,7 @@ class Admins extends Controller {
     
         }
     }
-
+//  Show the full stock details
     public function viewstock() {
         $allstocks = $this->adminModel->viewstock();
 
@@ -327,6 +327,7 @@ class Admins extends Controller {
         $this->view('users/Admin/StockDetails',$data);
     }
 
+//  Show all the stock purchase details
     public function purchstock() {
         $allstocks = $this->adminModel->purchstock();
 
@@ -352,8 +353,8 @@ class Admins extends Controller {
         $this->view('users/Admin/PurchasedStocks',$data);
     }
 
-    
 
+//  Add a new stock details to the system
     public function addstock() {
 
     $allmednames = $this->adminModel->viewmed();
@@ -410,6 +411,7 @@ class Admins extends Controller {
         $this->view('users/Admin/AddStock', $data);
     }
 
+//  Add details of returned stocks to the system
     public function returnstock() {
 
         $allmednames = $this->adminModel->viewmed();
@@ -462,7 +464,7 @@ class Admins extends Controller {
         $this->view('users/Admin/ReturnStocks',$data);
     }
 
-
+//  show returned stock details
     public function viewreturns() {
 
         $returnstock = $this->adminModel->viewreturnstock();
@@ -488,9 +490,9 @@ class Admins extends Controller {
 
         $this->view('users/Admin/ViewReturns',$data);
     }
-        
-  
 
+
+//  Show supplier details of the system
     public function viewsupplier() {
         $allsuppliers = $this->adminModel->viewsupplier();
 
@@ -515,7 +517,7 @@ class Admins extends Controller {
         $this->view('users/Admin/SupplierDetails',$data);
     }
 
-
+//  Add a new supplier to the system
     public function addsupplier() 
         {
             $data = [
@@ -569,8 +571,8 @@ class Admins extends Controller {
         
        
         }
-        /*------------------------------------------------------------------------------------------------------*/
 
+//  Update the details of an existing supplier
     public function updatesupplier($supplierid)
     {
         $sup = $this->adminModel->findSupplierById($supplierid);
@@ -624,7 +626,7 @@ class Admins extends Controller {
     }
 
 
-
+//  Delete an existing supplier
     public function deletesupplier($supplierid){
         $sup = $this->adminModel->findSupplierById($supplierid);
 
@@ -654,7 +656,7 @@ class Admins extends Controller {
     }
      /*-----------------------------------------------------------------------------------------------------------------*/
 
-
+//  Search details of medicine
     public function automedsearch(){
         if(isset($_POST["query"]))
         {
