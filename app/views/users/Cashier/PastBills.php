@@ -58,15 +58,26 @@ require APPROOT . '/views/includes/Cashierhead.php';
 <!--  <span onclick="this.parentElement.style.display='none'"-->
 <!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
-  <table id="customers">
-  <tr>
-    <th>Prescription ID</th>
-    <th>Patient Name</th>
-    <th>Patient NIC</th>
-    <th>Date</th>
-    <th>View</th>
-  </tr>
-</table> 
+    <table id="customers">
+        <tr>
+            <th>Bill ID</th>
+            <th>Bill Date</th>
+            <th>Cashier ID</th>
+            <!--                <th>Date</th>-->
+            <th>View</th>
+        </tr>
+        <?php foreach($data['outpast'] as $outpast): ?>
+
+            <tr>
+                <td><?php echo $outpast->billid; ?></td>
+                <td><?php echo $outpast->billdate; ?></td>
+                <td><?php echo $outpast->cashierid; ?></td>
+                <!--                    <td>--><?php //echo $outpast->patnic; ?><!--</td>-->
+                <!--                    <td>--><?php //echo $outpast->presdate; ?><!--</td>-->
+                <td><button class="button button1"><a href="<?php echo URLROOT. "/cashiers/pastoutbillsingle/".$outpast->billid ?>"> VIEW BILL</a></button></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
 </p>
 </div>
 

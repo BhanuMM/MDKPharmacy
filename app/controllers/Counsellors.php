@@ -128,9 +128,11 @@ class Counsellors extends Controller {
     public function pastbills() {
         $inpast = $this->counsellorModel->viewinbill();
         $outpast = $this->counsellorModel->viewoutbill();
+        $online = $this->counsellorModel->viewonlinebill();
         $data = [
             'inpast' => $inpast,
-            'outpast' => $outpast
+            'outpast' => $outpast,
+            'online' => $online
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -138,7 +140,7 @@ class Counsellors extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $datainpast = trim($_POST['UISearchbar']);
-            $searchinpast = $this->cashierModel-> searchpastbill($datainpast);
+            $searchinpast = $this->counsellorModel-> searchpastbill($datainpast);
 
             $data = [
                 'inpast' => $searchinpast
