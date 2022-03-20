@@ -90,12 +90,23 @@ require APPROOT . '/views/includes/Counsellorhead.php';
         <p>
         <table id="customers">
             <tr>
-                <th>Prescription ID</th>
-                <th>Patient Name</th>
-                <th>Patient NIC</th>
-                <th>Date</th>
+                <th>Bill ID</th>
+                <th>Bill Date</th>
+                <th>Cashier ID</th>
+<!--                <th>Date</th>-->
                 <th>View</th>
             </tr>
+            <?php foreach($data['online'] as $online): ?>
+
+                <tr>
+                    <td><?php echo $online->billid; ?></td>
+                    <td><?php echo $online->billdate; ?></td>
+                    <td><?php echo $online->cashierid; ?></td>
+<!--                    <td>--><?php //echo $online->onlinetelno; ?><!--</td>-->
+<!--                    <td>--><?php //echo $online->presdate; ?><!--</td>-->
+                    <td><button class="button button1"><a href="<?php echo URLROOT. "/counsellors/pastbillsingle/".$online->billid ?>"> VIEW BILL</a></button></td>
+                </tr>
+            <?php endforeach; ?>
         </table>
         </p>
     </div>

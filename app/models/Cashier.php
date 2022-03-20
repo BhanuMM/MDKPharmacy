@@ -114,14 +114,14 @@ class Cashier {
 
 
 
-    //Search particular bill details
-    public function searchbill($presid) {
-        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE prescription.presid = :pid');
-        //Bind value
-        $this->db->bind(':telno', $telno);
-        $results = $this->db->resultSet();
-        return $results;
-    }
+//    //Search particular bill details
+//    public function searchbill($presid) {
+//        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE prescription.presid = :pid');
+//        //Bind value
+//        $this->db->bind(':telno', $telno);
+//        $results = $this->db->resultSet();
+//        return $results;
+//    }
 
     public function findProfilebyId($psid) {
         $this->db->query('SELECT * FROM staff WHERE staffid = :proid');
@@ -311,13 +311,30 @@ class Cashier {
 
 
     public function getoutpresdata($presid) {
-
         $this->db->query('SELECT * FROM outpresmed INNER JOIN medicine ON medicine.medid= outpresmed.medid  WHERE presid = :pid');
         $this->db->bind(':pid',$presid);
-
         $results = $this->db->resultSet();
-
         return $results;
+    }
+
+    public function getpastoutbill($billid) {
+        $this->db->query('SELECT * FROM bill INNER JOIN outprescription ON bill.presid= outprescription.outpresid  WHERE bill.billid = :billid  ');
+        $this->db->bind(':billid',$billid);
+        $row = $this->db->single();
+        return $row;
 
     }
+//    public function getoutpresdata($presid) {
+//        $this->db->query('SELECT * FROM outpresmed INNER JOIN medicine ON medicine.medid= outpresmed.medid  WHERE presid = :pid');
+//        $this->db->bind(':pid',$presid);
+//        $results = $this->db->resultSet();
+//        return $results;
+//    }
+
+    public function viewoutbill() {
+        $this->db->query('SELECT * FROM bill WHERE customertype = "out" ORDER BY bill.billid DESC');
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
 }

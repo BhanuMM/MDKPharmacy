@@ -296,10 +296,11 @@ class Cashiers extends Controller {
 
     public function pastbills() {
         $inpast = $this->cashierModel->viewbill();
+        $outpast = $this->cashierModel->viewoutbill();
         $online = $this->cashierModel->viewonlinebill();
         $data = [
-
             'inpast' => $inpast,
+            'outpast' => $outpast,
             'online' => $online
         ];
 
@@ -447,5 +448,25 @@ class Cashiers extends Controller {
             }
         }
         $this->view('users/Cashier/CashierProfileSetting',$data);
+    }
+
+    public function pastoutbillsingle($billid) {
+        $pastdata =$this->cashierModel->getpastbill($billid);
+        $patdata =$this->cashierModel->getoutpresdata($pastdata->presid);
+        $data = [
+//            'presid' => $pastdata->presid,
+            'billid'=> $pastdata->billid,
+//            'presdate' => $pastdata->presdate,
+            'patname' => $pastdata->patname,
+//            'custype' => $pastdata->customertype,
+            'subtotal' => $pastdata->subtotal,
+            'grosstotal' => $pastdata->grosstotal,
+            'discount' => $pastdata->discount,
+            'meds' => $patdata
+
+
+        ];
+        $this->view('users/Cashier/PastoutBillSingle',$data);
+
     }
 }
