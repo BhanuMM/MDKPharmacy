@@ -73,6 +73,14 @@ require APPROOT . '/views/includes/Cashierhead.php';
                         <td colspan="3" class="text-right">Gross Total</td>
                         <td ><input id="grandt"  name="grandt" type="text" readonly></td>
                     </tr>
+                <tr>
+                    <td colspan="3" class="text-right">Paid Amount</td>
+                    <td ><input id="pamount"  name="pamount" type="text" ></td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-right">Balance</td>
+                    <td ><input id="balance"  name="balance" type="text" readonly></td>
+                </tr>
                 </tbody>
             </table>
         </div> 
@@ -106,6 +114,18 @@ require APPROOT . '/views/includes/Cashierhead.php';
             grandtotal =  (parseFloat(subtotal)*(100-parseFloat(dis)))/100;
 
             $('#grandt').val( grandtotal.toFixed(2));
+        }
+
+    });
+    $(document).on("change keyup blur", "#pamount", function() {
+
+        var balance =0;
+        var pamount = $("#pamount").val();
+        var grosstotal = $("#grandt").val();
+        if(pamount !=0 && pamount > 0){
+            balance =  parseFloat(grosstotal)- parseFloat(pamount);
+
+            $('#balance').val( balance.toFixed(2));
         }
 
     });
