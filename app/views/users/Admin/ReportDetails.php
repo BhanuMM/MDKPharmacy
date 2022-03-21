@@ -14,7 +14,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                  }
                  ?>
                 </span> <br>
-                <a href="<?php echo URLROOT ?>/Admins/addreport"><button class="button button1">Create New Report +</button></a>
+                <a href="<?php echo URLROOT ?>/Reports/viewreport"><button class="button button1">Create New Report +</button></a>
                 <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> Generated Reports</h3></li>
                     <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/admins/">
