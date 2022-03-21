@@ -5,31 +5,7 @@ class Cashier {
         $this->db = new Database;
     }
 
-
-    public function viewmed() {
-
-        $this->db->query('SELECT * FROM medicine INNER JOIN fullstock ON medicine.medid=fullstock.medid');
-
-        $results = $this->db->resultSet();
-        return $results;
-
-    }
-
-    public function searchmed($medgenname)
-    {
-        $where = "WHERE `medgenname` like :medname ";
-
-        $param1 = '%' . $medgenname . '%';
-
-
-        $this->db->query("SELECT * FROM medicine INNER JOIN fullstock ON medicine.medid=fullstock.medid " . $where . " ");
-        $this->db->bind(':medname', $param1);
-
-        $results = $this->db->resultSet();
-
-
-    }
-
+    //load the latest created bill
     public function getlatestbill() {
 
         $this->db->query('SELECT MAX(billid) AS maxbill FROM bill ');
@@ -38,6 +14,8 @@ class Cashier {
         return $row;
 
     }
+
+    //View the prescriptions
     public function viewpres() {
         $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid WHERE billed != "yes" ORDER BY prescription.presid DESC');
         
@@ -51,14 +29,18 @@ class Cashier {
         return $results;
     }
 
+    public function viewonlinebill() {
+        $this->db->query('SELECT * FROM bill INNER JOIN onlineprescription ON bill.presid= onlineprescription.onlinepresid INNER JOIN onlineorder on onlineprescription.onlineorderid=onlineorder.onlineoid WHERE bill.customertype="online"');
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
     public function viewonlinepres() {
         $this->db->query('SELECT * FROM onlineprescription INNER JOIN onlineorder ON onlineprescription.onlineorderid = onlineorder.onlineoid WHERE orderstatus = "confirmed" and billed != "yes" ORDER BY onlineorder.onlineoid DESC');
 
         $results = $this->db->resultSet();
         return $results;
     }
-
-
 
     public function getprespatdata($presid) {
         $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid WHERE prescription.presid = :pid ');
@@ -97,7 +79,14 @@ class Cashier {
         $results = $this->db->resultSet();
         return $results;
     }
-
+////Search particular bill details
+//    public function searchbill($presid) {
+//        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE prescription.presid = :pid');
+//        //Bind value
+//        $this->db->bind(':telno', $telno);
+//        $results = $this->db->resultSet();
+//        return $results;
+//    }
 
     public function searchonlinebill($telno) {
         $this->db->query('SELECT * FROM onlineorder INNER JOIN onlineprescription ON onlineorder.onlineoid=onlineprescription.onlineorderid  WHERE onlineorder.onlinetelno = :telno and onlineprescription.billed != "yes" ' );
@@ -124,6 +113,7 @@ class Cashier {
     }
 
 
+
     // public function searchbill($presid) {
     //     $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE prescription.presid = :pid');
     //     //Bind value
@@ -133,7 +123,15 @@ class Cashier {
     // }
 
 
-    
+//    //Search particular bill details
+//    public function searchbill($presid) {
+//        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE prescription.presid = :pid');
+//        //Bind value
+//        $this->db->bind(':telno', $telno);
+//        $results = $this->db->resultSet();
+//        return $results;
+//    }
+
     public function findProfilebyId($psid) {
         $this->db->query('SELECT * FROM staff WHERE staffid = :proid');
 
@@ -144,6 +142,7 @@ class Cashier {
         return $row;
     }
 
+    //Save finalized bills to the database
     public function savebill($data) {
 
         $this->db->query('INSERT INTO bill (presid,billdate,billtime,subtotal,discount,grosstotal,customertype,cashierid)VALUES( :presid ,:billdate ,:billtime ,:subt , :dis,:grosst,:custype,:cashid)');
@@ -168,6 +167,8 @@ class Cashier {
         }
 
     }
+
+    //Update the prescription table
     public function updateprestable($data){
         $this->db->query('UPDATE prescription SET billed = :billed WHERE presid = :presid');
 
@@ -197,6 +198,7 @@ class Cashier {
 
     }
 
+
     public function assigndel($data){
         $this->db->query('INSERT INTO delivery (billid ,presid , delstatus) VALUES( :billid, :presid, :delstatus)');
 
@@ -217,8 +219,6 @@ class Cashier {
     
 
 
-
-
     public function updateprofilesettings($data){
         $this->db->query('UPDATE staff SET snic = :psnic, sname = :psname, semail = :psemail, uname = :psuname ,upswrd= :pswrd WHERE staffid = :psid');
 
@@ -237,5 +237,134 @@ class Cashier {
 
     }
 
+
+    /*-----------------------------------------------------------------------------------------------------------*/
+    //Load all the medicine availability details
+    public function viewmed() {
+
+        $this->db->query('SELECT * FROM medicine INNER JOIN fullstock ON medicine.medid=fullstock.medid');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
+    //Search a specific medicine
+    public function searchmed($medgenname) {
+        $where = "WHERE `medgenname` like :medname ";
+
+        $param1 = '%'.$medgenname.'%'  ;
+
+
+        $this->db->query("SELECT * FROM medicine INNER JOIN fullstock ON medicine.medid=fullstock.medid ".$where." ");
+        $this->db->bind(':medname', $param1);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
+    //Load all the medicine names
+    public function loadmed() {
+
+        $this->db->query('SELECT * FROM medicine ORDER BY medgenname ASC');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
+    public function loadmedid($genname) {
+
+        $this->db->query('SELECT * FROM medicine WHERE medgenname = :gen');
+
+        //Bind value
+        $this->db->bind(':gen', $genname);
+        $row = $this->db->single();
+        return $row;
+
+    }
+
+    //Create the outpatient bills
+    public function createoutpres($data) {
+
+        $this->db->query('INSERT INTO outprescription (prestime,presdate)VALUES(:prestime ,:presdate)');
+
+
+        //Bind values
+
+        $this->db->bind(':prestime', $data['prestime']);
+        $this->db->bind(':presdate', $data['presdate']);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public function getlatestoutpress() {
+
+        $this->db->query('SELECT MAX(outpresid) AS maxout FROM outprescription ');
+
+        $row = $this->db->single();
+        return $row;
+
+    }
+
+    //Add medicine to the outpatient bills
+    public function addtooutpressmed($data) {
+
+        $this->db->query('INSERT INTO outpresmed (presid,medid,quantity)VALUES(:presid,:medid,:medqty)');
+
+
+        //Bind values
+        $this->db->bind(':presid', $data['presid']);
+        $this->db->bind(':medid', $data['medid']);
+        $this->db->bind(':medqty', $data['medqty']);
+//        $this->db->bind(':medtime', $data['medtime']);
+//        $this->db->bind(':meddur', $data['meddur']);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+
+    public function getoutpresdata($presid) {
+        $this->db->query('SELECT * FROM outpresmed INNER JOIN medicine ON medicine.medid= outpresmed.medid  WHERE presid = :pid');
+        $this->db->bind(':pid',$presid);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
+    public function getpastoutbill($billid) {
+        $this->db->query('SELECT * FROM bill INNER JOIN outprescription ON bill.presid= outprescription.outpresid  WHERE bill.billid = :billid  ');
+        $this->db->bind(':billid',$billid);
+        $row = $this->db->single();
+        return $row;
+
+    }
+//    public function getoutpresdata($presid) {
+//        $this->db->query('SELECT * FROM outpresmed INNER JOIN medicine ON medicine.medid= outpresmed.medid  WHERE presid = :pid');
+//        $this->db->bind(':pid',$presid);
+//        $results = $this->db->resultSet();
+//        return $results;
+//    }
+
+    public function viewoutbill() {
+        $this->db->query('SELECT * FROM bill WHERE customertype = "out" ORDER BY bill.billid DESC');
+        $results = $this->db->resultSet();
+        return $results;
+    }
 
 }

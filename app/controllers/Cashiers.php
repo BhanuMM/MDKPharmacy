@@ -5,11 +5,12 @@ class Cashiers extends Controller {
         $this->cashierModel = $this->model('Cashier');
 
     }
-
+//Show cashier Dashboard
     public function cashierdashboard() {
         $this->view('users/Cashier/CashierDashboard');
     }
 
+    //Show the inpatient bills
     public function inpatientbills() {
         $pres = $this->cashierModel->viewpres();
 
@@ -31,6 +32,7 @@ class Cashiers extends Controller {
         $this->view('users/Cashier/InpatientBills',$data);
     }
 
+
     public function onlineorderbills() {
         $opres=$this->cashierModel->viewonlinepres();
 
@@ -51,6 +53,7 @@ class Cashiers extends Controller {
         }
         $this->view('users/Cashier/OnlineorderBills',$data);
     }
+
 
     public function inpatientsingle($presid) {
         $patdata =$this->cashierModel->getprespatdata($presid);
@@ -91,6 +94,7 @@ class Cashiers extends Controller {
         ];
         $this->view('users/Cashier/OnlineorderSingle',$data);
     }
+
 
 
     public function savebills() {
@@ -138,6 +142,73 @@ class Cashiers extends Controller {
     }
 
 
+   
+    //Show the outpatient bill creation window
+    public function outpatientbills() {
+
+        $med = $this->cashierModel->loadmed();
+
+        $data = [
+            'medicines' => $med,
+
+        ];
+        $this->view('users/Cashier/Outpatientbills',$data);
+    }
+
+//Show the newly created outpatient bill
+    public function outpatientsingle() {
+        $data = [
+            'genericname' => '',
+            'brandname' => '',
+            'importername' => '',
+            'dealer' => '',
+            'purchaseprice' => '',
+            'sellingprice' => '',
+            'profitmargin' => '',
+            'acslvl'=>'',
+            'nameError' => ''
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $count = count($_POST['medid']);
+            $medid =$_POST['medid'];
+            $medqty =$_POST['medqty'];
+
+
+
+
+            $data=[
+                'prestime'=>date("h:i:sa"),
+                'presdate'=>date("Y/m/d"),
+            ];
+
+            if ($this->cashierModel->createoutpres($data)){
+                $maxoutpress =$this->cashierModel->getlatestoutpress();
+                $outpressid = $maxoutpress->maxout;
+                for($i=0; $i< $count; $i++){
+                    $data=[
+                        'medid'=> $medid [$i],
+                        'medqty'=> $medqty[$i],
+                        'presid'=>$outpressid
+                    ];
+                    $this->cashierModel->addtooutpressmed($data);
+
+                }
+
+            }else {
+                die('Something went wrong.');
+            }
+
+        }
+        $this->pastoutpatientsingle($outpressid);
+        $this->view('users/Cashier/OutpatientSingle');
+    }
+
+
     public function saveonlinebills() {
         $data = [
             'billid' => '',
@@ -181,10 +252,35 @@ class Cashiers extends Controller {
                 }
             }
         }
+
     }
     // public function onlineorderbills() {
     //     $this->view('users/Cashier/OnlineorderBills');
     // }
+
+
+    public function pastoutpatientsingle($presid) {
+
+        $predata =$this->cashierModel->getoutpresdata($presid);
+        $maxbillid =$this->cashierModel->getlatestbill();
+        $data = [
+            'presid' => $presid,
+           'billid'=> $maxbillid->maxbill+1,
+//            'prestime' => $patdata->pretime,
+//            'presnote' => $patdata->specialnote,
+//            'patname' => $patdata->patname,
+//            'patage' => $diff->format('%y'),
+//            'patgen' => ucwords($patdata->patgen) ,
+            'meds'=> $predata
+//            'medgenname' => $med->medgenname,
+
+
+        ];
+
+        $this->view('users/Cashier/OutpatientSingle',$data);
+    }
+
+
 
     // public function onlineordersingle() {
     //     $this->view('users/Cashier/OnlineorderSingle');
@@ -198,26 +294,31 @@ class Cashiers extends Controller {
     //     $this->view('users/Cashier/OutpatientSingle');
     // }
 
+
     public function pastbills() {
         $inpast = $this->cashierModel->viewbill();
+        $outpast = $this->cashierModel->viewoutbill();
+        $online = $this->cashierModel->viewonlinebill();
         $data = [
-
-            'inpast' => $inpast
+            'inpast' => $inpast,
+            'outpast' => $outpast,
+            'online' => $online
         ];
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //Sanitize post data
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //     //Sanitize post data
+        //     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
-            $datainpast = trim($_POST['UISearchbar']);
-            $searchinpast = $this->cashierModel-> searchpastbill($datainpast);
+        //     $datainpast = trim($_POST['UISearchbar']);
+        //     $searchinpast = $this->cashierModel-> searchpastbill($datainpast);
 
-            $data = [
-                'inpast' => $searchinpast
-            ];
-        }
+        //     $data = [
+        //         'inpast' => $searchinpast
+        //     ];
+        // }
         $this->view('users/Cashier/PastBills',$data);
     }
+
 
     public function pastbillsingle($billid) {
         $pastdata =$this->cashierModel->getpastbill($billid);
@@ -236,8 +337,10 @@ class Cashiers extends Controller {
 
         ];
         $this->view('users/Cashier/PastBillSingle',$data);
+
     }
 
+    //Check the availability details of the medicines
     public function medicineavailability() {
         $allmedicines = $this->cashierModel->viewmed();
 
@@ -260,6 +363,7 @@ class Cashiers extends Controller {
         $this->view('users/Cashier/MedicineAvailability',$data);
     }
 
+    //Show the profile settings
     public function profilesettings($psid){
 
         $profile = $this->cashierModel->findProfilebyId($psid);
@@ -345,5 +449,25 @@ class Cashiers extends Controller {
             }
         }
         $this->view('users/Cashier/CashierProfileSetting',$data);
+    }
+
+    public function pastoutbillsingle($billid) {
+        $pastdata =$this->cashierModel->getpastbill($billid);
+        $patdata =$this->cashierModel->getoutpresdata($pastdata->presid);
+        $data = [
+//            'presid' => $pastdata->presid,
+            'billid'=> $pastdata->billid,
+//            'presdate' => $pastdata->presdate,
+            'patname' => $pastdata->patname,
+//            'custype' => $pastdata->customertype,
+            'subtotal' => $pastdata->subtotal,
+            'grosstotal' => $pastdata->grosstotal,
+            'discount' => $pastdata->discount,
+            'meds' => $patdata
+
+
+        ];
+        $this->view('users/Cashier/PastoutBillSingle',$data);
+
     }
 }
