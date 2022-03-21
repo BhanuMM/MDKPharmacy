@@ -29,29 +29,22 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                 
                 <table id="customers">
                     <tr>
-                      <th>Prescription ID</th>
-                      <th>Patient Name</th>
+                      <th>Pres ID</th>
+                      <th>Customer Name</th>
+                      <th>Telephone</th>
                       <th>Address</th>
-                      <th>View</th>
+                      <th>View<th>
                     </tr>
+                    <?php foreach($data['del'] as $alldel): ?>
+
                     <tr>
-                      <td>Pr012</td>
-                      <td>G.N.S.Perera</td>
-                      <td>123, Colombo Rd, Horana.</td>
-                      <td><a href="<?php echo URLROOT ?>/deliverys/viewcurrentsingle"><button class="button button1">View</button></a></td>
-                    </tr>
-                    <tr>
-                      <td>Pr014</td>
-                      <td>K.N.S.Silva</td>
-                      <td>114, Ingiriya Rd, Horana.</td>
-                      <td><a href="<?php echo URLROOT ?>/deliverys/viewcurrentsingle"><button class="button button1">View</button></a></td>
-                    </tr>
-                    <tr>
-                      <td>Pr015</td>
-                      <td>J.N.S.Peiris</td>
-                      <td>89, Kalutara Rd, Horana.</td>
-                        <td><a href="<?php echo URLROOT ?>/deliverys/viewcurrentsingle"><button class="button button1">View</button></a></td>
-                    </tr>
+                    <td><?php echo $alldel->presid ?></td>
+                    <td><?php echo $alldel->onlinefname ?></td>
+                    <td><?php echo $alldel->onlinetelno ?></td>
+                    <td><?php echo $alldel->onlineadrs ?></td>
+                    <td><button class="button button1"><a href="<?php echo URLROOT. "/deliverys/viewcurrentsingle/".$alldel->presid ?>"> VIEW BILL</a></button></td>
+            </tr>
+        <?php endforeach; ?>
                   </table>
 
             </div>

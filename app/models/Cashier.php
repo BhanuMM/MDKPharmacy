@@ -114,6 +114,15 @@ class Cashier {
 
 
 
+    // public function searchbill($presid) {
+    //     $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE prescription.presid = :pid');
+    //     //Bind value
+    //     $this->db->bind(':telno', $telno);
+    //     $results = $this->db->resultSet();
+    //     return $results;
+    // }
+
+
 //    //Search particular bill details
 //    public function searchbill($presid) {
 //        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE prescription.presid = :pid');
@@ -174,6 +183,7 @@ class Cashier {
 
     }
 
+
     public function updateonlineprestable($data){
         $this->db->query('UPDATE onlineprescription SET billed = :billed WHERE onlinepresid = :opresid');
 
@@ -187,6 +197,26 @@ class Cashier {
         }
 
     }
+
+
+    public function assigndel($data){
+        $this->db->query('INSERT INTO delivery (billid ,presid , delstatus) VALUES( :billid, :presid, :delstatus)');
+
+       
+        $this->db->bind(':billid', $data['billid']);
+        $this->db->bind(':presid', $data['presid']);
+        $this->db->bind(':delstatus', $data['status']);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+        
+        }
+
+    
 
 
     public function updateprofilesettings($data){

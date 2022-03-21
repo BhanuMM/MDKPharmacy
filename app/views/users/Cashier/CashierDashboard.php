@@ -19,13 +19,13 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
                 <div class="row">
 
-                <!-- MDK Patient Prescriptions     -->
-
+                <!-- MDK Patient Prescriptions -->
+    
                 <div class="column">
                         <div class="fn-card">
                             <div class="welcome">
                                 <img src="<?php echo URLROOT ?>/public/images/user-icon.png" /><br><br>
-                                <div class="fn-names">
+                                <div class= "fn-names">
                                     Inpatient Bills
                                 </div><br><br>
                             </div>

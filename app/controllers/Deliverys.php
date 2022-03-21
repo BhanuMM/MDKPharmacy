@@ -1,7 +1,7 @@
 <?php
 class Deliverys extends Controller {
     public function __construct() {
-//        $this->pharmacistModel = $this->model('Pharmacist');
+       $this->deliveryModel = $this->model('Delivery');
     }
 
     public function deliverydashboard() {
@@ -9,14 +9,113 @@ class Deliverys extends Controller {
     }
 
     public function viewcurrentdeliveries() {
-        $this->view('users/Delivery/CurrentDeliveries');
+
+        $del = $this->deliveryModel->viewdelivery();
+
+        $data = [
+            'del' => $del
+        ];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $delbill = trim($_POST['UISearchbar']);
+            $searchdelbill = $this->deliveryModel-> searchdelbill($delbill);
+
+            $data = [
+                'del' => $searchdelbill
+            ];
+        }
+
+
+
+        $this->view('users/Delivery/CurrentDeliveries', $data);
     }
 
-    public function viewcurrentsingle() {
-        $this->view('users/Delivery/CurrentSingleDelivery');
+    // public function viewpastdeliveries() {
+
+    //     $pastdel = $this->deliveryModel->viewpastdelivery();
+
+    //     $data = [
+    //         'pastdel' => $pastdel
+    //     ];
+    //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //         //Sanitize post data
+    //         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+    //         $delbill = trim($_POST['UISearchbar']);
+    //         $searchdelbill = $this->deliveryModel-> searchdelbill($delbill);
+
+    //         $data = [
+    //             'pastdel' => $searchdelbill
+    //         ];
+    //     }
+
+
+
+    //     $this->view('users/Delivery/PastDeliveries', $data);
+    // }
+
+
+    public function viewcurrentsingle($delpresid) {
+        $delcustdata =$this->deliveryModel->getdelcustdata($delpresid);
+        $delpresdata =$this->deliveryModel->getdelpresdata($delpresid);
+        $billdata = $this->deliveryModel->getbilldata($delpresid);
+       
+        //-
+        $data = [
+            'presid' => $delcustdata->presid,
+            'billid'=> $delcustdata->billid,
+            'billdate' => $delcustdata->billdate,
+            'custname' => $delcustdata->onlinefname,
+            'custtelno' => $delcustdata->onlinetelno,
+            'custadrs' => $delcustdata->onlineadrs,
+            'subtot' => $billdata->subtotal,
+            'disc' => $billdata->discount,
+            'grosstot'=> $billdata->grosstotal,
+            'meds'=> $delpresdata
+//            'medgenname' => $med->medgenname,
+
+        ];
+        
+        $this->view('users/Delivery/CurrentSingleDelivery', $data);
     }
+
+    public function confirmdelivery() {
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+     {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+
+        $data = [
+        'presid' => $_POST['presid'],
+        'deldate' => date("Y/m/d"),
+        'deltime' => date("h:i:sa"),
+        'delstatus'=> "completed"
+        ];
+        if (!empty($data['presid'])) {
+
+            if ($this->deliveryModel->confirmdel($data) ) {
+                //Redirect to the viewtable page
+                $recadded = 'Delivery is confirmed';
+                header('location: ' . URLROOT . '/deliverys/deliverydashboard?msg='.$recadded);
+            } else {
+                die('Something went wrong.');
+            }
+        }
+
+    
+    // $this->view('users/Delivery/DeliverDashboard', $data);
+}
+    }
+
+
+
 
     public function viewpastdeliveries() {
+
+
         $this->view('users/Delivery/PastDeliveries');
     }
 
