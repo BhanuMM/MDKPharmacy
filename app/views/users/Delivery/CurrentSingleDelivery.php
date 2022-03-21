@@ -7,15 +7,7 @@ require APPROOT . '/views/includes/Deliveryhead.php';
 
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
 <div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: ">
-                <ul style="margin-top: 5%; padding-left: 0px; list-style-type: none; overflow: auto;">
-                    <li Style="float: left; vertical-align: middle; display: inline;"><h3>Delivery Details</h3></li>
-                    <li Style="float: right; padding-left: 1%; vertical-align: middle; display: inline;"><button class="button button1">Confirm</button></li>
-                </ul>
-
-                <ul><li style="list-style: none;"><h4>Date:</h4></li>
-                    <li style="list-style: none;"><h4>Delivery ID:</h4></li>
-                    <li style="list-style: none;"><h4>Address:</h4></li>
-                </ul>
+                
                <p></p>
               </div>
                 
@@ -38,54 +30,96 @@ require APPROOT . '/views/includes/Deliveryhead.php';
         <div class="bill-body">
             <div class="bill-row">
                 <div class="bill-col">
-                    	<h2>Prescription No: </h2>
-                    	<p>Bill No: </p>
-                    	<p>Order Date: </p>
-			            <p>Patient Type: </p>
-                    	<p>Patient Name:  </p>
+
+                        <h2>Bill No: <?php echo $data['billid']?></h2>
+                        <p>Prescription No: <?php echo $data['presid']?></p>
+                        <p>Date: <?php echo $data['billdate']?> </p>
+                        <p>Customer Name: <?php echo $data['custname']?> </p>
+                        <p>Customer's Contact Number: <?php echo $data['custtelno']?> </p>
+                        <p>Customer's Address: <?php echo $data['custadrs']?> </p>
                 </div>
          	<div></div>
             </div>
         </div>
 
         <div class="bill-body">
-            <h3>Ordered Items</h3>
+        <h3>Ordered Items</h3>
+            <!-- <form method="post" class="data"  action="<?php echo URLROOT; ?>/deliverys/deliverydashboard"> -->
             <br>
-            <table class="table-bordered">
+            <table class="table-bordered" id="tableData">
                 <thead>
                     <tr>
                         <th>Medicine</th>
-                        <th class="table-field">Price</th>
+                        <th class="table-field">Unit Price</th>
                         <th class="table-field">Quantity</th>
                         <th class="table-field">Total</th>
                     </tr>
                 </thead>
+               
                 <tbody>
+                <?php foreach($data['meds'] as $allmeds): ?>
+                    <tr class="item">
+                        <td><?php echo $allmeds->medgenname ?></td>
+                        <td class="sellp"><?php echo $allmeds->medsellprice ?></td>
+                         <td class="sellq"><?php echo $allmeds->dosage ?></td>
+                        <td class="price"></td>
+                    </tr>
+                <?php endforeach; ?>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td colspan="3" class="text-right">Sub Total </td>
+                        <td><?php echo $data['subtot']?></td>
                     </tr>
                     <tr>
-                        <td colspan="3" class="text-right">Sub Total</td>
-                        <td></td>
+                    <td colspan="3"     class="text-right">Discount (%)</td>
+                    <td><?php echo $data['disc']?></td>
                     </tr>
                     <tr>
-                        <td colspan="3" class="text-right">Discount</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="text-right">Gross Total</td>
-                        <td></td>
+                    <td colspan="3" class="text-right">Gross Total</td>
+                    <td><?php echo $data['grosstot']?></td>
                     </tr>
                 </tbody>
             </table>
-        </div>      
+        </div> <br><br>
+        <!-- <form> -->
+        
+        <!-- <a href="<?php echo URLROOT ?>/Deliverys/confirmdel"><button class="form-submit">Confirm Delivery</button> </a>  -->
+        
+        <form method="post" class="data"  action="<?php echo URLROOT; ?>/deliverys/confirmdelivery">
+
+             <input class="input1" type="text" id="presid" name="presid" value="<?php echo $data['presid'] ?>"  hidden>
+
+             <button class="form-submit">Confirm Delivery</button> </a>  
+        </form>    
+        <br><br><br>
     </div>
     
     </div>
-            
+           
+    
+<script>
+    $(document).ready(function() {
+        var subtotal = 0;
+        $('.item').each(function() {
+            var qty = $(this).find('.sellq').text();
+            var price = $(this).find('.sellp').text();
+            var total = parseFloat(qty) * parseFloat(price);
+            $(this).find('.price').text(total.toFixed(2));
+            if(!isNaN(total))
+                subtotal +=total;
+        });
+        $("#subtot").val(subtotal.toFixed(2));
+        $('#grandt').val(subtotal.toFixed(2));
+
+
+
+    });
+   
+
+
+
+
+</script> 
+
 
     </body>
 </html>

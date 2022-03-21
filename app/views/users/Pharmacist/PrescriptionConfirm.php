@@ -45,9 +45,11 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
         <br><br>
         
                         
-                         <a style="background-color: #4BB543; ; color:white; padding:8px 30px; text-decoration: none; border-radius: 8px;" href="<?php echo URLROOT. "/pharmacists/onlineorderprepare/".$data['orderid']?>"> Confirm </a>
+                         <a style="background-color: #d11a2a;; ; color:white; padding:8px 30px; text-decoration: none; margin-right:30px; border-radius: 8px;" href="<?php echo URLROOT. "/pharmacists/rejectorder/".$data['orderid']?>"> Reject  </a>
                         
-                         <a style="background-color: #d11a2a;; ; color:white; padding:8px 38px; text-decoration: none; margin-left:30px; border-radius: 8px;" href="<?php echo URLROOT. "/pharmacists/rejectorder/".$data['orderid'] ?>"> Reject </a>
+                         <a style="background-color: #4BB543; ; color:white; padding:8px 30px; text-decoration: none; border-radius: 8px;" href="<?php echo URLROOT. "/pharmacists/onlineorderprepare/".$data['orderid'] ?>"> Confirm </a>
+
+                        
                    
           
     </div> 

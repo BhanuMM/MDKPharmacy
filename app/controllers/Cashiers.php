@@ -166,12 +166,13 @@ class Cashiers extends Controller {
                 'grosstotal' => trim($_POST['grandt']),
                 'custype'=>$_POST['custype'],
                 'cashierid' => $_POST['cashierid'],
-                'billed' => "yes"
+                'billed' => "yes",
+                'status' => "pending"
             ];
             // Make sure that errors are empty
             if (!empty($data['billid'])) {
 
-                if ($this->cashierModel->savebill($data) && $this->cashierModel->updateonlineprestable($data) ) {
+                if ($this->cashierModel->savebill($data) && $this->cashierModel->updateonlineprestable($data) && $this->cashierModel->assigndel($data) ) {
                     //Redirect to the viewtable page
                     $recadded = 'Bill has been Saved';
                     header('location: ' . URLROOT . '/cashiers/onlineorderbills?msg='.$recadded);

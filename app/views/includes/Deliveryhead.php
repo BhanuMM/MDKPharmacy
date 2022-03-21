@@ -66,3 +66,4 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="delivery")){
     </ul>
 </div>
 <script src="<?php echo URLROOT ?>/public/js/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
