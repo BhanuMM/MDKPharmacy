@@ -24,13 +24,15 @@ class Cashier {
     }
 
     public function viewbill() {
-        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid ');
+//        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid ');
+        $this->db->query('SELECT * FROM bill WHERE customertype = "in" ORDER BY bill.billid DESC');
         $results = $this->db->resultSet();
         return $results;
     }
 
     public function viewonlinebill() {
-        $this->db->query('SELECT * FROM bill INNER JOIN onlineprescription ON bill.presid= onlineprescription.onlinepresid INNER JOIN onlineorder on onlineprescription.onlineorderid=onlineorder.onlineoid WHERE bill.customertype="online"');
+//        $this->db->query('SELECT * FROM bill INNER JOIN onlineprescription ON bill.presid= onlineprescription.onlinepresid INNER JOIN onlineorder on onlineprescription.onlineorderid=onlineorder.onlineoid WHERE bill.customertype="online"');
+        $this->db->query('SELECT * FROM bill WHERE customertype = "online" ORDER BY bill.billid DESC');
         $results = $this->db->resultSet();
         return $results;
     }
@@ -145,7 +147,7 @@ class Cashier {
     //Save finalized bills to the database
     public function savebill($data) {
 
-        $this->db->query('INSERT INTO bill (presid,billdate,billtime,subtotal,discount,grosstotal,customertype,cashierid)VALUES( :presid ,:billdate ,:billtime ,:subt , :dis,:grosst,:custype,:cashid)');
+        $this->db->query('INSERT INTO bill (presid,billdate,billtime,subtotal,discount,grosstotal,payment,balance,customertype,cashierid)VALUES( :presid ,:billdate ,:billtime ,:subt , :dis,:grosst,:pamount,:balance,:custype,:cashid)');
 
 
         //Bind values
@@ -156,6 +158,8 @@ class Cashier {
         $this->db->bind(':subt', $data['subtotal']);
         $this->db->bind(':dis', $data['discount']);
         $this->db->bind(':grosst', $data['grosstotal']);
+        $this->db->bind(':pamount', $data['payment']);
+        $this->db->bind(':balance', $data['balance']);
         $this->db->bind(':custype', $data['custype']);
         $this->db->bind(':cashid', $data['cashierid']);
 

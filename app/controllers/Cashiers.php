@@ -106,6 +106,8 @@ class Cashiers extends Controller {
             'subtotal' => '',
             'discount' => '',
             'grosstotal' => '',
+            'payment' => '',
+            'balance' => '',
             'custype'=>'',
             'cashierid' => ''
         ];
@@ -123,6 +125,8 @@ class Cashiers extends Controller {
                 'subtotal' => trim($_POST['subtot']),
                 'discount' => trim($_POST['dis']),
                 'grosstotal' => trim($_POST['grandt']),
+                'payment' => trim($_POST['pamount']),
+                'balance' => trim($_POST['balance']),
                 'custype'=>$_POST['custype'],
                 'cashierid' => $_POST['cashierid'],
                 'billed' => "yes"
@@ -182,7 +186,7 @@ class Cashiers extends Controller {
 
 
             $data=[
-                'prestime'=>date("h:i:sa"),
+                'prestime'=>date("h:i:s"),
                 'presdate'=>date("Y/m/d"),
             ];
 
@@ -331,6 +335,8 @@ class Cashiers extends Controller {
             'custype' => $pastdata->customertype,
             'subtotal' => $pastdata->subtotal,
             'grosstotal' => $pastdata->grosstotal,
+            'payment' => $pastdata->payment,
+            'balance' => $pastdata->balance,
             'discount' => $pastdata->discount,
             'meds' => $patdata
 
@@ -462,7 +468,10 @@ class Cashiers extends Controller {
 //            'custype' => $pastdata->customertype,
             'subtotal' => $pastdata->subtotal,
             'grosstotal' => $pastdata->grosstotal,
+            'payment' => $pastdata->payment,
+            'balance' => $pastdata->balance,
             'discount' => $pastdata->discount,
+
             'meds' => $patdata
 
 
