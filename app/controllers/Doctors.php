@@ -64,61 +64,92 @@ class Doctors extends Controller {
     public function createprescription()
     {
         $data=[
-            'id'=>'',
-            'nic'=>'',
-            'name'=>'',
-            'dob'=>'',
-            'tel'=>''
+            'pat' =>(array) null ,
+            'child' =>(array) null
+
         ];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($_POST['btnid'])) {
                //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            $datanic = trim($_POST['UISearchbar']);
+            $datanic = trim($_POST['patnic']);
             $searchpatient = $this->doctorModel->searchnic($datanic);
 
             if ($searchpatient) {
                 $data=[
-                    'id'=>$searchpatient->patid,
-                    'nic'=>$searchpatient->patnic,
-                    'name'=>$searchpatient->patname,
-                    'dob'=>$searchpatient->patdob,
-                    'tel'=>$searchpatient->pattelno
+                    'pat' => $searchpatient,
+                    'child' =>(array) null
                 ];
             }
             else{
                 $data=[
-                    'id'=>'',
-                    'nic'=>'',
-                    'name'=>'',
-                    'dob'=>'',
-                    'tel'=>'',
+                    'pat' =>$searchpatient,
+                    'child' =>(array) null,
                     'nofound' => 'No Record Found'
                 ];
             }
-              } else {
+              } 
+            
+            
+              elseif (isset($_POST['btnname'])) {
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    
-            $dataname = trim($_POST['UISearchbar1']);
+            $dataname = trim($_POST['patname']);
             $searchpatient = $this->doctorModel->searchpatientname($dataname);
     
             if ($searchpatient) {
                 $data=[
-                    'id'=>$searchpatient->patid,
-                    'nic'=>$searchpatient->patnic,
-                    'name'=>$searchpatient->patname,
-                    'dob'=>$searchpatient->patdob,
-                    'tel'=>$searchpatient->pattelno
+                    'pat' =>$searchpatient,
+                    'child' =>(array) null
+
                 ];
             }
             else{
                 $data=[
-                    'id'=>'',
-                    'nic'=>'',
-                    'name'=>'',
-                    'dob'=>'',
-                    'tel'=>'',
+                    'pat' => $searchpatient,
+                    'child' =>(array) null,
+                    'nofound' => 'No Record Found'
+                ];
+            }
+              }
+
+              elseif (isset($_POST['btncname'])) {
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+            $dataname = trim($_POST['childname']);
+            $searchchild = $this->doctorModel->searchchildname($dataname);
+    
+            if ($searchchild) {
+                $data=[
+                    'child' => $searchchild,
+                    'pat' =>(array) null
+                ];
+            }
+            else{
+                $data=[
+                    'child' => $searchchild,
+                    'pat' =>(array) null,
+                    'nofound' => 'No Record Found'
+                ];
+            }
+              }
+
+              elseif (isset($_POST['btngnic'])) {
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+            $dataname = trim($_POST['guardiannic']);
+            $searchchild = $this->doctorModel->searchguardiannic($dataname);
+    
+            if ($searchchild) {
+                $data=[
+                    'child' => $searchchild,
+                    'pat' =>(array) null
+                ];
+            }
+            else{
+                $data=[
+                    'child' => $searchchild,
+                    'pat' =>(array) null,
                     'nofound' => 'No Record Found'
                 ];
             }

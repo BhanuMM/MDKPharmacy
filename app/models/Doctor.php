@@ -28,10 +28,29 @@ class Doctor {
         $param1 = '%'.$patname.'%'  ;
         $this->db->query("SELECT * FROM patient ".$where."");
         $this->db->bind(':patname', $param1);
-        $row = $this->db->single();
-        return $row;
+        $results = $this->db->resultSet();
+        return $results;
 
     }
+
+    public function searchchildname($fullname) {
+        $where = "WHERE `fullname` like :fullname ";
+        $param1 = '%'.$fullname.'%'  ;
+        $this->db->query("SELECT * FROM childelder INNER JOIN patient ON childelder.guardianid=patient.patid ".$where."");
+        $this->db->bind(':fullname', $param1);
+        $results = $this->db->resultSet();
+        return $results;
+    
+    }
+
+    public function searchguardiannic($patnic) {
+        $this->db->query('SELECT * FROM childelder INNER JOIN patient ON childelder.guardianid=patient.patid WHERE patient.patnic= :patnic');
+        //Bind value
+        $this->db->bind(':patnic', $patnic);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
 
     public function searchpatientbyId($id) {
         $this->db->query('SELECT * FROM patient WHERE patid = :patientid');
