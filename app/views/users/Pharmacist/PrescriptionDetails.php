@@ -41,7 +41,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
             <?php foreach($data['pres'] as $allpres): ?>
                 <tr>
                     <td><?php echo $allpres->presid ?></td>
-                    <td><?php echo $allpres->patname ?></td>
+                    <td><?php if (($allpres->pattype)=="adult") {echo $allpres->patname;} else {echo  $allpres->fullname. "(18-)";} ?></td>
                     <td><?php echo $allpres->patnic ?></td>
                     <td><?php echo $allpres->pretime ?></td>
                     <td><?php echo $allpres->presdate ?></td>

@@ -27,8 +27,8 @@ require APPROOT . '/views/includes/Doctorhead.php';
             <tr>
                 <th>Gender: </th>
                 <td><?php echo $data['gender'] ?></td>
-                <th>Tel No:  </th>
-                <td><?php echo $data['tel'] ?></td>
+                <th>  </th>
+                <td></td>
             </tr>
         </table>
     </div>
@@ -108,9 +108,10 @@ require APPROOT . '/views/includes/Doctorhead.php';
                         </thead>
                         <tbody>
 
-                        <input class="input1" type="text" id="patid" name="patid" value="<?php echo $data['id'] ?>"  hidden>
+                        <input class="input1" type="text" id="childid" name="childid" value="<?php echo $data['id'] ?>"  hidden>
+                        <input class="input1" type="text" id="patid" name="patid" value="<?php echo $data['guardid'] ?>"  hidden>
                         <input class="input1" type="text" id="docid" name="docid" value="<?php echo $_SESSION['user_id'] ?>" hidden >
-                        <input class="input1" type="text" id="pattype" name="pattype" value="adult" hidden >
+                        <input class="input1" type="text" id="pattype" name="pattype" value="child" hidden >
 
 
                         </tbody>

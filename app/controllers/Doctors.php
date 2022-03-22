@@ -180,48 +180,30 @@ class Doctors extends Controller {
             'gender'=>$pat->patgen
 
         ];
-//        echo json_encode($data);
-//        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//          if(isset($_POST["search"])){
-//              $med = $this->doctorModel->loadmed();
-//              $data = [
-//                  'medicines' => $med,
-////                  'medid' => $med->medid,
-////                  'genericname' => $med->medgenname,
-//                  'id'=>$pat->patid,
-//                  'nic'=>$pat->patnic,
-//                  'name'=>$pat->patname,
-//                  'dob'=>$pat->patdob,
-//                  'tel'=>$pat->pattelno,
-//                  'gender'=>$pat->patgen
 //
-//              ];
-////              echo json_encode($patdata);
-//              $this->view('users/Doctor/AddPrescription',$data);
-//          }
-//
-//        }
-
-//        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//            if(isset($_POST["search"])){
-//
-//                $medid = $this->doctorModel->loadmedid($_POST['generic']);
-//                $patdata = [
-//                    'medicines' => $med,
-//                    'medid' => $medid->medid,
-//                    'genericname' => $medid->medgenname,
-//                    'id'=>$pat->patid,
-//                    'nic'=>$pat->patnic,
-//                    'name'=>$pat->patname,
-//                    'dob'=>$pat->patdob,
-//                    'tel'=>$pat->pattelno,
-//                    'gender'=>$pat->patgen
-//
-//                ];
-//                $this->view('users/Doctor/AddPrescription',$patdata);
-//            }
-//        }
         $this->view('users/Doctor/AddPrescription',$data);
+    }
+    public function addchildprescription($childid) {
+        $pat = $this->doctorModel->searchchildbyId($childid);
+
+        $med = $this->doctorModel->loadmed();
+        $dob =$pat->childelderdob;
+        $today = date("Y-m-d");
+        $diff = date_diff(date_create($dob), date_create($today));
+        $data = [
+            'medicines' => $med,
+//            'medid' => $med->medid,
+//            'medgenname' => $med->medgenname,
+            'id'=>$pat->childelderid,
+            'guardid'=>$pat->guardianid,
+            'name'=>$pat->fullname,
+            'dob'=>$diff->format('%y'),
+            'tel'=>'',
+            'gender'=>$pat->childeldergen
+
+        ];
+//
+        $this->view('users/Doctor/AddChildPrescription',$data);
     }
 
     public function viewprescriptions() {
@@ -253,6 +235,7 @@ class Doctors extends Controller {
             $data=[
                 'patid'=>$_POST['patid'],
                 'docid' => $_POST['docid'],
+                'pattype' => $_POST['pattype'],
                 'prestime'=>date("h:i:sa"),
                 'presdate'=>date("Y/m/d"),
                 'specialnote'=>$_POST['specialnote'],
@@ -261,6 +244,14 @@ class Doctors extends Controller {
 
             if ($this->doctorModel->createpres($data)){
                 $maxpres =$this->doctorModel->getlatestpres();
+                if ($data['pattype']=='child'){
+                    $data=[
+                        'childid' =>$_POST['childid'],
+                        'patid'=>$_POST['patid'],
+                        'presid'  =>$maxpres->maxpres
+                    ];
+                    $this->doctorModel->addtochildpres($data);
+                }
                 $presid = $maxpres->maxpres;
                 for($i=0; $i< $count; $i++){
                     $data=[

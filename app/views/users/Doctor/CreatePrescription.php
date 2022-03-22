@@ -108,7 +108,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                       <td><?php echo $allchild->patnic; ?></td>
                       <td><?php echo $allchild->fullname; ?></td>
                       <td><?php echo $allchild->childelderdob; ?></td>
-                      <td><a href="<?php echo URLROOT. "/doctors/addprescription/".$allchild->childelderid ?>"><button class="button button1" >Create Prescription</button></a></td>
+                      <td><a href="<?php echo URLROOT. "/doctors/addchildprescription/".$allchild->childelderid ?>"><button class="button button1" >Create Prescription</button></a></td>
                     </tr>
                     <?php endforeach; ?>
 
