@@ -31,25 +31,25 @@ require APPROOT . '/views/includes/Cashierhead.php';
 <!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
   <table id="customers">
-    <tr>
-      <th>Bill ID</th>
-      <th>Prescription ID</th>
-      <th>Patient Name</th>
-      <th>Patient NIC</th>
-      <th>Bill Date</th>
-      <th>View</th>
-    </tr>
-    <?php foreach($data['inpast'] as $inpast): ?>
+        <tr>
+            <th>Bill ID</th>
+            <!--                <th>Prescription ID</th>-->
+            <!--                <th>Patient Name</th>-->
+            <th>Bill Date</th>
+            <th>Chashier ID</th>
+            <th>View</th>
+        </tr>
+        <?php foreach($data['inpast'] as $inpast): ?>
 
-<tr>
-      <td><?php echo $inpast->billid; ?></td>
-     <td><?php echo $inpast->presid; ?></td>
-     <td><?php echo $inpast->patname; ?></td>
-     <td><?php echo $inpast->patnic; ?></td>
-     <td><?php echo $inpast->presdate; ?></td>
-     <td><button class="button button1"><a href="<?php echo URLROOT. "/cashiers/pastbillsingle/".$inpast->billid ?>"> VIEW BILL</a></button></td>     
-</tr>   
-<?php endforeach; ?>
+            <tr>
+                <td><?php echo $inpast->billid; ?></td>
+                <td><?php echo $inpast->billdate; ?></td>
+                <td><?php echo $inpast->cashierid; ?></td>
+                <!--                    <td>--><?php //echo $inpast->patnic; ?><!--</td>-->
+                <!--                    <td>--><?php //echo $inpast->presdate; ?><!--</td>-->
+                <td><button class="button button1"><a href="<?php echo URLROOT. "/cashiers/pastbillsingle/".$inpast->billid ?>"> VIEW BILL</a></button></td>
+            </tr>
+        <?php endforeach; ?>
 </table> 
 </p>
 </div>
@@ -86,25 +86,24 @@ require APPROOT . '/views/includes/Cashierhead.php';
 <!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
   <table id="customers">
-  <tr>
-    <th>Bill ID</th>
-    <th>Prescription ID</th>
-    <th>Patient Name</th>
-    <th>Patient Telephone Number</th>
-    <th>Date</th>
-    <th>View</th>
-  </tr>
-  <?php foreach($data['online'] as $online): ?>
+        <tr>
+            <th>Bill ID</th>
+            <th>Bill Date</th>
+            <th>Cashier ID</th>
+            <!--                <th>Date</th>-->
+            <th>View</th>
+        </tr>
+        <?php foreach($data['online'] as $online): ?>
 
-<tr>
-    <td><?php echo $online->billid; ?></td>
-     <td><?php echo $online->presid; ?></td>
-     <td><?php echo $online->onlinefname; ?></td>
-     <td><?php echo $online->onlinetelno; ?></td>
-     <td><?php echo $online->presdate; ?></td>
-     <td><button class="button button1"><a href="<?php echo URLROOT. "/cashiers/pastbillsingle/".$online->billid ?>"> VIEW BILL</a></button></td>     
-</tr>   
-<?php endforeach; ?>
+            <tr>
+                <td><?php echo $online->billid; ?></td>
+                <td><?php echo $online->billdate; ?></td>
+                <td><?php echo $online->cashierid; ?></td>
+                <!--                    <td>--><?php //echo $online->onlinetelno; ?><!--</td>-->
+                <!--                    <td>--><?php //echo $online->presdate; ?><!--</td>-->
+                <td><button class="button button1"><a href="<?php echo URLROOT. "/cashiers/pastbillsingle/".$online->billid ?>"> VIEW BILL</a></button></td>
+            </tr>
+        <?php endforeach; ?>
 </table> 
 </p>
 </div>

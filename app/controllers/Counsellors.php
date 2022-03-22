@@ -160,6 +160,8 @@ class Counsellors extends Controller {
             'custype' => $pastdata->customertype,
             'subtotal' => $pastdata->subtotal,
             'grosstotal' => $pastdata->grosstotal,
+            'payment' => $pastdata->payment,
+            'balance' => $pastdata->balance,
             'discount' => $pastdata->discount,
             'meds' => $patdata
 
@@ -180,6 +182,8 @@ class Counsellors extends Controller {
 //            'custype' => $pastdata->customertype,
             'subtotal' => $pastdata->subtotal,
             'grosstotal' => $pastdata->grosstotal,
+            'payment' => $pastdata->payment,
+            'balance' => $pastdata->balance,
             'discount' => $pastdata->discount,
             'meds' => $patdata
 
