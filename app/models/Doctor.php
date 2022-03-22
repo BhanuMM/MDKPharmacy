@@ -60,7 +60,14 @@ class Doctor {
         $row = $this->db->single();
         return $row;
     }
+    public function searchchildbyId($id) {
+        $this->db->query('SELECT * FROM childelder INNER JOIN patient on patient.patid= childelder.guardianid  WHERE childelderid = :cid');
 
+        //Bind value
+        $this->db->bind(':cid', $id);
+        $row = $this->db->single();
+        return $row;
+    }
     public function viewmed() {
 
         $this->db->query('SELECT * FROM medicine INNER JOIN fullstock ON medicine.medid=fullstock.medid');
@@ -107,7 +114,7 @@ class Doctor {
     }
     public function createpres($data) {
 
-        $this->db->query('INSERT INTO prescription (patid,docid,pretime,presdate,specialnote,billed)VALUES( :pat ,:doc ,:prestime ,:presdate , :note,:billed)');
+        $this->db->query('INSERT INTO prescription (patid,docid,pretime,presdate,specialnote,billed,pattype)VALUES( :pat ,:doc ,:prestime ,:presdate , :note,:billed,:ptype)');
 
 
         //Bind values
@@ -118,6 +125,7 @@ class Doctor {
         $this->db->bind(':presdate', $data['presdate']);
         $this->db->bind(':note', $data['specialnote']);
         $this->db->bind(':billed', $data['billed']);
+        $this->db->bind(':ptype', $data['pattype']);
 
         //Execute function
         if ($this->db->execute()) {
@@ -139,6 +147,24 @@ class Doctor {
         $this->db->bind(':meddose', $data['meddose']);
         $this->db->bind(':medtime', $data['medtime']);
         $this->db->bind(':meddur', $data['meddur']);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    public function addtochildpres($data) {
+
+        $this->db->query('INSERT INTO childpres (presid,patid,childid)VALUES(:presid,:patid,:cid)');
+
+
+        //Bind values
+        $this->db->bind(':presid', $data['presid']);
+        $this->db->bind(':patid', $data['patid']);
+        $this->db->bind(':cid', $data['childid']);
 
         //Execute function
         if ($this->db->execute()) {
