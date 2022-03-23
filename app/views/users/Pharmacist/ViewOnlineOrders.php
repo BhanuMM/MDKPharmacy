@@ -81,13 +81,15 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                       <th>Order ID</th>
                       <th>Patient Name</th>
                       <th>Telephone Number</th>
-                      <th>View</th>
+                      <th>Reason</th>
                     </tr>
                     <?php foreach($data['rejectedorders'] as $allrejorders): ?>
                         <tr>
                             <td><?php echo $allrejorders->onlineoid ?></td>
                             <td><?php echo $allrejorders->onlinefname ?></td>
                             <td><?php echo $allrejorders->onlinetelno ?></td>
+                            <td><?php echo $allrejorders->reason?></td>
+
                             <!-- <td><button class="button button1"><a href="<?php echo URLROOT. "/pharmacists/pastsingleprescription/".$allrejorders->onlineoid ?>">View</a></button></td> -->
                         </tr>
                     <?php endforeach; ?>
