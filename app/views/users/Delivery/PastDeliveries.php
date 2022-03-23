@@ -36,16 +36,16 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                       <th>View</th>
                     </tr>
                     <tr>
-                    <?php foreach($data['pastdel'] as $alldel): ?>
+                    <?php foreach($data['pastdel'] as $allpastdel): ?>
 
               <tr>
-                        <td><?php echo $allpastdel->presid ?></td>
+                        <td><?php echo $allpastdel->onlinepresid ?></td>
                         <td><?php echo $allpastdel->onlinefname ?></td>
                         <td><?php echo $allpastdel->onlinetelno ?></td>
                         <td><?php echo $allpastdel->onlineadrs ?></td>
-                        <td><button class="button button1"><a href="<?php echo URLROOT. "/deliverys/viewcurrentsingle/".$allpastdel->presid ?>"> VIEW BILL</a></button></td>
+                        <td><button class="button button1"><a href="<?php echo URLROOT. "/deliverys/viewpastsingle/".$allpastdel->onlinepresid ?>"> VIEW BILL</a></button></td>
               </tr>
-<?php endforeach; ?>
+                    <?php endforeach; ?>
                   </table>
 
             </div>

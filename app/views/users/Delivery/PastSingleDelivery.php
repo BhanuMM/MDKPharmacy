@@ -12,9 +12,9 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3>Delivery Details</h3></li>
                 </ul>
 
-                <ul><li style="list-style: none;"><h4>Date:</h4></li>
-                    <li style="list-style: none;"><h4>Delivery ID:</h4></li>
-                    <li style="list-style: none;"><h4>Address:</h4></li>
+                <ul><li style="list-style: none;"><h4>Date: <?php echo $data['date']?></h4></li>
+                    <li style="list-style: none;"><h4>Delivery ID: <?php echo $data['delid']?></h4></li>
+                    <li style="list-style: none;"><h4>Address:<?php echo $data['adrs']?></h4></li>
                 </ul>
                <p></p>
             </div>
@@ -37,11 +37,12 @@ require APPROOT . '/views/includes/Deliveryhead.php';
         <div class="bill-body">
             <div class="bill-row">
                 <div class="bill-col">
-                    	<h2>Prescription No: </h2>
-                    	<p>Bill No: </p>
-                    	<p>Order Date: </p>
-			            <p>Patient Type: </p>
-                    	<p>Patient Name:  </p>
+                    	<h2>Prescription No: <?php echo $data['presid']?></h2>
+                    	<p>Bill No: <?php echo $data['billid']?> </p>
+                    	<p>Order Date: <?php echo $data['billdate']?>  </p>
+			            <p>Customer Name: <?php echo $data['custname']?> </p>
+                        <p>Customer's Contact Number: <?php echo $data['custtelno']?> </p>
+                        <p>Customer's Address: <?php echo $data['custadrs']?> </p>
                 </div>
          	<div></div>
             </div>
@@ -60,23 +61,25 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                     </tr>
                 </thead>
                 <tbody>
+                <?php foreach($data['meds'] as $allmeds): ?>
+                    <tr class="item">
+                        <td><?php echo $allmeds->medgenname ?></td>
+                        <td class="sellp"><?php echo $allmeds->medsellprice ?></td>
+                         <td class="sellq"><?php echo $allmeds->dosage ?></td>
+                        <td class="price"></td>
+                    </tr>
+                <?php endforeach; ?>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td colspan="3" class="text-right">Sub Total </td>
+                        <td><?php echo $data['subtot']?></td>
                     </tr>
                     <tr>
-                        <td colspan="3" class="text-right">Sub Total</td>
-                        <td></td>
+                    <td colspan="3"     class="text-right">Discount (%)</td>
+                    <td><?php echo $data['disc']?></td>
                     </tr>
                     <tr>
-                        <td colspan="3" class="text-right">Discount</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="text-right">Gross Total</td>
-                        <td></td>
+                    <td colspan="3" class="text-right">Gross Total</td>
+                    <td><?php echo $data['grosstot']?></td>
                     </tr>
                 </tbody>
             </table>
