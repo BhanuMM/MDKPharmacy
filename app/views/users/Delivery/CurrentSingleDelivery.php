@@ -87,8 +87,8 @@ require APPROOT . '/views/includes/Deliveryhead.php';
         <form method="post" class="data"  action="<?php echo URLROOT; ?>/deliverys/confirmdelivery">
 
              <input class="input1" type="text" id="presid" name="presid" value="<?php echo $data['presid'] ?>"  hidden>
-
-             <button class="form-submit">Confirm Delivery</button> </a>  
+            <p>Have you completed the order?</p>
+             <button class="form-submit">Yes</button> </a>  
         </form>    
         <br><br><br>
     </div>

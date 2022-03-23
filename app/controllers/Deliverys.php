@@ -115,13 +115,58 @@ class Deliverys extends Controller {
 
     public function viewpastdeliveries() {
 
+        $del = $this->deliveryModel->viewpastdelivery();
 
-        $this->view('users/Delivery/PastDeliveries');
+        $data = [
+            'pastdel' => $del
+            // 'del' =>(array) null
+        ];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+            $delbill = trim($_POST['UISearchbar']);
+            $searchdelbill = $this->deliveryModel-> searchdelbill($delbill);
+
+            $data = [
+                'pastdel' => $searchdelbill
+            ];
+        }
+
+        $this->view('users/Delivery/PastDeliveries', $data);
     }
 
-    public function viewpastsingle() {
-        $this->view('users/Delivery/PastSingleDelivery');
+
+
+    public function viewpastsingle($delpresid) {
+
+        $deldata = $this->deliveryModel->getdeldata($delpresid);
+        $delcustdata =$this->deliveryModel->getdelcustdata($delpresid);
+        $delpresdata =$this->deliveryModel->getdelpresdata($delpresid);
+        $billdata = $this->deliveryModel->getbilldata($delpresid);
+       
+        //-
+        $data = [
+            'date' => $deldata->delivereddate,
+            'delid' => $deldata->delid,
+            'adrs' => $deldata->onlineadrs,
+            'presid' => $delcustdata->presid,
+            'billid'=> $delcustdata->billid,
+            'billdate' => $delcustdata->billdate,
+            'custname' => $delcustdata->onlinefname,
+            'custtelno' => $delcustdata->onlinetelno,
+            'custadrs' => $delcustdata->onlineadrs,
+            'subtot' => $billdata->subtotal,
+            'disc' => $billdata->discount,
+            'grosstot'=> $billdata->grosstotal,
+            'meds'=> $delpresdata
+//            'medgenname' => $med->medgenname,
+
+        ];
+        $this->view('users/Delivery/PastSingleDelivery', $data);
     }
+
+
     public function profilesettings($psid){
 
         $profile = $this->receptionistModel->findProfilebyId($psid);

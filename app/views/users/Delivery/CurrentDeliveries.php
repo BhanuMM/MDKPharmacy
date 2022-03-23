@@ -33,16 +33,16 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                       <th>Customer Name</th>
                       <th>Telephone</th>
                       <th>Address</th>
-                      <th>View<th>
+                      <th>View</th>
                     </tr>
                     <?php foreach($data['del'] as $alldel): ?>
 
                     <tr>
-                    <td><?php echo $alldel->presid ?></td>
+                    <td><?php echo $alldel->onlinepresid ?></td>
                     <td><?php echo $alldel->onlinefname ?></td>
                     <td><?php echo $alldel->onlinetelno ?></td>
                     <td><?php echo $alldel->onlineadrs ?></td>
-                    <td><button class="button button1"><a href="<?php echo URLROOT. "/deliverys/viewcurrentsingle/".$alldel->presid ?>"> VIEW BILL</a></button></td>
+                    <td><button class="button button1"><a href="<?php echo URLROOT. "/deliverys/viewcurrentsingle/".$alldel->onlinepresid ?>"> VIEW BILL</a></button></td>
             </tr>
         <?php endforeach; ?>
                   </table>
