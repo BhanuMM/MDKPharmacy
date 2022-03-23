@@ -113,8 +113,54 @@ class Cashier {
         $results = $this->db->resultSet();
         return $results;
     }
+    public function getoutmedcount($presid) {
+        $this->db->query('SELECT COUNT(*) FROM outpresmed  WHERE presid = :pid');
+        //Bind value
+        $this->db->bind(':pid', $presid);
+        $row = $this->db->single();
+        return $row;
+    }
+    public function getoutmeds($presid) {
+        $this->db->query('SELECT * FROM outpresmed  WHERE presid = :pid');
+        //Bind value
+        $this->db->bind(':pid', $presid);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+    public function getonlinemedcount($presid) {
+        $this->db->query('SELECT COUNT(*) FROM onlinepresmed  WHERE onlinepresid = :pid');
+        //Bind value
+        $this->db->bind(':pid', $presid);
+        $row = $this->db->single();
+        return $row;
+    }
+    public function getonlinemeds($presid) {
+        $this->db->query('SELECT * FROM onlinepresmed  WHERE onlinepresid = :pid');
+        //Bind value
+        $this->db->bind(':pid', $presid);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+    public function getmedqty($medid) {
+        $this->db->query('SELECT * FROM fullstock  WHERE medid = :mid');
+        //Bind value
+        $this->db->bind(':mid', $medid);
+        $row = $this->db->single();
+        return $row;
+    }
+    public function updatestock($medid,$qty){
+        $this->db->query('UPDATE fullstock SET quantity = :qty WHERE medid = :mid');
 
+        $this->db->bind(':mid', $medid);
+        $this->db->bind(':qty', $qty);
 
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 
     // public function searchbill($presid) {
     //     $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE prescription.presid = :pid');

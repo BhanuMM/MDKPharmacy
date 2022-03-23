@@ -37,7 +37,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
         <div class="bill-body">
             <h3>Ordered Items</h3>
-            <form method="post" class="data"  action="<?php echo URLROOT; ?>/cashiers/savebills">
+            <form method="post" class="data"  action="<?php echo URLROOT; ?>/cashiers/saveoutbills">
                 <br>
                 <input class="input1" type="text" id="billid" name="billid" value="<?php echo $data['billid'] ?>"  hidden>
                 <input class="input1" type="text" id="presid" name="presid" value="<?php echo $data['presid'] ?>"  hidden>
@@ -123,7 +123,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
         var pamount = $("#pamount").val();
         var grosstotal = $("#grandt").val();
         if(pamount !=0 && pamount > 0){
-            balance =  parseFloat(grosstotal)- parseFloat(pamount);
+            balance =  parseFloat(pamount )- parseFloat(grosstotal);
 
             $('#balance').val( balance.toFixed(2));
         }
