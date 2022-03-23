@@ -203,8 +203,9 @@ class Doctor {
     }
     public function getprespatdata($presid) {
 
-        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid WHERE prescription.presid = :pid ');
-        $this->db->bind(':pid',$presid);
+        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid LEFT JOIN childpres ON prescription.presid = childpres.presid   LEFT JOIN childelder on childpres.childid=childelder.childelderid ORDER BY prescription.presid DESC');
+
+//        $this->db->bind(':pid',$presid);
 
         $row = $this->db->single();
 

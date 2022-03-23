@@ -180,6 +180,7 @@ class Admins extends Controller {
                 'sellingprice' => '',
                 'profitmargin' => '',
                 'acslvl'=>'',
+                'lowqty'=>'',
                 'nameError' => ''
             ];
     
@@ -196,7 +197,8 @@ class Admins extends Controller {
                     'purchaseprice' => $_POST['purchprice'],
                     'sellingprice' => $_POST['sellprice'],
                     'profitmargin' => $_POST['profit'],
-                    'acslvl'=>$_POST['acslvl']
+                    'acslvl'=>$_POST['acslvl'],
+                    'lowqty' => $_POST['lowqty'],
                     ];
                 // Make sure that errors are empty
                 if (empty($data['nameError'])) {
@@ -230,6 +232,7 @@ class Admins extends Controller {
             'sellingprice' => $med->medsellprice,
             'profitmargin' => $med->medprofit,
             'acslvl'=> $med->medacslvl,
+            'lowqty'=> $med->lowstockqty,
             'nameError' => ''
         ];
 
@@ -247,7 +250,8 @@ class Admins extends Controller {
                 'purchaseprice' => $_POST['purchprice'],
                 'sellingprice' => $_POST['sellprice'],
                 'profitmargin' => $_POST['profit'],
-                'acslvl'=>$_POST['acslvl']
+                'acslvl'=>$_POST['acslvl'],
+                'lowqty'=>$_POST['lowqty']
             ];
 
             if (empty($data['nameError'])) {
@@ -286,6 +290,7 @@ class Admins extends Controller {
             'sellingprice' => '',
             'profitmargin' => '',
             'acslvl'=>'',
+            'lowqty'=>'',
             'nameError' => ''
         ];
 
