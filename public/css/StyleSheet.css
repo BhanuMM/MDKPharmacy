@@ -690,6 +690,83 @@ input#UISearchbar{
   cursor:pointer;
 }
 
+/* Report */
+.close2{
+  position: absolute;
+  margin-top: -25px;
+  right: 14px;
+  margin-right: 320px;
+  font-size: 36px;
+  transform: rotate(45deg);
+  cursor:pointer;
+}
+
+.close3{
+  position: absolute;
+  margin-top: -25px;
+  right: 14px;
+  margin-right: 320px;
+  font-size: 36px;
+  transform: rotate(45deg);
+  cursor:pointer;
+}
+
+.close4{
+  position: absolute;
+  margin-top: -25px;
+  right: 14px;
+  margin-right: 320px;
+  font-size: 36px;
+  transform: rotate(45deg);
+  cursor:pointer;
+}
+
+.close5{
+  position: absolute;
+  margin-top: -25px;
+  right: 14px;
+  margin-right: 320px;
+  font-size: 36px;
+  transform: rotate(45deg);
+  cursor:pointer;
+}
+
+
+.close6{
+  position: absolute;
+  margin-top: -25px;
+  right: 14px;
+  margin-right: 320px;
+  font-size: 36px;
+  transform: rotate(45deg);
+  cursor:pointer;
+}
+
+.reportBtn{
+  background-color: white;
+  color:#0a0a2e;
+  padding:15px 50px;
+  text-decoration: none;
+  border-color: #0a0a2e;
+  border-radius: 8px; 
+  cursor:pointer;
+}
+
+.w3-bar-item{
+  background-color: #0a0a2e;
+  color:white;
+  padding:15px 15px;
+  border:none;
+  cursor: pointer;
+}
+
+.w3-bar-item:hover{
+  background-color: white;
+  color:#0a0a2e;
+}
+
+
+
 
 /* View for confirm page - buttons */
 
