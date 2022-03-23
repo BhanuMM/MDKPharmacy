@@ -134,10 +134,72 @@ class Cashiers extends Controller {
             // Make sure that errors are empty
             if (!empty($data['billid'])) {
 
-                if ($this->cashierModel->savebill($data) && $this->cashierModel->updateprestable($data) ) {
+                if ($this->cashierModel->savebill($data) && $this->cashierModel->updateprestable($data)) {
+
+
+                        $recadded = 'In patient Bill has been Saved';
+                        header('location: ' . URLROOT . '/cashiers/inpatientbills?msg='.$recadded);
+
                     //Redirect to the viewtable page
-                    $recadded = 'Bill has been Saved';
+
+                } else {
+                    die('Something went wrong.');
+                }
+            }
+        }
+    }
+    public function saveoutbills() {
+        $data = [
+            'billid' => '',
+            'presid' => '',
+            'billdate' => '',
+            'billtime' => '',
+            'subtotal' => '',
+            'discount' => '',
+            'grosstotal' => '',
+            'payment' => '',
+            'balance' => '',
+            'custype'=>'',
+            'cashierid' => ''
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'billid' => $_POST['billid'],
+                'presid' => $_POST['presid'],
+                'billdate' => date("Y/m/d"),
+                'billtime' => date("h:i:sa"),
+                'subtotal' => trim($_POST['subtot']),
+                'discount' => trim($_POST['dis']),
+                'grosstotal' => trim($_POST['grandt']),
+                'payment' => trim($_POST['pamount']),
+                'balance' => trim($_POST['balance']),
+                'custype'=>$_POST['custype'],
+                'cashierid' => $_POST['cashierid'],
+                'billed' => "yes"
+            ];
+            // Make sure that errors are empty
+            if (!empty($data['billid'])) {
+
+                if ($this->cashierModel->savebill($data) ) {
+                    //get med count
+
+                    $rowcount = $this->cashierModel->getoutmedcount($data['presid']);
+                    $med = $this->cashierModel->getoutmeds($data['presid']);
+
+                    for($i=0; $i<= (int)$rowcount; $i++){
+                        $medqty = $this->cashierModel->getmedqty($med[$i]->medid);
+                        $newqty = (int)($medqty->quantity)- (int)($med[$i]->quantity);
+                        $this->cashierModel->updatestock($med[$i]->medid,$newqty);
+                    }
+                    $recadded = 'out patient Bill has been Saved';
                     header('location: ' . URLROOT . '/cashiers/inpatientbills?msg='.$recadded);
+
+
                 } else {
                     die('Something went wrong.');
                 }
@@ -221,6 +283,8 @@ class Cashiers extends Controller {
             'billtime' => '',
             'subtotal' => '',
             'discount' => '',
+            'payment' => '',
+            'balance' => '',
             'grosstotal' => '',
             'custype'=>'',
             'cashierid' => ''
@@ -238,6 +302,8 @@ class Cashiers extends Controller {
                 'billtime' => date("h:i:sa"),
                 'subtotal' => trim($_POST['subtot']),
                 'discount' => trim($_POST['dis']),
+                'payment' => trim($_POST['pamount']),
+                'balance' => trim($_POST['balance']),
                 'grosstotal' => trim($_POST['grandt']),
                 'custype'=>$_POST['custype'],
                 'cashierid' => $_POST['cashierid'],
@@ -248,8 +314,16 @@ class Cashiers extends Controller {
             if (!empty($data['billid'])) {
 
                 if ($this->cashierModel->savebill($data) && $this->cashierModel->updateonlineprestable($data) && $this->cashierModel->assigndel($data) ) {
-                    //Redirect to the viewtable page
-                    $recadded = 'Bill has been Saved';
+
+                    $rowcount = $this->cashierModel->getonlinemedcount($data['presid']);
+                    $med = $this->cashierModel->getonlinemeds($data['presid']);
+
+                    for($i=0; $i<= (int)$rowcount; $i++){
+                        $medqty = $this->cashierModel->getmedqty($med[$i]->medid);
+                        $newqty = (int)($medqty->quantity)- (int)($med[$i]->dosage);
+                        $this->cashierModel->updatestock($med[$i]->medid,$newqty);
+                    }
+                    $recadded = 'Online Bill has been Saved';
                     header('location: ' . URLROOT . '/cashiers/onlineorderbills?msg='.$recadded);
                 } else {
                     die('Something went wrong.');
