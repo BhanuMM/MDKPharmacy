@@ -41,13 +41,26 @@ class Pharmacists extends Controller {
     public function viewprescription($presid) {
         $patdata =$this->pharmacistModel->getprespatdata($presid);
         $predata =$this->pharmacistModel->getpresdata($presid);
+        if(($patdata->pattype)=="adult"){
+            $dob =$patdata->patdob;
+        }
+        else{
+            $dob =$patdata->childelderdob;
+        }
+
+        $today = date("Y-m-d");
+        $diff = date_diff(date_create($dob), date_create($today));
         $data = [
             'presid' => $patdata->presid,
             'presdate' => $patdata->presdate,
             'prestime' => $patdata->pretime,
             'presnote' => $patdata->specialnote,
             'patname' => $patdata->patname,
-            'patage' => $patdata->patdob,
+            'childname' => $patdata->fullname,
+            'childgen' => $patdata->childeldergen,
+            'childob' => $diff->format('%y'),
+            'pattype' => $patdata->pattype,
+            'patage' => $diff->format('%y'),
             'patgen' => $patdata->patgen,
             'meds'=> $predata
 //            'medgenname' => $med->medgenname,
