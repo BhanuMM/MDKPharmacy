@@ -28,6 +28,7 @@ class Pharmacist {
     public function viewonlineorders() {
         $stat = "pending";  
         $this->db->query('SELECT * FROM onlineorder WHERE orderstatus = :stat ORDER BY onlineoid DESC ');
+
         $this->db->bind(':stat',$stat);
             
 
@@ -50,13 +51,31 @@ class Pharmacist {
 
     public function viewrejectedorders() {
         $stat = "rejected";  
-        $this->db->query('SELECT * FROM onlineorder WHERE orderstatus = :stat ORDER BY onlineoid DESC ');
-        $this->db->bind(':stat',$stat);
-            
+        $this->db->query('SELECT * FROM onlineorder INNER JOIN rejectedonlinepres ON onlineorder.onlineoid=rejectedonlinepres.orderid WHERE orderstatus = :stat  ORDER BY onlineoid DESC ');
+
+        $this->db->bind(':stat',$stat);         
 
         $results = $this->db->resultSet();
 
         return $results;
+
+    }
+
+    public function rejectedreason($data) {
+
+        $this->db->query('INSERT INTO rejectedonlinepres (orderid, reason) VALUES( :oid ,:reject) ');
+
+
+        $this->db->bind(':oid', $data['id']);
+        $this->db->bind(':reject', $data['reject']);
+        
+       
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 

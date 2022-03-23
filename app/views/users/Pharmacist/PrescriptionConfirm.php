@@ -44,11 +44,73 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
         Please confirm the prescription to continue ? 
         <br><br>
         
+        <form method="post" class="data"  action="<?php echo URLROOT. "/pharmacists/rejectorder/"?>">
                         
-                         <a style="background-color: #d11a2a;; ; color:white; padding:8px 30px; text-decoration: none; margin-right:30px; border-radius: 8px;" href="<?php echo URLROOT. "/pharmacists/rejectorder/".$data['orderid']?>"> Reject  </a>
+                        <a id="reject" style="background-color: #d11a2a;; ; color:white; cursor:pointer; padding:8px 38px; text-decoration: none; margin-right:30px; z-index: 3; border-radius: 8px;"> Reject  </a>
                         
-                         <a style="background-color: #4BB543; ; color:white; padding:8px 30px; text-decoration: none; border-radius: 8px;" href="<?php echo URLROOT. "/pharmacists/onlineorderprepare/".$data['orderid'] ?>"> Confirm </a>
+                        <!-- Reason for rejection block -->
 
+                        <div class="reject-reason" style="display:none;" >
+                        <div id="close" class="close" style="margin-right:20%;">+</div>
+                        <h5>
+                        Reason for the Rejection : 
+                        </h5>
+                        <input class="input1" type="text" id="orderid" name="orderid" value="<?php echo $data['orderid'] ?>"  hidden>
+
+                        
+                        <select style="padding:8px 18px; border-radius: 8px;" name="reject" id="reject">
+                            <option value="Image is not clear">Image is not clear</option>
+                            <option value="Telephone number is not working">Telephone number is not working</option>
+                            <option value="Scam">Scam</option>
+                            
+                        </select>
+
+                        <button class="form-submit" style="padding:8px 30px;">Submit</button>
+
+                        </div></div>
+                      
+                      
+
+        </form>
+        
+         <div style = "margin-top: 5%; z-index: 0">
+        <a id="confirmBtn" style="background-color: #4BB543; ; color:white; padding:8px 30px; text-decoration: none; 
+         border-radius: 8px;" href="<?php echo URLROOT. "/pharmacists/onlineorderprepare/".$data['orderid'] ?>"> Confirm </a>
+
+        </div>
+
+
+
+        <script>
+        document.getElementById('reject').addEventListener('click',function(){
+            document.querySelector('.reject-reason').style.display = 'block';
+            document.getElementById("#reject").required = true;
+
+        });
+        
+        document.querySelector('.close').addEventListener('click',function(){
+            document.querySelector('.reject-reason').style.display = 'none';
+            document.getElementById("reject").required = false;
+        })
+
+        </script>
+
+
+
+                        
+
+                         <!-- <div class="ps-btn" style="margin-top:1%"> -->
+
+<br>
+
+
+                        
+
+                          
+</form>    
+
+
+</div>
                         
                    
           

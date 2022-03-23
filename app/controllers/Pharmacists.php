@@ -146,24 +146,56 @@ class Pharmacists extends Controller {
     }
 
     
-    public function rejectorder($orderid){
+    // public function rejectorder($orderid){
 
-        // $orderstat = $this->pharmacistModel->setprescriptionstatus($orderid);
+    //     $orderstat = $this->pharmacistModel->rejectedreason($orderid);
     
-        $data = [
-            // 'med' => $med,
-            'id'=> $orderid,
-            'stat'=> "rejected"
-        ];
+    //     $data = [
+    //         // 'med' => $med,
+    //         'id'=> $orderid,
+    //         'reject'=> trim($_POST['reject']),
+    //         'stat'=> "rejected"
+    //     ];
 
-                if ($this->pharmacistModel->setprescriptionstatus($data)) {
-                    $this-> viewonlineorders();
+    //             if ($this->pharmacistModel->setprescriptionstatus($data)) {
+    //                 $this-> viewonlineorders();
+    //             }
+    //             else {
+    //                 $this-> viewonlineorders();
+    //             }
+    
+    // }
+
+    public function rejectorder() {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST')
+         {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+    
+            $data = [
+            'id' => $_POST['orderid'],
+            'reject'=> trim($_POST['reject']),
+            'stat'=> "rejected"
+           
+            ];
+
+            if (!empty($data['id'])) {
+    
+                if ($this->pharmacistModel->setprescriptionstatus($data) && $this->pharmacistModel->rejectedreason($data) ) {
+                   
+                    header('location: ' . URLROOT . '/pharmacists/pharmacistdashboard/');
                 }
                 else {
-                    $this-> viewonlineorders();
-                }
+                    header('location: ' . URLROOT . '/pharmacists/pharmacistdashboard/'); }
+            }
     
+           
+        
+        
+        // $this->view('users/Delivery/DeliverDashboard', $data);
     }
+   }
 
 
 
