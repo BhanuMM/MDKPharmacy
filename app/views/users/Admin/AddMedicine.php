@@ -6,7 +6,7 @@ require APPROOT . '/views/includes/Adminhead.php';
     <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewmed"> << </a> </span></button>
 </div>
 
-<div style="margin-left:20%; padding:1px 16px; width: 40%">
+<!--<div style="margin-left:20%; padding:1px 16px; width: 40%">-->
 
         <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/addmed">
         <div class="form-left">
@@ -33,6 +33,11 @@ require APPROOT . '/views/includes/Adminhead.php';
                 Dealer
             </h5>
             <input class="input1" type="text" id="dealer" name="dealer" placeholder="Pharma">
+
+            <h5>
+                Least Quantity
+            </h5>
+            <input class="input1" type="number" id="lowqty" name="lowqty" placeholder="50">
 
     </div> 
     <div class="form-right">   

@@ -42,6 +42,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                       <th>Selling Price</th>
                       <th>Profit Margin</th>
                       <th>Access Level</th>
+                      <th>Low Stock Quantity</th>
                       <th>Update</th>
                       <th>Delete</th>
                     </tr>
@@ -57,7 +58,8 @@ require APPROOT . '/views/includes/Adminhead.php';
                             <td><?php echo  $allmed->medsellprice ?></td>
                             <td><?php echo  $allmed->medprofit ?></td>
                             <td><?php echo  $allmed->medacslvl?></td>
-                            
+                            <td><?php echo  $allmed->lowstockqty?></td>
+
                             <td>
                                
                             

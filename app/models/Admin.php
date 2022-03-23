@@ -161,8 +161,8 @@ class Admin {
     /*--------------------------------------------------------------------------------------------------*/
 
     public function registermedicine($data) {
-        $this->db->query('INSERT INTO medicine (medgenname,medbrand,medimporter,meddealer,medpurchprice,medsellprice,medprofit,medacslvl) 
-        VALUES(:medname,:medbrand,:importer,:dealer,:purchprice,:sellprice,:profit,:acslvl)');
+        $this->db->query('INSERT INTO medicine (medgenname,medbrand,medimporter,meddealer,medpurchprice,medsellprice,medprofit,medacslvl,lowstockqty) 
+        VALUES(:medname,:medbrand,:importer,:dealer,:purchprice,:sellprice,:profit,:acslvl,:lowqty)');
 
 
         //Bind values
@@ -174,6 +174,7 @@ class Admin {
         $this->db->bind(':sellprice', $data['sellingprice']);
         $this->db->bind(':profit', $data['profitmargin']);
         $this->db->bind(':acslvl', $data['acslvl']);
+        $this->db->bind(':lowqty', $data['lowqty']);
 
 
         //Execute function
@@ -290,7 +291,7 @@ class Admin {
     }
 
     public function updateMedicine($data) {
-        $this->db->query('UPDATE medicine SET medgenname = :medname, medbrand = :medbrand, medimporter = :importer, meddealer = :dealer, medpurchprice = :purchprice, medsellprice = :sellprice, medprofit = :profit, medacslvl = :acslvl WHERE medid = :medid');
+        $this->db->query('UPDATE medicine SET medgenname = :medname, medbrand = :medbrand, medimporter = :importer, meddealer = :dealer, medpurchprice = :purchprice, medsellprice = :sellprice, medprofit = :profit, medacslvl = :acslvl, lowstockqty = :lowqty WHERE medid = :medid');
 
         $this->db->bind(':medid', $data['medid']);
         $this->db->bind(':medname', $data['genericname']); 
@@ -301,7 +302,7 @@ class Admin {
         $this->db->bind(':sellprice', $data['sellingprice']);
         $this->db->bind(':profit', $data['profitmargin']);
         $this->db->bind(':acslvl', $data['acslvl']);
-
+        $this->db->bind(':lowqty', $data['lowqty']);
 
         if ($this->db->execute()) {
             return true;
@@ -457,7 +458,7 @@ class Admin {
     }
 //  Check for the low stocks
     public function lowstock(){
-        $this->db->query('SELECT * FROM fullstock INNER JOIN medicine on fullstock.medid = medicine.medid WHERE quantity < 50 && quantity > 0');
+        $this->db->query('SELECT * FROM fullstock INNER JOIN medicine on fullstock.medid = medicine.medid WHERE quantity < lowstockqty && quantity > 0');
 
         $results = $this->db->resultSet();
 
