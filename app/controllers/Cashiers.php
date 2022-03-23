@@ -59,6 +59,7 @@ class Cashiers extends Controller {
         $patdata =$this->cashierModel->getprespatdata($presid);
         $predata =$this->cashierModel->getpresdata($presid);
         $maxbillid =$this->cashierModel->getlatestbill();
+
         $data = [
             'presid' => $patdata->presid,
             'billid'=> $maxbillid->maxbill+1,

@@ -29,9 +29,9 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                     <h2>Prescription No: <?php echo $data['presid']?></h2>
                     <p>Date: <?php echo $data['presdate']?> </p>
                     <p>Time: <?php echo $data['prestime']?> </p>
-                    <p>Patient Name: <?php echo $data['patname']?> </p>
+                    <p>Patient Name: <?php if (($data['pattype'])=="adult") {echo $data['patname'];} else {echo  $data['childname'];} ?></p>
                     <p>Age:  <?php echo $data['patage']?> </p>
-                    <p>Gender: <?php echo $data['patgen']?>  </p>
+                    <p>Gender: <?php if (($data['pattype'])=="adult") {echo $data['patgen'];} else {echo  $data['childgen'];} ?> </p>
                 </div>
                 <div></div>
             </div>

@@ -32,9 +32,9 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     <p>Prescription No: <?php echo $data['presid']?></p>
                     <p>Date: <?php echo $data['presdate']?> </p>
                     <p>Time: <?php echo $data['prestime']?> </p>
-                    <p>Patient Name: <?php echo $data['patname']?> </p>
-                    <p>Age:  <?php echo $data['patage']?> </p>
-                    <p>Gender: <?php echo $data['patgen']?>  </p>
+                    <p>Customer Name: <?php echo $data['patname']?> </p>
+<!--                    <p>Age:  --><?php //echo $data['patage']?><!-- </p>-->
+<!--                    <p>Gender: --><?php //echo $data['patgen']?><!--  </p>-->
                 </div>
          	<div></div>
             </div>

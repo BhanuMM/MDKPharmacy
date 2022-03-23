@@ -17,8 +17,9 @@ class Cashier {
 
     //View the prescriptions
     public function viewpres() {
-        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid WHERE billed != "yes" ORDER BY prescription.presid DESC');
-        
+//        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid WHERE billed != "yes" ORDER BY prescription.presid DESC');
+        $this->db->query('SELECT * ,prescription.presid FROM prescription INNER JOIN patient ON prescription.patid=patient.patid LEFT JOIN childpres ON prescription.presid = childpres.presid   LEFT JOIN childelder on childpres.childid=childelder.childelderid WHERE billed != "yes" ORDER BY prescription.presid DESC');
+
         $results = $this->db->resultSet();
         return $results;
     }
@@ -75,7 +76,9 @@ class Cashier {
     }
 
     public function searchbill($pnic) {
-        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE patient.patnic = :pnic');
+//        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE patient.patnic = :pnic');
+        $this->db->query('SELECT * ,prescription.presid FROM prescription INNER JOIN patient ON prescription.patid=patient.patid LEFT JOIN childpres ON prescription.presid = childpres.presid   LEFT JOIN childelder on childpres.childid=childelder.childelderid WHERE prescription.billed != "yes" AND patient.patnic = :pnic ORDER BY prescription.presid DESC');
+
         //Bind value
         $this->db->bind(':pnic', $pnic);
         $results = $this->db->resultSet();
