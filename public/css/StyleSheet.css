@@ -470,6 +470,7 @@ input#search-bar{
 }
 .text-white{
   color: #fff;
+  font-size: x-small;
 }
 .company-details{
   float: right;
@@ -481,7 +482,7 @@ input#search-bar{
 }
 .table-bordered{
   box-shadow: 0px 0px 5px 0.5px gray;
-background-color: #fff;
+  background-color: #fff;
   width: 100%;
   border-collapse: collapse;
 }

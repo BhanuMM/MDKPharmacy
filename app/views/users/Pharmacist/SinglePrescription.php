@@ -2,7 +2,7 @@
 require APPROOT . '/views/includes/Pharmacisthead.php';
 ?>
 
-<div style="margin-left:17%; padding:1px 16px; width: 40%">
+<div style="margin-left:20%; padding:1px 16px; width: 40%">
     <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/prescriptiondetails"> << </a> </span></button>
 </div>  
 
@@ -11,27 +11,29 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
         <div class="company">
             <div class="bill-row">
                 <div class="bill-col">
-                    <h1 class="text-white">MDK Hospitals</h1>
                 </div>
                 <div class="bill-col">
-                    <div class="company-details">
-                        <p class="text-white">No 149, Sri Ariyavilasa Rd, Horana 12400</p>
-                        <p class="text-white">mdkhospital@gmail.com</p>
-                        <p class="text-white">+94 347 888 888</p>
+                    <div class="text-white" align="right">
+                        MDK Hospitals</br>
+                        No 149, Sri Ariyavilasa Rd, Horana 12400</br>
+                        mdkhospital@gmail.com</br>
+                        +94 347 888 888
                     </div>
                 </div>
             </div>
-        </div>
+</div>
 
         <div class="bill-body">
             <div class="bill-row">
                 <div class="bill-col">
-                    <h2>Prescription No: <?php echo $data['presid']?></h2>
-                    <p>Date: <?php echo $data['presdate']?> </p>
-                    <p>Time: <?php echo $data['prestime']?> </p>
-                    <p>Patient Name: <?php if (($data['pattype'])=="adult") {echo $data['patname'];} else {echo  $data['childname'];} ?></p>
-                    <p>Age:  <?php echo $data['patage']?> </p>
-                    <p>Gender: <?php if (($data['pattype'])=="adult") {echo $data['patgen'];} else {echo  $data['childgen'];} ?> </p>
+                    <b>Prescription No: <?php echo $data['presid']?></b></br>
+                    Date: <?php echo $data['presdate']?> </br>
+                    Time: <?php echo $data['prestime']?> </br>
+                </div>
+                <div class="bill-col">
+                    Patient Name: <?php if (($data['pattype'])=="adult") {echo $data['patname'];} else {echo  $data['childname'];} ?></br>
+                    Age:  <?php echo $data['patage']?> </br>
+                    Gender: <?php if (($data['pattype'])=="adult") {echo $data['patgen'];} else {echo  $data['childgen'];} ?>
                 </div>
                 <div></div>
             </div>
