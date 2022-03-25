@@ -7,12 +7,13 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
     <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/viewonlineorders"> << </a> </span></button>
 </div>  
 
-  
+
 <div style="margin-left: 300px; margin-top:250px; margin-right:0%; padding:1px 16px; width: 70%; ">
 
 <div class="split left">
 
 <div class="centered"> 
+<br><br><br>
 <img src="<?php echo URLROOT ?>/public/images/OnlinePrescriptions/<?php echo $data['orderimg']?>"  alt="<?php echo $data['orderimg']?>" width="400"  style="margin-left:350px; z-index=-1;">
 </div>
   </div>
@@ -50,8 +51,8 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                         
                         <!-- Reason for rejection block -->
 
-                        <div class="reject-reason" style="display:none;" >
-                        <div id="close" class="close" style="margin-right:20%;">+</div>
+                        <div class="reject-reason" style="display:none; background-color:#f2f2f2; padding:10px 30px 30px 30px; margin-right:20%;" >
+                        <div id="close" class="close" style="margin-right:17%; margin-top:-1%;">+</div>
                         <h5>
                         Reason for the Rejection : 
                         </h5>

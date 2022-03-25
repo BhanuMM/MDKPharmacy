@@ -2,8 +2,8 @@
 require APPROOT . '/views/includes/Cashierhead.php';
 ?>
 
-<div style="margin-left:17%; padding:1px 16px; width: 40%">
-    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/inpatientbills"> << </a> </span></button>
+<div style="margin-left:20%;  padding:20px 26px;">
+    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/inpatientbills"> << </a> </span></button>
 </div>  
 
 <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">

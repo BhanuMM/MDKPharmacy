@@ -2,8 +2,8 @@
 require APPROOT . '/views/includes/Pharmacisthead.php';
 ?>
 
-<div style="margin-left:17%; padding:1px 16px; width: 40%">
-    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/prescriptiondetails"> << </a> </span></button>
+<div style="margin-left:20%;  padding:20px 26px;">
+    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/prescriptiondetails"> << </a> </span></button>
 </div>  
 
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">
@@ -62,9 +62,9 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
             <h3>Special Notes</h3> <br>
             <textarea name="Text1" class="input2" rows="5" readonly><?php echo $data['presnote']?></textarea>
                         <br>
-                    </div>
+                    </div><br>
                     <button class="button button1" style="float: right;">Confirm Prescription</button>
-                </div>
+                </div><br><br><br><br>
             </div>
 
             </body>

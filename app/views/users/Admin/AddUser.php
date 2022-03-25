@@ -2,8 +2,9 @@
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
-<div style="margin-left:20%; padding:1px 16px; width: 40%">
-    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewuser"> << Previous </a> </span></button>
+
+<div style="margin-left:20%;  padding:20px 26px;">
+    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewuser"> << Previous </a> </span></button>
 </div>
 <form method="post" class="data" action="<?php echo URLROOT; ?>/users/register" style="background-color: white; ">
 <div class="form-left">
