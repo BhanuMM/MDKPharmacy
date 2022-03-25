@@ -6,12 +6,15 @@ class Doctor {
     }
 
     public function searchnic($patnic) {
-        $this->db->query('SELECT * FROM patient WHERE patnic = :patientnic');
+        $where = " `patname` like :patname ";
+        $param1 = '%'.$patnic.'%'  ;
+        $this->db->query('SELECT * FROM patient WHERE patnic = :patientnic OR  '.$where.' ');
 
         //Bind value
         $this->db->bind(':patientnic', $patnic);
-        $row = $this->db->single();
-        return $row;
+        $this->db->bind(':patname', $param1);
+        $results = $this->db->resultSet();
+        return $results;
     }
 
     public function searchpatientnic($patnic) {
