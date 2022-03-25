@@ -26,7 +26,8 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                 <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'one')">Children</button>
                 </div>
 
-                <div id="already" class="w3-container w3-display-container city">
+                <div id="already" class="w3-container w3-display-container city" id="defaultOpen">
+                <script> document.getElementById("defaultOpen").click(); </script>
                     <p>
                     <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
                     <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/receptionists/viewpatients">

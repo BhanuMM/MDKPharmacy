@@ -37,6 +37,10 @@ require APPROOT . '/views/includes/Adminhead.php';
                 Dealer
             </h5>
             <input class="input1" type="text" id="dealer" name="dealer" value="<?php echo $data['dealer'] ?>">
+            <h5>
+                Least Quantity
+            </h5>
+            <input class="input1" type="number" id="lowqty" name="lowqty" placeholder="50">
 
     </div> 
     <div class="form-right">   

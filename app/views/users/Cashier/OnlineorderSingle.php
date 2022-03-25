@@ -9,30 +9,16 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
 <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
 <div class="bill">
-        <div class="company">
-            <div class="bill-row">
-                <div class="bill-col">
-                    <h1 class="text-white">MDK Hospitals</h1>
-                </div>
-                <div class="bill-col">
-                    <div class="company-details">
-                        <p class="text-white">No 149, Sri Ariyavilasa Rd, Horana 12400</p>
-                        <p class="text-white">mdkhospital@gmail.com</p>
-                        <p class="text-white">+94 347 888 888</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="bill-body">
             <div class="bill-row">
                 <div class="bill-col">
-                    <h2>Bill No: <?php echo $data['billid']?></h2>
-                    <p>Prescription No: <?php echo $data['opresid']?></p>
-                    <p>Date: <?php echo $data['presdate']?> </p>
-                    <p>Time: <?php echo $data['prestime']?> </p>
-                    <p>Customer Name: <?php echo $data['fname']?> </p>
-                    
+                    <b>Bill No: <?php echo $data['billid']?></b></br>
+                    Prescription No: <?php echo $data['opresid']?></br>
+                    Customer Name: <?php echo $data['fname']?>
+                </div>
+                <div class="bill-col" align="right">
+                    Date: <?php echo $data['presdate']?> </br>
+                    Time: <?php echo $data['prestime']?>
                 </div>
          	<div></div>
             </div>
@@ -80,16 +66,31 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right">Paid Amount</td>
-                        <td ><input id="pamount"  name="pamount" type="text" value="<?php echo $data['payment']?>" readonly></td>
+                        <td ><input id="pamount"  name="pamount" type="text" ></td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right">Balance</td>
-                        <td ><input id="balance"  name="balance" type="text" value="<?php echo $data['balance']?>" readonly></td>
+                        <td ><input id="balance"  name="balance" type="text"  readonly></td>
                     </tr>
                 </tbody>
             </table>
         </div> 
-        <button class="form-submit">Print Bill</button>    
+        <div class="company">
+            <div class="bill-row">
+                <div class="bill-col">
+                    <p class="text-white">Thank you Come Again!</p>
+                </div>
+                <div class="bill-col">
+                    <div class="text-white" align="right">
+                        MDK Hospitals</br>
+                        No 149, Sri Ariyavilasa Rd, Horana 12400</br>
+                        mdkhospital@gmail.com</br>
+                        +94 347 888 888
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <button class="form-submit" style="margin-left:85%;">Print Bill</button>    
         </form> 
     </div>
 </div>
@@ -121,6 +122,18 @@ require APPROOT . '/views/includes/Cashierhead.php';
             grandtotal =  (parseFloat(subtotal)*(100-parseFloat(dis)))/100;
 
             $('#grandt').val( grandtotal.toFixed(2));
+        }
+
+    });
+    $(document).on("change keyup blur", "#pamount", function() {
+
+        var balance =0;
+        var pamount = $("#pamount").val();
+        var grosstotal = $("#grandt").val();
+        if(pamount !=0 && pamount > 0){
+            balance =  parseFloat(pamount )- parseFloat(grosstotal);
+
+            $('#balance').val( balance.toFixed(2));
         }
 
     });

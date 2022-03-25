@@ -8,26 +8,12 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
 <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
 <div class="bill">
-        <div class="company">
-            <div class="bill-row">
-                <div class="bill-col">
-                    <h1 class="text-white">MDK Hospitals</h1>
-                </div>
-                <div class="bill-col">
-                    <div class="company-details">
-                        <p class="text-white">No 149, Sri Ariyavilasa Rd, Horana 12400</p>
-                        <p class="text-white">mdkhospital@gmail.com</p>
-                        <p class="text-white">+94 347 888 888</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="bill-body">
             <div class="bill-row">
                 <div class="bill-col">
-                    	<h2>Bill No: <?php echo $data['billid']?></h2>
-                    	<p>Prescription No: <?php echo $data['presid']?></p>
+                    	<b>Bill No: <?php echo $data['billid']?></b></br>
+                    	Prescription No: <?php echo $data['presid']?>
 <!--                    	<p>Order Date: --><?php //echo $data['presdate']?><!--</p>-->
 <!--			            <p>Patient Type: </p>-->
 <!--                    	<p>Patient Name:  </p>-->
@@ -38,7 +24,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
         <div class="bill-body">
             <h3>Ordered Items</h3>
-            <form method="post" class="data"  action="<?php echo URLROOT; ?>/cashiers/savebills">
+            <form method="post" class="data"  action="<?php echo URLROOT; ?>/cashiers/saveoutbills">
                 <br>
                 <input class="input1" type="text" id="billid" name="billid" value="<?php echo $data['billid'] ?>"  hidden>
                 <input class="input1" type="text" id="presid" name="presid" value="<?php echo $data['presid'] ?>"  hidden>
@@ -85,7 +71,22 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 </tbody>
             </table>
         </div> 
-        <button class="form-submit">Print Bill</button>
+        <div class="company">
+            <div class="bill-row">
+                <div class="bill-col">
+                    <p class="text-white">Thank you Come Again!</p>
+                </div>
+                <div class="bill-col">
+                    <div class="text-white" align="right">
+                        MDK Hospitals</br>
+                        No 149, Sri Ariyavilasa Rd, Horana 12400</br>
+                        mdkhospital@gmail.com</br>
+                        +94 347 888 888
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <button style="margin-left:85%;" class="form-submit">Print Bill</button>
     </form>
     </div>  
 </div>
@@ -124,7 +125,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
         var pamount = $("#pamount").val();
         var grosstotal = $("#grandt").val();
         if(pamount !=0 && pamount > 0){
-            balance =  parseFloat(grosstotal)- parseFloat(pamount);
+            balance =  parseFloat(pamount )- parseFloat(grosstotal);
 
             $('#balance').val( balance.toFixed(2));
         }

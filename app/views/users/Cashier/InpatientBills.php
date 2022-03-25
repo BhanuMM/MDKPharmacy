@@ -40,7 +40,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
         <?php foreach($data['pres'] as $allpres): ?>
             <tr>
                 <td><?php echo $allpres->presid ?></td>
-                <td><?php echo $allpres->patname ?></td>
+                <td><?php if (($allpres->pattype)=="adult") {echo $allpres->patname;} else {echo  $allpres->fullname. "(18-)";} ?></td>
                 <td><?php echo $allpres->patnic ?></td>
                 <td><?php echo $allpres->presdate ?></td>
                 <td><button class="button button1"><a href="<?php echo URLROOT. "/cashiers/inpatientsingle/".$allpres->presid ?>"> CREATE BILL</a></button></td>
