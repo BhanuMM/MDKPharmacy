@@ -2,8 +2,9 @@
 require APPROOT . '/views/includes/Pharmacisthead.php';
 ?>
 <br>
-<div style="margin-left:19.5%; padding:1px 16px; width: 40%">
-    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard"> << </a> </span></button>
+
+<div style="margin-left:20%;  padding:20px 26px;">
+    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard"> << </a> </span></button>
 </div> 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 

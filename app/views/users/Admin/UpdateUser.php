@@ -2,6 +2,7 @@
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
+
     <div style="margin-left:23.5%; padding:1px 16px; width: 40%; margin-top:0.5%;">
         <button class="prebtn" style="margin-right: 200px;">
             <span>
@@ -45,6 +46,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <input class="input1" type="text" id="Rnic" name="Rnic" size=12 placeholder="784596212V" value="<?php echo $data['snic']; ?>" required>
                 <span class="invalidFeedback">
                     <?php echo $data['nicError']; ?>
+
                 </span>
 
             <h5>

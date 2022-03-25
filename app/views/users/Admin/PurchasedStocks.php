@@ -11,6 +11,7 @@
         </button>
     </div>
 
+
     <div style="margin-left: 340px; margin-top:1px; padding:1px 16px; width: 70%; ">
         <span class="successadded">
             <?php if(isset($_GET['msg'])){

@@ -3,9 +3,9 @@ require APPROOT . '/views/includes/Doctorhead.php';
 ?>
 
 
-<div style="margin-left:20%; padding:8px 16px;">
 
-    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/doctors/createprescription"> &#8249; </a> </span></button>
+<div style="margin-left:20%;  padding:20px 26px;">
+    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/doctors/createprescription"> &#8249; </a> </span></button>
 </div>
 
 

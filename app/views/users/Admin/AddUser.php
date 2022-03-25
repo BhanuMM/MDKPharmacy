@@ -2,6 +2,7 @@
     require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
+
 <!--Back button-->
     <div style="margin-left:23.5%; padding:1px 16px; width: 40%; margin-top:1%; ">
         <button class="prebtn" style="margin-right: 200px;">
@@ -55,6 +56,7 @@
             <span class="invalidFeedback">
                     <?php echo $data['telError']; ?>
                     </span>
+
         </div>
 
 

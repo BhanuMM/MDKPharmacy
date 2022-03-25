@@ -2,8 +2,9 @@
 require APPROOT . '/views/includes/Pharmacisthead.php';
 ?>
 
-<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
-    <button class="prebtn"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/onlineorderprepare"> << Previous </a> </span></button>
+
+<div style="margin-left:20%;  padding:20px 26px;">
+    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/onlineorderprepare"> <<  </a> </span></button>
     <div class="bill">
     <div class="bill">
         <div class="company">

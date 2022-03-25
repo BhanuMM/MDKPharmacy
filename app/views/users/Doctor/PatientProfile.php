@@ -2,8 +2,9 @@
 require APPROOT . '/views/includes/Doctorhead.php';
 ?>
 
-<div style="margin-left:20%; padding:1px 16px; width: 40%">
-    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/doctors/viewpatientdetails"> << Previous </a> </span></button>
+
+<div style="margin-left:20%;  padding:20px 26px;">
+    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/doctors/viewpatientdetails"> << </a> </span></button>
 </div>
 
 <!-- --------------------------------------------------------------------------------------------- -->

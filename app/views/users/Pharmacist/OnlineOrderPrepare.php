@@ -20,9 +20,9 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 <div class="split right" style=" z-index: 10">
 <div class="centered">
 
-<div class="row" style="margin-top:-230px;">
+<div class="row" style="margin-top:-260px;">
 <div class="container">
-                <div style="margin-right:320px">
+                <div style="margin-right:330px">
                     <h3 >Add Medicine</h3>
                 </div>
                 <div style="margin-left:35px">
@@ -52,14 +52,14 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 
 
     <br> <br> <br> 
-            <button id="addbtn" style="padding:8px 30px; margin-right: 330px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">Add + </button>
+            <button id="addbtn" style="padding:8px 30px; margin-right: 360px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">Add + </button>
 
 
 
          
         </div>
 
-        <div class="column" style="margin-left:12%; padding:1px;">
+        <div class="column" style="margin-left:7%; padding:1px;">
 
              
             <!-- <ul style="padding-left: 0px; list-style-type: none; overflow: auto;">
@@ -161,7 +161,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 if(medname != 'Select Medicine'){
 
                     // count ++;
-                    $("#medlist tbody").append('<tr><td><input class="input1" type="text" id="medid" name="medid[]"value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="meddos" name="meddos[]" placeholder="Enter Dosage" required> </td> <td> <select id="time" name="time[]"><option value="Bd">Twice a day</option><option value="Tds">Three times a day</option><option value="Nocte">In the night</option><option value="Mane">in the morning</option><option value="Daily">One time a day</option></select></td><td><input class="input1" type="text" id="medduration" name="medduration[]" placeholder="Enter Days" required> </td> <td align="center"><button id="closebtn" style="background-color: #d11a2a; color: white; border-style:none;">&times</button></td></tr>')
+                    $("#medlist tbody").append('<tr><td><input class="input1" type="text" id="medid" name="medid[]"value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="meddos" name="meddos[]" placeholder="Enter Dosage" required> </td> <td> <select id="time" name="time[]"><option value="Bd">Bd</option><option value="Tds">Tds</option><option value="Nocte">Nocte</option><option value="Mane">Mane</option><option value="Daily">Daily</option></select></td><td><input class="input1" type="text" id="medduration" name="medduration[]" placeholder="Enter Days" required> </td> <td align="center"><button id="closebtn" style="background-color: #d11a2a; color: white; border-style:none;">&times</button></td></tr>')
 
                     // <button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: white; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button>
                 }else

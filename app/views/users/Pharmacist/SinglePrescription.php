@@ -64,9 +64,9 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
             <h3>Special Notes</h3> <br>
             <textarea name="Text1" class="input2" rows="5" readonly><?php echo $data['presnote']?></textarea>
                         <br>
-                    </div>
+                    </div><br>
                     <button class="button button1" style="float: right;">Confirm Prescription</button>
-                </div>
+                </div><br><br><br><br>
             </div>
 
             </body>
