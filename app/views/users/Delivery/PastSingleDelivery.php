@@ -19,30 +19,18 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                <p></p>
             </div>
             <div class="bill">
-        <div class="company">
-            <div class="bill-row">
-                <div class="bill-col">
-                    <h1 class="text-white">MDK Hospitals</h1>
-                </div>
-                <div class="bill-col">
-                    <div class="company-details">
-                        <p class="text-white">No 149, Sri Ariyavilasa Rd, Horana 12400</p>
-                        <p class="text-white">mdkhospital@gmail.com</p>
-                        <p class="text-white">+94 347 888 888</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="bill-body">
             <div class="bill-row">
                 <div class="bill-col">
-                    	<h2>Prescription No: <?php echo $data['presid']?></h2>
-                    	<p>Bill No: <?php echo $data['billid']?> </p>
-                    	<p>Order Date: <?php echo $data['billdate']?>  </p>
-			            <p>Customer Name: <?php echo $data['custname']?> </p>
-                        <p>Customer's Contact Number: <?php echo $data['custtelno']?> </p>
-                        <p>Customer's Address: <?php echo $data['custadrs']?> </p>
+                    	<b>Prescription No: <?php echo $data['presid']?></b></br>
+                    	Bill No: <?php echo $data['billid']?></br>
+                    	Order Date: <?php echo $data['billdate']?> 
+                </div>
+                <div class="bill-col" align="right"> 
+			            Customer Name: <?php echo $data['custname']?> </br>
+                        Customer's Contact Number: <?php echo $data['custtelno']?> </br>
+                        Customer's Address: <?php echo $data['custadrs']?>
                 </div>
          	<div></div>
             </div>
@@ -83,7 +71,22 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                     </tr>
                 </tbody>
             </table>
-        </div>      
+        </div>
+        <div class="company">
+            <div class="bill-row">
+                <div class="bill-col">
+                    <p class="text-white">Thank you Come Again!</p>
+                </div>
+                <div class="bill-col">
+                    <div class="text-white" align="right">
+                        MDK Hospitals</br>
+                        No 149, Sri Ariyavilasa Rd, Horana 12400</br>
+                        mdkhospital@gmail.com</br>
+                        +94 347 888 888
+                    </div>
+                </div>
+            </div>
+        </div>       
     </div>
 </div>
     </body>

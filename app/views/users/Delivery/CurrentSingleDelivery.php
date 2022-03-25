@@ -12,31 +12,18 @@ require APPROOT . '/views/includes/Deliveryhead.php';
               </div>
                 
         <div class="bill">
-        <div class="company">
-            <div class="bill-row">
-                <div class="bill-col">
-                    <h1 class="text-white">MDK Hospitals</h1>
-                </div>
-                <div class="bill-col">
-                    <div class="company-details">
-                        <p class="text-white">No 149, Sri Ariyavilasa Rd, Horana 12400</p>
-                        <p class="text-white">mdkhospital@gmail.com</p>
-                        <p class="text-white">+94 347 888 888</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="bill-body">
             <div class="bill-row">
                 <div class="bill-col">
-
-                        <h2>Bill No: <?php echo $data['billid']?></h2>
-                        <p>Prescription No: <?php echo $data['presid']?></p>
-                        <p>Date: <?php echo $data['billdate']?> </p>
-                        <p>Customer Name: <?php echo $data['custname']?> </p>
-                        <p>Customer's Contact Number: <?php echo $data['custtelno']?> </p>
-                        <p>Customer's Address: <?php echo $data['custadrs']?> </p>
+                        <b>Bill No: <?php echo $data['billid']?></b></br>
+                        Prescription No: <?php echo $data['presid']?></br>
+                        Date: <?php echo $data['billdate']?>
+                </div>
+                <div class="bill-col" align="right">
+                        Customer Name: <?php echo $data['custname']?></br>
+                        Customer's Contact Number: <?php echo $data['custtelno']?></br>
+                        Customer's Address: <?php echo $data['custadrs']?>
                 </div>
          	<div></div>
             </div>
@@ -79,7 +66,22 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                     </tr>
                 </tbody>
             </table>
-        </div> <br><br>
+        </div> 
+        <div class="company">
+            <div class="bill-row">
+                <div class="bill-col">
+                    <p class="text-white">Thank you Come Again!</p>
+                </div>
+                <div class="bill-col">
+                    <div class="text-white" align="right">
+                        MDK Hospitals</br>
+                        No 149, Sri Ariyavilasa Rd, Horana 12400</br>
+                        mdkhospital@gmail.com</br>
+                        +94 347 888 888
+                    </div>
+                </div>
+            </div>
+        </div>     <br><br>
         <!-- <form> -->
         
         <!-- <a href="<?php echo URLROOT ?>/Deliverys/confirmdel"><button class="form-submit">Confirm Delivery</button> </a>  -->
