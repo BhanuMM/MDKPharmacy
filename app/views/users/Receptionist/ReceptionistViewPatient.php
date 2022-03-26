@@ -34,22 +34,9 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                     <table>
                     <tr>
                       <th><li Style="float: right; vertical-align: middle; display: inline;">
-                      <input type="text" id="UISearchbarnic" name="UISearchbarnic" style="margin-left: 575px; height: 35px; width: 200px;" placeholder="Patient NIC"></li>
+                      <input type="text" id="UISearchbarnic" name="UISearchbarnic" style="margin-left: 575px; height: 35px; width: 200px;" placeholder="Patient NIC or Name"></li>
                       </th>
                       <th><button style="margin-left: 10px;" class="form-submit"  name="btnnic">SEARCH</button></th>
-                    </tr>
-                    </table>
-                    </form>
-                </ul>
-
-                <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
-                    <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/receptionists/viewpatients">
-                    <table>
-                    <tr>
-                      <th><li Style="float: right; vertical-align: middle; display: inline;">
-                      <input type="text" id="UISearchbarname" name="UISearchbarname" style="margin-left: 575px; height: 35px; width: 200px;" placeholder="Patient Name"></li>
-                      </th>
-                      <th><button style="margin-left: 10px;" class="form-submit"  name="btnname">SEARCH</button></th>
                     </tr>
                     </table>
                     </form>
@@ -106,22 +93,9 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                     <table>
                     <tr>
                       <th><li Style="float: right; vertical-align: middle; display: inline;">
-                      <input type="text" id="UISearchbargnic" name="UISearchbargnic" style="margin-left: 575px; height: 35px; width: 200px;" placeholder="Guardian's NIC"></li>
+                      <input type="text" id="UISearchbargnic" name="UISearchbargnic" style="margin-left: 575px; height: 35px; width: 250px;" placeholder="Guardian's NIC or Child Name"></li>
                       </th>
                       <th><button style="margin-left: 10px;" class="form-submit" name="btngnic" >SEARCH</button></th>
-                    </tr>
-                    </table>
-                    </form>
-                </ul>
-
-                <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
-                    <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/receptionists/viewpatients">
-                    <table>
-                    <tr>
-                      <th><li Style="float: right; vertical-align: middle; display: inline;">
-                      <input type="text" id="UISearchbarcname" name="UISearchbarcname" style="margin-left: 575px; height: 35px; width: 200px;" placeholder="Child Name"></li>
-                      </th>
-                      <th><button style="margin-left: 10px;" class="form-submit" name="btnchildname">SEARCH</button></th>
                     </tr>
                     </table>
                     </form>
