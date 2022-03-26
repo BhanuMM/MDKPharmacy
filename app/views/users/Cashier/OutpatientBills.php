@@ -125,36 +125,55 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
             <script>
                 $(document).ready(function(){
-                    // var tid="";
-                    $('#addbtn').click(function(){
-                        // var inputval= $('#dos').val();
 
+                    $('#addbtn').click(function(){
+                        var alreadye = 1;
                         var label = $('.selected');
                         var medid = label.attr('medid');
-                        // var medname = label.attr('medname');
                         var medname = label.text();
+                        var input = 0;
 
-                        if(medname != 'Select Medicine'){
+                        var input = document.getElementsByClassName('idclass');
+                        for (var i = 0; i < input.length ; i++) {
+                            if(input[i].value===medid){
 
-                            // count ++;
-                            $("#medlist tbody").append('<tr><td><input class="input1" type="text" id="medid" name="medid[]" value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="medqty" name="medqty[]" placeholder="Enter Quantity" required> </td>  <td align="center"><button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: white; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button></td></tr>')
+                                alreadye=0;
+                                break;
+
+                            } else {
+                                alreadye=1;
+                            }
+                        }
+
+                        if(medname !== 'Select Medicine' ){
+                            if( alreadye !==0){
+                                $("#medlist tbody").append('<tr><td><input class="input1 idclass" type="text" id="medid" name="medid[]" value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="medqty" name="medqty[]" placeholder="Enter Quantity" required> </td>  <td align="center"><button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: white; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button></td></tr>')
+
+                            }else {
+                                alert("The Medicine Already Exists!");
+                            }
                         }else
                         {
                             alert("Please Select a Medicine");
-                            // $('#employee_details').css("display", "none");
                         }
                     });
                     $('#medlist tbody ').on('click','#removebtn' ,function (){
                         $(this).closest('tr').remove();
                     });
 
+                    // $('#removebtn').click(function(event){
+                    //
+                    //     tid=$(this).attr('id');
+                    //     alert('#'+tid);
+                    // });
 
                 });
             </script>
             <!------------------------------------------------------------------------------------------------------------->
             <br>
             <br>
-            
+
+
         </div>
     </div>  
 </div>

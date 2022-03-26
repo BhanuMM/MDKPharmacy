@@ -18,7 +18,9 @@
 
     <label for="contact">Contact Number</label>
     <input type="text" id="contact" name="contact" placeholder="Your contact number..">
-    
+        <span class="invalidFeedback" style="color: red; font-size: 10pt;" >
+                    <?php echo $data['telError']; ?>
+                 <br>   </span>
     <label for="address">Address</label>
     <input type="text" id="address" name="address" placeholder="Your address..">
     <br>
@@ -26,7 +28,7 @@
     	
     <label for="img">Upload Prescription</label>
     <br>
-    <input type="file" id="imagefile" name="imagefile"  style="background-color:white;text-align:center;padding:16px 16px 16px 16px">
+    <input type="file" id="imagefile" name="imagefile"  style="background-color:white;text-align:center;padding:16px 16px 16px 16px" required>
 
     <!-- accept="image/*" -->
 

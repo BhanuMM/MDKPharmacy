@@ -113,19 +113,26 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
 
     });
-    $(document).on("change keyup blur", "#dis", function() {
+    $(document).on("change keyup keydown blur", "#dis", function() {
 
         var grandtotal =0;
         var dis = $("#dis").val();
         var subtotal = $("#subtot").val();
-        if(dis !=0){
+        if(dis !=0 && dis>0){
             grandtotal =  (parseFloat(subtotal)*(100-parseFloat(dis)))/100;
-
+            var pamount = $("#pamount").val();
+            if (pamount != 0){
+                // grandtotal = $("#grandt").val();
+                var balance =  parseFloat(grandtotal)- parseFloat(pamount);
+                $('#balance').val( balance.toFixed(2));
+            }
+            $('#balance').val(null );
             $('#grandt').val( grandtotal.toFixed(2));
+
         }
 
     });
-    $(document).on("change keyup blur", "#pamount", function() {
+    $(document).on("change keyup keydown blur", "#pamount", function() {
 
         var balance =0;
         var pamount = $("#pamount").val();
