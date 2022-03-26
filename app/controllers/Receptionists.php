@@ -17,94 +17,189 @@ class Receptionists extends Controller
 
         $allchildren = $this->receptionistModel->viewchild();
 
-        $data = [
-            'patients' => $allpatients,
-            'children' => $allchildren
+//        $data = [
+//            'patients' => $allpatients,
+//            'children' => $allchildren
+//        ];
+
+        $data=[
+            'pat' =>(array) null ,
+            'child' =>(array) null
+
         ];
 
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (isset($_POST['btnnic'])) {
+            if (isset($_POST['btnid'])) {
                 //Sanitize post data
-             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
- 
-             $datanic = trim($_POST['UISearchbarnic']);
-             $searchpatient = $this->receptionistModel->searchpatientnic($datanic);
- 
-             if ($searchpatient) {
-                 $data=[
-                    'patients' => $searchpatient
-                 ];
-             }
-             else{
-                 $data=[
-                    'patients' => '',
-                     'nofound' => 'No Record Found'
-                 ];
-             }
-            } 
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                $datanic = trim($_POST['patnic']);
+                $searchpatient = $this->doctorModel->searchnic($datanic);
+
+                if ($searchpatient) {
+                    $data=[
+                        'pat' => $searchpatient,
+                        'child' =>(array) null
+                    ];
+                }
+                else{
+                    $data=[
+                        'pat' =>$searchpatient,
+                        'child' =>(array) null,
+                        'nofound' => 'No Record Found'
+                    ];
+                }
+            }
+
 
             elseif (isset($_POST['btnname'])) {
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                $dataname = trim($_POST['patname']);
+                $searchpatient = $this->doctorModel->searchpatientname($dataname);
 
-                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-     
-             $dataname = trim($_POST['UISearchbarname']);
-             $searchpatient = $this->receptionistModel->searchpatientname($dataname);
-     
-             if ($searchpatient) {
-                 $data=[
-                    'patients' => $searchpatient
-                 ];
-             }
-             else{
-                 $data=[
-                    'patients' => '',
-                     'nofound' => 'No Record Found'
-                 ];
-             }
+                if ($searchpatient) {
+                    $data=[
+                        'pat' =>$searchpatient,
+                        'child' =>(array) null
+
+                    ];
+                }
+                else{
+                    $data=[
+                        'pat' => $searchpatient,
+                        'child' =>(array) null,
+                        'nofound' => 'No Record Found'
+                    ];
+                }
+            }
+
+            elseif (isset($_POST['btncname'])) {
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                $dataname = trim($_POST['childname']);
+                $searchchild = $this->doctorModel->searchchildname($dataname);
+
+                if ($searchchild) {
+                    $data=[
+                        'child' => $searchchild,
+                        'pat' =>(array) null
+                    ];
+                }
+                else{
+                    $data=[
+                        'child' => $searchchild,
+                        'pat' =>(array) null,
+                        'nofound' => 'No Record Found'
+                    ];
+                }
             }
 
             elseif (isset($_POST['btngnic'])) {
-
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    
-            $dataname = trim($_POST['UISearchbargnic']);
-            $searchpatient = $this->receptionistModel->searchguardiannic($dataname);
-    
-            if ($searchpatient) {
-                $data=[
-                    'children' => $searchpatient
-                ];
-            }
-            else{
-                $data=[
-                    'children' => '',
-                    'nofound' => 'No Record Found'
-                ];
-            }
-           }
 
-           elseif (isset($_POST['btnchildname'])) {
+                $dataname = trim($_POST['guardiannic']);
+                $searchchild = $this->doctorModel->searchguardiannic($dataname);
 
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-            $dataname = trim($_POST['UISearchbarcname']);
-            $searchpatient = $this->receptionistModel->searchchildname($dataname);
-
-            if ($searchpatient) {
-                $data=[
-                    'children' => $searchpatient
-                ];
+                if ($searchchild) {
+                    $data=[
+                        'child' => $searchchild,
+                        'pat' =>(array) null
+                    ];
+                }
+                else{
+                    $data=[
+                        'child' => $searchchild,
+                        'pat' =>(array) null,
+                        'nofound' => 'No Record Found'
+                    ];
+                }
             }
-            else{
-                $data=[
-                    'children' => '',
-                    'nofound' => 'No Record Found'
-                ];
-            }
+
+
         }
 
-        }
+//        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//            if (isset($_POST['btnnic'])) {
+//                //Sanitize post data
+//                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+//
+//                $datanic = trim($_POST['UISearchbarnic']);
+//                $searchpatient = $this->receptionistModel->searchpatientnic($datanic);
+//
+//                if ($searchpatient) {
+//                    $data=[
+//                        'patients' => $searchpatient
+//                    ];
+//                }
+//                else{
+//                    $data=[
+//                        'patients' => '',
+//                        'nofound' => 'No Record Found'
+//                    ];
+//                }
+//            }
+//
+//            elseif (isset($_POST['btnname'])) {
+//
+//                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+//
+//                $dataname = trim($_POST['UISearchbarname']);
+//                $searchpatient = $this->receptionistModel->searchpatientname($dataname);
+//
+//                if ($searchpatient) {
+//                    $data=[
+//                        'patients' => $searchpatient
+//                    ];
+//                }
+//                else{
+//                    $data=[
+//                        'patients' => '',
+//                        'nofound' => 'No Record Found'
+//                    ];
+//                }
+//            }
+//
+//            elseif (isset($_POST['btngnic'])) {
+//
+//                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+//
+//                $dataname = trim($_POST['UISearchbargnic']);
+//                $searchpatient = $this->receptionistModel->searchguardiannic($dataname);
+//
+//                if ($searchpatient) {
+//                    $data=[
+//                        'children' => $searchpatient
+//                    ];
+//                }
+//                else{
+//                    $data=[
+//                        'children' => '',
+//                        'nofound' => 'No Record Found'
+//                    ];
+//                }
+//            }
+//
+//            elseif (isset($_POST['btnchildname'])) {
+//
+//                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+//
+//                $dataname = trim($_POST['UISearchbarcname']);
+//                $searchpatient = $this->receptionistModel->searchchildname($dataname);
+//
+//                if ($searchpatient) {
+//                    $data=[
+//                        'children' => $searchpatient
+//                    ];
+//                }
+//                else{
+//                    $data=[
+//                        'children' => '',
+//                        'nofound' => 'No Record Found'
+//                    ];
+//                }
+//            }
+//
+//        }
 
         $this->view('users/Receptionist/ReceptionistViewPatient',$data);
     }
@@ -180,10 +275,10 @@ class Receptionists extends Controller
 //        $this->view('users/Receptionist/ReceptionistProfileSetting');
 //    }
 
-    
 
-    
-    
+
+
+
     public function updatepatient($patid)
     {
         $pat = $this->receptionistModel->findPatientById($patid);
@@ -247,7 +342,7 @@ class Receptionists extends Controller
                     die('Something went wrong.');
                 }
             }
-            
+
         }
         $this->view('users/Receptionist/UpdatePatient',$data);
     }
@@ -274,15 +369,15 @@ class Receptionists extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        if ($this->receptionistModel->deletepatient($patid)) {
-         //Redirect to the viewtable page
-        $recadded = ' Patient details has been Deleted!';
-        header('location: ' . URLROOT . '/receptionists/viewpatients');
-         } else {
-        die('Something went wrong.');
+            if ($this->receptionistModel->deletepatient($patid)) {
+                //Redirect to the viewtable page
+                $recadded = ' Patient details has been Deleted!';
+                header('location: ' . URLROOT . '/receptionists/viewpatients');
+            } else {
+                die('Something went wrong.');
             }
+        }
     }
-}
     public function profilesettings($psid){
 
         $profile = $this->receptionistModel->findProfilebyId($psid);
@@ -346,7 +441,7 @@ class Receptionists extends Controller
                         'psusername' => trim($_POST['Runame']),
                         'pspswrd' => $pswrd
                     ];
-                     if ($this->receptionistModel->updateprofilesettings($userdata)) {
+                    if ($this->receptionistModel->updateprofilesettings($userdata)) {
                         $recadded = 'Updated ';
                         header('location: ' . URLROOT . '/receptionists/receptionistdashboard?msg='.$recadded);
                     } else {
@@ -426,21 +521,21 @@ class Receptionists extends Controller
             ];
 
             if ( $_POST['guardianid']!= null  ){
-            //Register user from model function
+                //Register user from model function
                 if ($this->receptionistModel->registerchildelder($data)) {
                     //Redirect to the viewtable page
                     $recadded = 'New sub patient has been Successfully Added!';
                     header('location: ' . URLROOT . '/receptionists/viewpatients?msg='.$recadded);
                 } else {
                     die('Something went wrong.');
-                     }
-                }else{
+                }
+            }else{
                 $data = [
                     'noguardian' => "nofound"
                 ];
                 $this->view('users/Receptionist/childregistration',$data);;
             }
-             }
+        }
 
 
     }
@@ -478,16 +573,16 @@ class Receptionists extends Controller
 
 
 
-                //Register user from model function
-                if ($this->receptionistModel->updatechild($data)) {
-                    //Redirect to the viewtable page
-                    $recadded = ' Patient details has been Successfully Updated!';
-                    header('location: ' . URLROOT . '/receptionists/viewpatients?msg='.$recadded);
-                } else {
-                    die('Something went wrong.');
-                }
-            
-            
+            //Register user from model function
+            if ($this->receptionistModel->updatechild($data)) {
+                //Redirect to the viewtable page
+                $recadded = ' Patient details has been Successfully Updated!';
+                header('location: ' . URLROOT . '/receptionists/viewpatients?msg='.$recadded);
+            } else {
+                die('Something went wrong.');
+            }
+
+
         }
         $this->view('users/Receptionist/updatechild',$data);
     }
@@ -511,15 +606,15 @@ class Receptionists extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        if ($this->receptionistModel->deletechild($childelderid)) {
-         //Redirect to the viewtable page
-        $recadded = ' Patient details has been Deleted!';
-        header('location: ' . URLROOT . '/receptionists/viewpatients');
-         } else {
-        die('Something went wrong.');
+            if ($this->receptionistModel->deletechild($childelderid)) {
+                //Redirect to the viewtable page
+                $recadded = ' Patient details has been Deleted!';
+                header('location: ' . URLROOT . '/receptionists/viewpatients');
+            } else {
+                die('Something went wrong.');
             }
+        }
     }
-}
 
 
 

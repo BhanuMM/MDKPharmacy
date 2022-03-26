@@ -56,7 +56,7 @@ if(isset($_GET['msg'])){
                             <div class="welcome">
                                 <img src="<?php echo URLROOT ?>/public/images/report-icon.png" />
                                 <div class="fn-names">
-                                    Register Child / Elder
+                                    Register Child
                                 </div>
                             </div>
                             <a href="<?php echo URLROOT ?>/receptionists/childelderreg"><button class="button button1">View</button></a>
