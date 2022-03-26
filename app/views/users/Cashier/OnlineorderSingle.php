@@ -66,7 +66,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right">Paid Amount</td>
-                        <td ><input id="pamount"  name="pamount" type="text" ></td>
+                        <td ><input id="pamount"  name="pamount" type="text" autocomplete="off"></td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right">Balance</td>
