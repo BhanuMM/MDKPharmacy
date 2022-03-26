@@ -29,14 +29,27 @@ public function viewpastdelivery()
 }
 
 public function searchdelbill($telno) {
-    $this->db->query('SELECT * FROM onlineorder 
-                        INNER JOIN onlineprescription ON onlineorder.onlineoid=onlineprescription.onlineorderid  
-                        WHERE onlineorder.onlinetelno = :telno and onlineprescription.billed != "yes" ' );
+    $this->db->query('SELECT * FROM delivery 
+    INNER JOIN onlineprescription ON onlineprescription.onlinepresid=delivery.presid 
+    INNER JOIN onlineorder ON onlineorder.onlineoid = onlineprescription.onlineorderid 
+    WHERE delivery.delstatus="pending" and onlineorder.onlinetelno = :telno' );
 
     $this->db->bind(':telno', $telno);
     $results = $this->db->resultSet();
     return $results;
 }
+
+public function searchpastdelbill($telno) {
+    $this->db->query('SELECT * FROM delivery 
+                        INNER JOIN onlineprescription ON onlineprescription.onlinepresid=delivery.presid 
+                        INNER JOIN onlineorder ON onlineorder.onlineoid = onlineprescription.onlineorderid 
+                        WHERE delivery.delstatus="completed" and onlineorder.onlinetelno = :telno ' );
+
+    $this->db->bind(':telno', $telno);
+    $results = $this->db->resultSet();
+    return $results;
+}
+
 
 public function getdelcustdata($delpresid) {
     $this->db->query('SELECT * FROM onlineorder 

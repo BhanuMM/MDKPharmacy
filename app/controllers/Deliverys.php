@@ -126,7 +126,7 @@ class Deliverys extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
             $delbill = trim($_POST['UISearchbar']);
-            $searchdelbill = $this->deliveryModel-> searchdelbill($delbill);
+            $searchdelbill = $this->deliveryModel-> searchpastdelbill($delbill);
 
             $data = [
                 'pastdel' => $searchdelbill

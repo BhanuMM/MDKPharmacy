@@ -22,7 +22,7 @@ class Doctors extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
             $datanic = trim($_POST['UISearchbar']);
-            $searchpatient = $this->doctorModel->searchpatientnic($datanic);
+            $searchpatient = $this->doctorModel->searchpatient($datanic);
 
             $data = [
                 'pat' => $searchpatient
@@ -74,7 +74,7 @@ class Doctors extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $datanic = trim($_POST['patnic']);
-            $searchpatient = $this->doctorModel->searchnic($datanic);
+            $searchpatient = $this->doctorModel->searchpatient($datanic);
 
             if ($searchpatient) {
                 $data=[
@@ -95,7 +95,7 @@ class Doctors extends Controller {
               elseif (isset($_POST['btnname'])) {
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $dataname = trim($_POST['patname']);
-            $searchpatient = $this->doctorModel->searchpatientname($dataname);
+            $searchpatient = $this->doctorModel->searchpatient($dataname);
     
             if ($searchpatient) {
                 $data=[
@@ -117,7 +117,7 @@ class Doctors extends Controller {
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
     
             $dataname = trim($_POST['childname']);
-            $searchchild = $this->doctorModel->searchchildname($dataname);
+            $searchchild = $this->doctorModel->searchchild($dataname);
     
             if ($searchchild) {
                 $data=[
@@ -138,7 +138,7 @@ class Doctors extends Controller {
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
     
             $dataname = trim($_POST['guardiannic']);
-            $searchchild = $this->doctorModel->searchguardiannic($dataname);
+            $searchchild = $this->doctorModel->searchchild($dataname);
     
             if ($searchchild) {
                 $data=[
@@ -183,6 +183,8 @@ class Doctors extends Controller {
 //
         $this->view('users/Doctor/AddPrescription',$data);
     }
+
+
     public function addchildprescription($childid) {
         $pat = $this->doctorModel->searchchildbyId($childid);
 

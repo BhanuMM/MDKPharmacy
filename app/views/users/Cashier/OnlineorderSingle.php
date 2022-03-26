@@ -48,7 +48,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     <tr class="item">
                         <td><?php echo $allmeds->medgenname ?></td>
                         <td class="sellp"><?php echo $allmeds->medsellprice ?></td>
-                         <td class="sellq"><?php echo $allmeds->dosage ?></td>
+                         <td class="sellq"><?php echo $allmeds->dosage?></td>
                         <td class="price"></td>
                     </tr>
                 <?php endforeach; ?>

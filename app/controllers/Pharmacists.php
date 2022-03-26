@@ -64,8 +64,6 @@ class Pharmacists extends Controller {
             'patgen' => $patdata->patgen,
             'meds'=> $predata
 //            'medgenname' => $med->medgenname,
-
-
         ];
 
         $this->view('users/Pharmacist/SinglePrescription',$data);
@@ -373,6 +371,7 @@ class Pharmacists extends Controller {
             $meddose =$_POST['meddos'];
             $medtime =$_POST['time'];
             $meddur =$_POST['medduration'];
+           
 
 
 
@@ -387,14 +386,41 @@ class Pharmacists extends Controller {
                 $maxpres =$this->pharmacistModel->getlatestpres();
                 $presid = $maxpres->maxpres;
                 for($i=0; $i< $count; $i++){
+                    if($medtime[$i]=="Bd"){
+                    
+                        $qty = (int)$meddose[$i]*2*(int)$meddur[$i];
+                        
+                    }elseif($medtime[$i]=="Tds"){
+
+                        $qty = (int)$meddose[$i]*3*(int)$meddur[$i];
+                    
+                    }elseif($medtime[$i]=="Nocte"){
+
+                        $qty = (int)$meddose[$i]*1*(int)$meddur[$i];
+
+                    }elseif($medtime[$i]== "Mane"){
+
+                        $qty = (int)$meddose[$i]*1*(int)$meddur[$i];
+
+                    }else{
+ 
+                        $qty = (int)$meddose[$i]*1*(int)$meddur[$i];
+
+                    }
+
                     $data=[
                         'medid'=> $medid [$i],
                         'meddose'=> $meddose[$i],
                         'medtime'=> $medtime[$i],
                         'meddur'=> $meddur[$i],
+                        'qty'=> $qty,
                         'presid'=>$presid
 
                     ];
+                    
+
+                    
+
                     $this->pharmacistModel->addtopres($data);
                 }
   
@@ -408,7 +434,6 @@ class Pharmacists extends Controller {
         // $this->view('users/Pharmacist/PharmacistDashboard');
 
         $this->pastsingleprescription($_POST['oid']);
-        
 
     }
 
@@ -495,9 +520,13 @@ class Pharmacists extends Controller {
 
         ];
 
-        $this->view('users/Pharmacist/SingleOnlinePrescription',$data);
+         $this->view('users/Pharmacist/SingleOnlinePrescription',$data);
+            // $recadded = 'New Prescription is added ';
+            // header('location: ' . URLROOT . '/pharmacists/viewonlineorders?msg='.$recadded);
+      
+        }
     }
-}
+
 
 
 

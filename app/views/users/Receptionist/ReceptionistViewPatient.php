@@ -41,19 +41,22 @@
                     <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/receptionists/viewpatients">
                     <table>
                     <tr>
+
                       <th style="padding: 0px;">
                           <li Style="float: right; vertical-align: middle; display: inline;">
 <!--                              Search patient by NIC-->
-                            <input type="text" id="UISearchbarnic" name="UISearchbarnic" style="margin-left: 707px; height: 35px; width: 200px;" placeholder="Patient NIC">
+                            <input type="text" id="UISearchbarnic" name="UISearchbarnic" style="margin-left: 707px; height: 35px; width: 200px;" placeholder="Patient NIC or Name">
                           </li>
                       </th>
                       <th>
                           <button style="margin-left: 10px;" class="form-submit"  name="btnnic">SEARCH</button>
                       </th>
+
                     </tr>
                     </table>
                     </form>
                 </ul>
+
 
 <!--                <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">-->
 <!--                    <form method="post" class="data" Style="float: left;" action="--><?php //echo URLROOT; ?><!--/receptionists/viewpatients">-->
@@ -129,14 +132,16 @@
                     <table>
                     <tr>
                       <th><li Style="float: right; vertical-align: middle; display: inline;">
-<!--                              Search patient by Gardian's NIC-->
-                      <input type="text" id="UISearchbargnic" name="UISearchbargnic" style="margin-left: 707px; height: 35px; width: 200px;" placeholder="Guardian's NIC"></li>
+
+                      <input type="text" id="UISearchbargnic" name="UISearchbargnic" style="margin-left: 575px; height: 35px; width: 250px;" placeholder="Guardian's NIC or Child Name"></li>
+
                       </th>
                       <th><button style="margin-left: 10px;" class="form-submit" name="btngnic" >SEARCH</button></th>
                     </tr>
                     </table>
                     </form>
                 </ul>
+
 
 <!--                <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">-->
 <!--                    <form method="post" class="data" Style="float: left;" action="--><?php //echo URLROOT; ?><!--/receptionists/viewpatients">-->
