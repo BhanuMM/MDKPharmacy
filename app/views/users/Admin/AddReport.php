@@ -19,13 +19,14 @@ require APPROOT . '/views/includes/Adminhead.php';
 
 <div id="Summaries" class="w3-container Section">
 
-<form method="post" action="">
+
             <!-- <div style="margin-left:20%; padding:1px 16px;"> -->
                 <div class="column" style=" width: 40%; padding:1px 16px;">
                 <h2 style="margin-top: 18%;">
                     Summaries
                 </h2>
                 <!-- Daily -->
+                    <form method="post" action="<?php echo URLROOT; ?>/reports/dailySummary" target="_blank">
                 <button id="dailyreports" class="reportBtn">Daily Report</button><br>
                 <div class = "fordailyreports" style="display:none; background-color:#f2f2f2; padding:10px 70px 10px 30px; ">
                 <div class="close" style="margin-right:62%; margin-top:-1%;">+</div>
@@ -36,7 +37,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <input class="form-submit" style="margin-top:30px;"type="submit" id="generatedaily" name="submitbutton1" Value="Generate Report" ><br><br>
                 </div>
 </form><br>
-<form method="post" action="">
+<form method="post" action="<?php echo URLROOT; ?>/admins/testreport">
                 <!-- Monthly -->
                 <button id="monthlyreports" class="reportBtn">Monthly Report</button><br>
                 <div class = "formonthlyreports" style="display:none; background-color:#f2f2f2; padding:10px 70px 10px 30px;">

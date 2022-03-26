@@ -825,6 +825,9 @@ class Admins extends Controller {
     public function addreport() {
         $this->view('users/Admin/AddReport');
     }
+    public function testreport() {
+      APPROOT.Reports::viewReport();
+    }
 
     // public function profilesettings(){
     //     $this->view('users/Admin/AdminProfileSetting');
