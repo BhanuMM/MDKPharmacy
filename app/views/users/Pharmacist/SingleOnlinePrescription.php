@@ -45,6 +45,9 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 <tr>
                     <th>Medicine</th>
                     <th class="table-field">Dosage</th>
+                    <th class="table-field">Time</th>
+                    <th class="table-field">Duration</th>
+                    <th class="table-field">qty</th>
 <!--                    <th class="table-field">Total</th>-->
                 </tr>
                 </thead>
@@ -53,6 +56,10 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 <tr>
                     <td><?php echo $allmeds->medgenname ?></td>
                     <td><?php echo $allmeds->dosage ?></td>
+                    <td><?php echo $allmeds->medtime ?></td>
+                    <td><?php echo $allmeds->duration ?></td>
+                    <td><?php echo $allmeds->qty ?></td>
+
 <!--                    <td></td>-->
                 </tr>
                 <?php endforeach; ?>
@@ -63,7 +70,9 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
             <textarea name="Text1" class="input2" rows="5" readonly><?php echo $data['presnote']?></textarea> -->
                         <br>
                     </div> <br> 
+            <a href="<?php echo URLROOT ?>/pharmacists/viewonlineorders?msg= New Prescription is added "> 
                     <button class="button button1" style="float: right;">Confirm Prescription</button>
+            </a> 
                 </div><br><br><br><br><br><br><br><br>
             </div>
 

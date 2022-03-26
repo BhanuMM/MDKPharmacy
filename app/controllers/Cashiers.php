@@ -194,7 +194,7 @@ class Cashiers extends Controller {
 
                     for($i=0; $i<= (int)$rowcount; $i++){
                         $medqty = $this->cashierModel->getmedqty($med[$i]->medid);
-                        $newqty = (int)($medqty->quantity)- (int)($med[$i]->quantity);
+                        $newqty = (int)($medqty->quantity)- (int)($med[$i]->qty);
                         $this->cashierModel->updatestock($med[$i]->medid,$newqty);
                     }
                     $recadded = 'out patient Bill has been Saved';
@@ -282,6 +282,7 @@ class Cashiers extends Controller {
             'presid' => '',
             'billdate' => '',
             'billtime' => '',
+            'qty' => '',
             'subtotal' => '',
             'discount' => '',
             'payment' => '',
@@ -308,6 +309,7 @@ class Cashiers extends Controller {
                 'grosstotal' => trim($_POST['grandt']),
                 'custype'=>$_POST['custype'],
                 'cashierid' => $_POST['cashierid'],
+                // 'qty'=> $_POST['qty'],
                 'billed' => "yes",
                 'status' => "pending"
             ];
