@@ -52,14 +52,14 @@ class Receptionist {
 //        }
 //    }
     public function findProfilebyId($psid) {
-    $this->db->query('SELECT * FROM staff WHERE staffid = :proid');
+        $this->db->query('SELECT * FROM staff WHERE staffid = :proid');
 
-    $this->db->bind(':proid', $psid);
+        $this->db->bind(':proid', $psid);
 
-    $row = $this->db->single();
+        $row = $this->db->single();
 
-    return $row;
-}
+        return $row;
+    }
     public function updateprofilesettings($data){
         $this->db->query('UPDATE staff SET snic = :psnic, sname = :psname, semail = :psemail, uname = :psuname ,upswrd= :pswrd WHERE staffid = :psid');
 
@@ -78,69 +78,74 @@ class Receptionist {
 
     }
 
-public function findPatientById($patid) {
-    $this->db->query('SELECT * from patient WHERE patid =:patid');
+    public function findPatientById($patid) {
+        $this->db->query('SELECT * from patient WHERE patid =:patid');
 
-    $this->db->bind(':patid',$patid);
+        $this->db->bind(':patid',$patid);
 
-    $row = $this->db->single();
-    return $row;
-}
+        $row = $this->db->single();
+        return $row;
+    }
 
-public function findchildById($childelderid) {
-    $this->db->query('SELECT * from childelder INNER JOIN patient on childelder.guardianid=patient.patid WHERE childelderid =:childelderid');
+    public function findchildById($childelderid) {
+        $this->db->query('SELECT * from childelder INNER JOIN patient on childelder.guardianid=patient.patid WHERE childelderid =:childelderid');
 
-    $this->db->bind(':childelderid',$childelderid);
+        $this->db->bind(':childelderid',$childelderid);
 
-    $row = $this->db->single();
-    return $row;
-}
+        $row = $this->db->single();
+        return $row;
+    }
 
-public function searchpatientnic($patnic) {
-    $this->db->query('SELECT * FROM patient WHERE patnic = :patnic');
+    public function searchpatientnic($patnic) {
+//        $this->db->query('SELECT * FROM patient WHERE patnic = :patnic');
 
-    //Bind value
-    $this->db->bind(':patnic', $patnic);
-    $results = $this->db->resultSet();
+        $where = " `patname` like :patname ";
+        $param1 = '%'.$patnic.'%'  ;
+        $this->db->query('SELECT * FROM patient WHERE patnic = :patientnic OR  '.$where.' ');
 
-    return $results;
-}
+        //Bind value
+        $this->db->bind(':patname', $param1);
+        $this->db->bind(':patnic', $patnic);
+        $results = $this->db->resultSet();
 
-public function searchpatientname($patname) {
-    $where = "WHERE `patname` like :patname ";
-    $param1 = '%'.$patname.'%'  ;
-    $this->db->query("SELECT * FROM patient ".$where."");
-    $this->db->bind(':patname', $param1);
-    $results = $this->db->resultSet();
+        return $results;
+    }
 
-    return $results;
+//    public function searchpatientname($patname) {
+//        $where = "WHERE `patname` like :patname ";
+//        $param1 = '%'.$patname.'%'  ;
+//        $this->db->query("SELECT * FROM patient ".$where."");
+//        $this->db->bind(':patname', $param1);
+//        $results = $this->db->resultSet();
+//
+//        return $results;
+//
+//    }
 
-}
+    public function searchguardiannic($patnic) {
+        $this->db->query('SELECT * FROM childelder INNER JOIN patient ON childelder.guardianid=patient.patid WHERE patient.patnic= :patnic');
 
-public function searchguardiannic($patnic) {
-    $this->db->query('SELECT * FROM childelder INNER JOIN patient ON childelder.guardianid=patient.patid WHERE patient.patnic= :patnic');
+        //Bind value
+        $this->db->bind(':patnic', $patnic);
+        $results = $this->db->resultSet();
 
-    //Bind value
-    $this->db->bind(':patnic', $patnic);
-    $results = $this->db->resultSet();
+        return $results;
+    }
 
-    return $results;
-}
+    public function searchchildname($fullname) {
+        $where = "WHERE `fullname` like :fullname ";
+        $param1 = '%'.$fullname.'%'  ;
+        $this->db->query("SELECT * FROM childelder INNER JOIN patient ON childelder.guardianid=patient.patid ".$where."");
+        $this->db->bind(':fullname', $param1);
+        $results = $this->db->resultSet();
 
-public function searchchildname($fullname) {
-    $where = "WHERE `fullname` like :fullname ";
-    $param1 = '%'.$fullname.'%'  ;
-    $this->db->query("SELECT * FROM childelder INNER JOIN patient ON childelder.guardianid=patient.patid ".$where."");
-    $this->db->bind(':fullname', $param1);
-    $results = $this->db->resultSet();
+        return $results;
 
-    return $results;
+    }
 
-}
+    public function updatepatient($data) {
 
-public function updatepatient($data) {
-
-    $this->db->query('UPDATE patient SET patname = :patname, patnic = :patnic, patadrs = :patadrs, pattelno = :pattelno, patemail = :patemail, patdob = :patdob, patgen = :patgen WHERE patid = :patid' );
+        $this->db->query('UPDATE patient SET patname = :patname, patnic = :patnic, patadrs = :patadrs, pattelno = :pattelno, patemail = :patemail, patdob = :patdob, patgen = :patgen WHERE patid = :patid' );
 
         $this->db->bind(':patname', $data['patientname']);
         $this->db->bind(':patnic', $data['patientnic']);
@@ -157,22 +162,22 @@ public function updatepatient($data) {
         } else {
             return false;
         }
-}
-
-public function deletepatient($patid){
-    $this->db->query('DELETE FROM patient WHERE patid = :patid' );
-    $this->db->bind(':patid', $patid);
-    //Execute function
-    if ($this->db->execute()) {
-        return true;
-    } else {
-        return false;
     }
-}
 
-public function updatechild($data) {
+    public function deletepatient($patid){
+        $this->db->query('DELETE FROM patient WHERE patid = :patid' );
+        $this->db->bind(':patid', $patid);
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-    $this->db->query('UPDATE childelder SET fullname = :childname, childeldergen = :gender, childelderdob = :dob WHERE childelderid = :childelderid' );
+    public function updatechild($data) {
+
+        $this->db->query('UPDATE childelder SET fullname = :childname, childeldergen = :gender, childelderdob = :dob WHERE childelderid = :childelderid' );
 
         $this->db->bind(':childname', $data['childname']);
         $this->db->bind(':gender', $data['gender']);
@@ -185,18 +190,18 @@ public function updatechild($data) {
         } else {
             return false;
         }
-}
-
-public function deletechild($childelderid){
-    $this->db->query('DELETE FROM childelder WHERE childelderid = :childelderid' );
-    $this->db->bind(':childelderid', $childelderid);
-    //Execute function
-    if ($this->db->execute()) {
-        return true;
-    } else {
-        return false;
     }
-}
+
+    public function deletechild($childelderid){
+        $this->db->query('DELETE FROM childelder WHERE childelderid = :childelderid' );
+        $this->db->bind(':childelderid', $childelderid);
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function searchguardian($patnic) {
         $this->db->query('SELECT * FROM patient WHERE patnic = :patnic');

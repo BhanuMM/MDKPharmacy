@@ -12,6 +12,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="receptionist")){
     </title>
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/StyleSheet.css">
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/csscode.css">
+<!--    <link rel="stylesheet" href="--><?php //echo URLROOT ?><!--/public/css/landingstyle.css">-->
 </head>
 <body style="font-family: arial;">
 

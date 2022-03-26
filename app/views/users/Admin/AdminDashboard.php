@@ -90,6 +90,22 @@ require APPROOT . '/views/includes/Adminhead.php';
                         <a href="<?php echo URLROOT ?>/admins/viewmed"> <button class="button button1">View</button></a>
                     </div>
                 </div>
+
+                <div class="row">
+                    <!-- Medicine Management Card -->
+                    <div class="column">
+                        <div class="fn-card" style="margin-top: 150px">
+
+                            <div class="welcome">
+                                <img src="<?php echo URLROOT ?>/public/images/medicine-icon.png" />
+                                <div class="fn-names">
+                                    Surgical Items
+                                </div>
+                            </div>
+                            <a href="<?php echo URLROOT ?>/admins/viewsurgicals"> <button class="button button1">View</button></a>
+                        </div>
+                    </div>
+                </div>
             </div>
      <!-- --------------------------------------------------------------------------------------------- -->             
                  

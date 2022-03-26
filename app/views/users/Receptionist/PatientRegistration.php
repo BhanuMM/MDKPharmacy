@@ -1,36 +1,43 @@
 <?php
-require APPROOT . '/views/includes/Reciptionisthead.php';
+    require APPROOT . '/views/includes/Reciptionisthead.php';
 ?>
 
+<!--Previous Button-->
+    <div style="margin-left:20%;  padding:20px 26px;">
+        <button class="prebtn" style="margin-right:30%;">
+            <span>
+                <a style="text-decoration: none;"href="<?php echo URLROOT ?>/receptionists/receptionistdashboard"> << </a>
+            </span>
+        </button>
+    </div>
 
-<div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;"href="<?php echo URLROOT ?>/receptionists/receptionistdashboard"> << </a> </span></button>
-</div>   
-
-<div style="margin-left: 300px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
-            <div class="column">
-                <form method="post" class="data" action="<?php echo URLROOT; ?>/receptionists/registerpatient">
-                <div class="form-left">
-                    <h2 style="margin-top: 3%;">
+    <div style="margin-left: 23%; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
+        <div class="column">
+            <form method="post" class="data" action="<?php echo URLROOT; ?>/receptionists/registerpatient">
+                <div class="form-left" style="margin-left:400px;">
+                    <h2 style="margin-top: 10%;">
                         Patient Details
                     </h2>
+
                     <h5>
                         Name
                     </h5>
                     <input class="input1" id="patname" name="patname" type="text" placeholder="A.D.N.Kulathunga" value="<?php echo $data['patientname']; ?>" required>
+
                     <h5>
                         NIC
                     </h5>
                     <input class="input1" id="patnic" name="patnic" type="text" placeholder="784596212V" value="<?php echo $data['patientnic']; ?>" required>
                     <span class="invalidFeedback">
-                 <?php echo $data['nicError']; ?>
-                </span>
+                        <?php echo $data['nicError']; ?>
+                    </span>
+
                     <h5>
                         Address
                     </h5>
                     <input type="text" class="input2"  id="patadrs" name="patadrs" placeholder="222/B, Bakers' Street, Colombo 07." value="<?php echo $data['patientadrs']; ?>" required>
                 </div>
-                <div class="form-right">
+                <div class="form-right" style="margin-top: 180px; margin-right: 130px;">
                      <h5>
                         Phone Number
                     </h5>
