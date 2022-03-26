@@ -22,7 +22,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
       <table>
        <tr>
         <th><li Style="float: right; vertical-align: middle; display: inline;">
-        <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 550px; height: 35px; width: 200px;" placeholder="Patient NIC"></li>
+        <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 550px; height: 35px; width: 200px;" placeholder="Patient NIC or Name"></li>
          </th>
       <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
        </tr>

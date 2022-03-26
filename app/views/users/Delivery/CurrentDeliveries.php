@@ -45,7 +45,7 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                     <td><?php echo $alldel->onlineadrs ?></td>
                     <td><button class="button button1"><a href="<?php echo URLROOT. "/deliverys/viewcurrentsingle/".$alldel->onlinepresid ?>"> VIEW BILL</a></button></td>
             </tr>
-        <?php endforeach; ?>
+                    <?php endforeach; ?>
                   </table>
 
             </div>

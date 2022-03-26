@@ -75,12 +75,12 @@ class Cashier {
 
     }
 
-    public function searchbill($pnic) {
+    public function searchbill($presid) {
 //        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid  WHERE patient.patnic = :pnic');
-        $this->db->query('SELECT * ,prescription.presid FROM prescription INNER JOIN patient ON prescription.patid=patient.patid LEFT JOIN childpres ON prescription.presid = childpres.presid   LEFT JOIN childelder on childpres.childid=childelder.childelderid WHERE prescription.billed != "yes" AND patient.patnic = :pnic ORDER BY prescription.presid DESC');
+        $this->db->query('SELECT * ,prescription.presid FROM prescription INNER JOIN patient ON prescription.patid=patient.patid LEFT JOIN childpres ON prescription.presid = childpres.presid   LEFT JOIN childelder on childpres.childid=childelder.childelderid WHERE prescription.billed != "yes" AND prescription.presid = :presid ORDER BY prescription.presid DESC');
 
         //Bind value
-        $this->db->bind(':pnic', $pnic);
+        $this->db->bind(':presid', $presid);
         $results = $this->db->resultSet();
         return $results;
     }
@@ -109,13 +109,22 @@ class Cashier {
 
     }
     
-    public function searchpastbill($billid) {
-        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billid = :billid');
+    public function searchpastinbill($billid) {
+        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billid = :billid and bill.customertype="in" ');
         //Bind value
         $this->db->bind(':billid', $billid);
         $results = $this->db->resultSet();
         return $results;
     }
+
+    public function searchpastoutbill($billid) {
+        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billid = :billid and bill.customertype="out" ');
+        //Bind value
+        $this->db->bind(':billid', $billid);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
     public function getoutmedcount($presid) {
         $this->db->query('SELECT COUNT(*) FROM outpresmed  WHERE presid = :pid');
         //Bind value
