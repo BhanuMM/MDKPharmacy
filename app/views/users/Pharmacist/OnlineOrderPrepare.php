@@ -79,7 +79,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                     <th>Dosage</th>
                     <th>Time</th>
                     <th>Duration</th>
-                    <th></th>
+                    <th> </th>
                 </tr>
                 </thead>
                 <tbody>

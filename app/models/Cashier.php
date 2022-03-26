@@ -145,7 +145,7 @@ class Cashier {
         return $results;
     }
     public function getmedqty($medid) {
-        $this->db->query('SELECT * FROM fullstock  WHERE medid = :mid');
+        $this->db->query('SELECT * FROM fullstock WHERE medid = :mid');
         //Bind value
         $this->db->bind(':mid', $medid);
         $row = $this->db->single();

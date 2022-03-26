@@ -265,7 +265,7 @@ class Pharmacist {
     
     public function addtopres($data) {
 
-        $this->db->query('INSERT INTO onlinepresmed (onlinepresid,medid,dosage,medtime,duration)VALUES(:onpresid,:medid,:meddose,:medtime,:meddur)');
+        $this->db->query('INSERT INTO onlinepresmed (onlinepresid,medid,dosage,medtime,duration,qty )VALUES(:onpresid,:medid,:meddose,:medtime,:meddur,:qty)');
 
 
         //Bind values
@@ -274,6 +274,7 @@ class Pharmacist {
         $this->db->bind(':meddose', $data['meddose']);
         $this->db->bind(':medtime', $data['medtime']);
         $this->db->bind(':meddur', $data['meddur']);
+        $this->db->bind(':qty', $data['qty']);
 
         //Execute function
         if ($this->db->execute()) {
