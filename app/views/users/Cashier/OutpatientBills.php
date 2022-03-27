@@ -43,6 +43,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">Add + </button>
                  </div>
 
+
                 <div class="column" style="margin-left:27%;padding:1px; margin-top:-14.5%;">
 
                     <form method="post" action="<?php echo URLROOT; ?>/Cashiers/outpatientsingle">
@@ -147,7 +148,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
                         if(medname !== 'Select Medicine' ){
                             if( alreadye !==0){
-                                $("#medlist tbody").append('<tr><td><input class="input1 idclass" type="text" id="medid" name="medid[]" value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="medqty" name="medqty[]" placeholder="Enter Quantity" required> </td>  <td align="center"><button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: white; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button></td></tr>')
+                                $("#medlist tbody").append('<tr><td><input class="input1 idclass" type="text" id="medid" name="medid[]" value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="medqty" name="medqty[]" placeholder="Enter Quantity" required> </td>  <td align="center"><button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: #ffffff; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button></td></tr>')
 
                             }else {
                                 alert("The Medicine Already Exists!");
