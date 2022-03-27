@@ -2,7 +2,11 @@
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
 <div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewreport"> << </a> </span></button>
+    <button class="prebtn" style="margin-right:30%;">
+        <span>
+            <a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewreport"> << </a>
+        </span>
+    </button>
 </div>  
 
     <div style="margin-left:20%; padding:1px 16px; width: 40%">
@@ -26,7 +30,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                     Summaries
                 </h2>
                 <!-- Daily -->
-                    <form method="post" action="<?php echo URLROOT; ?>/reports/dailySummary" target="_blank">
+                    <form method="post" action="<?php echo URLROOT; ?>/reports/Summary" target="_blank">
                 <button id="dailyreports" class="reportBtn">Daily Report</button><br>
                 <div class = "fordailyreports" style="display:none; background-color:#f2f2f2; padding:10px 70px 10px 30px; ">
                 <div class="close" style="margin-right:62%; margin-top:-1%;">+</div>
