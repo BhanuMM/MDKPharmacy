@@ -2,19 +2,34 @@
 require APPROOT . '/views/includes/Cashierhead.php';
 ?>
 
-<div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/cashierdashboard"> << </a> </span></button>
-</div>  
-<div style="margin-left: 265px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 100%; ">
+        <div class="welcome-card">
+            <div class="welcome">
+                    <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+                <div class="welcome-names">
+                Create Outpatient Bills
+                    <p>
+                    <ul class="breadcrumb">
+                        <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                        <li>Create Outpatient Bills</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div style="margin-left: 300px; margin-right:0%; padding:1px 16px; width: 50%; ">
     <div class="row">
-        <div class="column" style="margin-left:5%; padding:1px 16px;">
-        <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
+        <div class="columnBill" style="margin-left:5%; padding:1px 16px;">
+        <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px; ">
 <!--    Heading     -->
-    <li Style="float: left; vertical-align: middle; display: inline;"><h3> Create Outpatient Bills</h3></li>
 
             <div class="row">
                 <!--    Section to search medicines and add them to the list     -->
-                <div class="column" style="margin-left:4%; ">
+                <div class="columnBill" >
                     <div class="container">
                         <h3>Add Medicine</h3>
 
@@ -24,7 +39,6 @@ require APPROOT . '/views/includes/Cashierhead.php';
                                 foreach($data['medicines'] as $allmedicines):
                                     {
                                         echo ' <div class="option" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
-
 
                                     }
                                 endforeach; ?>
@@ -39,12 +53,48 @@ require APPROOT . '/views/includes/Cashierhead.php';
                             </div>
                         </div>
                     </div>
+                    
                     <br>
-                    <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">Add + </button>
+
+                    <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">+ </button>
+                 </div>
+                <br>
+<!-- TWO -->
+                 <div class="row"> 
+                <!--    Section to search medicines and add them to the list     -->
+                <div class="columnBill" style="margin-top: 100%;">
+                    <div class="container">
+                        <h3>Add Medicine</h3>
+
+                        <div class="select-box">
+                            <div class="options-container">
+                                <?php
+                                foreach($data['medicines'] as $allmedicines):
+                                    {
+                                        echo ' <div class="option2" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
+
+
+                                    }
+                                endforeach; ?>
+
+
+                            </div>
+                            <!--    Search button     -->
+                            <div class="selected" medid="test" id="1">Select items</div>
+
+                            <div class="search-box">
+                                <input type="text" placeholder="Start Typing..." />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <br>
+                    <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;"> + </button>
                  </div>
 
 
-                <div class="column" style="margin-left:27%;padding:1px; margin-top:-14.5%;">
+
+                <div class="columnBill" style="margin-left:27%;padding:1px; margin-top:-150%;">
 
                     <form method="post" action="<?php echo URLROOT; ?>/Cashiers/outpatientsingle">
 
@@ -68,8 +118,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
                             </table>
 
 
-
-                            <input type="submit" name="submitbutton4" value="Create" class="opbill-form-submit" style="font-family:'Poppins', sans-serif; margin-left: 300px;" >
+                            <br>
+                            <input type="submit" name="submitbutton4" value="Create" class="opbill-form-submit" style="font-family:'Poppins', sans-serif; margin-left: 230px;" >
 
 
                             <br> <br> <br> <br> <br>
@@ -77,6 +127,9 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     </form>
                 </div>
             </div>
+            </div>
+            </div>
+                            </div> 
 
             <!--    Javascript part     -->
             <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -170,7 +223,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
                 });
             </script>
-            <!------------------------------------------------------------------------------------------------------------->
+<!-- ---------------------------------------------------- -->
+           
             <br>
             <br>
 
@@ -178,3 +232,4 @@ require APPROOT . '/views/includes/Cashierhead.php';
         </div>
     </div>  
 </div>
+<br><br><br><br>
