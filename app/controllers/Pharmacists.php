@@ -19,11 +19,23 @@ class Pharmacists extends Controller {
              
                  $dataprescription= trim($_POST['UISearchbar']);
                  $searchprescription = $this->pharmacistModel-> searchprescriptionbynic($dataprescription);
-     
-     
-                 $data = [
-                     'pres' => $searchprescription
-                 ];
+
+                 //            Check whether there are any null values
+                 if ($searchprescription) {
+                     $data=[
+                         'pres' => $searchprescription
+
+                     ];
+                 } //If there are null values pass it to the span
+                 else{
+                     $data = [
+                         'pres' => $searchprescription,
+                         'norecord' => "nofound"
+                     ];
+                 }
+//                 $data = [
+//                     'pres' => $searchprescription
+//                 ];
                  $this->view('users/Pharmacist/PrescriptionDetails',$data);
      
              }
@@ -84,9 +96,22 @@ class Pharmacists extends Controller {
             $datamed= trim($_POST['UISearchbar']);
             $searchmed = $this->pharmacistModel->searchmed($datamed);
 
-            $data = [
-                'med' => $searchmed
-            ];
+            //            Check whether there are any null values
+            if ($searchmed) {
+                $data=[
+                    'med' => $searchmed,
+
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'med' =>$searchmed,
+                    'norecord' => "nofound"
+                ];
+            }
+//            $data = [
+//                'med' => $searchmed
+//            ];
         }
         $this->view('users/Pharmacist/MedicineDetails',$data);
     }

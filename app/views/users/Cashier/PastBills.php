@@ -3,7 +3,11 @@ require APPROOT . '/views/includes/Cashierhead.php';
 ?>
 
 <div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/cashierdashboard"> << </a> </span></button>
+    <button class="prebtn" style="margin-right:30%;">
+        <span>
+            <a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/cashierdashboard"> << </a>
+        </span>
+    </button>
 </div>  
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
             <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">
@@ -31,6 +35,13 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 </tr>
             </table>
         </form>
+    <span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['nofound'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
   <table id="customers">
         <tr>
             <th>Bill ID</th>

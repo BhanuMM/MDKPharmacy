@@ -10,7 +10,8 @@ class Admins extends Controller {
         $allusers = $this->adminModel->viewusers();
 
             $data = [
-                'users' => $allusers
+                'users' => $allusers,
+//                'norecord' =>(array) null
             ];
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -19,9 +20,21 @@ class Admins extends Controller {
             
                 $datanic = trim($_POST['UISearchbar']);
                 $searchuser = $this->adminModel->searchusernic($datanic);
-                $data = [
-                    'users' => $searchuser
-                ];
+                if ($searchuser) {
+                    $data=[
+                        'users' => $searchuser,
+//                        'child' =>(array) null
+                    ];
+                }else{
+                    $data = [
+                        'users' =>$searchuser,
+                        'norecord' => "nofound"
+                    ];
+                }
+//                $data = [
+//                    'users' => $searchuser,
+////                    'norecord' =>(array) null
+//                ];
                 
             }
 
@@ -160,10 +173,23 @@ class Admins extends Controller {
             $datamed= trim($_POST['UISearchbar']);
             $searchmed = $this->adminModel->searchmed($datamed);
 
+            //            Check whether there are any null values
+            if ($searchmed) {
+                $data=[
+                    'med' => $searchmed,
 
-            $data = [
-                'med' => $searchmed
-            ];
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'med' =>$searchmed,
+                    'norecord' => "nofound"
+                ];
+            }
+
+//            $data = [
+//                'med' => $searchmed
+//            ];
 
         }
         $this->view('users/Admin/MedicineDetails',$data);
@@ -185,10 +211,22 @@ class Admins extends Controller {
             $datasurg= trim($_POST['UISearchbar']);
             $searchsurg = $this->adminModel->searchsurg($datasurg);
 
+//            Check whether there are any null values
+            if ($searchsurg) {
+                $data=[
+                    'surg' => $searchsurg,
 
-            $data = [
-                'surg' => $searchsurg
-            ];
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'surg' =>$searchsurg,
+                    'norecord' => "nofound"
+                ];
+            }
+//            $data = [
+//                'surg' => $searchsurg
+//            ];
 
         }
         $this->view('users/Admin/SurgicalDetails',$data);
@@ -456,11 +494,26 @@ class Admins extends Controller {
             $datamed= trim($_POST['UISearchbar']);
             $searchmed = $this->adminModel->searchmed($datamed);
 
+//            Check whether there are any null values
+            if ($searchmed) {
+                $data=[
+                    'stocks' => $searchmed
 
-            $data = [
-        
-                'stocks' => $searchmed
-            ];
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'stocks' =>$searchmed,
+                    'norecord' => "nofound"
+                ];
+            }
+
+
+
+//            $data = [
+//
+//                'stocks' => $searchmed
+//            ];
 
         }
         $this->view('users/Admin/StockDetails',$data);
@@ -481,11 +534,23 @@ class Admins extends Controller {
             $datamed= trim($_POST['UISearchbar']);
             $searchmed = $this->adminModel->searchpurchmed($datamed);
 
+            //            Check whether there are any null values
+            if ($searchmed) {
+                $data=[
+                    'purchstock' => $searchmed
 
-            $data = [
-        
-                'purchstock' => $searchmed
-            ];
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'purchstock' => $searchmed,
+                    'norecord' => "nofound"
+                ];
+            }
+//            $data = [
+//
+//                'purchstock' => $searchmed
+//            ];
 
         }
         
@@ -620,10 +685,23 @@ class Admins extends Controller {
             $datareturn= trim($_POST['UISearchbar']);
             $searchreturn = $this->adminModel->searchreturn($datareturn);
 
+//            Check whether there are any null values
+            if ($searchreturn) {
+                $data=[
+                    'allreturnstock' => $searchreturn,
 
-            $data = [
-                'med' => $searchreturn
-            ];
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'allreturnstock' => $searchreturn,
+                    'norecord' => "nofound"
+                ];
+            }
+
+//            $data = [
+//                'med' => $searchreturn
+//            ];
 
         }
 
@@ -646,10 +724,23 @@ class Admins extends Controller {
             $datasupplier= trim($_POST['UISearchbar']);
             $searchsupplier = $this->adminModel->searchsupplier($datasupplier);
 
+//            Check whether there are any null values
+            if ($searchsupplier) {
+                $data=[
+                    'suppliers' => $searchsupplier,
 
-            $data = [
-                'suppliers' => $searchsupplier
-            ];
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'suppliers' =>$searchsupplier,
+                    'norecord' => "nofound"
+                ];
+            }
+
+//            $data = [
+//                'suppliers' => $searchsupplier
+//            ];
 
         }
 
