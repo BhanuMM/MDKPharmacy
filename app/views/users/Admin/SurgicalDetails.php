@@ -84,10 +84,10 @@
 <!--                    <td>--><?php //echo  $allsurg->medacslvl?><!--</td>-->
                     <td><?php echo  $allsurg->lowstockqty?></td>
                     <td>
-                        <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT . "/admins/updatesurgicals/" .  $allsurg->surgid ?>">Update</a>
+                        <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT . "/admins/updatesurg/" .  $allsurg->surgid ?>">Update</a>
                     </td>
                     <td>
-                        <form action="<?php echo URLROOT . "/admins/deletemed/" . $allmed->medid?>" method="POST">
+                        <form action="<?php echo URLROOT . "/admins/deletesurg/" . $allsurg->surgid?>" method="POST">
                             <input class="button button1" style="background-color: #fc92a1;" Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
                         </form>
                     </td>

@@ -6,7 +6,7 @@ require APPROOT . '/views/includes/Adminhead.php';
 <div style="margin-left:20%;  padding:20px 26px;">
     <button class="prebtn" style="margin-right:30%;">
         <span>
-            <a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewsurg"> << </a>
+            <a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewsurgicals"> << </a>
         </span>
     </button>
 </div>
@@ -22,11 +22,11 @@ require APPROOT . '/views/includes/Adminhead.php';
             <h5>
                 Surgical Id
             </h5>
-            <input class="input1" type="text" id="medid" name="medid"  value="<?php echo $data['medid']?>" readonly >
+            <input class="input1" type="text" id="surgid" name="surgid"  value="<?php echo $data['surgid']?>" readonly >
             <h5>
                 Surgical Name
             </h5>
-            <input class="input1" type="text" id="medname" name="medname"  value="<?php echo $data['genericname'] ?>">
+            <input class="input1" type="text" id="surgname" name="surgname"  value="<?php echo $data['surgname'] ?>">
             <h5>
                 Brand Name
             </h5>

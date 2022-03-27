@@ -25,18 +25,6 @@
     </div>
 </div>
 <br><br>
-
-
-        <span class="successadded" style="color: red">
-                 <?php
-                 if(isset($data['norecord'])){
-                     echo ('No Record Found'); // print_r($_GET);
-                 }
-                 ?>
-                </span> <br>
-
-
-
     <!--        <span class="successadded">-->
     <!--                 --><?php //if(isset($_GET['msg'])){
     //                     echo $_GET['msg']; // print_r($_GET);
@@ -46,9 +34,16 @@
     <br>
 
     <div style="margin-left: 19.5%; margin-top:1%; padding:1px 0px 1px 16px; width: 70%; ">
+        <span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
          <ul style="padding-left: 0px; list-style-type: none;  ">
             <!-- <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin: 0px;"> User Details</h3></li> -->
-            <form method="post" class="data" style="float: left; display: inline; margin-top: -5%; margin-left: 71%;" action="<?php echo URLROOT; ?>/admins/viewreturn">
+            <form method="post" class="data" style="float: left; display: inline; margin-top: -5%; margin-left: 71%;" action="<?php echo URLROOT; ?>/admins/viewreturns">
                 <table>
                     <tr>
                         <th>

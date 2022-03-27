@@ -195,7 +195,8 @@ class Deliverys extends Controller {
 
     public function profilesettings($psid){
 
-        $profile = $this->receptionistModel->findProfilebyId($psid);
+    //Load all the profile details
+        $profile = $this->deliveryModel->findProfilebyId($psid);
 
         $data = [
             'psid' => $profile->staffid,
@@ -207,6 +208,7 @@ class Deliverys extends Controller {
 
         ];
 
+//        Allow to do changes
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
