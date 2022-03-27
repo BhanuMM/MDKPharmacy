@@ -22,9 +22,22 @@ class Deliverys extends Controller {
             $delbill = trim($_POST['UISearchbar']);
             $searchdelbill = $this->deliveryModel-> searchdelbill($delbill);
 
-            $data = [
-                'del' => $searchdelbill
-            ];
+            //            Check whether there are any null values
+            if ($searchdelbill) {
+                $data=[
+                    'del' => $searchdelbill
+
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'del' => $searchdelbill,
+                    'norecord' => "nofound"
+                ];
+            }
+//            $data = [
+//                'del' => $searchdelbill
+//            ];
         }
 
 
@@ -128,9 +141,22 @@ class Deliverys extends Controller {
             $delbill = trim($_POST['UISearchbar']);
             $searchdelbill = $this->deliveryModel-> searchpastdelbill($delbill);
 
-            $data = [
-                'pastdel' => $searchdelbill
-            ];
+            //            Check whether there are any null values
+            if ($searchdelbill) {
+                $data=[
+                    'pastdel' => $searchdelbill
+
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'pastdel' => $searchdelbill,
+                    'norecord' => "nofound"
+                ];
+            }
+//            $data = [
+//                'pastdel' => $searchdelbill
+//            ];
         }
 
         $this->view('users/Delivery/PastDeliveries', $data);

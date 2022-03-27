@@ -4,19 +4,36 @@ require APPROOT . '/views/includes/Counsellorhead.php';
 
 
 <div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/counsellors/counsellordashboard"> << </a> </span></button>
+    <button class="prebtn" style="margin-right:30%;">
+        <span>
+            <a style="text-decoration: none;" href="<?php echo URLROOT ?>/counsellors/counsellordashboard"> << </a>
+        </span>
+    </button>
 </div>
 
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">
+<span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
+
+
     <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
-        <li Style="float: left; vertical-align: middle; display: inline;"><h3> Previous Bill Details</h3></li>
+        <li Style="float: left; vertical-align: middle; display: inline;">
+            <h3> Previous Bill Details</h3>
+        </li>
         <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/counsellors/pastbills">
             <table>
                 <tr>
-                    <th><li Style="float: right; vertical-align: middle; display: inline;">
-                            <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 520px; height: 35px; width: 200px;" placeholder="Bill ID"></li>
+                    <th>
+                        <li Style="float: right; vertical-align: middle; display: inline;">
+                            <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 520px; height: 35px; width: 200px;" placeholder="Bill ID">
+                        </li>
                     </th>
                     <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
                 </tr>

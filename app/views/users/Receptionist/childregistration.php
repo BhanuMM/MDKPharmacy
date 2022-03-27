@@ -85,7 +85,7 @@
                      <h4>
                         Guardian Details
                     </h4>
-                    <span class="successadded">
+                    <span class="successadded" style="color: red">
                  <?php
                  if( isset($data['norecord'])  ){
                      if($data['norecord']=="nofound"){

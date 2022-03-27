@@ -25,9 +25,23 @@ class Cashiers extends Controller {
             $databill = trim($_POST['UISearchbar']);
             $searchbill = $this->cashierModel-> searchbill($databill);
 
-            $data = [
-                'pres' => $searchbill
-            ];
+            //            Check whether there are any null values
+            if ($searchbill) {
+                $data=[
+                    'pres' => $searchbill
+
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'pres' =>$searchbill,
+                    'norecord' => "nofound"
+                ];
+            }
+
+//            $data = [
+//                'pres' => $searchbill
+//            ];
         }
         $this->view('users/Cashier/InpatientBills',$data);
     }
@@ -47,9 +61,24 @@ class Cashiers extends Controller {
             $odatabill = trim($_POST['UISearchbar']);
             $searchonlinebill = $this->cashierModel-> searchonlinebill($odatabill);
 
-            $data = [
-                'opres' => $searchonlinebill
-            ];
+            //            Check whether there are any null values
+            if ($searchonlinebill) {
+                $data=[
+                    'opres' => $searchonlinebill,
+
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'opres' =>$searchonlinebill,
+                    'norecord' => "nofound"
+                ];
+            }
+
+
+//            $data = [
+//                'opres' => $searchonlinebill
+//            ];
         }
         $this->view('users/Cashier/OnlineorderBills',$data);
     }
@@ -529,9 +558,23 @@ class Cashiers extends Controller {
             $datamed= trim($_POST['UISearchbar']);
             $searchmed = $this->cashierModel->searchmed($datamed);
 
-            $data = [
-                'med' => $searchmed
-            ];
+//            Check whether there are any null values
+            if ($searchmed) {
+                $data=[
+                    'med' => $searchmed,
+
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'med' =>$searchmed,
+                    'norecord' => "nofound"
+                ];
+            }
+
+//            $data = [
+//                'med' => $searchmed
+//            ];
         }
 
         $this->view('users/Cashier/MedicineAvailability',$data);
