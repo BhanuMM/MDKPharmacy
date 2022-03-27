@@ -16,6 +16,11 @@ public function dailySummary(){
     $pdf->dailytable();
     $pdf->Output();
 }
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function Summary(){
+        $this->view('users/Admin/DailySummery');
+    }
+/*-------------------------------------------------------------------------------------------------------------------*/
     public function getcount(){
         return $this->reportModel->incount();
     }
