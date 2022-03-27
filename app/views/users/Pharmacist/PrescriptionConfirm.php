@@ -47,7 +47,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
         
         <form method="post" class="data"  action="<?php echo URLROOT. "/pharmacists/rejectorder/"?>">
                         
-                        <a id="reject" style="background-color: #d11a2a;; ; color:white; cursor:pointer; padding:8px 38px; text-decoration: none; margin-right:30px; z-index: 3; border-radius: 8px;"> Reject  </a>
+                        <a id="reject" style="background-color: #d11a2a; color:white; cursor:pointer; padding:8px 38px; text-decoration: none; margin-right:30px; z-index: 3; border-radius: 8px;"> Reject  </a>
                         
                         <!-- Reason for rejection block -->
 
