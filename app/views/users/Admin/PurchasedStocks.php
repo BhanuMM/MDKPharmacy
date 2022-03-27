@@ -27,12 +27,20 @@
 
 
     <div style="margin-left: 340px; margin-top:1px; padding:1px 16px; width: 70%; ">
-        <span class="successadded">
-            <?php if(isset($_GET['msg'])){
-                echo $_GET['msg']; // print_r($_GET);
-            }
-            ?>
-        </span> <br>
+        <!--Say there is no such data-->
+        <span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
+<!--        <span class="successadded">-->
+<!--            --><?php //if(isset($_GET['msg'])){
+//                echo $_GET['msg']; // print_r($_GET);
+//            }
+//            ?>
+<!--        </span> <br>-->
 
 <!--        Page Heading-->
 <ul style="padding-left: 0px; list-style-type: none;  ">

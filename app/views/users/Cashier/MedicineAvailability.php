@@ -5,6 +5,13 @@ require APPROOT . '/views/includes/Cashierhead.php';
     <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/cashierdashboard"> << </a> </span></button>
 </div>  
             <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%;">
+                <span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
             <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
     <li Style="float: left; vertical-align: middle; display: inline;"><h3>Medicine Details</h3></li>
         <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/medicineavailability">

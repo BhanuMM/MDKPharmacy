@@ -6,13 +6,22 @@ require APPROOT . '/views/includes/Deliveryhead.php';
     <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/deliverys/deliverydashboard"> << </a> </span></button>
 </div>
 <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
-<span class="successadded">
+
+    <span class="successadded" style="color: red">
                  <?php
-                 if(isset($_GET['msg'])){
-                     echo $_GET['msg']; // print_r($_GET);
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
                  }
                  ?>
                 </span> <br>
+
+<!--<span class="successadded">-->
+<!--                 --><?php
+//                 if(isset($_GET['msg'])){
+//                     echo $_GET['msg']; // print_r($_GET);
+//                 }
+//                 ?>
+<!--                </span> <br>-->
 
                 <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3> Past Deliveries</h3></li>

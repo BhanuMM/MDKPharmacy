@@ -29,7 +29,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                                     Inpatient Bills
                                 </div><br><br>
                             </div>
-                            <a href="<?php echo URLROOT ?>/Cashiers/inpatientbills"><button class="button button1">View</button></a>
+                            <a href="<?php echo URLROOT ?>/cashiers/inpatientbills"><button class="button button1">View</button></a>
                         </div>
                     </div> 
 

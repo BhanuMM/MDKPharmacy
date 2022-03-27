@@ -22,9 +22,22 @@ class Deliverys extends Controller {
             $delbill = trim($_POST['UISearchbar']);
             $searchdelbill = $this->deliveryModel-> searchdelbill($delbill);
 
-            $data = [
-                'del' => $searchdelbill
-            ];
+            //            Check whether there are any null values
+            if ($searchdelbill) {
+                $data=[
+                    'del' => $searchdelbill
+
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'del' => $searchdelbill,
+                    'norecord' => "nofound"
+                ];
+            }
+//            $data = [
+//                'del' => $searchdelbill
+//            ];
         }
 
 
@@ -128,9 +141,22 @@ class Deliverys extends Controller {
             $delbill = trim($_POST['UISearchbar']);
             $searchdelbill = $this->deliveryModel-> searchpastdelbill($delbill);
 
-            $data = [
-                'pastdel' => $searchdelbill
-            ];
+            //            Check whether there are any null values
+            if ($searchdelbill) {
+                $data=[
+                    'pastdel' => $searchdelbill
+
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'pastdel' => $searchdelbill,
+                    'norecord' => "nofound"
+                ];
+            }
+//            $data = [
+//                'pastdel' => $searchdelbill
+//            ];
         }
 
         $this->view('users/Delivery/PastDeliveries', $data);
@@ -169,7 +195,8 @@ class Deliverys extends Controller {
 
     public function profilesettings($psid){
 
-        $profile = $this->receptionistModel->findProfilebyId($psid);
+    //Load all the profile details
+        $profile = $this->deliveryModel->findProfilebyId($psid);
 
         $data = [
             'psid' => $profile->staffid,
@@ -181,6 +208,7 @@ class Deliverys extends Controller {
 
         ];
 
+//        Allow to do changes
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 

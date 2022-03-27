@@ -27,13 +27,21 @@
 
 
     <div style="margin-left: 300px; margin-top:5px; padding:1px 16px; width: 72%; ">
-        <span class="successadded">
-            <?php if(isset($_GET['msg'])){
-                echo $_GET['msg']; // print_r($_GET);
-            }
-            ?>
-        </span>
-        <br>
+<!--        <span class="successadded">-->
+<!--            --><?php //if(isset($_GET['msg'])){
+//                echo $_GET['msg']; // print_r($_GET);
+//            }
+//            ?>
+<!--        </span>-->
+
+        <!--    Say there is no such data-->
+        <span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
 
 <!--        Links to Add New Stock webpage-->
         <a href="<?php echo URLROOT ?>/Admins/addstock">

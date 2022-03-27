@@ -8,13 +8,22 @@ require APPROOT . '/views/includes/Doctorhead.php';
 </div> 
 
 <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
-<span class="successadded">
-     <?php
-      if(isset($_GET['msg'])){
-      echo $_GET['msg']; // print_r($_GET);
-      }
-     ?>
-</span> <br>
+
+    <span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
+
+<!--<span class="successadded">-->
+<!--     --><?php
+//      if(isset($_GET['msg'])){
+//      echo $_GET['msg']; // print_r($_GET);
+//      }
+//     ?>
+<!--</span> <br>-->
 
 <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
   <li Style="float: left; vertical-align: middle; display: inline;"><h3>Patient Details</h3></li>

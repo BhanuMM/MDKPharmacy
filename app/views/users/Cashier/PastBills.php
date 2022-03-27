@@ -3,7 +3,11 @@ require APPROOT . '/views/includes/Cashierhead.php';
 ?>
 
 <div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/cashierdashboard"> << </a> </span></button>
+    <button class="prebtn" style="margin-right:30%;">
+        <span>
+            <a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/cashierdashboard"> << </a>
+        </span>
+    </button>
 </div>  
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
             <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">
@@ -18,6 +22,15 @@ require APPROOT . '/views/includes/Cashierhead.php';
 </div>
 
 <div id="already" class="w3-container w3-display-container city">
+
+    <span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['nofound'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
+
 <!--  <span onclick="this.parentElement.style.display='none'"-->
 <!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
@@ -31,6 +44,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 </tr>
             </table>
         </form>
+
   <table id="customers">
         <tr>
             <th>Bill ID</th>
@@ -58,7 +72,17 @@ require APPROOT . '/views/includes/Cashierhead.php';
 <div id="one" class="w3-container w3-display-container city" style="display:none">
 <!--  <span onclick="this.parentElement.style.display='none'"-->
 <!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
-  <p>
+
+    <span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['nofound'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
+
+
+    <p>
   <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/pastbills">
             <table>
                 <tr>
@@ -95,7 +119,17 @@ require APPROOT . '/views/includes/Cashierhead.php';
 <div id="three" class="w3-container w3-display-container city" style="display:none">
 <!--  <span onclick="this.parentElement.style.display='none'"-->
 <!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
-  <p>
+
+    <span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['nofound'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
+
+
+    <p>
   <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/pastbills">
             <table>
                 <tr>
