@@ -31,9 +31,15 @@ require APPROOT . '/views/includes/Adminhead.php';
             <input class="input1" id="imname" name="imname" type="text" placeholder="Heyleys">
 
             <h5>
-                Dealer
+                Supplier Name
             </h5>
-            <input class="input1" type="text" id="dealer" name="dealer" placeholder="Pharma">
+            <select class="input1" name="dealer" id="dealer">
+                <option value="" selected>--- Choose a Supplier ---</option>
+                <?php foreach($data['suppliers'] as $allsuppliers): ?>
+                   <option value=" <?php echo $allsuppliers->agencyname; ?>"><?php echo $allsuppliers->agencyname; ?></option>
+                <?php endforeach; ?>
+            </select>
+<!--            <input class="input1" type="text" id="dealer" name="dealer" placeholder="Pharma">-->
 
             <h5>
                 Least Quantity

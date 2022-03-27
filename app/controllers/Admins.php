@@ -304,7 +304,7 @@ class Admins extends Controller {
 
     //  Add a new medicine to the system
     public function addmed() {
-
+        $supplier = $this->adminModel->viewsupplier();
             $data = [
                 'genericname' => '',
                 'brandname' => '',
@@ -315,7 +315,8 @@ class Admins extends Controller {
                 'profitmargin' => '',
                 'acslvl'=>'',
                 'lowqty'=>'',
-                'nameError' => ''
+                'nameError' => '',
+                'suppliers' => $supplier
             ];
     
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -823,11 +824,9 @@ class Admins extends Controller {
     }
 
     public function addreport() {
-        $this->view('users/Admin/AddReport');
+        $this->view('users/Admin/DailySummary');
     }
-    public function testreport() {
-      APPROOT.Reports::viewReport();
-    }
+
 
     // public function profilesettings(){
     //     $this->view('users/Admin/AdminProfileSetting');

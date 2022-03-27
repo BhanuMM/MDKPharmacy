@@ -49,7 +49,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 </tr>
             <?php endforeach; ?>
         </table>
->
+
 
             </div>
 

@@ -17,7 +17,7 @@ class Pharmacist {
 
 
     public function viewpres() {
-        $this->db->query('SELECT * ,prescription.presid FROM prescription INNER JOIN patient ON prescription.patid=patient.patid LEFT JOIN childpres ON prescription.presid = childpres.presid   LEFT JOIN childelder on childpres.childid=childelder.childelderid ORDER BY prescription.presid DESC');
+        $this->db->query('SELECT * ,prescription.presid FROM prescription INNER JOIN patient ON prescription.patid=patient.patid LEFT JOIN childpres ON prescription.presid = childpres.presid   LEFT JOIN childelder on childpres.childid=childelder.childelderid where prescription.isprepared !="1" ORDER BY prescription.presid DESC');
 
 
         $results = $this->db->resultSet();
@@ -155,7 +155,7 @@ class Pharmacist {
         $this->db->query('SELECT * ,prescription.presid FROM prescription
                                 INNER JOIN patient ON prescription.patid=patient.patid 
                             LEFT JOIN childpres ON prescription.presid = childpres.presid  
-    LEFT JOIN childelder on childpres.childid=childelder.childelderid WHERE prescription.presid = :pid');
+    LEFT JOIN childelder on childpres.childid=childelder.childelderid WHERE prescription.presid = :pid   ');
         $this->db->bind(':pid',$presid);
 
         $row = $this->db->single();
@@ -165,7 +165,7 @@ class Pharmacist {
     }
     public function getpresdata($presid) {
 
-        $this->db->query('SELECT * FROM presmed INNER JOIN medicine ON medicine.medid= presmed.medid  WHERE presid = :pid');
+        $this->db->query('SELECT * FROM presmed INNER JOIN medicine ON medicine.medid= presmed.medid  WHERE presid = :pid ');
         $this->db->bind(':pid',$presid);
 
 
@@ -217,7 +217,7 @@ class Pharmacist {
         $this->db->query('SELECT * ,prescription.presid FROM prescription
                                 INNER JOIN patient ON prescription.patid=patient.patid 
                             LEFT JOIN childpres ON prescription.presid = childpres.presid  
-    LEFT JOIN childelder on childpres.childid=childelder.childelderid WHERE patient.patnic=:pnic');
+    LEFT JOIN childelder on childpres.childid=childelder.childelderid WHERE patient.patnic=:pnic AND  prescription.isprepared!="1"');
         $this->db->bind(':pnic', $patnic);
         $results = $this->db->resultSet();
         return $results;
@@ -234,9 +234,9 @@ class Pharmacist {
     public function updateMedicine($data){
         $this->db->query('UPDATE presmed SET qty = :qty WHERE presid = :psid AND medid= :mid');
 
-        $this->db->bind(':qty', $data['qty']);
+        $this->db->bind(':qty', $data['oneqty']);
         $this->db->bind(':psid', $data['presid']);
-        $this->db->bind(':mid', $data['medid']);
+        $this->db->bind(':mid', $data['onemedid']);
 
         if ($this->db->execute()) {
             return true;
