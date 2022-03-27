@@ -195,6 +195,119 @@ class Admin {
 
     }
 
+    public function viewsurg() {
+
+        $this->db->query('SELECT * FROM surgicals ');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
+    public function searchsurg($surgname) {
+        $where = "WHERE `surgname` like :surgname ";
+
+        $param1 = '%'.$surgname.'%'  ;
+
+
+        $this->db->query("SELECT * FROM medicine ".$where."");
+        $this->db->bind(':surgname', $param1);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+
+
+    public function registersurgical($data) {
+        $this->db->query('INSERT INTO surgicals (surgname,surgrand,surgimporter,surgdealer,surgpurchprice,surgsellprice,surgprofit,lowstockqty) 
+        VALUES(:surgname,:surgbrand,:importer,:dealer,:purchprice,:sellprice,:profit,:lowqty)');
+
+
+        //Bind values
+        $this->db->bind(':surgname', $data['genericname']);
+        $this->db->bind(':surgbrand', $data['brandname']);
+        $this->db->bind(':importer', $data['importername']);
+        $this->db->bind(':dealer', $data['dealer']);
+        $this->db->bind(':purchprice', $data['purchaseprice']);
+        $this->db->bind(':sellprice', $data['sellingprice']);
+        $this->db->bind(':profit', $data['profitmargin']);
+//        $this->db->bind(':acslvl', $data['acslvl']);
+        $this->db->bind(':lowqty', $data['lowqty']);
+
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function findSurgbById($surgid) {
+        $this->db->query('SELECT * FROM surgicals WHERE surgid = :surgid');
+
+        $this->db->bind(':surgid', $surgid);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
+
+
+//    public function updateSurgicals($data) {
+//        $this->db->query('UPDATE surgicals SET surgname = :surgname, surgbrand = :surgbrand, surgimporter = :importer, surgdealer = :dealer, surgpurchprice = :purchprice, surgsellprice = :sellprice, surgprofit = :profit, lowstockqty = :lowqty WHERE surgid = :surgid');
+//
+//        $this->db->bind(':surgid', $data['surgid']);
+//        $this->db->bind(':surgname', $data['genericname']);
+//        $this->db->bind(':surgbrand', $data['brandname']);
+//        $this->db->bind(':importer', $data['importername']);
+//        $this->db->bind(':dealer', $data['dealer']);
+//        $this->db->bind(':purchprice', $data['purchaseprice']);
+//        $this->db->bind(':sellprice', $data['sellingprice']);
+//        $this->db->bind(':profit', $data['profitmargin']);
+////        $this->db->bind(':acslvl', $data['acslvl']);
+//        $this->db->bind(':lowqty', $data['lowqty']);
+//
+//        if ($this->db->execute()) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
+
+    public function registersurgicals($data) {
+        $this->db->query('INSERT INTO surgicals (medgenname,medbrand,medimporter,meddealer,medpurchprice,medsellprice,medprofit,medacslvl,lowstockqty) 
+        VALUES(:medname,:medbrand,:importer,:dealer,:purchprice,:sellprice,:profit,:acslvl,:lowqty)');
+
+
+        //Bind values
+        $this->db->bind(':surgid', $data['surgid']);
+        $this->db->bind(':surgname', $data['genericname']);
+        $this->db->bind(':surgbrand', $data['brandname']);
+        $this->db->bind(':importer', $data['importername']);
+        $this->db->bind(':dealer', $data['dealer']);
+        $this->db->bind(':purchprice', $data['purchaseprice']);
+        $this->db->bind(':sellprice', $data['sellingprice']);
+        $this->db->bind(':profit', $data['profitmargin']);
+//        $this->db->bind(':acslvl', $data['acslvl']);
+        $this->db->bind(':lowqty', $data['lowqty']);
+
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+    /*--------------------------------------------------------------------------------------------------------------------------------------------------*/
     public function returnstock($data){
         $this->db->query('INSERT INTO returnstock(medid,purchdate,rquantity,reason) VALUES(:medid,:purchdate,:rquantity,:reason)');
 

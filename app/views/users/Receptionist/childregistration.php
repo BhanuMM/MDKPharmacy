@@ -1,16 +1,21 @@
 <?php
-require APPROOT . '/views/includes/Reciptionisthead.php';
+    require APPROOT . '/views/includes/Reciptionisthead.php';
 ?>
 
+<!--Previous button-->
+    <div style="margin-left:20%;  padding:20px 26px;">
+        <button class="prebtn" style="margin-right:30%;">
+            <span>
+                <a style="text-decoration: none;" href="<?php echo URLROOT ?>/receptionists/receptionistdashboard"> << </a>
+            </span>
+        </button>
+    </div>
 
-<div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/receptionists/receptionistdashboard"> << </a> </span></button>
-</div>
-
-<div style="margin-left: 300px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
-            <div class="column">
+<div style="margin-left: 300px;  margin-right:0%; padding:1px 16px; width: 70%; ">
+<!--            <div class="column">-->
 
                 <div class="form-left">
+                    <br><br>
                     <h2 style="margin-top: 3%;">
                         Patient Details (Child /Elder)
                     </h2>
@@ -19,10 +24,14 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                         <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/receptionists/viewguardian">
                             <table>
                                 <tr>
-                                    <th><li Style="float: right; vertical-align: middle; display: inline;">
-                                            <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 15px; height: 35px; width: 200px;" placeholder="Guardian NIC"></li>
+                                    <th style="padding-top: 0px;">
+                                        <li Style="float: right; vertical-align: middle; display: inline;">
+                                            <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 0px; height: 35px; width: 200px;" placeholder="Guardian NIC">
+                                        </li>
                                     </th>
-                                    <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
+                                    <th style="padding-top: 0px;">
+                                        <button style="margin-left: 10px;" class="form-submit">SEARCH</button>
+                                    </th>
                                 </tr>
 
                             </table>
@@ -65,7 +74,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                     </h5>
                     <input class="input1" type="date" id="childdob" name="childdob" size=15 required>
 
-                        <br><br><br>
+                        <br><br>
                         <div style="margin-left:200px;">
                             <input class="form-clear" type="reset" value=" Clear ">
                             <input type="Submit" class="form-submit" value="Submit">
@@ -86,6 +95,10 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                  }
                  ?>
                 </span>
+                    <br>
+                    <div class="card" style="height: 200px;">
+
+                        <br>
                     <h5>
                         Name : <?php
                         if(isset($data['patientname'])){
@@ -114,7 +127,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                         }
                         ?>
                     </h5>
-
+                    </div>
 
                 </div>
 

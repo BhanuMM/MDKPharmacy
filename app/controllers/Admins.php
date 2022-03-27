@@ -168,7 +168,141 @@ class Admins extends Controller {
         }
         $this->view('users/Admin/MedicineDetails',$data);
     }
-//  Add a new medicine to the system
+
+    //  Show the Medicine details
+    public function viewsurgicals() {
+        $allsurgicals = $this->adminModel->viewsurg();
+
+        $data = [
+            'surg' => $allsurgicals
+        ];
+
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $datasurg= trim($_POST['UISearchbar']);
+            $searchsurg = $this->adminModel->searchsurg($datasurg);
+
+
+            $data = [
+                'surg' => $searchsurg
+            ];
+
+        }
+        $this->view('users/Admin/SurgicalDetails',$data);
+    }
+
+
+    //  Add a new medicine to the system
+    public function addsurg() {
+
+        $data = [
+            'surgicalname' => '',
+            'brandname' => '',
+            'importername' => '',
+            'dealer' => '',
+            'purchaseprice' => '',
+            'sellingprice' => '',
+            'profitmargin' => '',
+//            'acslvl'=>'',
+            'lowqty'=>'',
+            'nameError' => ''
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'surgicalname' => trim($_POST['surgname']),
+                'brandname' => trim($_POST['brandname']),
+                'importername' => trim($_POST['imname']),
+                'dealer' => trim($_POST['dealer']),
+                'purchaseprice' => $_POST['purchprice'],
+                'sellingprice' => $_POST['sellprice'],
+                'profitmargin' => $_POST['profit'],
+//                'acslvl'=>$_POST['acslvl'],
+                'lowqty' => $_POST['lowqty'],
+            ];
+            // Make sure that errors are empty
+            if (empty($data['nameError'])) {
+
+
+                //Register user from model function
+                if ($this->adminModel->registersurgical($data)) {
+                    //Redirect to the viewtable page
+                    $recadded = 'New Medicine has been Successfully Added!';
+                    header('location: ' . URLROOT . '/admins/viewmed?msg='.$recadded);
+                } else {
+                    die('Something went wrong.');
+                }
+            }
+        }
+        $this->view('users/Admin/AddMedicine',$data);
+    }
+
+//  update an existing medicine of the system
+    public function updatesurg($surgid){
+
+        $surg = $this->adminModel->findsurgbById($surgid);
+
+        $data = [
+            // 'med' => $med,
+            'surgid' => $surg->surgid,
+            'surgname' => $surg->surgname,
+            'brandname' => $surg->surgbrand,
+            'importername' => $surg->surgimporter,
+            'dealer' => $surg->surgdealer,
+            'purchaseprice' => $surg->surgpurchprice,
+            'sellingprice' => $surg->surgsellprice,
+            'profitmargin' => $surg->surgprofit,
+//            'acslvl'=> $surg->medacslvl,
+            'lowqty'=> $surg->lowstockqty,
+            'nameError' => ''
+        ];
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'surgid'=>trim($_POST['surgid']),
+                // 'med'=> $med,
+                // 'user_id'=> $_SESSION['user_id'],
+                'genericname' => trim($_POST['surgname']),
+                'brandname' => trim($_POST['brandname']),
+                'importername' => trim($_POST['imname']),
+                'dealer' => trim($_POST['dealer']),
+                'purchaseprice' => $_POST['purchprice'],
+                'sellingprice' => $_POST['sellprice'],
+                'profitmargin' => $_POST['profit'],
+//                'acslvl'=>$_POST['acslvl'],
+                'lowqty'=>$_POST['lowqty']
+            ];
+
+            if (empty($data['nameError'])) {
+
+
+                //update user from model function
+                if ($this->adminModel->updateSurgicals($data)) {
+                    //Redirect to the view table page
+                    $recupdated = ' Medicine Details Updated Successfully';
+                    header('location: ' . URLROOT . '/admins/viewsurg?msg='.$recupdated);
+                } else {
+                    die('Something went wrong.');
+                }
+            }
+
+        }
+        $this->view('users/Admin/UpdateSurgicals', $data);
+    }
+
+
+
+
+    //  Add a new medicine to the system
     public function addmed() {
 
             $data = [
@@ -690,6 +824,9 @@ class Admins extends Controller {
 
     public function addreport() {
         $this->view('users/Admin/AddReport');
+    }
+    public function testreport() {
+      APPROOT.Reports::viewReport();
     }
 
     // public function profilesettings(){
