@@ -272,14 +272,14 @@ class Admins extends Controller {
                 //Register user from model function
                 if ($this->adminModel->registersurgical($data)) {
                     //Redirect to the viewtable page
-                    $recadded = 'New Medicine has been Successfully Added!';
-                    header('location: ' . URLROOT . '/admins/viewmed?msg='.$recadded);
+                    $recadded = 'New Surgical Item has been Successfully Added!';
+                    header('location: ' . URLROOT . '/admins/viewsurgicals?msg='.$recadded);
                 } else {
                     die('Something went wrong.');
                 }
             }
         }
-        $this->view('users/Admin/AddMedicine',$data);
+        $this->view('users/Admin/AddSurgicals',$data);
     }
 
 //  update an existing medicine of the system
@@ -309,7 +309,7 @@ class Admins extends Controller {
                 'surgid'=>trim($_POST['surgid']),
                 // 'med'=> $med,
                 // 'user_id'=> $_SESSION['user_id'],
-                'genericname' => trim($_POST['surgname']),
+                'surgname' => trim($_POST['surgname']),
                 'brandname' => trim($_POST['brandname']),
                 'importername' => trim($_POST['imname']),
                 'dealer' => trim($_POST['dealer']),
@@ -326,8 +326,8 @@ class Admins extends Controller {
                 //update user from model function
                 if ($this->adminModel->updateSurgicals($data)) {
                     //Redirect to the view table page
-                    $recupdated = ' Medicine Details Updated Successfully';
-                    header('location: ' . URLROOT . '/admins/viewsurg?msg='.$recupdated);
+                    $recupdated = ' Surgical Item Details Updated Successfully';
+                    header('location: ' . URLROOT . '/admins/viewsurgicals?msg='.$recupdated);
                 } else {
                     die('Something went wrong.');
                 }
@@ -338,7 +338,37 @@ class Admins extends Controller {
     }
 
 
+//  delete an existing medicine from the system
+    public function deletesurg($surgid){
+        $surg = $this->adminModel->findMedbById($surgid);
 
+        $data = [
+            'surg' => $surg,
+            'surgname' => '',
+            'brandname' => '',
+            'importername' => '',
+            'dealer' => '',
+            'purchaseprice' => '',
+            'sellingprice' => '',
+            'profitmargin' => '',
+//            'acslvl'=>'',
+            'lowqty'=>'',
+            'nameError' => ''
+        ];
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            if($this->adminModel->deletesurgical($surgid)) {
+                $recupdated = ' Surgical Item Details deleted Successfully';
+                header('location: ' . URLROOT . '/admins/viewsurgicals?msg='.$recupdated);
+            } else {
+                die('Something went wrong!');
+            }
+
+
+        }
+    }
 
     //  Add a new medicine to the system
     public function addmed() {

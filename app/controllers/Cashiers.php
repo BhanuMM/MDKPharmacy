@@ -435,7 +435,7 @@ class Cashiers extends Controller {
             $datainpast = trim($_POST['UISearchbar']);
             $searchinpast = $this->cashierModel-> searchpastinbill($datainpast);
 
-            if ($searchbill) {
+            if ($searchinpast) {
                 $data=[
                     'inpast' => $searchinpast,
                     'outpast' => (array) null,
@@ -459,7 +459,7 @@ class Cashiers extends Controller {
              $dataoutpast = trim($_POST['outUISearchbar']);
              $searchoutpast = $this->cashierModel-> searchpastoutbill($dataoutpast);
  
-             if ($searchbill) {
+             if ($searchoutpast) {
                  $data=[
                      'outpast' =>  $searchoutpast,
                      'inpast' => (array) null,
@@ -481,9 +481,9 @@ class Cashiers extends Controller {
              $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
  
              $dataonlinepast = trim($_POST['onlineUISearchbar']);
-             $searchonlinepast = $this->cashierModel->  searchonlinebill($dataoutpast);
+             $searchonlinepast = $this->cashierModel->  searchonlinebill($dataonlinepast);
  
-             if ($searchbill) {
+             if ($searchonlinepast) {
                  $data=[
                     'online' =>  $searchonlinepast,
                      'inpast' => (array) null,
