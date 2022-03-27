@@ -32,9 +32,9 @@ require APPROOT . '/views/includes/Doctorhead.php';
                     Time: <?php echo $data['prestime']?>
                 </div>
                 <div class="bill-col" align="right">
-                    Patient Name: <?php echo $data['patname']?> </br>
+                    Patient Name: <?php if (($data['pattype'])=="adult") {echo $data['patname'];} else {echo  $data['childname'];} ?> </br>
                     Age:  <?php echo $data['patage']?> </br>
-                    Gender: <?php echo $data['patgen']?>
+                    Gender:<?php if (($data['pattype'])=="adult") {echo $data['patgen'];} else {echo  $data['childgen'];}?>
                 </div>
                 <div></div>
             </div>

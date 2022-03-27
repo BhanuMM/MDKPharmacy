@@ -62,7 +62,9 @@
                        Date of Birth
                     </h5>
                     <input class="input1" type="date" id="patdob" name="patdob" size=15 required>
-
+                    <span class="invalidFeedback">
+                        <?php echo $data['ageError']; ?>
+                    </span>
                     <br><br><br>
                     <div style="margin-left:200px;">
                         <input class="form-clear" type="reset" value=" Clear ">

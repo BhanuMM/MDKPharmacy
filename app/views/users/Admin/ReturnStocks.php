@@ -4,21 +4,34 @@
 
 
 <!--Back Button-->
-    <div style="margin-left: 24%; margin-top: 10px; padding:1px 16px; width: 71%">
-        <button class="prebtn" style="margin-right: 200px;">
-            <span>
-                <a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewstock"> << </a>
-            </span>
-        </button>
-    </div>
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-<!--Page Heading-->
-    <div style="margin-left:24%;  padding:1px 16px; width: 40%">
-        <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/returnstock">
-            <h2 style="margin-top: 3%;">
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
                 Return Stock Details
-            </h2>
+                <p>
+                <ul class="breadcrumb" style="margin-top: -30px;">
+                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                    <li>Full Stock Details</li>
+                    <li>Return Stock Details</li>
+
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<!--Page Heading-->
+    <div style="margin-left:23%;  padding:1px 15px; width: 42%">
+        <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/returnstock">
+           
 
 <!--           Form fields starts from here-->
             <h5>
@@ -53,7 +66,11 @@
             <br><br><br>
 
 <!--            Submit buttons-->
+<div style="float: left; margin-left: 62%; margin-right: -5%;">
             <input class="button button1" type="reset" value="Refresh">
             <button class="form-submit">Submit</button>
+</div>
         </form>
+        
     </div>
+    <br><br><br><br>
