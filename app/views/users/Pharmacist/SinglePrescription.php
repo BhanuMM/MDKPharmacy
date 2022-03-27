@@ -7,7 +7,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 </div>  
 
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">
-    <div class="bill">
+    <form class="bill">
         <div class="company">
             <div class="bill-row">
                 <div class="bill-col">
@@ -42,6 +42,9 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
         <div class="bill-body">
 <!--            <h3>Ordered Items</h3>-->
 <!--            <br>-->
+         <form method="post" action="<?php echo URLROOT?> /pharmacists/updateqty">
+                <input id="presid"  name="presid" type="number" value="<?php echo $data['presid']?>" hidden>
+
             <table class="table-bordered">
                 <thead>
                 <tr>
@@ -56,11 +59,11 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 <tbody>
                 <?php foreach($data['meds'] as $allmeds): ?>
                 <tr>
-                    <td><?php echo $allmeds->medgenname ?></td>
+                    <td><?php echo $allmeds->medgenname ?> </td>
                     <td><?php echo $allmeds->dosage ?></td>
                     <td><?php echo $allmeds->medtime ?></td>
                     <td><?php echo $allmeds->duration ?></td>
-                    <td> <input id="balance"  name="balance" type="number" value="<?php echo $allmeds->qty ?>" autocomplete="off"></td>
+                    <td> <input id="medid"  name="medid[]" type="number" value="<?php echo $allmeds->medid?>" hidden><input id="qty"  name="qty[]" type="number" value="<?php echo $allmeds->qty ?>" autocomplete="off" required></td>
 <!--                    <td></td>-->
                 </tr>
                 <?php endforeach; ?>
@@ -71,7 +74,9 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
             <textarea name="Text1" class="input2" rows="5" readonly><?php echo $data['presnote']?></textarea>
                         <br>
                     </div><br>
-                    <button class="button button1" style="float: right;">Confirm Prescription</button>
+        <input type="submit" name="submitbutton4" value="Confirm Prescription" class="opbill-form-submit" style="font-family:'Poppins', sans-serif; margin-left: 300px;" >
+<!--                    <button class="button button1" style="float: right;">Confirm Prescription</button>-->
+    </form>
                 </div><br><br><br><br>
             </div>
 

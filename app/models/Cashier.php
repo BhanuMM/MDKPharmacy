@@ -124,6 +124,20 @@ class Cashier {
         $results = $this->db->resultSet();
         return $results;
     }
+    public function getinmedcount($presid) {
+        $this->db->query('SELECT COUNT(*) FROM presmed  WHERE presid = :pid');
+        //Bind value
+        $this->db->bind(':pid', $presid);
+        $row = $this->db->single();
+        return $row;
+    }
+    public function getinmeds($presid) {
+        $this->db->query('SELECT * FROM presmed  WHERE presid = :pid');
+        //Bind value
+        $this->db->bind(':pid', $presid);
+        $results = $this->db->resultSet();
+        return $results;
+    }
 
     public function getoutmedcount($presid) {
         $this->db->query('SELECT COUNT(*) FROM outpresmed  WHERE presid = :pid');
