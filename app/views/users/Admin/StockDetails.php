@@ -2,17 +2,31 @@
     require APPROOT . '/views/includes/Adminhead.php';
 ?>
 <!--Back Button-->
-    <div style="margin-left: 23%; margin-top: 10px; padding:1px 16px; width: 71%">
-        <button class="prebtn" style="margin-right: 200px;">
-            <span>
-                <a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/admindashboard"> << </a>
-            </span>
-        </button>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
+                Full Stock Details
+                <p>
+                <ul class="breadcrumb">
+                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                    <li>Full Stock Details</li>
+
+                </ul>
+                </p>
+            </div>
+        </div>
     </div>
+</div>
 
 
 
-    <div style="margin-left: 350px; margin-top:5px; padding:1px 16px; width: 70%; ">
+
+    <div style="margin-left: 300px; margin-top:5px; padding:1px 16px; width: 72%; ">
         <span class="successadded">
             <?php if(isset($_GET['msg'])){
                 echo $_GET['msg']; // print_r($_GET);
@@ -23,49 +37,46 @@
 
 <!--        Links to Add New Stock webpage-->
         <a href="<?php echo URLROOT ?>/Admins/addstock">
-            <button class="button button1" style="width: 150px; height: 60px;">Add New Stock</button>
+            <button class="button button1" style="width: 150px; height: 60px; margin-right:15.3px; margin-left:15.3px;">Add New Stock</button>
         </a>
 
         <!--        Links to Purchased Stocks webpage-->
         <a href="<?php echo URLROOT ?>/Admins/purchstock">
-            <button class="button button1" style="width: 150px; height: 60px;">Purchased Stocks</button>
+            <button class="button button1" style="width: 150px; height: 60px; margin-right:15.3px; margin-left:15.3px;">Purchased Stocks</button>
         </a>
 
         <!--        Links to Add Return Stocks webpage-->
         <a href="<?php echo URLROOT ?>/Admins/returnstock">
-            <button class="button button1" style="width: 150px; height: 60px;">Add Return Stocks</button>
+            <button class="button button1" style="width: 150px; height: 60px; margin-right:15.3px;margin-left:15.3px;">Add Return Stocks</button>
         </a>
 
         <!--        Links to Return Stocks webpage-->
         <a href="<?php echo URLROOT ?>/Admins/viewreturns">
-            <button class="button button1" style="width: 150px; height: 60px;">Return Stocks</button>
+            <button class="button button1" style="width: 150px; height: 60px; margin-right:15.3px;margin-left:15.3px;">Return Stocks</button>
         </a>
 
         <!--        Links to Check Expiry Details webpage-->
         <a href="<?php echo URLROOT ?>/Admins/checkexpiry">
-            <button class="button button1" style="width: 150px; height: 60px;">Expiry Details</button>
+            <button class="button button1" style="width: 150px; height: 60px; margin-right:15.3px;margin-left:15.3px;">Expiry Details</button>
         </a>
 
         <!--        Links to Stock Reorder webpage-->
         <a href="<?php echo URLROOT ?>/Admins/stockreorder">
-            <button class="button button1" style="width: 150px; height: 60px;">Stock Reorder</button>
+            <button class="button button1" style="width: 150px; height: 60px; margin-left:15.3px;">Stock Reorder</button>
         </a>
 
-        <ul style="padding-left: 0px; list-style-type: none;  margin-top:75px;  ">
-            <li Style="float: left; vertical-align: middle; display: inline;">
-                <h3> Full Stock Details</h3>
-            </li>
-
-            <!--Search box-->
-            <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/admins/viewstock">
+        <ul style="padding-left: 0px; list-style-type: none;  ">
+            <!-- <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin: 0px;"> User Details</h3></li> -->
+            <form method="post" class="data" style="float: left; display: inline; margin-top: 5%; margin-left: 71.5%;" action="<?php echo URLROOT; ?>/admins/viewstock">
                 <table>
                     <tr>
                         <th>
-                            <li Style="float: right; vertical-align: middle; display: inline;">
-                                <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 530px; height: 35px; width: 200px;" placeholder="Medicine Name"></li>
+                            <li>
+                                <input type="text" id="UISearchbar" name="UISearchbar" style="border-radius: 5px; height: 35px; width: 200px;" placeholder="Medicine Name"> 
+                            </li>
                         </th>
                         <th>
-                            <button style="margin-left: 10px;" class="form-submit">SEARCH</button>
+                            <button style="margin-top:5px; border-radius:5px; height: 40px; border-radius: 5px; padding-bottom:-10px;" class="form-submit"><i class="fa fa-search"></i></button>
                         </th>
                     </tr>
                 </table>

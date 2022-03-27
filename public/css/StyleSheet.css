@@ -267,26 +267,26 @@ ul li a:hover{
   margin-top: 100px;
   height: 100%;
   width: 30%;
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  overflow-x: hidden;
+  position: absolute;
+ 
+  top: 200px;
+  /* overflow-x: hidden; */
   padding-top: 20px;
   left: 0;
 }
 
 .form-right{
   margin-right: 150px;
-  margin-top: 140px;
+  margin-top: 100px;
   height: 100%;
   width: 30%;
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  overflow-x: hidden;
+  position: absolute;
+  
+  top: 200px;
+  /* overflow-x: hidden; */
   padding-top: 20px;
   right: 0;
-  z-index: -1;
+  
 
 }
 
@@ -294,7 +294,7 @@ ul li a:hover{
     padding: 10px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: inline-block !important;
     font-size: 14px;
     margin: 4px 4px;
     cursor: pointer;
@@ -313,6 +313,7 @@ ul li a:hover{
     color:#ffff;
     transform: scale(1.1);
 }
+
 
 /* outpatient bill create bill button */
 .opbill-form-submit{
@@ -342,10 +343,10 @@ ul li a:hover{
 }
 
 .form-clear{
-  padding: 10px;
+    padding: 10px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+   
     font-size: 14px;
     margin: 4px 3px;
     cursor: pointer;
@@ -449,6 +450,32 @@ input#search-bar{
   /* right: -45px; */
 }
 
+
+/* New User : Admin */
+.clearBtn{
+  color: #0a0a2e;
+  background-color: #f2f2f2;
+  border-radius: 15px;
+  
+  padding: 15px 32px; 
+  cursor:pointer;
+}
+.clearBtn:hover{ 
+  color: #646464;
+  border-color: #0a0a2e; 
+  }
+
+.submitBtn{
+  background-color: #0a0a2e;  
+  border-radius: 15px; 
+  padding: 15px 32px; 
+  color: white; 
+  border-style:none; 
+  margin-left: 10px;   
+  cursor:pointer; 
+}
+
+
 /*------------------------------------------------------------------------------*/
 /*Bill Content*/
 .bill{
@@ -491,6 +518,8 @@ table thead tr{
   background-color: #f2f2f2;
 }
 table td {
+  padding-top: 08px;
+  padding-bottom: 08px;
   vertical-align: middle;
   text-align: center;
 }
@@ -523,7 +552,7 @@ table th, table td {
 input#UISearchbar{
     margin-left: 15%;
     width: 100%;
-    height: 45px;
+   
     padding: 0 10px;
     font-size: 1rem;
     border: 2px solid #0a0a2e;
@@ -803,9 +832,90 @@ hr.rounded {
   border-radius: 5px;
 }
 
+/*Breadcrumbs*/
+ ul.breadcrumb {
+  list-style: none;
+  margin-left: -38px;
+  margin-top: -12%;
+}
+ul.breadcrumb li {
+  display: inline;
+  color: #646464;
+  font-size: 14px;
+}
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: #646464;
+  content: "/\00a0";
+}
+ul.breadcrumb li a {
+  color:#646464;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+ 
+  text-decoration: underline;
+}
+
+
+
+/* Update and Delete Button */
+
+
 
  
 
+.updateBtn{
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    margin: 4px 2px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 1px;
+    border-style: solid;
+    border-color: #646464;
+    background-color: white;
+    color: #646464;
+    margin-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
 
+.updateBtn:hover{
+
+    background-color: #646464;
+    color: white;
+   
+}
+
+
+.dltBtn{
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  margin: 4px 2px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 15px;
+  border: 1px;
+  border-style: solid;
+  border-color: #d11a2a;
+  background-color: white;
+  color: #d11a2a;
+  margin-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: transparent;
+  
+}
+
+.dltBtn:hover{
+   
+  background-color: #d11a2a;
+  color: white;
+ 
+}
 
 

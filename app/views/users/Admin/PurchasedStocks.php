@@ -3,13 +3,27 @@
 ?>
 
 <!--Back Button-->
-    <div style="margin-left: 22.5%; margin-top: 10px; padding:1px 16px; width: 71%">
-        <button class="prebtn" style="margin-right: 200px;">
-            <span>
-                <a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewstock"> << </a>
-            </span>
-        </button>
+   
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div style="margin-left: 300px; margin-top: 60px; margin-right:0%; padding:1px 16px; width: 72%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
+                Full Stock Details
+                <p>
+                <ul class="breadcrumb" style="margin-top: -30px;">
+                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                    <li>Full Stock Details</li>
+                    <li>Purchased Stock</li>
+
+                </ul>
+                </p>
+            </div>
+        </div>
     </div>
+</div>
 
 
     <div style="margin-left: 340px; margin-top:1px; padding:1px 16px; width: 70%; ">
@@ -21,30 +35,28 @@
         </span> <br>
 
 <!--        Page Heading-->
-        <ul style="padding-left: 0px; list-style-type: none; margin-top:25px; ">
-            <li Style="float: left; vertical-align: middle; display: inline;">
-                <h3> Stock Purchasing Details</h3>
-            </li>
-
-<!--            Search bar-->
-            <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/purchstock">
+<ul style="padding-left: 0px; list-style-type: none;  ">
+            <!-- <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin: 0px;"> User Details</h3></li> -->
+            <form method="post" class="data" style="float: left; display: inline; margin-top: 5%; margin-left: 70%;" action="<?php echo URLROOT; ?>/admins/purchstock">
                 <table>
                     <tr>
                         <th>
-                            <li Style="float: right; vertical-align: middle; display: inline;">
-                                <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 430px; height: 35px; width: 200px;" placeholder="Medicine Name">
+                            <li>
+                                <input type="text" id="UISearchbar" name="UISearchbar" style="border-radius: 5px; height: 35px; width: 200px;" placeholder="Medicine Name"> 
                             </li>
                         </th>
                         <th>
-                            <button style="margin-left: 10px" class="form-submit">SEARCH</button>
+                            <button style="margin-top:5px; border-radius:5px; height: 40px; border-radius: 5px; padding-bottom:-10px;" class="form-submit"><i class="fa fa-search"></i></button>
                         </th>
                     </tr>
                 </table>
             </form>
         </ul>
 
+        <!-- <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/purchstock"> -->
+
 <!--        Table Headings-->
-        <table id="customers">
+        <table id="customers" style="margin-left: -4%; width: 103%;">
             <tr>
                 <th>Medicine ID</th>
                 <th>Supplier Agency Name</th>
@@ -73,5 +85,6 @@
             <?php endforeach; ?>
 
         </table>
+        <br><br>
 
     </div>
