@@ -114,7 +114,7 @@ class Doctor {
 
     public function addtopres($data) {
 
-        $this->db->query('INSERT INTO presmed (presid,medid,dosage,medtime,duration)VALUES(:presid,:medid,:meddose,:medtime,:meddur)');
+        $this->db->query('INSERT INTO presmed (presid,medid,dosage,medtime,duration,qty)VALUES(:presid,:medid,:meddose,:medtime,:meddur,:qty)');
 
 
         //Bind values
@@ -123,6 +123,7 @@ class Doctor {
         $this->db->bind(':meddose', $data['meddose']);
         $this->db->bind(':medtime', $data['medtime']);
         $this->db->bind(':meddur', $data['meddur']);
+        $this->db->bind(':qty', $data['qty']);
 
         //Execute function
         if ($this->db->execute()) {

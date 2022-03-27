@@ -232,13 +232,17 @@ class Doctors extends Controller {
             $medtime =$_POST['time'];
             $meddur =$_POST['medduration'];
 
+            $tz = 'Asia/Colombo';
+            $timestamp = time();
+            $dt = new DateTime("now", new DateTimeZone($tz));
+            $dt->setTimestamp($timestamp);
 
 
             $data=[
                 'patid'=>$_POST['patid'],
                 'docid' => $_POST['docid'],
                 'pattype' => $_POST['pattype'],
-                'prestime'=>date("h:i:sa"),
+                'prestime'=>$dt->format(' H:i:s'),
                 'presdate'=>date("Y/m/d"),
                 'specialnote'=>$_POST['specialnote'],
                 'billed' => "no"
@@ -256,11 +260,33 @@ class Doctors extends Controller {
                 }
                 $presid = $maxpres->maxpres;
                 for($i=0; $i< $count; $i++){
+                    if($medtime[$i]=="Bd"){
+
+                        $qty = (int)$meddose[$i]*2*(int)$meddur[$i];
+
+                    }elseif($medtime[$i]=="Tds"){
+
+                        $qty = (int)$meddose[$i]*3*(int)$meddur[$i];
+
+                    }elseif($medtime[$i]=="Nocte"){
+
+                        $qty = (int)$meddose[$i]*1*(int)$meddur[$i];
+
+                    }elseif($medtime[$i]== "Mane"){
+
+                        $qty = (int)$meddose[$i]*1*(int)$meddur[$i];
+
+                    }else{
+
+                        $qty = (int)$meddose[$i]*1*(int)$meddur[$i];
+
+                    }
                     $data=[
                         'medid'=> $medid [$i],
                         'meddose'=> $meddose[$i],
                         'medtime'=> $medtime[$i],
                         'meddur'=> $meddur[$i],
+                        'qty'=> $qty,
                         'presid'=>$presid
 
                     ];
@@ -297,8 +323,13 @@ class Doctors extends Controller {
     public function pastsingleprescription($presid) {
         $patdata =$this->doctorModel->getprespatdata($presid);
         $predata =$this->doctorModel->getpresdata($presid);
+        if(($patdata->pattype)=="adult"){
+            $dob =$patdata->patdob;
+        }
+        else{
+            $dob =$patdata->childelderdob;
+        }
 
-        $dob =$patdata->patdob;
         $today = date("Y-m-d");
         $diff = date_diff(date_create($dob), date_create($today));
         $data = [
@@ -307,8 +338,12 @@ class Doctors extends Controller {
             'prestime' => $patdata->pretime,
             'presnote' => $patdata->specialnote,
             'patname' => $patdata->patname,
+            'childname' => $patdata->fullname,
+            'childgen' => $patdata->childeldergen,
+            'childob' => $diff->format('%y'),
+            'pattype' => $patdata->pattype,
             'patage' => $diff->format('%y'),
-            'patgen' => ucwords($patdata->patgen) ,
+            'patgen' => $patdata->patgen,
             'meds'=> $predata
 //            'medgenname' => $med->medgenname,
 

@@ -17,16 +17,16 @@ class Receptionists extends Controller
 
         $allchildren = $this->receptionistModel->viewchild();
 
-//        $data = [
-//            'patients' => $allpatients,
-//            'children' => $allchildren
-//        ];
-
-        $data=[
-            'pat' =>(array) null ,
-            'child' =>(array) null
-
+        $data = [
+            'pat' => $allpatients,
+            'child' => $allchildren
         ];
+
+//        $data=[
+//            'pat' =>(array) null ,
+//            'child' =>(array) null
+//
+//        ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($_POST['btnid'])) {
@@ -217,14 +217,16 @@ class Receptionists extends Controller
             'patientemail' => '',
             'nameError' => '',
             'telError'=>'',
-            'nicError'=>''
+            'nicError'=>'',
+            'ageError'=>''
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
             // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+            $today = date("Y-m-d");
+            $diff = date_diff(date_create($_POST['patdob']), date_create($today));
             $data = [
                 'patientname' => trim($_POST['patname']),
                 'patientnic' => trim($_POST['patnic']),
@@ -235,6 +237,9 @@ class Receptionists extends Controller
                 'patientgen' => $_POST['patgen']
             ];
 
+            if ($diff->format('%y')<18){
+                $data['ageError'] = 'Patient Must be Over 18 yrs';
+            }
 
             // Validate nic on length, numeric values,
             $nicValidation = "/^([0-9]{9}[x|X|v|V]|[0-9]{12})$/";

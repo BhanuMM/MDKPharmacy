@@ -22,8 +22,9 @@ class Pharmacists extends Controller {
      
      
                  $data = [
-                     'prescription' => $searchprescription
+                     'pres' => $searchprescription
                  ];
+                 $this->view('users/Pharmacist/PrescriptionDetails',$data);
      
              }
 
@@ -97,14 +98,16 @@ class Pharmacists extends Controller {
             //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            $dataprescription= trim($_POST['UISearchbar']);
-            $searchprescription = $this->pharmacistModel-> searchprescriptionbynic($dataprescription);
+            $tphonenum= trim($_POST['UISearchbar']);
+            $searchonlineorders = $this->pharmacistModel-> searchonlineordertp($tphonenum);
 
 
             $data = [
-                'prescription' => $searchprescription
+                'pendingorders' => $searchonlineorders,
+                'confirmedorders' => $searchonlineorders,
+                'rejectedorders' => $searchonlineorders
             ];
-
+            $this->view('users/Pharmacist/ViewOnlineOrders',$data);
         }
 
         $pendingorders = $this->pharmacistModel->viewonlineorders();
@@ -371,13 +374,16 @@ class Pharmacists extends Controller {
             $meddose =$_POST['meddos'];
             $medtime =$_POST['time'];
             $meddur =$_POST['medduration'];
-           
 
 
+            $tz = 'Asia/Colombo';
+            $timestamp = time();
+            $dt = new DateTime("now", new DateTimeZone($tz));
+            $dt->setTimestamp($timestamp);
 
             $data=[
                 'orderid'=>$_POST['oid'],
-                'prestime'=>date("h:i:sa"),
+                'prestime'=>$dt->format(' H:i:s'),
                 'presdate'=>date("Y/m/d")
                 
             ];

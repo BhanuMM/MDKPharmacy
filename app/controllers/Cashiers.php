@@ -296,12 +296,16 @@ class Cashiers extends Controller {
             // Process form
             // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $tz = 'Asia/Colombo';
+            $timestamp = time();
+            $dt = new DateTime("now", new DateTimeZone($tz));
+            $dt->setTimestamp($timestamp);
 
             $data = [
                 'billid' => $_POST['billid'],
                 'presid' => $_POST['presid'],
                 'billdate' => date("Y/m/d"),
-                'billtime' => date("h:i:sa"),
+                'billtime' => date("h:i:sa"),$dt->format(' H:i:s'),
                 'subtotal' => trim($_POST['subtot']),
                 'discount' => trim($_POST['dis']),
                 'payment' => trim($_POST['pamount']),

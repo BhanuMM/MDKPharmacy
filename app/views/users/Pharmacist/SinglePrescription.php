@@ -47,6 +47,9 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 <tr>
                     <th>Medicine</th>
                     <th class="table-field">Dosage</th>
+                    <th class="table-field">Med Time</th>
+                    <th class="table-field">Duration</th>
+                    <th class="table-field">QTY</th>
 <!--                    <th class="table-field">Total</th>-->
                 </tr>
                 </thead>
@@ -55,6 +58,9 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 <tr>
                     <td><?php echo $allmeds->medgenname ?></td>
                     <td><?php echo $allmeds->dosage ?></td>
+                    <td><?php echo $allmeds->medtime ?></td>
+                    <td><?php echo $allmeds->duration ?></td>
+                    <td> <input id="balance"  name="balance" type="number" value="<?php echo $allmeds->qty ?>" autocomplete="off"></td>
 <!--                    <td></td>-->
                 </tr>
                 <?php endforeach; ?>
