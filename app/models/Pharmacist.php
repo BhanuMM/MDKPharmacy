@@ -231,6 +231,20 @@ class Pharmacist {
 
         return $row;
     }
+    public function updateMedicine($data){
+        $this->db->query('UPDATE presmed SET qty = :qty WHERE presid = :psid AND medid= :mid');
+
+        $this->db->bind(':qty', $data['qty']);
+        $this->db->bind(':psid', $data['presid']);
+        $this->db->bind(':mid', $data['medid']);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
     public function updateprofilesettings($data){
         $this->db->query('UPDATE staff SET snic = :psnic, sname = :psname, semail = :psemail, uname = :psuname ,upswrd= :pswrd WHERE staffid = :psid');
 

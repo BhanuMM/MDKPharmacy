@@ -46,7 +46,7 @@
 
  <div style="margin-left: -4.5%; margin-right: 2%;"> 
 
-        <a href="<?php echo URLROOT ?>Admins/addsupplier">
+        <a href="<?php echo URLROOT ?>/admins/addsupplier">
 <br>
             <button style="float: left; display: inline;" class="button button1" >Add New Supplier +</button>
         </a>

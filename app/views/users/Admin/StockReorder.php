@@ -4,21 +4,32 @@
 
 
 <!--Back Button-->
-<div style="margin-left: 23%; margin-top: 10px; padding:1px 16px; width: 71%">
-        <button class="prebtn" style="margin-right: 200px;">
-            <span>
-                <a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewstock"> << </a>
-            </span></button>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; box-sizing:initial; ">
+    <div class="welcome-card">
+        <div class="welcome">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
+                Return Stock Details
+                <p>
+                <ul class="breadcrumb" style="margin-top: -30px;">
+                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                    <li>Full Stock Details</li>
+                    <li>Return Stock Details</li>
+
+                </ul>
+                </p>
+            </div>
+        </div>
     </div>
+</div>
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <div style="margin-left: 350px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
+        <div style="margin-left: 300px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 72%; ">
             <ul style="padding-left: 0px; list-style-type: none;">
-                <li Style="float: left; vertical-align: middle; display: inline;">
-                    <h4>
-                        <b> Stock Reorder Details</b>
-                    </h4>
-                </li>
+               
             </ul>
 
 <!--    Tabs to switch between-->
@@ -31,7 +42,7 @@
 
 <!--        View Out of stock table-->
         <p>
-            <table id="customers">
+            <table id="customers" style="margin-left:-15px; width:103%;">
 <!--            Table headings-->
                 <tr>
                     <th>Medicine ID</th>
