@@ -13,7 +13,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 Past Bills
                     <p>
                     <ul class="breadcrumb">
-                        <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URLROOT ?>/cashiers/cashierdashboard">Dashboard</a></li>
                         <li>Past Bills</li>
                     </ul>
                     </p>

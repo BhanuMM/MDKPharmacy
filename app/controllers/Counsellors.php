@@ -151,26 +151,26 @@ class Counsellors extends Controller {
             //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            $datainpast = trim($_POST['UISearchbar']);
-            $searchinpast = $this->counsellorModel-> searchpastbill($datainpast);
+            $datesearch = $_POST['UISearchbar'];
+            $searchinpast = $this->counsellorModel->searchpastinbill($datesearch);
+            $searchoutpast = $this->counsellorModel->searchpastoutbill($datesearch);
+            $searchonlinepast = $this->counsellorModel->searchpastonlinebill($datesearch);
 
-
-            // Check whether there are any null values
-            if ($searchinpast) {
-                $data=[
-                    'inpast' => $searchinpast
-
-                ];
-            } //If there are null values pass it to the span
-            else{
+            if ($searchinpast || $searchoutpast ||  $searchonlinepast) {
                 $data = [
                     'inpast' => $searchinpast,
-                    'norecord' => "nofound"
+                    'outpast' => $searchoutpast,
+                    'online' => $searchonlinepast
                 ];
             }
-//            $data = [
-//                'inpast' => $searchinpast
-//            ];
+            else {
+                $data = [
+                    'inpast' => (array)null,
+                    'outpast' => (array)null,
+                    'online' => (array)null,
+                    'nofound' => 'No Records Found'
+                ];
+            }
         }
         $this->view('users/Counsellor/PastBills',$data);
     }
