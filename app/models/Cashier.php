@@ -109,18 +109,25 @@ class Cashier {
 
     }
     
-    public function searchpastinbill($billid) {
-        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billid = :billid and bill.customertype="in" ');
+    public function searchpastinbill($billdate) {
+        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billdate = :billdate and bill.customertype="in"  ');
         //Bind value
-        $this->db->bind(':billid', $billid);
+        $this->db->bind(':billdate', $billdate);
         $results = $this->db->resultSet();
         return $results;
     }
 
-    public function searchpastoutbill($billid) {
-        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billid = :billid and bill.customertype="out" ');
+    public function searchpastoutbill($billdate) {
+        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billdate = :billdate and bill.customertype="out" ');
         //Bind value
-        $this->db->bind(':billid', $billid);
+        $this->db->bind(':billdate', $billdate);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+    public function searchpastonlinebill($billdate) {
+        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billdate = :billdate and bill.customertype="online" ');
+        //Bind value
+        $this->db->bind(':billdate', $billdate);
         $results = $this->db->resultSet();
         return $results;
     }
@@ -346,6 +353,15 @@ class Cashier {
     public function loadmed() {
 
         $this->db->query('SELECT * FROM medicine ORDER BY medgenname ASC');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
+    public function loadsurg() {
+
+        $this->db->query('SELECT * FROM surgicals ORDER BY surgname ASC');
 
         $results = $this->db->resultSet();
 
