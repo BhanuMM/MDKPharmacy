@@ -26,14 +26,14 @@ class Cashier {
 
     public function viewbill() {
 //        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid ');
-        $this->db->query('SELECT * FROM bill WHERE customertype = "in" ORDER BY bill.billid DESC');
+        $this->db->query('SELECT * FROM bill INNER JOIN staff ON bill.cashierid=staff.staffid WHERE customertype = "in" ORDER BY bill.billid DESC');
         $results = $this->db->resultSet();
         return $results;
     }
 
     public function viewonlinebill() {
 //        $this->db->query('SELECT * FROM bill INNER JOIN onlineprescription ON bill.presid= onlineprescription.onlinepresid INNER JOIN onlineorder on onlineprescription.onlineorderid=onlineorder.onlineoid WHERE bill.customertype="online"');
-        $this->db->query('SELECT * FROM bill WHERE customertype = "online" ORDER BY bill.billid DESC');
+        $this->db->query('SELECT * FROM bill INNER JOIN staff ON bill.cashierid=staff.staffid  WHERE customertype = "online" ORDER BY bill.billid DESC');
         $results = $this->db->resultSet();
         return $results;
     }
@@ -454,7 +454,7 @@ class Cashier {
 //    }
 
     public function viewoutbill() {
-        $this->db->query('SELECT * FROM bill WHERE customertype = "out" ORDER BY bill.billid DESC');
+        $this->db->query('SELECT * FROM bill INNER JOIN staff ON bill.cashierid=staff.staffid  WHERE customertype = "out" ORDER BY bill.billid DESC');
         $results = $this->db->resultSet();
         return $results;
     }

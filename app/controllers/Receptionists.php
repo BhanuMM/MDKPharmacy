@@ -19,7 +19,9 @@ class Receptionists extends Controller
 
         $data = [
             'pat' => $allpatients,
-            'child' => $allchildren
+            'child' => $allchildren,
+            'ischild' => ''
+
         ];
 
 //        $data=[
@@ -29,6 +31,7 @@ class Receptionists extends Controller
 //        ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
 
                 //Sanitize post data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -41,10 +44,12 @@ class Receptionists extends Controller
                     $data=[
                         'pat' => $searchpatient,
                         'child' =>$searchchild
+
                     ];
                 }
                 else{
                     $data=[
+
                         'pat' =>(array) null,
                         'child' =>(array) null,
                         'nofound' => 'No Record Found'
@@ -53,6 +58,7 @@ class Receptionists extends Controller
 //      ffffffffffffffff
 
         }
+
 
 
         $this->view('users/Receptionist/ReceptionistViewPatient',$data);
