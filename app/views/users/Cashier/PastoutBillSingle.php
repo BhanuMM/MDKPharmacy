@@ -3,7 +3,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 ?>
 
 <div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;"href="<?php echo URLROOT ?>/cashiers/pastbills"> << </a> </span></button>
+    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/pastbills"> << </a> </span></button>
     </div>
 
     <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">

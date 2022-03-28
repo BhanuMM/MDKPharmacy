@@ -687,7 +687,7 @@ input#UISearchbar{
 
 .change-pwd-class{
   margin-left: 57%;
-  margin-top: -23%;
+  margin-top: -20%;
   display:none;
 }
 
@@ -697,7 +697,7 @@ input#UISearchbar{
   color: #0a0a2e;
   padding: 15px;
   margin-top: -15px;
-  margin-left:-11px;
+  /* margin-left:-11px; */
   text-align: center;
 }
 #change-pwd:hover{

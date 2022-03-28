@@ -1,16 +1,25 @@
 <?php
     require APPROOT . '/views/includes/Adminhead.php';
 ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!--Back Button-->
-    <div style="margin-left: 23%; margin-top: 10px; padding:1px 16px; width: 71%">
-        <button class="prebtn" style="margin-right: 200px;">
-            <span>
-                <a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewstock"> << </a>
-            </span>
-        </button>
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
+            Add New Stock
+                <p>
+                <ul class="breadcrumb" style="margin-top: -30px;">
+                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                    <li>Full Stock Details</li>
+                    <li>Add New Stock</li>
+                </ul>
+                </p>
+            </div>
+        </div>
     </div>
-
+</div>
 
 <!--Heading of the web page-->
     <div style="margin-left:20%; padding:1px 16px; width: 40%">
@@ -47,7 +56,7 @@
             </div>
 
             <!--Starting the right form fields-->
-            <div class="form-right">
+            <div class="form-right" style="margin-top: 9.5%;">
 
                 <h5>
                     Selling unit price (Rs.)
@@ -65,9 +74,12 @@
                 <input class="input1" type="date" id="expdate" name="expdate" placeholder="2023-01-02" required>
                 
                 <br><br><br>
+                <div style="float: left; margin-left: 44%; margin-top: 17%;">
 
-                <input class="button button1" type="reset" value="Refresh">
-                <button class="form-submit">Submit</button>
+                <input class="clearBtn" type="reset" value="Refresh">
+                <button class="submitBtn">Submit</button>
+
+                    </div>
             </div>
         </form>
     </div>

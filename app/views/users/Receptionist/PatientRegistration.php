@@ -3,22 +3,31 @@
 ?>
 
 <!--Previous Button-->
-    <div style="margin-left:20%;  padding:20px 26px;">
-        <button class="prebtn" style="margin-right:30%;">
-            <span>
-                <a style="text-decoration: none;"href="<?php echo URLROOT ?>/receptionists/receptionistdashboard"> << </a>
-            </span>
-        </button>
-    </div>
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <div style="margin-left: 23%; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
+            Add New Stock
+                <p>
+                <ul class="breadcrumb" style="margin-top: -30px;">
+                    <li><a href="<?php echo URLROOT ?>/receptionists/receptionistdashboard">Dashboard</a></li>
+                    <li>Add New Patient</li>
+                    
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div style="margin-left: 23%; margin-top: -10%; margin-right:0%; padding:1px 16px; width: 70%; ">
         <div class="column">
             <form method="post" class="data" action="<?php echo URLROOT; ?>/receptionists/registerpatient">
-                <div class="form-left" style="margin-left:400px;">
-                    <h2 style="margin-top: 10%;">
-                        Patient Details
-                    </h2>
-
+                <div class="form-left" style="margin-left: 380px;">
                     <h5>
                         Name
                     </h5>
@@ -37,7 +46,7 @@
                     </h5>
                     <input type="text" class="input2"  id="patadrs" name="patadrs" placeholder="222/B, Bakers' Street, Colombo 07." value="<?php echo $data['patientadrs']; ?>" required>
                 </div>
-                <div class="form-right" style="margin-top: 180px; margin-right: 130px;">
+                <div class="form-right" style="margin-top: 96px; margin-right: 130px;">
                      <h5>
                         Phone Number
                     </h5>
