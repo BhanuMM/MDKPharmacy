@@ -66,7 +66,7 @@
             </form>
         </ul> -->
 
-<div style="margin-left: -45px; font-size: 14px;">
+<div style="margin-left: -45px; font-size: 13px;">
 <div style="margin-right: 5%;">
         <a href="<?php echo URLROOT ?>/Admins/addmed" >
 <br>
@@ -94,7 +94,7 @@
 <br><br>
 <br>
 
-        <table id="customers" style="width: 40%;">
+        <table id="customers" style="width: 30%;">
             <tr>
                 <th>Medicine ID</th>
                 <th>Generic Name</th>
@@ -123,11 +123,11 @@
                     <td><?php echo  $allmed->medacslvl?></td>
                     <td><?php echo  $allmed->lowstockqty?></td>
                     <td>
-                        <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT . "/admins/updatemed/" .  $allmed->medid ?>">Update</a>
+                        <a class="updateBtn" href="<?php echo URLROOT . "/admins/updatemed/" .  $allmed->medid ?>">Update</a>
                     </td>
                     <td>
                         <form action="<?php echo URLROOT . "/admins/deletemed/" . $allmed->medid?>" method="POST">
-                            <input class="button button1" style="background-color: #fc92a1;" Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
+                            <input class="dltBtn"  Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
                         </form>
                     </td>
                 </tr>

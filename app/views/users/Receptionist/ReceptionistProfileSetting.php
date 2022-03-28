@@ -1,6 +1,26 @@
 <?php
 require APPROOT . '/views/includes/Reciptionisthead.php';
 ?>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+        <div class="welcome-card">
+            <div class="welcome">
+                    <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+                <div class="welcome-names">
+                    User Details 
+                    <p>
+                    <ul class="breadcrumb">
+                        <li><a href="<?php echo URLROOT ?>/receptionists/receptionistdashboard">Dashboard</a></li>
+                        <li>User Details</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+</div>
 <div style="margin-left: 320px; margin-top:50px; margin-right:0%; font-family: 'Poppins', sans-serif;padding:1px 16px; width: 70%; ">
     <form method="post" class="data" action="<?php echo URLROOT; ?>/receptionists/profilesettings/<?php echo $data['psid'] ?>" style="background-color: white; ">
           <span class="successadded" style="color: red">
@@ -10,9 +30,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
                  }
                  ?>
                 </span>
-        <h2 style="margin-top: 3%;">
-            User Details
-        </h2>
+        
         <h5>
             Username
         </h5>
@@ -46,8 +64,9 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
 
             <br>
 
-            <input class="button button1"  id="changepwd" value="Update Password">
             <input class="form-submit" type="submit" name="submitbutton1" Value="Save Settings">
+            
+            <input class="button button1"  id="changepwd" value="Update Password">
 
         </div>
 
@@ -69,7 +88,7 @@ require APPROOT . '/views/includes/Reciptionisthead.php';
 </div>
 
     </form>
-
+<br><br>
 
 <!--<button style="margin-top: 10%;" >Update Password</button><br>-->
 <script>

@@ -1,6 +1,26 @@
 <?php
 require APPROOT . '/views/includes/Doctorhead.php';
 ?>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
+                 Profile Settings
+                <p>
+                <ul class="breadcrumb">
+                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                    <li>Profile Settings</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div style="margin-left: 320px; margin-top:50px; margin-right:0%; font-family: 'Poppins', sans-serif;padding:1px 16px; width: 70%; ">
     <form method="post" class="data" action="<?php echo URLROOT; ?>/doctors/profilesettings/<?php echo $data['psid'] ?>" style="background-color: white; ">
           <span class="successadded" style="color: red">
@@ -10,9 +30,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                  }
                  ?>
                 </span>
-        <h2 style="margin-top: 3%;">
-            User Details
-        </h2>
+     
         <h5>
             Username
         </h5>
@@ -53,8 +71,8 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
 
 
-        <div class="change-pwd-class" style="margin-left: 47%; margin-top:-33% " >
-            <div class="close" style="margin-right:25%;">+</div>
+        <div class="change-pwd-class" style="margin-left: 47%;  margin-top:-26%; display:none;"  >
+            <div class="close" style="margin-right:25%; margin-top: 5px; margin-bottom: 15px;">+</div>
 
 
             <h5>
@@ -67,8 +85,10 @@ require APPROOT . '/views/includes/Doctorhead.php';
             </h5>
             <input class="input-ps" type="password" id="Repass" name="Repass" minlength="4" placeholder="Re-Enter New Password" >
         </div>
+                
 
     </form>
+    <br><br><br>
 
 
     <!--<button style="margin-top: 10%;" >Update Password</button><br>-->

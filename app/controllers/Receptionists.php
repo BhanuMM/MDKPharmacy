@@ -32,55 +32,34 @@ class Receptionists extends Controller
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            if (isset($_POST['btnnic'])) {
+
                 //Sanitize post data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-                $datanic = trim($_POST['UISearchbarnic']);
-                $searchpatient = $this->receptionistModel->searchpatientnic($datanic);
+                $datanicname = trim($_POST['UISearchbarnic']);
+                $searchpatient = $this->receptionistModel->searchpatientnic($datanicname);
+                $searchchild = $this->receptionistModel->searchguardiannic($datanicname);
 
-                if ($searchpatient) {
+                if ($searchpatient || $searchchild) {
                     $data=[
                         'pat' => $searchpatient,
-                        'child' =>(array) null
+                        'child' =>$searchchild
+
                     ];
                 }
                 else{
                     $data=[
-                        'pat' =>$searchpatient,
+
+                        'pat' =>(array) null,
                         'child' =>(array) null,
                         'nofound' => 'No Record Found'
                     ];
                 }
-            }
+//      ffffffffffffffff
 
-
-
-            else  {
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-                $dataname = trim($_POST['UISearchbargnic']);
-                $searchchild = $this->receptionistModel->searchguardiannic($dataname);
-
-                if ($searchchild) {
-                    $data=[
-                        'child' => $searchchild,
-                        'pat' =>(array) null,
-                        'ischild' => 'yes'
-                    ];
-                }
-                else{
-                    $data=[
-                        'child' => $searchchild,
-                        'pat' =>(array) null,
-                        'nofound' => 'No Record Found',
-                        'ischild' => 'yes'
-                    ];
-                }
-            }
         }
 
-           
+
 
         $this->view('users/Receptionist/ReceptionistViewPatient',$data);
     }
