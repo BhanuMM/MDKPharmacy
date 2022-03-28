@@ -265,7 +265,6 @@ public function searchguardiannic($patnic) {
 
         $this->db->query('SELECT * FROM childelder INNER JOIN patient ON childelder.guardianid=patient.patid ');
         $results = $this->db->resultSet();
-
         return $results;
 
     }

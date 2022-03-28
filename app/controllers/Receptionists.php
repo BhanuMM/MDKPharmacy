@@ -19,7 +19,9 @@ class Receptionists extends Controller
 
         $data = [
             'pat' => $allpatients,
-            'child' => $allchildren
+            'child' => $allchildren,
+            'ischild' => ''
+
         ];
 
 //        $data=[
@@ -29,12 +31,13 @@ class Receptionists extends Controller
 //        ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (isset($_POST['btnid'])) {
+
+            if (isset($_POST['btnnic'])) {
                 //Sanitize post data
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-                $datanic = trim($_POST['patnic']);
-                $searchpatient = $this->doctorModel->searchnic($datanic);
+                $datanic = trim($_POST['UISearchbarnic']);
+                $searchpatient = $this->receptionistModel->searchpatientnic($datanic);
 
                 if ($searchpatient) {
                     $data=[
@@ -52,154 +55,32 @@ class Receptionists extends Controller
             }
 
 
-            elseif (isset($_POST['btnname'])) {
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-                $dataname = trim($_POST['patname']);
-                $searchpatient = $this->doctorModel->searchpatientname($dataname);
 
-                if ($searchpatient) {
-                    $data=[
-                        'pat' =>$searchpatient,
-                        'child' =>(array) null
-
-                    ];
-                }
-                else{
-                    $data=[
-                        'pat' => $searchpatient,
-                        'child' =>(array) null,
-                        'nofound' => 'No Record Found'
-                    ];
-                }
-            }
-
-            elseif (isset($_POST['btncname'])) {
+            else  {
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-                $dataname = trim($_POST['childname']);
-                $searchchild = $this->doctorModel->searchchildname($dataname);
+                $dataname = trim($_POST['UISearchbargnic']);
+                $searchchild = $this->receptionistModel->searchguardiannic($dataname);
 
                 if ($searchchild) {
                     $data=[
                         'child' => $searchchild,
-                        'pat' =>(array) null
+                        'pat' =>(array) null,
+                        'ischild' => 'yes'
                     ];
                 }
                 else{
                     $data=[
                         'child' => $searchchild,
                         'pat' =>(array) null,
-                        'nofound' => 'No Record Found'
+                        'nofound' => 'No Record Found',
+                        'ischild' => 'yes'
                     ];
                 }
             }
-
-            elseif (isset($_POST['btngnic'])) {
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-                $dataname = trim($_POST['guardiannic']);
-                $searchchild = $this->doctorModel->searchguardiannic($dataname);
-
-                if ($searchchild) {
-                    $data=[
-                        'child' => $searchchild,
-                        'pat' =>(array) null
-                    ];
-                }
-                else{
-                    $data=[
-                        'child' => $searchchild,
-                        'pat' =>(array) null,
-                        'nofound' => 'No Record Found'
-                    ];
-                }
-            }
-
-
         }
 
-//        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//            if (isset($_POST['btnnic'])) {
-//                //Sanitize post data
-//                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-//
-//                $datanic = trim($_POST['UISearchbarnic']);
-//                $searchpatient = $this->receptionistModel->searchpatientnic($datanic);
-//
-//                if ($searchpatient) {
-//                    $data=[
-//                        'patients' => $searchpatient
-//                    ];
-//                }
-//                else{
-//                    $data=[
-//                        'patients' => '',
-//                        'nofound' => 'No Record Found'
-//                    ];
-//                }
-//            }
-//
-//            elseif (isset($_POST['btnname'])) {
-//
-//                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-//
-//                $dataname = trim($_POST['UISearchbarname']);
-//                $searchpatient = $this->receptionistModel->searchpatientname($dataname);
-//
-//                if ($searchpatient) {
-//                    $data=[
-//                        'patients' => $searchpatient
-//                    ];
-//                }
-//                else{
-//                    $data=[
-//                        'patients' => '',
-//                        'nofound' => 'No Record Found'
-//                    ];
-//                }
-//            }
-//
-//            elseif (isset($_POST['btngnic'])) {
-//
-//                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-//
-//                $dataname = trim($_POST['UISearchbargnic']);
-//                $searchpatient = $this->receptionistModel->searchguardiannic($dataname);
-//
-//                if ($searchpatient) {
-//                    $data=[
-//                        'children' => $searchpatient
-//                    ];
-//                }
-//                else{
-//                    $data=[
-//                        'children' => '',
-//                        'nofound' => 'No Record Found'
-//                    ];
-//                }
-//            }
-//
-//            elseif (isset($_POST['btnchildname'])) {
-//
-//                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-//
-//                $dataname = trim($_POST['UISearchbarcname']);
-//                $searchpatient = $this->receptionistModel->searchchildname($dataname);
-//
-//                if ($searchpatient) {
-//                    $data=[
-//                        'children' => $searchpatient
-//                    ];
-//                }
-//                else{
-//                    $data=[
-//                        'children' => '',
-//                        'nofound' => 'No Record Found'
-//                    ];
-//                }
-//            }
-//
-//        }
+           
 
         $this->view('users/Receptionist/ReceptionistViewPatient',$data);
     }

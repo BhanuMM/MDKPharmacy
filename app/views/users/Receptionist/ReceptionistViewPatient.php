@@ -40,13 +40,10 @@
                 
                 <p></p>
 
-<!--                <div class="w3-bar w3-black">-->
-<!--                <button class="w3-bar-item w3-button tablink w3-blue" onclick="openCity(event,'already')">Elders(18+)</button>-->
-<!--                <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'one')">Children</button>-->
-<!--                </div>-->
 
                 <div id="already" class="w3-container w3-display-container city" id="defaultOpen">
                 <script> document.getElementById("defaultOpen").click(); </script>
+                
                     <p>
                     <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
                     <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/receptionists/viewpatients">
@@ -69,27 +66,16 @@
                 </ul>
 
 
-<!--                <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">-->
-<!--                    <form method="post" class="data" Style="float: left;" action="--><?php //echo URLROOT; ?><!--/receptionists/viewpatients">-->
-<!--                    <table>-->
-<!--                    <tr>-->
-<!--                      <th style="padding: 0px;">-->
-<!--                          <li Style="float: right; vertical-align: middle; display: inline;">-->
-<!--                             Search patient by Patient name-->
-<!--                            <input type="text" id="UISearchbarname" name="UISearchbarname" style="margin-left: 707px; height: 35px; width: 200px;" placeholder="Patient Name">-->
-<!--                          </li>-->
-<!--                      </th>-->
-<!--                      <th>-->
-<!--                          <button style="margin-left: 10px;" class="form-submit"  name="btnname">SEARCH</button>-->
-<!--                      </th>-->
-<!--                    </tr>-->
-<!--                    </table>-->
-<!--                    </form>-->
-<!--                </ul>-->
 
+                    <!-- <div class="w3-bar w3-black" style="width: 500px">
+                        <button class="w3-bar-item w3-button tablink w3-blue" id=" <?php if(!isset($data['ischild'])){
+                            echo "defaultopen"; } ?>" onclick="openCity(event,'already')">Elders(18+)</button>
+                        <button class="w3-bar-item w3-button tablink" id=" <?php if(isset($data['ischild'])){
+                            echo "defaultopen"; } ?>" onclick="openCity(event,'one')">Children</button>
+                    </div> -->
                     <div class="w3-bar w3-black" style="width: 500px">
                         <button class="w3-bar-item w3-button tablink w3-blue" id="defaultopen" onclick="openCity(event,'already')">Elders(18+)</button>
-                        <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'one')">Children</button>
+                        <button class="w3-bar-item w3-button tablink"  onclick="openCity(event,'one')">Children</button>
                     </div>
 
                 <table id="customers">
@@ -154,23 +140,9 @@
                 </ul>
 
 
-<!--                <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">-->
-<!--                    <form method="post" class="data" Style="float: left;" action="--><?php //echo URLROOT; ?><!--/receptionists/viewpatients">-->
-<!--                    <table>-->
-<!--                    <tr>-->
-<!--                      <th><li Style="float: right; vertical-align: middle; display: inline;">-->
-<!--                              Search patient by Child name-->
-<!--                      <input type="text" id="UISearchbarcname" name="UISearchbarcname" style="margin-left: 707px; height: 35px; width: 200px;" placeholder="Child Name"></li>-->
-<!--                      </th>-->
-<!--                      <th><button style="margin-left: 10px;" class="form-submit" name="btnchildname">SEARCH</button></th>-->
-<!--                    </tr>-->
-<!--                    </table>-->
-<!--                    </form>-->
-<!--                </ul>-->
-
                         <div class="w3-bar w3-black" style="width:500px;">
-                            <button class="w3-bar-item w3-button tablink w3-blue" onclick="openCity(event,'already')">Elders(18+)</button>
-                            <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'one')">Children</button>
+                            <button class="w3-bar-item w3-button tablink w3-blue" id="defaultopen" onclick="openCity(event,'one')">Elders(18+)</button>
+                            <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'already')">Children</button>
                         </div>
 
                 <table id="customers">
