@@ -64,12 +64,44 @@ class Doctors extends Controller {
         $this->view('users/Doctor/PatientDetails',$data);
     }
 
-    public function allprescriptions($patid) {
-        $patpres = $this->doctorModel->viewprescriptions($patid);
+    public function allprescriptions() {
+        $patpres = $this->doctorModel->viewprescriptions();
+        $childpres = $this->doctorModel->viewchildprescriptions();
+        
         $data = [
 
-            'pat' => $patpres
+            'pat' => $patpres,
+            'child' => $childpres
         ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $datapres = trim($_POST['UISearchbar']);
+            $searchpatientpres = $this->doctorModel->searchpatientnic($datapres);
+            $searchchildpres = $this->doctorModel->searchguardiannic($datapres);
+
+            if ($searchpatientpres || $searchchildpres) {
+                $data=[
+                    'pat' => $searchpatient,
+                    'child' =>$searchchild
+
+                ];
+            }
+            else{
+                $data=[
+
+                    'pat' =>(array) null,
+                    'child' =>(array) null,
+                    'nofound' => 'No Record Found'
+                ];
+            }
+//      ffffffffffffffff
+
+    }
         $this->view('users/Doctor/Prescriptions',$data);
     }
 
