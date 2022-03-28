@@ -11,23 +11,56 @@ class Doctors extends Controller {
 
     public function viewpatientdetails() {
         $pat = $this->doctorModel->viewpatient();
+        
+        $child = $this->doctorModel->viewchild();
 
         $data = [
 
-            'pat' => $pat
+            'pat' => $pat,
+            'child' => $child
+
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
             //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        
-            $datanic = trim($_POST['UISearchbar']);
-            $searchpatient = $this->doctorModel->searchpatient($datanic);
 
-            $data = [
-                'pat' => $searchpatient
-            ];
-        }
+            $datanicname = trim($_POST['UISearchbar']);
+            $searchpatient = $this->doctorModel->searchpatient($datanicname);
+            $searchchild = $this->doctorModel->searchchild($datanicname);
+
+            if ($searchpatient || $searchchild) {
+                $data=[
+                    'pat' => $searchpatient,
+                    'child' =>$searchchild
+
+                ];
+            }
+            else{
+                $data=[
+
+                    'pat' =>(array) null,
+                    'child' =>(array) null,
+                    'nofound' => 'No Record Found'
+                ];
+            }
+//      ffffffffffffffff
+
+    }
+
+        // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //     //Sanitize post data
+        //     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+        //     $datanic = trim($_POST['UISearchbar']);
+        //     $searchpatient = $this->doctorModel->searchpatient($datanic);
+
+        //     $data = [
+        //         'pat' => $searchpatient
+        //     ];
+        // }
         $this->view('users/Doctor/PatientDetails',$data);
     }
 

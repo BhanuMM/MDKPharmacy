@@ -24,12 +24,6 @@ class Receptionists extends Controller
 
         ];
 
-//        $data=[
-//            'pat' =>(array) null ,
-//            'child' =>(array) null
-//
-//        ];
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 

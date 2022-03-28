@@ -126,18 +126,18 @@ require APPROOT . '/views/includes/Doctorhead.php';
                         <th>View Prescriptions</th>
 
                     </tr>
-                    <?php foreach($data['pat'] as $allpat): ?>
+                    <?php foreach($data['child'] as $allchild): ?>
                     <tr>
-                        <td><?php echo $allpat->patid ?></td>
-                        <td><?php echo $allpat->patname ?></td>
-                        <td><?php echo $allpat->patnic ?></td>
-                        <td><?php echo $allpat->pattelno ?></td>
-                        <td><?php echo $allpat->patadrs ?></td>
-                        <td><?php echo $allpat->patemail ?></td>
-                        <td><?php echo $allpat->patdob ?></td>
-                        <td><?php echo $allpat->patgen ?></td>
+                        <td><?php echo $allchild->childelderid ?></td>
+                        <td><?php echo $allchild->fullname ?></td>
+                        <td><?php echo $allchild->patnic ?></td>
+                        <td><?php echo $allchild->pattelno ?></td>
+                        <td><?php echo $allchild->patadrs ?></td>
+                        <td><?php echo $allchild->patemail ?></td>
+                        <td><?php echo $allchild->childelderdob ?></td>
+                        <td><?php echo $allchild->childeldergen ?></td>
                         <td align="center">
-                            <a class="updateBtn" href="<?php echo URLROOT ."/doctors/allprescriptions/".$allpat->patid ?>" >view</a>
+                            <a class="updateBtn" href="<?php echo URLROOT ."/doctors/allprescriptions/".$allchild->childelderid ?>" >view</a>
                         </td>
 
 
