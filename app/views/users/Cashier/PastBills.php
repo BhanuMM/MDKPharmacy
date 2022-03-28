@@ -2,15 +2,32 @@
 require APPROOT . '/views/includes/Cashierhead.php';
 ?>
 
-<div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;">
-        <span>
-            <a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/cashierdashboard"> << </a>
-        </span>
-    </button>
-</div>  
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+        <div class="welcome-card">
+            <div class="welcome">
+                    <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+                <div class="welcome-names">
+                Past Bills
+                    <p>
+                    <ul class="breadcrumb">
+                        <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                        <li>Past Bills</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
             <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">
+
+              
             <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
     <li Style="float: left; vertical-align: middle; display: inline;"><h3> Previous Bill Details</h3></li>
 </ul>
@@ -24,6 +41,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
                         </tr>
                     </table>
                 </form>
+
+
 <div class="w3-bar w3-black">
   <button class="w3-bar-item w3-button tablink w3-blue" onclick="openCity(event,'already')">Inpatients(Patients from OPD)</button>
   <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'one')">Outpatients(Pharmacy Customers)</button>
@@ -45,7 +64,10 @@ require APPROOT . '/views/includes/Cashierhead.php';
   <p>
 
 
+
   <table id="customers">
+
+  
         <tr>
             <th>Bill ID</th>
             <!--                <th>Prescription ID</th>-->
@@ -62,7 +84,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 <td><?php echo $inpast->cashierid; ?></td>
                 <!--                    <td>--><?php //echo $inpast->patnic; ?><!--</td>-->
                 <!--                    <td>--><?php //echo $inpast->presdate; ?><!--</td>-->
-                <td><button class="button button1"><a href="<?php echo URLROOT. "/cashiers/pastbillsingle/".$inpast->billid ?>"> VIEW BILL</a></button></td>
+                <td><div style="margin-top: 10%; margin-bottom: 10%;"><a class="updateBtn" href="<?php echo URLROOT. "/cashiers/pastbillsingle/".$inpast->billid ?>"> View Bills</a></div></td>
             </tr>
         <?php endforeach; ?>
 </table> 
@@ -100,7 +122,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 <td><?php echo $outpast->cashierid; ?></td>
                 <!--                    <td>--><?php //echo $outpast->patnic; ?><!--</td>-->
                 <!--                    <td>--><?php //echo $outpast->presdate; ?><!--</td>-->
-                <td><button class="button button1"><a href="<?php echo URLROOT. "/cashiers/pastoutbillsingle/".$outpast->billid ?>"> VIEW BILL</a></button></td>
+                <td><div style="margin-top: 10%; margin-bottom: 10%;"><a class="updateBtn" href="<?php echo URLROOT. "/cashiers/pastoutbillsingle/".$outpast->billid ?>"> View Bill</a></button></td>
             </tr>
         <?php endforeach; ?>
     </table>
@@ -138,7 +160,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 <td><?php echo $online->cashierid; ?></td>
                 <!--                    <td>--><?php //echo $online->onlinetelno; ?><!--</td>-->
                 <!--                    <td>--><?php //echo $online->presdate; ?><!--</td>-->
-                <td><button class="button button1"><a href="<?php echo URLROOT. "/cashiers/pastbillsingle/".$online->billid ?>"> VIEW BILL</a></button></td>
+                <td><div style="margin-top: 10%; margin-bottom: 10%;"><a class="updateBtn" href="<?php echo URLROOT. "/cashiers/pastbillsingle/".$online->billid ?>"> VIEW BILL</a></div></td>
             </tr>
         <?php endforeach; ?>
 </table> 

@@ -4,7 +4,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 100%; ">
+    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
         <div class="welcome-card">
             <div class="welcome">
                     <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
