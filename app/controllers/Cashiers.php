@@ -455,8 +455,6 @@ class Cashiers extends Controller {
                 ];
             }
 
-//            gdddddddd
-
         }
 
         $this->view('users/Cashier/PastBills',$data);
