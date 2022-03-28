@@ -37,22 +37,10 @@ class Receptionists extends Controller
                 $searchpatient = $this->receptionistModel->searchpatientnic($datanicname);
                 $searchchild = $this->receptionistModel->searchguardiannic($datanicname);
 
-                if ($searchpatient ) {
+                if ($searchpatient || $searchchild) {
                     $data=[
                         'pat' => $searchpatient,
-                        'child' =>(array) null
-                    ];
-                }
-                elseif ($searchchild){
-                    $data=[
-                         'pat' => (array) null,
-                        'child' => $searchchild
-                         ];
-                }
-                elseif ($searchchild && $searchpatient ){
-                    $data=[
-                        'pat' => $searchpatient,
-                        'child' => $searchchild
+                        'child' =>$searchchild
                     ];
                 }
                 else{

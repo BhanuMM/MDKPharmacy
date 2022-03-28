@@ -434,23 +434,24 @@ class Cashiers extends Controller {
             //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            $datainpast = trim($_POST['UISearchbar']);
-            $searchinpast = $this->cashierModel->searchpastinbill($datainpast);
-            $searchoutpast = $this->cashierModel->searchpastoutbill($dataoutpast);
-            $searchonlinepast = $this->cashierModel->searchonlinebill($dataonlinepast);
+            $datesearch = $_POST['UISearchbar'];
+            $searchinpast = $this->cashierModel->searchpastinbill($datesearch);
+            $searchoutpast = $this->cashierModel->searchpastoutbill($datesearch);
+            $searchonlinepast = $this->cashierModel->searchpastonlinebill($datesearch);
 
-            if ($searchinpast) {
+            if ($searchinpast || $searchoutpast ||  $searchonlinepast) {
                 $data = [
                     'inpast' => $searchinpast,
-                    'outpast' => (array)null,
-                    'online' => (array)null
+                    'outpast' => $searchoutpast,
+                    'online' => $searchonlinepast
                 ];
-            } else {
+            }
+            else {
                 $data = [
                     'inpast' => (array)null,
                     'outpast' => (array)null,
                     'online' => (array)null,
-                    'nofound' => 'No Record Found'
+                    'nofound' => 'No Records Found'
                 ];
             }
 
