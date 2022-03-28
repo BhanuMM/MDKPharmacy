@@ -19,11 +19,23 @@ class Pharmacists extends Controller {
              
                  $dataprescription= trim($_POST['UISearchbar']);
                  $searchprescription = $this->pharmacistModel-> searchprescriptionbynic($dataprescription);
-     
-     
-                 $data = [
-                     'pres' => $searchprescription
-                 ];
+
+                 //            Check whether there are any null values
+                 if ($searchprescription) {
+                     $data=[
+                         'pres' => $searchprescription
+
+                     ];
+                 } //If there are null values pass it to the span
+                 else{
+                     $data = [
+                         'pres' => $searchprescription,
+                         'norecord' => "nofound"
+                     ];
+                 }
+//                 $data = [
+//                     'pres' => $searchprescription
+//                 ];
                  $this->view('users/Pharmacist/PrescriptionDetails',$data);
      
              }
@@ -120,9 +132,22 @@ class Pharmacists extends Controller {
             $datamed= trim($_POST['UISearchbar']);
             $searchmed = $this->pharmacistModel->searchmed($datamed);
 
-            $data = [
-                'med' => $searchmed
-            ];
+            //            Check whether there are any null values
+            if ($searchmed) {
+                $data=[
+                    'med' => $searchmed,
+
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'med' =>$searchmed,
+                    'norecord' => "nofound"
+                ];
+            }
+//            $data = [
+//                'med' => $searchmed
+//            ];
         }
         $this->view('users/Pharmacist/MedicineDetails',$data);
     }
@@ -575,35 +600,22 @@ class Pharmacists extends Controller {
 
             $medid =$_POST['medid'];
             $qty =$_POST['qty'];
-            $data = [
-                'presid'=>$_POST['presid'],
-                'medid'=> $_POST['medid'],
-                'qty'=> $_POST['qty'],
-            ];
-//                $d= var_dump($data['arrmed']);
-//            $med = $data['arrmed'];
-//            foreach($data['medid'] as $allmeds ){
-//                $data=[
-//                    'onemedid'=> $allmeds->medid,
-//                    'oneqty'=> $allmeds->medid,
-//                    'presid'=>trim($_POST['presid']),
-//
-//                ];
-//                $this->pharmacistModel->updateMedicine($data);
-//            }
-            $count = count($_POST['medid']);
-            for($i=0; $i< $count; $i++){
+            $presid=$_POST['presid'];
+
+
+            foreach( $medid as $key => $n ) {
                 $data=[
-                    'medid'=> $medid[$i],
-                    'qty'=> $qty[$i],
+                    'onemedid'=> $n,
+                    'oneqty'=> $qty[$key],
                     'presid'=>$presid
 
                 ];
-                if($this->pharmacistModel->updateMedicine($data))
-                {
-                    header('location: ' . URLROOT . '/pharmacists/pharmacistdashboard/');
-                }
+                $this->pharmacistModel->updateMedicine($data);
+
             }
+//            header('location: ' . URLROOT . '/pharmacists/pharmacistdashboard/');
+            $this->view('users/Pharmacist/pharmacistdashboard');
+
 
         }
     }

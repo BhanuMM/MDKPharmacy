@@ -134,7 +134,16 @@ public function confirmdel($data){
 //     return $results;
 // }
 
+//Find the profile by staff ID
+    public function findProfilebyId($psid) {
+        $this->db->query('SELECT * FROM staff WHERE staffid = :proid');
 
+        $this->db->bind(':proid', $psid);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
 
 }
 

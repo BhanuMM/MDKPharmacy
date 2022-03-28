@@ -25,7 +25,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 </div>
 
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">
-    <form class="bill">
+    <form class="bill" method="post" action="<?php echo URLROOT?> /pharmacists/updateqty">
         <div class="company">
             <div class="bill-row">
                 <div class="bill-col">
@@ -60,7 +60,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
         <div class="bill-body">
 <!--            <h3>Ordered Items</h3>-->
 <!--            <br>-->
-         <form method="post" action="<?php echo URLROOT?> /pharmacists/updateqty">
+<!--         <form method="post" action="--><?php //echo URLROOT?><!-- /pharmacists/updateqty">-->
                 <input id="presid"  name="presid" type="number" value="<?php echo $data['presid']?>" hidden>
 
             <table class="table-bordered">

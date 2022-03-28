@@ -18,7 +18,6 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
         
 
             <div style="margin-left:0%; margin-right:0%; padding:1px 16px; width: 100%; ">
-
                 <div class="row">
 
                 <!-- View Prescription     -->

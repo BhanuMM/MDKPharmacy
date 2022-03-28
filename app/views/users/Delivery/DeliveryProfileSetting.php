@@ -45,9 +45,9 @@ require APPROOT . '/views/includes/Deliveryhead.php';
         <div class="ps-btn" style="margin-top:1%">
 
             <br>
-            <input class="form-submit" type="submit" name="submitbutton1" Value="Save Settings" >
-            <input class="button button1"  id="changepwd" value="Update Password >>">
 
+            <input class="button button1"  id="changepwd" value="Update Password">
+            <input class="form-submit" type="submit" name="submitbutton1" Value="Save Settings">
 
         </div>
 
@@ -86,3 +86,5 @@ require APPROOT . '/views/includes/Deliveryhead.php';
 
 
 </div>
+
+

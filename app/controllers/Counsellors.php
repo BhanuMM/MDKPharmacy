@@ -22,9 +22,21 @@ class Counsellors extends Controller {
             $datamed= trim($_POST['UISearchbar']);
             $searchmed = $this->counsellorModel->searchmed($datamed);
 
-            $data = [
-                'med' => $searchmed
-            ];
+            //            Check whether there are any null values
+            if ($searchmed) {
+                $data=[
+                    'med' => $searchmed,
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'med' => $searchmed,
+                    'norecord' => "nofound"
+                ];
+            }
+//            $data = [
+//                'med' => $searchmed
+//            ];
         }
 
         $this->view('users/Counsellor/MedicineDetails',$data);
@@ -142,9 +154,23 @@ class Counsellors extends Controller {
             $datainpast = trim($_POST['UISearchbar']);
             $searchinpast = $this->counsellorModel-> searchpastbill($datainpast);
 
-            $data = [
-                'inpast' => $searchinpast
-            ];
+
+            // Check whether there are any null values
+            if ($searchinpast) {
+                $data=[
+                    'inpast' => $searchinpast
+
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'inpast' => $searchinpast,
+                    'norecord' => "nofound"
+                ];
+            }
+//            $data = [
+//                'inpast' => $searchinpast
+//            ];
         }
         $this->view('users/Counsellor/PastBills',$data);
     }

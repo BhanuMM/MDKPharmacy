@@ -23,10 +23,11 @@ require APPROOT . '/views/includes/Deliveryhead.php';
     
 </div>
 <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
-<span class="successadded">
+
+    <span class="successadded" style="color: red">
                  <?php
-                 if(isset($_GET['msg'])){
-                     echo $_GET['msg']; // print_r($_GET);
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
                  }
                  ?>
                 </span> <br>
@@ -36,6 +37,15 @@ require APPROOT . '/views/includes/Deliveryhead.php';
             <!-- <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin: 0px;"> User Details</h3></li> -->
             <form method="post" class="data" style="float: left; display: inline; margin-top: 5%; margin-left: 71.5%;" action="<?php echo URLROOT; ?>/deliverys/viewpastdeliveries">
                 <table>
+
+<!--<span class="successadded">-->
+<!--                 --><?php
+//                 if(isset($_GET['msg'])){
+//                     echo $_GET['msg']; // print_r($_GET);
+//                 }
+//                 ?>
+<!--                </span> <br>-->
+
                     <tr>
                         <th>
                             <li>

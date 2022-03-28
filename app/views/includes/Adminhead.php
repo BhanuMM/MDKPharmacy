@@ -27,7 +27,9 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="admin")){
         <li><a href = "<?php echo URLROOT ?>/admins/viewsupplier">Suppliers</a></li>
         <li><a href = "<?php echo URLROOT ?>/admins/viewstock">Stocks</a></li>
         <li><a href = "<?php echo URLROOT ?>/admins/viewmed">Medicine</a></li>
-        <li><a href = "<?php echo URLROOT ?>/admins/profilesettings">Profile Settings</a></li>
+        <li><a href = "<?php echo URLROOT ?>/admins/viewsurgicals">Surgical Items</a></li>
+       <li><a href = "<?php echo URLROOT . "/Admins/profilesettings/" . $_SESSION['user_id'] ?>" >Profile Settings</a></li>
+
 
     </ul>
 </div>
