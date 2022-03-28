@@ -352,6 +352,15 @@ class Cashier {
         return $results;
 
     }
+    public function loadsurg() {
+
+        $this->db->query('SELECT * FROM surgicals ORDER BY surgname ASC');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
 
     public function loadmedid($genname) {
 

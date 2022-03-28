@@ -14,7 +14,16 @@ require APPROOT . '/views/includes/Cashierhead.php';
             <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
     <li Style="float: left; vertical-align: middle; display: inline;"><h3> Previous Bill Details</h3></li>
 </ul>
-
+                <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/pastbills">
+                    <table>
+                        <tr>
+                            <th><li Style="float: right; vertical-align: middle; display: inline;">
+                                    <input type="date" id="UISearchbar" name="UISearchbar" style="margin-left: 520px; height: 35px; width: 200px;" placeholder="Bill ID"></li>
+                            </th>
+                            <th><button style="margin-left: 10px;" class="form-submit" name="btndate">SEARCH</button></th>
+                        </tr>
+                    </table>
+                </form>
 <div class="w3-bar w3-black">
   <button class="w3-bar-item w3-button tablink w3-blue" onclick="openCity(event,'already')">Inpatients(Patients from OPD)</button>
   <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'one')">Outpatients(Pharmacy Customers)</button>
@@ -34,16 +43,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 <!--  <span onclick="this.parentElement.style.display='none'"-->
 <!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
-  <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/pastbills">
-            <table>
-                <tr>
-                <th><li Style="float: right; vertical-align: middle; display: inline;">
-                <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 520px; height: 35px; width: 200px;" placeholder="Bill ID"></li>
-                </th>
-                <th><button style="margin-left: 10px;" class="form-submit" name="btnin">SEARCH</button></th>
-                </tr>
-            </table>
-        </form>
+
 
   <table id="customers">
         <tr>
@@ -83,16 +83,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
 
     <p>
-  <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/pastbills">
-            <table>
-                <tr>
-                <th><li Style="float: right; vertical-align: middle; display: inline;">
-                <input type="text" id="outUISearchbar" name="outUISearchbar" style="margin-left: 520px; height: 35px; width: 200px;" placeholder="Bill ID"></li>
-                </th>
-                <th><button style="margin-left: 10px;" class="form-submit" name="btnout">SEARCH</button></th>
-                </tr>
-            </table>
-        </form>
+
     <table id="customers">
         <tr>
             <th>Bill ID</th>
@@ -130,16 +121,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
 
     <p>
-  <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/pastbills">
-            <table>
-                <tr>
-                <th><li Style="float: right; vertical-align: middle; display: inline;">
-                <input type="text" id="onlineUISearchbar" name="onlineUISearchbar" style="margin-left: 520px; height: 35px; width: 200px;" placeholder="Bill ID"></li>
-                </th>
-                <th><button style="margin-left: 10px;" class="form-submit" name="btnonline">SEARCH</button></th>
-                </tr>
-            </table>
-        </form>
+
   <table id="customers">
         <tr>
             <th>Bill ID</th>

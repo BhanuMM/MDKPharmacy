@@ -18,32 +18,11 @@
 <div style="margin-left: 22%; margin-right:0%; padding:1px 16px; padding-left: 0px; width: 70%; ">
 <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin-bottom: 0px;">Patient Details</h3></li> <p></p>
 
-<!--<span class="successadded">-->
-<!--                 --><?php
-//                 if(isset($_GET['msg'])){
-//                     echo $_GET['msg']; // print_r($_GET);
-//                 }
-//                 ?>
-<!--                </span>
-<br><br>-->
-    <span class="successadded" style="color: red">
-                 <?php
-                 if( isset($data['norecord'])  ){
-                 if($data['norecord']=="nofound"){
-                     echo ('No Record Found'); // print_r($_GET);
-                 }}
-                 ?>
-                </span> <br>
-    <br>
+
     <a href="<?php echo URLROOT ?>/receptionists/registerpatient"><button class="button button1" style="margin-left: 0px;">Add New Patient +</button></a>
                 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
                 
-                <p></p>
 
-<!--                <div class="w3-bar w3-black">-->
-<!--                <button class="w3-bar-item w3-button tablink w3-blue" onclick="openCity(event,'already')">Elders(18+)</button>-->
-<!--                <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'one')">Children</button>-->
-<!--                </div>-->
 
                 <div id="already" class="w3-container w3-display-container city" id="defaultOpen">
                 <script> document.getElementById("defaultOpen").click(); </script>
@@ -60,12 +39,20 @@
                           </li>
                       </th>
                       <th>
-                          <button style="margin-left: 10px;" class="form-submit"  name="btnnic">SEARCH</button>
+                          <button style="margin-left: 10px;" class="form-submit"  name="btnsearch">SEARCH</button>
                       </th>
 
                     </tr>
                     </table>
                     </form>
+                        <span class="successadded" style="color: red">
+                 <?php
+                 if( isset($data['norecord'])  ){
+                     if($data['norecord']=="nofound"){
+                         echo ('No Record Found'); // print_r($_GET);
+                     }}
+                 ?><br><br>
+                </span>
                 </ul>
 
 
@@ -139,18 +126,18 @@
                     <div id="one" class="w3-container w3-display-container city">
                     <p>
                     <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
-                    <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/receptionists/viewpatients">
-                    <table>
-                    <tr>
-                      <th><li Style="float: right; vertical-align: middle; display: inline;">
-
-                      <input type="text" id="UISearchbargnic" name="UISearchbargnic" style="margin-left: 575px; height: 35px; width: 250px;" placeholder="Guardian's NIC or Child Name"></li>
-
-                      </th>
-                      <th><button style="margin-left: 10px;" class="form-submit" name="btngnic" >SEARCH</button></th>
-                    </tr>
-                    </table>
-                    </form>
+<!--                    <form method="post" class="data" Style="float: left;" action="--><?php //echo URLROOT; ?><!--/receptionists/viewpatients">-->
+<!--                    <table>-->
+<!--                    <tr>-->
+<!--                      <th><li Style="float: right; vertical-align: middle; display: inline;">-->
+<!---->
+<!--                      <input type="text" iid="UISearchbarnic" name="UISearchbarnic" style="margin-left: 575px; height: 35px; width: 250px;" placeholder="Patient NIC or Child Name"></li>-->
+<!---->
+<!--                      </th>-->
+<!--                      <th><button style="margin-left: 10px;" class="form-submit" name="btnnic" >SEARCH</button></th>-->
+<!--                    </tr>-->
+<!--                    </table>-->
+<!--                    </form>-->
                 </ul>
 
 

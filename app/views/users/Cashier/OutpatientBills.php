@@ -64,14 +64,14 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 <!--    Section to search medicines and add them to the list     -->
                 <div class="columnBill" style="margin-top: 100%;">
                     <div class="container">
-                        <h3>Add Medicine</h3>
+                        <h3>Add Surgical Items</h3>
 
                         <div class="select-box">
                             <div class="options-container">
                                 <?php
-                                foreach($data['medicines'] as $allmedicines):
+                                foreach($data['surgicals'] as $allsurgicals):
                                     {
-                                        echo ' <div class="option2" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
+                                        echo ' <div class="option2" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" surgid="'.$allsurgicals->surgid .'" surgname =" '.$allsurgicals->surgname.'">'.$allsurgicals->surgname.'</label> </div>';
 
 
                                     }
@@ -176,6 +176,49 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     });
                 };
             </script>
+    <script>
+        const selected = document.querySelector(".selected");
+        const optionsContainer = document.querySelector(".options-container");
+        const searchBox = document.querySelector(".search-box input");
+
+        const optionsList = document.querySelectorAll(".option2");
+
+        selected.addEventListener("click", () => {
+            optionsContainer.classList.toggle("active");
+
+            searchBox.value = "";
+            filterList("");
+
+            if (optionsContainer.classList.contains("active")) {
+                searchBox.focus();
+            }
+        });
+
+        optionsList.forEach(o => {
+            o.addEventListener("click", () => {
+                selected.innerHTML = o.querySelector("label").innerHTML;
+                var id = o.querySelector("label").getAttribute('medid');
+                selected.setAttribute("medid",id);
+                optionsContainer.classList.remove("active");
+            });
+        });
+
+        searchBox.addEventListener("keyup", function(e) {
+            filterList(e.target.value);
+        });
+
+        const filterList = searchTerm => {
+            searchTerm = searchTerm.toLowerCase();
+            optionsList.forEach(option => {
+                let label = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
+                if (label.indexOf(searchTerm) != -1) {
+                    option.style.display = "block";
+                } else {
+                    option.style.display = "none";
+                }
+            });
+        };
+    </script>
 
             <script>
                 $(document).ready(function(){
@@ -223,6 +266,52 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
                 });
             </script>
+    <script>
+        $(document).ready(function(){
+
+            $('#addsurgbtn').click(function(){
+                var alreadye = 1;
+                var label = $('.selected');
+                var medid = label.attr('medid');
+                var medname = label.text();
+                var input = 0;
+
+                var input = document.getElementsByClassName('idclass');
+                for (var i = 0; i < input.length ; i++) {
+                    if(input[i].value===medid){
+
+                        alreadye=0;
+                        break;
+
+                    } else {
+                        alreadye=1;
+                    }
+                }
+
+                if(medname !== 'Select Medicine' ){
+                    if( alreadye !==0){
+                        $("#medlist tbody").append('<tr><td><input class="input1 idclass" type="text" id="medid" name="medid[]" value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="medqty" name="medqty[]" placeholder="Enter Quantity" required> </td>  <td align="center"><button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: #ffffff; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button></td></tr>')
+
+                    }else {
+                        alert("The Medicine Already Exists!");
+                    }
+                }else
+                {
+                    alert("Please Select a Medicine");
+                }
+            });
+            $('#medlist tbody ').on('click','#removebtn' ,function (){
+                $(this).closest('tr').remove();
+            });
+
+            // $('#removebtn').click(function(event){
+            //
+            //     tid=$(this).attr('id');
+            //     alert('#'+tid);
+            // });
+
+        });
+    </script>
 <!-- ---------------------------------------------------- -->
            
             <br>

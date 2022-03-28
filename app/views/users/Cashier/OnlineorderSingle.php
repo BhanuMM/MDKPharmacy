@@ -64,14 +64,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     <td colspan="3" class="text-right">Gross Total</td>
                         <td ><input id="grandt"  name="grandt" type="text" readonly></td>
                     </tr>
-                    <tr>
-                        <td colspan="3" class="text-right">Paid Amount</td>
-                        <td ><input id="pamount"  name="pamount" type="text" autocomplete="off"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" class="text-right">Balance</td>
-                        <td ><input id="balance"  name="balance" type="text"  readonly></td>
-                    </tr>
+
                 </tbody>
             </table>
         </div> 

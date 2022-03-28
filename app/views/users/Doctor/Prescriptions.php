@@ -14,7 +14,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
     <table id="customers">
         <tr>
             <th>Prescription ID</th>
-            <th>Doctor ID</th>
+<!--            <th>Doctor ID</th>-->
             <th>Time</th>
             <th>Date</th>
             <th></th>
@@ -22,7 +22,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
         <?php foreach($data['pat'] as $allpat): ?>
         <tr>
             <td><?php echo $allpat->presid ?></td>
-            <td><?php echo $allpat->docid ?></td>
+<!--            <td>--><?php //echo $allpat->docid ?><!--</td>-->
             <td><?php echo $allpat->pretime ?></td>
             <td><?php echo $allpat->presdate ?></td>
             <td><button class="button button1"><a href="<?php echo URLROOT. "/doctors/pastsingleprescription/".$allpat->presid ?>"> View</a></button></td>
