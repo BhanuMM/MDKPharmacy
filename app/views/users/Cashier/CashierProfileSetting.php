@@ -2,7 +2,26 @@
 require APPROOT . '/views/includes/Cashierhead.php';
 ?>
 
-<div style="margin-left: 320px; margin-top:50px; margin-right:0%; font-family: 'Poppins', sans-serif;padding:1px 16px; width: 70%; ">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+        <div class="welcome-card">
+            <div class="welcome">
+                    <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+                <div class="welcome-names">
+                Profile Settings
+                    <p>
+                    <ul class="breadcrumb">
+                        <li><a href="<?php echo URLROOT ?>/cashiers/cashierdashboard">Dashboard</a></li>
+                        <li>Profile Settings</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div style="margin-left: 340px; margin-top:50px; margin-right:0%; font-family: 'Poppins', sans-serif;padding:1px 16px; width: 70%; ">
     <form method="post" class="data" action="<?php echo URLROOT; ?>/cashiers/profilesettings/<?php echo $data['psid'] ?>" style="background-color: white; ">
           <span class="successadded" style="color: red">
                  <?php
@@ -70,7 +89,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
         </div>
 
     </form>
-
+    <br><br><br>
 
     <!--<button style="margin-top: 10%;" >Update Password</button><br>-->
     <script>

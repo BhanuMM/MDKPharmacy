@@ -4,10 +4,22 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
 
 
-<div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/doctors/createprescription"> &#8249; </a> </span></button>
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
+                Report Generation
+                <p>
+                <ul class="breadcrumb">
+                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                    <li>Report Generation</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
-
 
 
 

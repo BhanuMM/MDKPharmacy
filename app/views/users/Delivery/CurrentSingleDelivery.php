@@ -2,10 +2,27 @@
 require APPROOT . '/views/includes/Deliveryhead.php';
 ?>
 
-<div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;"href="<?php echo URLROOT ?>/deliverys/viewcurrentdeliveries"> << </a> </span></button>
-</div>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+        <div class="welcome-card">
+            <div class="welcome">
+                    <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+                <div class="welcome-names">
+                View Delivery Details                <p>
+                    <ul class="breadcrumb" style="margin-top: -30px;">
+                        <li><a href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
+                        <li>Current Deliveries </li>
+                        <li>View Delivery Details </li>
+                       
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+</div>
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
 <div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: ">
                 
@@ -86,13 +103,16 @@ require APPROOT . '/views/includes/Deliveryhead.php';
         <!-- <form> -->
         
         <!-- <a href="<?php echo URLROOT ?>/Deliverys/confirmdel"><button class="form-submit">Confirm Delivery</button> </a>  -->
-        
+        <div style="float: left; margin-left: 70%; text-align: left;">
         <form method="post" class="data"  action="<?php echo URLROOT; ?>/deliverys/confirmdelivery">
 
              <input class="input1" type="text" id="presid" name="presid" value="<?php echo $data['presid'] ?>"  hidden>
             <p>Have you completed the order?</p>
-             <button class="form-submit">Yes</button> </a>  
+            <div style="margin-left: 63%;">
+             <button class="form-submit">Yes</button> </a>
+             </div>  
         </form>    
+                </div>
         <br><br><br>
     </div>
     

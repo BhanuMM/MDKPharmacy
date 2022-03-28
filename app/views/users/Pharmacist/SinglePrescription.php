@@ -2,9 +2,27 @@
 require APPROOT . '/views/includes/Pharmacisthead.php';
 ?>
 
-<div style="margin-left:20%; padding:1px 16px; width: 40%">
-    <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/prescriptiondetails"> << </a> </span></button>
-</div>  
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+        <div class="welcome-card">
+            <div class="welcome">
+                    <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+                <div class="welcome-names">
+                Single Prescription                    <p>
+                    <ul class="breadcrumb" style="margin-top: -30px;">
+                        <li><a href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
+                        <li>Prescriptions</li>
+                        <li>Single Prescription</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+</div>
 
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">
     <form class="bill">
@@ -74,8 +92,10 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
             <textarea name="Text1" class="input2" rows="5" readonly><?php echo $data['presnote']?></textarea>
                         <br>
                     </div><br>
+                    <div style="float: left; margin-left: 41%;">
         <input type="submit" name="submitbutton4" value="Confirm Prescription" class="opbill-form-submit" style="font-family:'Poppins', sans-serif; margin-left: 300px;" >
 <!--                    <button class="button button1" style="float: right;">Confirm Prescription</button>-->
+                </div>
     </form>
                 </div><br><br><br><br>
             </div>

@@ -3,8 +3,26 @@ require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
 
-<div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewmed"> << </a> </span></button>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; box-sizing:initial; ">
+    <div class="welcome-card">
+        <div class="welcome">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
+                Add New Medicine
+                <p>
+                <ul class="breadcrumb" style="margin-top: -30px;">
+                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Medicine Details</a></li>
+                    <li>Add New Medicine</li>
+                    
+
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!--<div style="margin-left:20%; padding:1px 16px; width: 40%">-->
@@ -12,9 +30,7 @@ require APPROOT . '/views/includes/Adminhead.php';
         <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/addmed">
         <div class="form-left">
 
-            <h2 style="margin-top: 3%;">
-                Medicine Details
-            </h2>
+           
             
             <h5>
                 Generic Name
@@ -73,11 +89,14 @@ require APPROOT . '/views/includes/Adminhead.php';
         </select>
                 
             <br><br><br><br>
-         <div style="margin-left:220px;">
-            <input class="button button1" type="reset" value="Refresh">
-            <button class="form-submit">Submit
-            </button>
-    </div>
+            <div style="float: left; margin-left: 44%;">
+            <br><br>
+                   <input class="clearBtn" style="  " type="reset"  value=" Clear">
+           
+       
+                   <input class="submitBtn" style="" type="submit" name="submitbutton1"  Value="Register" >
+             
+            </div>
         </form>
     </div>
 <br><br><br><br><br><br>

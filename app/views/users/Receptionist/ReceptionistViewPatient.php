@@ -3,20 +3,29 @@
 ?>
 
     <!--Previous button-->
-    <div style="margin-left:20%;  padding:20px 26px; padding-bottom: 0px;">
-        <button class="prebtn" style="margin-right:30%;">
-            <span>
-                <a style="text-decoration: none;" href="<?php echo URLROOT ?>/receptionists/receptionistdashboard"> << </a>
-            </span>
-<!--            <span>-->
-<!--                <a href="--><?php //echo URLROOT ?><!--/receptionists/registerpatient"><button class="button button1" style="margin-left: 0px;">Add New Patient +</button></a>-->
-<!--            </span>-->
-        </button>
-    </div>
+   
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+        <div class="welcome-card">
+            <div class="welcome">
+                    <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+                <div class="welcome-names">
+                    Patient Details 
+                    <p>
+                    <ul class="breadcrumb">
+                        <li><a href="<?php echo URLROOT ?>/receptionists/receptionistdashboard">Dashboard</a></li>
+                        <li>Patient Details</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+</div>
 
 
 <div style="margin-left: 22%; margin-right:0%; padding:1px 16px; padding-left: 0px; width: 70%; ">
-<li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin-bottom: 0px;">Patient Details</h3></li> <p></p>
 <span class="successadded">
                  <?php
                  if(isset($_GET['msg'])){
@@ -24,7 +33,14 @@
                  }
                  ?>
                 </span> <br><br>
-    <a href="<?php echo URLROOT ?>/receptionists/registerpatient"><button class="button button1" style="margin-left: 0px;">Add New Patient +</button></a>
+   
+    <div style="margin-right: 2%;"> 
+
+        <a href="<?php echo URLROOT ?>/receptionists/registerpatient">
+        <br>
+        <button style="float: left; display: inline;" class="button button1" >Add New Patient +</button>
+        </a>
+
                 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
                 
                 <p></p>
@@ -37,26 +53,24 @@
                 <div id="already" class="w3-container w3-display-container city" id="defaultOpen">
                 <script> document.getElementById("defaultOpen").click(); </script>
                     <p>
-                    <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
-                    <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/receptionists/viewpatients">
-                    <table>
+                    <ul style="padding-left: 0px; list-style-type: none;  ">
+            <!-- <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin: 0px;"> User Details</h3></li> -->
+            <form method="post" class="data" style="float: left; display: inline; margin-top: -5%; margin-left: 71.5%;" action="<?php echo URLROOT; ?>/receptionists/viewpatients">
+                <table>
                     <tr>
-
-                      <th style="padding: 0px;">
-                          <li Style="float: right; vertical-align: middle; display: inline;">
-<!--                              Search patient by NIC-->
-                            <input type="text" id="UISearchbarnic" name="UISearchbarnic" style="margin-left: 707px; height: 35px; width: 200px;" placeholder="Patient NIC or Name">
-                          </li>
-                      </th>
-                      <th>
-                          <button style="margin-left: 10px;" class="form-submit"  name="btnnic">SEARCH</button>
-                      </th>
-
+                        <th>
+                            <li>
+                                <input type="text" id="UISearchbar" name="UISearchbar" style="border-radius: 5px; height: 35px; width: 200px;" placeholder="Patient NIC or Name"> 
+                            </li>
+                        </th>
+                        <th>
+                            <button style="margin-top:5px; border-radius:5px; height: 40px; border-radius: 5px; padding-bottom:-10px;" class="form-submit"><i class="fa fa-search"></i></button>
+                        </th>
                     </tr>
-                    </table>
-                    </form>
-                </ul>
-
+                </table>
+            </form>
+        </ul>
+     </div>
 
 <!--                <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">-->
 <!--                    <form method="post" class="data" Style="float: left;" action="--><?php //echo URLROOT; ?><!--/receptionists/viewpatients">-->
@@ -109,12 +123,12 @@
 
 
                             <td align="center">                   
-                                <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/receptionists/updatepatient/".$allpatients->patid?>" >Update</a>
+                                <a class="updateBtn" href="<?php echo URLROOT ."/receptionists/updatepatient/".$allpatients->patid?>" >Update</a>
                             </td>
 
                             <td>
                             <form action="<?php echo URLROOT . "/Receptionists/deletepatient/" . $allpatients->patid?>" method="POST">
-                                <input class="button button1" style="background-color: #fc92a1;" Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
+                                <input class="dltBtn" Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
                             </form>
                             </td>
                         </tr>
@@ -190,12 +204,12 @@
 
 
                             <td align="center">                   
-                                <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT ."/receptionists/updatechild/".$allchildren->childelderid?>" >Update</a>
+                                <a class="updateBtn" href="<?php echo URLROOT ."/receptionists/updatechild/".$allchildren->childelderid?>" >Update</a>
                             </td>
 
                             <td>
                             <form action="<?php echo URLROOT . "/Receptionists/deletechild/" . $allchildren->childelderid?>" method="POST">
-                                <input class="button button1" style="background-color: #fc92a1;" Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
+                                <input class="dltBtn"  Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
                             </form>
                             </td>
                         </tr>

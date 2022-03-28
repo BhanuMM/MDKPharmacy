@@ -3,41 +3,57 @@
 ?>
 
 <!--Previous button-->
-    <div style="margin-left:20%;  padding:20px 26px;">
-        <button class="prebtn" style="margin-right:30%;">
-            <span>
-                <a style="text-decoration: none;" href="<?php echo URLROOT ?>/receptionists/receptionistdashboard"> << </a>
-            </span>
-        </button>
-    </div>
-
+   
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+        <div class="welcome-card">
+            <div class="welcome">
+                    <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+                <div class="welcome-names">
+                    Child Registration 
+                    <p>
+                    <ul class="breadcrumb">
+                        <li><a href="<?php echo URLROOT ?>/receptionists/receptionistdashboard">Dashboard</a></li>
+                        <li>Child Registration</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+</div>
 <div style="margin-left: 300px;  margin-right:0%; padding:1px 16px; width: 70%; ">
 <!--            <div class="column">-->
 
                 <div class="form-left">
                     <br><br>
-                    <h2 style="margin-top: 3%;">
-                        Patient Details (Child /Elder)
-                    </h2>
-                    <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
-<!--                        <li Style="float: left; vertical-align: middle; display: inline;"><h3>Patient Details</h3></li>-->
-                        <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/receptionists/viewguardian">
-                            <table>
-                                <tr>
-                                    <th style="padding-top: 0px;">
-                                        <li Style="float: right; vertical-align: middle; display: inline;">
-                                            <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 0px; height: 35px; width: 200px;" placeholder="Guardian NIC">
-                                        </li>
-                                    </th>
-                                    <th style="padding-top: 0px;">
-                                        <button style="margin-left: 10px;" class="form-submit">SEARCH</button>
-                                    </th>
-                                </tr>
+                   
+                   
 
-                            </table>
-                            <a href="<?php echo URLROOT; ?>/receptionists/registerpatient" style="font-size: 14px">Register Guardian Details </a>
-                        </form>
-                    </ul>
+
+                    
+
+            <ul style="padding-left: 0px; list-style-type: none;  ">
+            <form method="post" class="data" style="float: left; display: inline; margin-top: -5%; margin-left: -8.5%; " action="<?php echo URLROOT; ?>/receptionists/viewguardian">
+                <table>
+                    <tr>
+                        <th>
+                            <li>
+                                <input type="text" id="UISearchbar" name="UISearchbar" style="border-radius: 5px; height: 35px; width: 200px;" placeholder="Guardian NIC"> 
+                            </li>
+                        </th>
+                        <th>
+                            <button style="margin-top:5px; border-radius:5px; height: 40px; border-radius: 5px; padding-bottom:-10px;" class="form-submit"><i class="fa fa-search"></i></button>
+                        </th>
+                    </tr>
+                </table>
+                <a href="<?php echo URLROOT; ?>/receptionists/registerpatient" style="font-size: 14px; margin-left: 12%;">Register Guardian Details </a>
+            </form>
+        </ul>
+
+
+
                     <form method="post" class="data" action="<?php echo URLROOT; ?>/receptionists/registerchildelder">
                         <br>
                         <br>
@@ -81,7 +97,8 @@
                         </div>
                     </form>
                   </div>
-                <div class="form-right">
+                <div styles="margin-top: -10%;">
+                <div class="form-right" ><br>
                      <h4>
                         Guardian Details
                     </h4>
@@ -129,8 +146,8 @@
                     </h5>
                     </div>
 
-                </div>
-
+                    </div></div>
+                    
             
 <!--                <input type="Submit" class="button" value="Add Child Account +">-->
                 <br><br>

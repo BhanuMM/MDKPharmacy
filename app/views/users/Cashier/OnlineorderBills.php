@@ -2,9 +2,28 @@
 require APPROOT . '/views/includes/Cashierhead.php';
 ?>
 
-<div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/cashiers/cashierdashboard"> << </a> </span></button>
-</div>  
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+        <div class="welcome-card">
+            <div class="welcome">
+                    <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+                <div class="welcome-names">
+                Online Order Bills             <p>
+                    <ul class="breadcrumb" style="margin-top: -30px;">
+                        <li><a href="<?php echo URLROOT ?>/cashiers/cashierdashboard">Dashboard</a></li>
+                        <li> Online Order Bills  <p>
+</li>
+                        
+                       
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+</div> 
 
 <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%;">
      <span class="successadded">
@@ -15,21 +34,27 @@ require APPROOT . '/views/includes/Cashierhead.php';
                  ?>
                 </span> <br>
 
-    <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
-    <li Style="float: left; vertical-align: middle; display: inline;"><h3> Online Order Bills</h3></li>
-        <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/onlineorderbills">
-            <table>
-                <tr>
-                <th><li Style="float: right; vertical-align: middle; display: inline;">
-                <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 500px; height: 35px; width: 200px;" placeholder="Telephone Number"></li>
-                </th>
-                <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
-                </tr>
-            </table>
-        </form>
-</ul>
 
-    <table id="customers">
+
+<ul style="padding-left: 0px; list-style-type: none;  ">
+            <!-- <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin: 0px;"> User Details</h3></li> -->
+            <form method="post" class="data" style="float: left; display: inline; margin-top: 5%; margin-left: 71.5%;" action="<?php echo URLROOT; ?>/cashiers/onlineorderbills">
+                <table>
+                    <tr>
+                        <th>
+                            <li>
+                                <input type="text" id="UISearchbar" name="UISearchbar" style="border-radius: 5px; height: 35px; width: 200px;" placeholder="Telephone Number"> 
+                            </li>
+                        </th>
+                        <th>
+                            <button style="margin-top:5px; border-radius:5px; height: 40px; border-radius: 5px; padding-bottom:-10px;" class="form-submit"><i class="fa fa-search"></i></button>
+                        </th>
+                    </tr>
+                </table>
+            </form>
+        </ul>
+
+    <table id="customers" style="margin-left:-3%; width: 102%;">
         <tr>
             <th>Prescription ID</th>
             <th>Customer Name</th>
@@ -42,7 +67,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 <td><?php echo $allpres->onlinepresid ?></td>
                 <td><?php echo $allpres->onlinefname ?></td>
                 <td><?php echo $allpres->onlinetelno ?></td>
-                <td><button class="button button1"><a href="<?php echo URLROOT. "/cashiers/onlineordersingle/".$allpres->onlinepresid ?>"> CREATE BILL</a></button></td>
+                <td><div style="margin-top: 10%; margin-bottom: 10%;"><a class="updateBtn" href="<?php echo URLROOT. "/cashiers/onlineordersingle/".$allpres->onlinepresid ?>"> CREATE BILL</a></div></td>
             </tr>
         <?php endforeach; ?>
     </table>
