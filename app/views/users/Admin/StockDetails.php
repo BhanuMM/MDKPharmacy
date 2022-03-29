@@ -14,7 +14,7 @@
                 <p>
                 <ul class="breadcrumb">
                     <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li>Full Stock Details</li>
+                    <li><a href="<?php echo URLROOT ?>/admins/viewstock">Full Stock Details</a></li>
 
                 </ul>
                 </p>

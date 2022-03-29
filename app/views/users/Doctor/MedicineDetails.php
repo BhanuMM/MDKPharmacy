@@ -13,8 +13,8 @@ require APPROOT . '/views/includes/Doctorhead.php';
                  Medicine Details
                 <p>
                 <ul class="breadcrumb">
-                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li>Medicine Details</li>
+                    <li><a href="<?php echo URLROOT ?>/doctors/doctordashboard">Dashboard</a></li>
+                    <li><a href="<?php echo URLROOT ?>/doctors/ viewmedicineavailability">Medicine Details</a></li>
                 </ul>
                 </p>
             </div>

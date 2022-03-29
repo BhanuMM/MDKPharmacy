@@ -12,12 +12,12 @@
         <div class="welcome">
                 <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
             <div class="welcome-names">
-                Return Stock Details
+                Expiry Details
                 <p>
                 <ul class="breadcrumb" style="margin-top: -30px;">
                     <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li>Full Stock Details</li>
-                    <li>Return Stock Details</li>
+                    <li><a href="<?php echo URLROOT ?>/admins/viewstock">Full Stock Details</a></li>
+                    <li><a href="<?php echo URLROOT ?>/admins/checkexpiry">Expiry Details</a></li>
 
                 </ul>
                 </p>

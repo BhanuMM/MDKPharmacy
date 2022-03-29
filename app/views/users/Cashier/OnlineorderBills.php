@@ -13,7 +13,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 Online Order Bills             <p>
                     <ul class="breadcrumb" style="margin-top: -30px;">
                         <li><a href="<?php echo URLROOT ?>/cashiers/cashierdashboard">Dashboard</a></li>
-                        <li> Online Order Bills  <p>
+                        <li><a href="<?php echo URLROOT ?>/cashiers/onlineorderbills">Online Order Bills</a></li>  <p>
 </li>
                         
                        

@@ -15,7 +15,7 @@
                     <p>
                     <ul class="breadcrumb">
                         <li><a href="<?php echo URLROOT ?>/receptionists/receptionistdashboard">Dashboard</a></li>
-                        <li>Child Registration</li>
+                        <li><a href="<?php echo URLROOT ?>/receptionists/registerchildelder">Child Registration</a></li>
                     </ul>
                     </p>
                 </div>

@@ -2,9 +2,25 @@
 require APPROOT . '/views/includes/Deliveryhead.php';
 ?>
 
-
-<div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/deliverys/viewpastdeliveries"> << Previous </a> </span></button>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+        <div class="welcome-card">
+            <div class="welcome">
+                    <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+                <div class="welcome-names">
+                View Delivery Details                <p>
+                    <ul class="breadcrumb" style="margin-top: -30px;">
+                        <li><a href="<?php echo URLROOT ?>/deliverys/deliverydashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URLROOT ?>/deliverys/viewpastdeliveries">Previous Deliveries</a></li>
+                        <li>Delivery Details</li>
+                       
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    
 </div>
 
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">

@@ -12,8 +12,8 @@ require APPROOT . '/views/includes/Doctorhead.php';
                  Patient Details
                 <p>
                 <ul class="breadcrumb">
-                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li>Patient Details</li>
+                    <li><a href="<?php echo URLROOT ?>/doctors/doctordashboard">Dashboard</a></li>
+                    <li><a href="<?php echo URLROOT ?>/doctors/viewpatientdetails">Patient Details</a></li>
                 </ul>
                 </p>
             </div>

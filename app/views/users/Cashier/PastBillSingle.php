@@ -11,12 +11,12 @@ require APPROOT . '/views/includes/Cashierhead.php';
             <div class="welcome">
                     <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
                 <div class="welcome-names">
-                Past Bill 
+                Previous Bill 
                     <p>
-                    <ul class="breadcrumb">
-                        <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                        <li>Past Bills</li>
-                        <li>Past Bill</li>
+                    <ul class="breadcrumb" style="margin-top: -30px;">
+                        <li><a href="<?php echo URLROOT ?>/cashiers/cashierdashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URLROOT ?>/cashiers/pastbills">Previous Bills</a></li>
+                        <li>Previous Bill</li>
                     </ul>
                     </p>
                 </div>

@@ -9,11 +9,11 @@ require APPROOT . '/views/includes/Cashierhead.php';
             <div class="welcome">
                     <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
                 <div class="welcome-names">
-                Create Outpatient Bills
+                    Outpatient Bills
                     <p>
                     <ul class="breadcrumb">
-                        <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                        <li>Create Outpatient Bills</li>
+                        <li><a href="<?php echo URLROOT ?>/cashiers/cashierdashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URLROOT ?>/cashiers/outpatientbills">Outpatient Bills</a></li>
                     </ul>
                     </p>
                 </div>

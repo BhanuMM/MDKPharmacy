@@ -16,8 +16,8 @@
                 <p>
                 <ul class="breadcrumb" style="margin-top: -30px;">
                     <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li>Medicine Details</li>
-                    
+                    <li><a href="<?php echo URLROOT ?>/admins/viewmed">Medicine Details</a></li>
+                   
 
                 </ul>
                 </p>
