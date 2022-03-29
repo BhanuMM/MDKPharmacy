@@ -27,9 +27,9 @@
             <!--Starting of the form fields-->
             <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/updatesupplier/<?php echo $data['supplierid']?>" method="POST">
                 <div class="form-left">
-                    <h2>
-                        Update Supplier Details
-                    </h2>
+<!--                    <h2>-->
+<!--                        Update Supplier Details-->
+<!--                    </h2>-->
 
                     <h5>
                         Name

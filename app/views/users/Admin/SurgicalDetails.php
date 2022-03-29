@@ -26,13 +26,13 @@
 
     <div style="margin-left: 350px; margin-top:5px; padding:1px 16px; width: 70%; ">
 
-        <span class="successadded" style="color: red">
-                 <?php
-                 if(isset($data['norecord'])){
-                     echo ('No Record Found'); // print_r($_GET);
-                 }
-                 ?>
-                </span>
+<!--        <span class="successadded" style="color: red">-->
+<!--                 --><?php
+//                 if(isset($data['norecord'])){
+//                     echo ('No Record Found'); // print_r($_GET);
+//                 }
+//                 ?>
+<!--                </span>-->
 
 <!--        <span class="successadded">-->
 <!--            --><?php //if(isset($_GET['msg'])){
@@ -68,7 +68,15 @@
             </form>
         </ul>
         </div>
-
+    <br><br>
+    <span class="successadded" style="color: red;">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span>
+    <br><br>
         
 
         <table id="customers">
@@ -100,11 +108,11 @@
 <!--                    <td>--><?php //echo  $allsurg->medacslvl?><!--</td>-->
                     <td><?php echo  $allsurg->lowstockqty?></td>
                     <td>
-                        <a class="button button1" style="background-color: #97ff9c;" href="<?php echo URLROOT . "/admins/updatesurg/" .  $allsurg->surgid ?>">Update</a>
+                        <a class="updateBtn" href="<?php echo URLROOT . "/admins/updatesurg/".  $allsurg->surgid ?>"> Update</a>
                     </td>
                     <td>
                         <form action="<?php echo URLROOT . "/admins/deletesurg/" . $allsurg->surgid?>" method="POST">
-                            <input class="button button1" style="background-color: #fc92a1;" Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
+                            <input class="dltBtn" Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
                         </form>
                     </td>
                 </tr>

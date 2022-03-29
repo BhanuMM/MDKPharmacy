@@ -47,7 +47,7 @@
 
 
 <!--        Expired medicine table-->
-        <div id="already" class="w3-container w3-display-container city">
+        <div id="already" class="w3-container w3-display-container city" style="display:none; padding-left: 0; padding-right: 0;">
             <p>
                 <table id="customers">
 <!--    Table Headings-->
@@ -79,9 +79,10 @@
 
 
 <!--        List of medicine which will expire within one month-->
-        <div id="one" class="w3-container w3-display-container city" style="display:none">
+        <div id="one" class="w3-container w3-display-container city" style="display:none; padding-left: 0; padding-right: 0;">
             <table id="customers">
 <!--                table headings-->
+                <p>
                 <tr>
                     <th>Medicine ID </th>
                     <th>Supplier Agency Name</th>
@@ -105,11 +106,12 @@
                     </tr>
                 <?php endforeach; ?>
             </table>
+            </p>
         </div>
 
 
         <!--        List of medicine which will expire within three month-->
-        <div id="three" class="w3-container w3-display-container city" style="display:none">
+        <div id="three" class="w3-container w3-display-container city" style="display:none; padding-left: 0; padding-right: 0;">
             <p>
                 <table id="customers">
 <!--                Table headings-->

@@ -58,7 +58,7 @@ class Pages extends Controller {
                 'telnumber' => trim($_POST['contact']),
                 'address' => trim($_POST['address'])
                 ];
-            $telValidation = "/^([0-9]{9}[x|X|v|V]|[0-9]{12})$/";
+            $telValidation = "/^[0-9]+$/";
             if( preg_match($telValidation, $data['telnumber']) ){
                 $data['telError'] = '';
             }else{
@@ -93,7 +93,7 @@ class Pages extends Controller {
                     if($this->pageModel->fileupload($data)) {
                         //Redirect to the viewtable page
                         $recadded = 'Prescription Successfully Submited';
-                        header('location: ' . URLROOT . '/pages/product?msg='.$recadded);
+                        header('location: ' . URLROOT . '/pages/index?msg='.$recadded);
                     } else {
                         die('Something went wrong.');
                     }

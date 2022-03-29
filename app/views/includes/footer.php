@@ -51,15 +51,15 @@
            <p>Password : </p>
            <input type="password" name="Rpass" placeholder="Enter the password">
 
-           <a href="<?php echo URLROOT; ?>/users/forgetpass" style="font-size: 14px; padding-left:120px;">Forgot Password?</a>
+           <!-- <a href="<?php echo URLROOT; ?>/users/forgetpass" style="font-size: 14px; padding-left:120px;">Forgot Password?</a> -->
            <br><br>
            <center>
-           <span class="invalidFeedback" style="margin-top: 30px" >
+         <div style="margin-top:-20%; font-size: 13px; ">
+           <span class="invalidFeedback" style="color: #d11a2a;" >
                 <?php echo "<br><br><br>"; ?>
                 <?php echo $data['passwordError']; ?>
-                </span>
-
-				<input type="submit" name="submitbutton4" value="Sign In" class="login-btn" style= "margin-top: 3%;" >
+                </span><br><br><br>
+				    <input type="submit" name="submitbutton4" value="Sign In" class="login-btn" style= "margin-top: -18%;" ></div>
             </form>
 
            <!-- <a href="" class="login-btn">Log In</a> -->
