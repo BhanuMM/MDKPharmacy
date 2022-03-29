@@ -12,9 +12,9 @@ require APPROOT . '/views/includes/Adminhead.php';
         <form class="data" action="<?php echo URLROOT; ?>/admins/updatemed/<?php echo $data['medid'] ?>" method="POST">
         <div class="form-left">
 
-            <h2 style="margin-top: 3%;">
-                Medicine Details
-            </h2>
+<!--            <h2 style="margin-top: 3%;">-->
+<!--                Medicine Details-->
+<!--            </h2>-->
             <h5>
                 Med Id 
             </h5>
