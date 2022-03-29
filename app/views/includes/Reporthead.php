@@ -7,12 +7,30 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="admin")){
 <html>
 <head>
     <link rel="shortcut icon" type="MDK/jpg" href="<?php echo URLROOT ?>/public/images/MDK.jpg"/>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <title>
         DashBoard
     </title>
 <!--    <link rel="stylesheet" href="--><?php //echo URLROOT ?><!--/public/css/StyleSheet.css">-->
 <!--    <link rel="stylesheet" href="--><?php //echo URLROOT ?><!--/public/css/csscode.css">-->
-    <Style>
+
+    <style>
+      
+    .btn {
+      background-color: DodgerBlue;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+/* Darker background on mouse-over */
+    .btn:hover {
+      background-color: RoyalBlue;
+    }
+
+    <style>
         .bill-body{
             padding: 16px;
             border: 1px solid gray;
@@ -69,8 +87,9 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="admin")){
             position:absolute;
             top:0;
             width:100%;
-            padding-top: 3%;
-            padding-bottom: 3%;
+            padding-top: 10%;
+            z-index: -1;
+            padding-bottom: 20%;
             -webkit-print-color-adjust: exact;
         }
         .page-number:before {

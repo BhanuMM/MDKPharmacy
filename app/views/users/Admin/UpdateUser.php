@@ -16,9 +16,9 @@ require APPROOT . '/views/includes/Adminhead.php';
         <div class="form-left">
 
             <!--        Heading goes here-->
-            <h2 style="margin-top: 3%;">
-                User Details
-            </h2>
+<!--            <h2 style="margin-top: 3%;">-->
+<!--                User Details-->
+<!--            </h2>-->
 
 <!--Left side of the form fields starts here-->
             <h5>
@@ -92,9 +92,13 @@ require APPROOT . '/views/includes/Adminhead.php';
             <br><br>
 
     <!--            Submit the form details-->
-            <div style="margin-left:71%;">
-                <input class="form-clear" type="reset" value=" Clear ">
-                <input class="form-submit" type="submit" name="submitbutton1" Value="Submit">
+            <div style="float: left; margin-left: 44%;">
+                <br><br>
+                <input class="clearBtn" style="  " type="reset"  value=" Clear">
+
+
+                <input class="submitBtn" style="" type="submit" name="submitbutton1"  Value="Submit" >
+
             </div>
         </div>
     </form>

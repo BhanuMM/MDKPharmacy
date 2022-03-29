@@ -25,8 +25,9 @@
                  <?php echo "<br><br><br>"; ?>
                 <?php echo $data['passwordError']; ?>
                 </span>
+   
+				    <input style="margin-bottom: -30%;" type="submit" name="submitbutton4" value="Sign In" >
 
-				<input type="submit" name="submitbutton4" value="Sign In" class="button button1" style="margin-left: 38%; margin-top: 3%;" >
             </form>
         </div>
 
