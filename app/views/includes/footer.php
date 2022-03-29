@@ -14,7 +14,7 @@
 <div class="footer-col">
            <p><ul>
             <li><a href="#fac" onclick="return hashNoHistory(this)">Facilities</a></li>
-            <li><a href="<?php echo URLROOT; ?>/pages/product">Pharmacy</a></li>
+            <li><a href="<?php echo URLROOT; ?>/pages/upload">Pharmacy</a></li>
             <li><a href="#location" onclick="return hashNoHistory(this)">Location</a></li>
             <li><a href="#about" onclick="return hashNoHistory(this)">About Us</a></li>
             <li><button id="button" style="color:white; background-color: #0a0a2e; border:none; cursor:pointer; font-size:16px;">Staff Login</button></li>
