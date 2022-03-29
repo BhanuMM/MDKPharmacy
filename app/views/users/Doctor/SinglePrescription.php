@@ -100,8 +100,8 @@ require APPROOT . '/views/includes/Doctorhead.php';
             <textarea name="Text1" class="input2" rows="5" readonly><?php echo $data['presnote']?></textarea>
                         <br>
                     </div>
-                    
-                    <button class="button button1" style="float: right;">Print Prescription</button>
+
+        <a href = "<?php echo URLROOT ?>/doctors/doctordashboard"><button class="button button1" style="float: right;">Print Prescription</button></a>
                 </div>
             </div>
             

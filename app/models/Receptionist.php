@@ -7,7 +7,7 @@ class Receptionist {
 
     public function viewpatient() {
 
-        $this->db->query('SELECT * FROM patient');
+        $this->db->query('SELECT * FROM patient ORDER BY patid DESC');
 
         $results = $this->db->resultSet();
 
