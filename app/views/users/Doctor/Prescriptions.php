@@ -2,11 +2,28 @@
 require APPROOT . '/views/includes/Doctorhead.php';
 ?>
 
-<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
-    <li Style="float: left; vertical-align: middle; display: inline;"><h3> Prescription Details</h3></li>
-</ul>
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
+                 Prescription Details
+                <p>
+                <ul class="breadcrumb"  style="margin-top: -30px;">
+                    <li><a href="<?php echo URLROOT ?>/doctors/doctordashboard">Dashboard</a></li>
+                    <li><a href="<?php echo URLROOT ?>/doctors/viewpatientdetails">Patient Details</a></li>
+                    <li><a href="<?php echo URLROOT ?>/doctors/allprescriptions">Prescription Details</a></li>
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
                 <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/doctors/allprescriptions">
                     <table>
                         <tr>
