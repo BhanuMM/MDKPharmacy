@@ -70,17 +70,13 @@ require APPROOT . '/views/includes/Adminhead.php';
                 Username
             </h5>
                 <input class="input1" type="text" id="Runame" name="Runame" size=40 placeholder="abc_78"  value="<?php echo $data['uname']; ?>"required>
-                <span class="invalidFeedback">
-                    <?php echo $data['usernameError']; ?>
-                </span>
+
 
             <h5>
                 Password
             </h5>
                 <input class="input1" type="password" id="Rpass" name="Rpass" minlength="4" placeholder="***********" required>
-                <span class="invalidFeedback">
-                    <?php echo $data['passwordError']; ?>
-                </span>
+
 
             <h5>
                 Re-enter Password

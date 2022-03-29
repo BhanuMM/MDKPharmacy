@@ -6,7 +6,7 @@ class User {
     }
 
     public function register($data) {
-        $this->db->query('INSERT INTO staff (snic, sname, semail,stelno,uname,upswrd,urole) VALUES(:nic,:fname,:email,:telno,:username, :password,:urole)');
+        $this->db->query('INSERT INTO staff (snic, sname, semail,stelno,uname,upswrd,urole,is_deleted) VALUES(:nic,:fname,:email,:telno,:username, :password,:urole,"0")');
 
 
         //Bind values
@@ -27,7 +27,7 @@ class User {
     }
 
     public function login($username, $password) {
-        $this->db->query('SELECT * FROM staff WHERE uname = :username');
+        $this->db->query('SELECT * FROM staff WHERE uname = :username AND is_deleted !=1');
 
         //Bind value
         $this->db->bind(':username', $username);

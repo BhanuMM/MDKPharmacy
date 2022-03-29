@@ -36,7 +36,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                
                 <table id="customers" >
                     <tr>
-                      <th>Patient ID</th>
+<!--                      <th>Patient ID</th>-->
                       <th>Patient NIC</th>
                       <th>Patient Name</th>
                       <th>Patient Age</th>
@@ -45,10 +45,12 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
                     <?php foreach($data['pat'] as $allpat): ?>
                     <tr>
-                      <td><?php echo $allpat->patid; ?></td>
+<!--                      <td>--><?php //echo $allpat->patid; ?><!--</td>-->
                       <td><?php echo $allpat->patnic;?></td>
                       <td><?php echo $allpat->patname; ?></td>
-                      <td><?php echo $allpat->patdob; ?></td>
+                        <td><?php $dob =$allpat->patdob;
+                            $today = date("Y-m-d");
+                            $diff = date_diff(date_create($dob), date_create($today)); echo $diff->format('%y '); ?></td>
                       <td><a href="<?php echo URLROOT. "/doctors/addprescription/". $allpat->patid; ?>"><button class="button button1" >Create Prescription</button></a></td>
                     </tr>
                     <?php endforeach; ?>
@@ -61,16 +63,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                   <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
   <li Style="float: left; vertical-align: middle; display: inline;"><h3>Select Patient(Children)</h3></li>
   
-   <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/doctors/createprescription">
-      <table>
-       <tr>
-        <th><li Style="float: right; vertical-align: middle; display: inline;">
-        <input type="text" id="guardiannic" name="guardiannic" style="margin-left: 480px; height: 35px; width: 150px;" placeholder="Guardian NIC Or Child Name"></li>
-         </th>
-      <th><button style="margin-left: 10px;" class="form-submit" name="btngnic">SEARCH</button></th>
-       </tr>
-     </table>
-     </form>
+
     
  </ul>
 
@@ -78,7 +71,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                
                 <table id="customers" >
                     <tr>
-                      <th>Child ID</th>
+<!--                      <th>Child ID</th>-->
                       <th>Guardian's NIC</th>
                       <th>Child Name</th>
                       <th>Child Age</th>
@@ -87,10 +80,13 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
                     <?php foreach($data['child'] as $allchild): ?>
                     <tr>
-                      <td><?php echo $allchild->childelderid; ?></td>
+<!--                      <td>--><?php //echo $allchild->childelderid; ?><!--</td>-->
                       <td><?php echo $allchild->patnic; ?></td>
                       <td><?php echo $allchild->fullname; ?></td>
-                      <td><?php echo $allchild->childelderdob; ?></td>
+                      <td><?php $dob =$allchild->childelderdob;
+                      $today = date("Y-m-d");
+                          $diff = date_diff(date_create($dob), date_create($today)); echo $diff->format('%y '); ?></td>
+
                       <td><a href="<?php echo URLROOT. "/doctors/addchildprescription/".$allchild->childelderid ?>"><button class="button button1" >Create Prescription</button></a></td>
                     </tr>
                     <?php endforeach; ?>

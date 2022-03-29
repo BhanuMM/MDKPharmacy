@@ -134,93 +134,28 @@ class Doctors extends Controller {
 
         ];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (isset($_POST['btnid'])) {
                //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $datanic = trim($_POST['patnic']);
             $searchpatient = $this->doctorModel->searchpatient($datanic);
+            $searchchild = $this->doctorModel->searchchild($datanic);
 
-            if ($searchpatient) {
+            if ($searchpatient || $searchchild) {
                 $data=[
                     'pat' => $searchpatient,
-                    'child' =>(array) null
+                    'child' =>$searchchild
                 ];
             }
             else{
                 $data=[
-                    'pat' =>$searchpatient,
+                    'pat' =>(array) null,
                     'child' =>(array) null,
                     'nofound' => 'No Record Found'
                 ];
             }
-              } 
-            
-            
-              elseif (isset($_POST['btnname'])) {
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-            $dataname = trim($_POST['patname']);
-            $searchpatient = $this->doctorModel->searchpatient($dataname);
-    
-            if ($searchpatient) {
-                $data=[
-                    'pat' =>$searchpatient,
-                    'child' =>(array) null
 
-                ];
-            }
-            else{
-                $data=[
-                    'pat' => $searchpatient,
-                    'child' =>(array) null,
-                    'nofound' => 'No Record Found'
-                ];
-            }
-              }
 
-              elseif (isset($_POST['btncname'])) {
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    
-            $dataname = trim($_POST['childname']);
-            $searchchild = $this->doctorModel->searchchild($dataname);
-    
-            if ($searchchild) {
-                $data=[
-                    'child' => $searchchild,
-                    'pat' =>(array) null
-                ];
-            }
-            else{
-                $data=[
-                    'child' => $searchchild,
-                    'pat' =>(array) null,
-                    'nofound' => 'No Record Found'
-                ];
-            }
-              }
-
-              elseif (isset($_POST['btngnic'])) {
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    
-            $dataname = trim($_POST['guardiannic']);
-            $searchchild = $this->doctorModel->searchchild($dataname);
-    
-            if ($searchchild) {
-                $data=[
-                    'child' => $searchchild,
-                    'pat' =>(array) null
-                ];
-            }
-            else{
-                $data=[
-                    'child' => $searchchild,
-                    'pat' =>(array) null,
-                    'nofound' => 'No Record Found'
-                ];
-            }
-              }
-            
-           
         }
 
         $this->view('users/Doctor/CreatePrescription',$data);

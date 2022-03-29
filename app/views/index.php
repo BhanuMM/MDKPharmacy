@@ -133,7 +133,7 @@ and excellent service that transcends conventional healthcare.
    
     <section id="location" class="location">
 
-    <center>   
+    <center>
     <div class="location-center">
          
             <h1 style="font-size:50px;">Contact Us</h1><br><br><br>
@@ -142,22 +142,21 @@ and excellent service that transcends conventional healthcare.
 
             <p  style="font-size:20px;"> <i class="fa fa-map-marker" aria-hidden="true"></i>        No 149, Sri Ariyavilasa Rd,
 Horana 12400 <br> <i class="fa fa-phone-square" style=" aria-hidden="true"></i>
-   0347 888 888 
+                0347 888 888 </p>
 
            
 
 
         </div>
 </div>
-<center>   
         <br><br>
          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.4554387451667!2d80.06169371460474!3d6.714141722780812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24b7291210f21%3A0xac1a58f519a84bf2!2sMDK%20Hospital!5e0!3m2!1sen!2slk!4v1634207145593!5m2!1sen!2slk" width="1400px" height="350px"  style="border:0;" allowfullscreen="" loading="lazy"></iframe> 
         </div>
         
     </section>
-    <center>  
+    </center>
     <br>
-</div
+</div>
 
 
     
