@@ -6,7 +6,7 @@
    
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+    <div style="box-sizing: content-box; margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
         <div class="welcome-card">
             <div class="welcome">
                     <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
@@ -21,6 +21,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -55,6 +56,7 @@
                  ?>
                 </span> <br>
                 <p>
+
                 <table id="customers">
                     <tr>
                         <th>Patient ID</th>
