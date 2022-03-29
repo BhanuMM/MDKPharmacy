@@ -199,16 +199,14 @@ class Pharmacist {
 
     }
 
-    public function searchonlineordertp($patnic) {
+    public function searchonlineordertp($tphonenum) {
 //        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid WHERE patient.patnic=:pnic');
-        $this->db->query('SELECT * ,prescription.presid FROM prescription
-                                INNER JOIN patient ON prescription.patid=patient.patid 
-                            LEFT JOIN childpres ON prescription.presid = childpres.presid  
-    LEFT JOIN childelder on childpres.childid=childelder.childelderid WHERE patient.patnic=:pnic');
-        $this->db->bind(':pnic', $patnic);
+        $this->db->query('SELECT * FROM onlineprescription INNER JOIN onlineorder ON onlineprescription.onlineorderid=onlineorder.onlineoid WHERE onlinetelno = :onlinetel');
+        $this->db->bind(':onlinetel', $tphonenum);
         $results = $this->db->resultSet();
         return $results;
     }
+    
 
 
 

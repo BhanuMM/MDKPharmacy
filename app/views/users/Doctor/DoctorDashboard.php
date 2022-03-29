@@ -6,9 +6,8 @@ require APPROOT . '/views/includes/Doctorhead.php';
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
     <div class="welcome-card">
         <div class="welcome">
-                <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
             <div class="welcome-names">
-                Welcome ,Dr.<?php echo $_SESSION['username'] ?> !
+                Welcome , Dr.<?php echo $_SESSION['username'] ?> !
                 <p style="font-size: 14px;">Doctor</p>
             </div>
         </div>

@@ -5,9 +5,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
     <div class="welcome-card">
         <div class="welcome">
-                <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
             <div class="welcome-names">
-                Welcome ,<?php echo $_SESSION['username'] ?> !
+                Welcome, <?php echo $_SESSION['username'] ?> !
                 <p style="font-size: 14px;">Cashier</p>
             </div>
         </div>
@@ -39,7 +38,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     <div class="fn-card">
 
                             <div class="welcome">
-                                <img src="<?php echo URLROOT ?>/public/images/medicine-icon.png" />
+                                <img src="<?php echo URLROOT ?>/public/images/order.png" />
                                 <div class="fn-names">
                                     Outpatient Bills
                                 </div>
@@ -85,7 +84,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     <div class="column">
                       <div class="fn-card">
                         <div class="welcome">
-                          <img src="<?php echo URLROOT ?>/public/images/supplier-icon.png" />
+                          <img src="<?php echo URLROOT ?>/public/images/medicine-icon.png" />
                           <div class="fn-names">
                                 Medicine Availability      
                           </div>

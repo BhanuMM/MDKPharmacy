@@ -84,7 +84,7 @@
             <h2>Order your medicine to the doorsteps during <br>the pandemic</h2><br>
             <p>MDK Hospitals is committed to provide compassionate care <br> and excellent service that transcends conventional healthcare.<br> Easily order your medicines by uploading your prescriptions<br> to the MDK Hospitals online website and recieve your medicine <br> to your doorstep <br><br><br>
 
-            <a href="<?php echo URLROOT; ?>/pages/product"><button class="button"><span>Visit now</span></button></a>
+            <a href="<?php echo URLROOT; ?>/pages/upload"><button style="padding:10px 20px 10px 20px;" class="button"><span>Upload Prescription </span></button></a>
             </p>
             
 

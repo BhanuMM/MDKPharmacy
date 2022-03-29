@@ -21,11 +21,11 @@
 <body>
     <div class="header"> 
         <!--top bar ( time/contact) -->
-        <div class="top-header">
+        <div class="top-header" style="margin-left: 2.5%;">
             <div class="text-left">
-                <p>   Open 24 hours</p>
+                <p >   Open 24 hours</p>
             </div>
-            <div class="text-right">
+            <div class="text-right" style="margin-right: 3%;">
                 Call Us At 0347 888 888
             </div>
         </div>
@@ -47,10 +47,13 @@
 
                 <li><a href="./index/LinkId=location">Home</a></li>
                 <li><a href="#about" onclick="return hashNoHistory(this)">About Us</a></li>
-                <li><a href="#op" onclick="return hashNoHistory(this)">Pharmacy</a></li>
                 <!-- <li><a href="">Surgeries</a></li> -->
                 <li><a href="#fac" onclick="return hashNoHistory(this)">Facilities</a></li>
                 <li><a href="#location" onclick="return hashNoHistory(this)">Contact Us</a></li>
+                <li class="upload-Pres"><a href="<?php echo URLROOT; ?>/pages/upload">Upload Prescription </a></li>
+                <!-- <li><a href="#op" onclick="return hashNoHistory(this)">Upload Prescription</a></li> -->
+
+
 
 <!--                <li><a href="--><?php //echo URLROOT; ?><!--/users/login">Log In</a></li>-->
             </ul>

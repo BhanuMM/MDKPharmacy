@@ -4,16 +4,6 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 
 
 
-<div style="margin-left: 350px; margin-top:5px; padding:1px 16px; width: 70%; ">
-        <span class="successadded" style="color: red">
-                 <?php
-                 if(isset($data['norecord'])){
-                     echo ('No Record Found'); // print_r($_GET);
-                 }
-                 ?>
-                </span><br>
-
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
@@ -21,11 +11,11 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
             <div class="welcome">
                     <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
                 <div class="welcome-names">
-                View Online Prescription                 <p>
+                Medicine Details                 <p>
                     <ul class="breadcrumb" style="margin-top: -30px;">
                         <li><a href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
                         <li>Online Prescriptions</li>
-                        <li>View Online Prescription</li>
+                        <li>Medicine Details</li>
                     </ul>
                     </p>
                 </div>

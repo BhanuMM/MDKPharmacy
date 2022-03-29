@@ -10,9 +10,9 @@ if(isset($_GET['msg'])){
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
     <div class="welcome-card">
         <div class="welcome">
-                <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
             <div class="welcome-names">
-                Welcome ,<?php echo $_SESSION['username'] ?> !
+                Welcome, <?php echo $_SESSION['username'] ?> !
                 <p style="font-size: 14px;">Reciptionist</p>
             </div>
         </div>
@@ -54,7 +54,7 @@ if(isset($_GET['msg'])){
                     <div class="column">
                         <div class="fn-card">
                             <div class="welcome">
-                                <img src="<?php echo URLROOT ?>/public/images/report-icon.png" />
+                                <img src="<?php echo URLROOT ?>/public/images/son.png" />
                                 <div class="fn-names">
                                     Register Child
                                 </div>
