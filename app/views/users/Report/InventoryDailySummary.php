@@ -25,7 +25,7 @@ require APPROOT . '/views/includes/Reporthead.php';
     <div class="bill-body" style="margin: 5%;">
         <h1>Purchased Medicines</h1>
         <hr>
-        <h4> Purchased Stocks Value : Rs.</h4>
+        <h4> Purchased Stocks Value : Rs. <?php echo $data['purchcount'] ?></h4>
         <!--        <canvas id="myChart" width="400" height="400"></canvas>-->
         <table class="table-bordered">
             <thead>
@@ -50,7 +50,7 @@ require APPROOT . '/views/includes/Reporthead.php';
         </table>
         <h1>Returned Medicines</h1>
         <hr>
-        <h4> Returned Medicines Value : Rs. <?php echo $data['purchcount'] ?></h4>
+        <h4> Returned Medicines Value : Rs. </h4>
         <table class="table-bordered">
             <thead>
             <tr>
