@@ -64,9 +64,9 @@ class Doctors extends Controller {
         $this->view('users/Doctor/PatientDetails',$data);
     }
 
-    public function allprescriptions() {
-        $patpres = $this->doctorModel->viewprescriptions();
-        $childpres = $this->doctorModel->viewchildprescriptions();
+    public function allprescriptions($patid) {
+        $patpres = $this->doctorModel->viewprescriptions($patid);
+        $childpres = $this->doctorModel->viewchildprescriptions($patid);
         
         $data = [
 

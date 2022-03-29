@@ -615,11 +615,11 @@ class Cashiers extends Controller {
         $pastdata =$this->cashierModel->getpastbill($billid);
         $patdata =$this->cashierModel->getoutpresdata($pastdata->presid);
         $data = [
-//            'presid' => $pastdata->presid,
+            'presid' => $pastdata->presid,
             'billid'=> $pastdata->billid,
-//            'presdate' => $pastdata->presdate,
+            'presdate' => $pastdata->presdate,
             'patname' => $pastdata->patname,
-//            'custype' => $pastdata->customertype,
+            'custype' => $pastdata->customertype,
             'subtotal' => $pastdata->subtotal,
             'grosstotal' => $pastdata->grosstotal,
             'payment' => $pastdata->payment,

@@ -248,19 +248,19 @@ class Admin {
 
 
 
-    public function findSurgbById($surgid) {
-        $this->db->query('SELECT * FROM surgicals WHERE surgid = :surgid');
+//    public function findSurgbById($surgid) {
+//        $this->db->query('SELECT * FROM surgicals WHERE surgid = :surgid');
+//
+//        $this->db->bind(':surgid', $surgid);
+//
+//        $row = $this->db->single();
+//
+//        return $row;
+//    }
 
-        $this->db->bind(':surgid', $surgid);
 
-        $row = $this->db->single();
-
-        return $row;
-    }
-
-
-    public function updateSurgicals($data) {
-        $this->db->query('UPDATE surgicals SET surgname = :surgname, surgbrand = :surgbrand, surgimporter = :importer, surgdealer = :dealer, surgpurchprice = :purchprice, surgsellprice = :sellprice, surgprofit = :profit, lowstockqty = :lowqty WHERE surgid = :surgid');
+//    public function updateSurgicals($data) {
+//        $this->db->query('UPDATE surgicals SET surgname = :surgname, surgbrand = :surgbrand, surgimporter = :importer, surgdealer = :dealer, surgpurchprice = :purchprice, surgsellprice = :sellprice, surgprofit = :profit, lowstockqty = :lowqty WHERE surgid = :surgid');
 
 
     public function findSurgbById($surgid) {
