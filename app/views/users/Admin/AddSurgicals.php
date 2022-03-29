@@ -46,11 +46,11 @@ require APPROOT . '/views/includes/Adminhead.php';
         <h5>
             Item Name
         </h5>
-        <input class="input1" type="text" id="medname" name="medname"  placeholder="Omeprazole">
+        <input class="input1" type="text" id="medname" name="medname"  placeholder="Bandage 50m">
         <h5>
             Brand Name
         </h5>
-        <input class="input1" type="text" id="brandname" name="brandname" placeholder="Omez">
+        <input class="input1" type="text" id="brandname" name="brandname" placeholder="Detol">
         <h5>
             Importer Name
         </h5>

@@ -513,7 +513,7 @@ class Admins extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
             $datamed= trim($_POST['UISearchbar']);
-            $searchmed = $this->adminModel->searchmed($datamed);
+            $searchmed = $this->adminModel->searchmedqty($datamed);
 
 //            Check whether there are any null values
             if ($searchmed) {
