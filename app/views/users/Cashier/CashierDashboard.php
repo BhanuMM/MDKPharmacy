@@ -6,7 +6,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
     <div class="welcome-card">
         <div class="welcome">
             <div class="welcome-names">
-                Welcome, <?php echo $_SESSION['username'] ?> !
+                Welcome , Mr.<?php echo ucwords($_SESSION['username'])  ?> !
                 <p style="font-size: 14px;">Cashier</p>
             </div>
         </div>

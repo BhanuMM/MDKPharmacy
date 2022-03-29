@@ -15,7 +15,7 @@
                     <p>
                     <ul class="breadcrumb">
                         <li><a href="<?php echo URLROOT ?>/receptionists/receptionistdashboard">Dashboard</a></li>
-                        <li>Child Registration</li>
+                        <li><a href="<?php echo URLROOT ?>/receptionists/registerchildelder">Child Registration</a></li>
                     </ul>
                     </p>
                 </div>
@@ -59,6 +59,7 @@
                         <br>
                         <br>
                         <br>
+                        <span class="successadded" style="color: red">
                         <?php
                         if( isset($data['noguardian'])  ){
                             if($data['noguardian']=="nofound"){
@@ -67,6 +68,7 @@
                             }
                         }
                         ?>
+                        </span>
                         <input class="input1" id="guardianid" name="guardianid" type="text"  value="<?php
                         if(isset($data['patientid'])){
                             echo $data['patientid']; // print_r($_GET);
@@ -102,6 +104,7 @@
                      <h4>
                         Guardian Details
                     </h4>
+                    <hr>
                     <span class="successadded" style="color: red">
                  <?php
                  if( isset($data['norecord'])  ){
@@ -111,11 +114,11 @@
                      }
                  }
                  ?>
+                        <br>
                 </span>
-                    <br>
+
                     <div class="card" style="height: 200px;">
 
-                        <br>
                     <h5>
                         Name : <?php
                         if(isset($data['patientname'])){

@@ -20,6 +20,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="pharmacist")){
     <header><img src="<?php echo URLROOT ?>/public/images/1.png" style="width: 70px;"/><br><br><strong>MDK HOSPITALS</strong></header>
     <ul style="list-style-type: none; padding-left: 0px;">
         <li><a href = "<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
+        <li><a href = "<?php echo URLROOT?>/pharmacists/prescriptiondetails"> View Prescription   </a></li>
         <li><a href = "<?php echo URLROOT?>/pharmacists/viewonlineorders"> Online Orders</a></li>
         <li><a href = "<?php echo URLROOT ?>/pharmacists/viewmedicineavailability">Medicine Availability</a></li>
 <!--        <li><a href = "#">Deliveries</a></li>-->

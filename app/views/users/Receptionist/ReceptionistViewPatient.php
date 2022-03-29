@@ -15,7 +15,7 @@
                     <p>
                     <ul class="breadcrumb">
                         <li><a href="<?php echo URLROOT ?>/receptionists/receptionistdashboard">Dashboard</a></li>
-                        <li>Patient Details</li>
+                        <li> <a href="<?php echo URLROOT ?>/receptionists/viewpatients">Patient Details</a></li>
                     </ul>
                     </p>
                 </div>
@@ -59,12 +59,12 @@
 
                 <table id="customers">
                     <tr>
-                        <th>Patient ID</th>
+<!--                        <th>Patient ID</th>-->
                         <th>Patient Name</th>
                         <th>NIC</th>
                         <th>Tel.No</th>
                         <th>Address</th>
-                        <th>Email</th>
+<!--                        <th>Email</th>-->
                         <th>Date of Birth</th>
                         <th>Gender</th>
                         <th>Update</th>
@@ -74,12 +74,12 @@
                    
                     <?php foreach($data['pat'] as $allpatients): ?>
                         <tr>
-                            <td><?php echo $allpatients->patid; ?></td>
+<!--                            <td>--><?php //echo $allpatients->patid; ?><!--</td>-->
                             <td><?php echo $allpatients->patname; ?></td>
                             <td><?php echo $allpatients->patnic; ?></td>
                             <td><?php echo $allpatients->pattelno; ?></td>
                             <td><?php echo $allpatients->patadrs;?></td>
-                            <td><?php echo $allpatients->patemail; ?></td>
+<!--                            <td>--><?php //echo $allpatients->patemail; ?><!--</td>-->
                             <td><?php echo $allpatients->patdob; ?></td>
                             <td><?php echo $allpatients->patgen; ?></td>
 
@@ -111,12 +111,12 @@
                 <p>
                 <table id="customers">
                     <tr>
-                        <th>Child ID</th>
+<!--                        <th>Child ID</th>-->
                         <th>Child Name</th>
                         <th>Guardian NIC</th>
                         <th>Tel.No</th>
                         <th>Address</th>
-                        <th>Email</th>
+<!--                        <th>Email</th>-->
                         <th>Date of Birth</th>
                         <th>Gender</th>
                         <th>Update</th>
@@ -126,12 +126,12 @@
                    
                     <?php foreach($data['child'] as $allchildren): ?>
                         <tr>
-                            <td><?php echo $allchildren->childelderid; ?></td>
+<!--                            <td>--><?php //echo $allchildren->childelderid; ?><!--</td>-->
                             <td><?php echo $allchildren->fullname; ?></td>
                             <td><?php echo $allchildren->patnic; ?></td>
                             <td><?php echo $allchildren->pattelno; ?></td>
                             <td><?php echo $allchildren->patadrs;?></td>
-                            <td><?php echo $allchildren->patemail; ?></td>
+<!--                            <td>--><?php //echo $allchildren->patemail; ?><!--</td>-->
                             <td><?php echo $allchildren->childelderdob; ?></td>
                             <td><?php echo $allchildren->childeldergen; ?></td>
 

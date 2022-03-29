@@ -22,7 +22,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <p>
                 <ul class="breadcrumb">
                     <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li>User Management</li>
+                    <li><a href="<?php echo URLROOT ?>/admins/viewuser">View Users</a></li>
                 </ul>
                 </p>
             </div>
@@ -32,21 +32,16 @@ require APPROOT . '/views/includes/Adminhead.php';
 
 
 <div style="margin-left: 21.5%; margin-top:5px; padding:1px 16px; width: 70%; ">
-<!--        <span class="successadded">-->
-<!--            --><?php //if(isset($_GET['msg'])){
-//                echo $_GET['msg']; // print_r($_GET);
-//            }
-//            ?>
-<!--        </span>-->
 
+<!--<br><br><br>-->
 <!--    Say there is no such data-->
-    <span class="successadded" style="color: red">
-                 <?php
-                 if(isset($data['norecord'])){
-                     echo ('No Record Found'); // print_r($_GET);
-                 }
-                 ?>
-                </span> <br>
+<!--    <span class="successadded" style="color: red; margin-left: -32%; margin-top:12px;">-->
+<!--                 --><?php
+//                 if(isset($data['norecord'])){
+//                     echo ('No Record Found'); // print_r($_GET);
+//                 }
+//                 ?>
+<!--                </span> <br>-->
 
     <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
         </div>
@@ -75,9 +70,21 @@ require APPROOT . '/views/includes/Adminhead.php';
             </form>
         </ul>
 <br><br>
+    <span class="successadded" style="color: red; margin-left: -100%; margin-top:12px;">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
 <br>
 
-
+    <span class="successadded">
+            <?php if(isset($_GET['msg'])){
+                echo $_GET['msg']; // print_r($_GET);
+            }
+            ?>
+        </span>
 <!--Table headers-->
         <table id="customers">
             <tr style="text-align:center;">
@@ -89,7 +96,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <th>Username</th>
                 <th>User Role</th>
                 <th>Update</th>
-                <!-- <th>Delete</th> -->
+                 <th>Delete</th>
             </tr>
 
 <!--            Table data-->
@@ -103,13 +110,15 @@ require APPROOT . '/views/includes/Adminhead.php';
                     <td><?php echo $allusers->uname; ?></td>
                     <td><?php echo $allusers->urole; ?></td>
                     <td align="center">
-                        <a class="updateBtn" href="<?php echo URLROOT ."/admins/updateuser/".$allusers->staffid?>" >Update</a>
+                        <div style="margin-top: 10px; margin-bottom: 10px">
+                            <a class="updateBtn" href="<?php echo URLROOT ."/admins/updateuser/".$allusers->staffid?>" >Update</a>
+                        </div>
                     </td>
-                    <!-- <td>
+                    <td>
                         <form action="<?php echo URLROOT . "/admins/deleteuser/"  .$allusers->staffid?>" method="POST">
                             <input class="dltBtn"  Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
                         </form>
-                    </td> -->
+                    </td>
 
                 </tr>
 

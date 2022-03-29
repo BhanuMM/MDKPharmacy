@@ -104,6 +104,17 @@ class Doctors extends Controller {
     }
         $this->view('users/Doctor/Prescriptions',$data);
     }
+    public function allchildprescriptions($childid) {
+        $childpres = $this->doctorModel->viewchildprescriptions($childid);
+
+        $data = [
+
+            'child' => $childpres
+        ];
+
+
+        $this->view('users/Doctor/ChildPrescriptions',$data);
+    }
 
     public function viewmedicineavailability() {
         $allmedicines = $this->doctorModel->viewmed();
@@ -119,9 +130,18 @@ class Doctors extends Controller {
             $datamed= trim($_POST['UISearchbar']);
             $searchmed = $this->doctorModel->searchmed($datamed);
 
-            $data = [
-                'med' => $searchmed
-            ];
+            if ($searchmed) {
+                $data=[
+                    'med' => $searchmed,
+
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'med' =>$searchmed,
+                    'norecord' => "nofound"
+                ];
+            }
         }
         $this->view('users/Doctor/MedicineDetails',$data);
     }
@@ -134,93 +154,28 @@ class Doctors extends Controller {
 
         ];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (isset($_POST['btnid'])) {
                //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $datanic = trim($_POST['patnic']);
             $searchpatient = $this->doctorModel->searchpatient($datanic);
+            $searchchild = $this->doctorModel->searchchild($datanic);
 
-            if ($searchpatient) {
+            if ($searchpatient || $searchchild) {
                 $data=[
                     'pat' => $searchpatient,
-                    'child' =>(array) null
+                    'child' =>$searchchild
                 ];
             }
             else{
                 $data=[
-                    'pat' =>$searchpatient,
+                    'pat' =>(array) null,
                     'child' =>(array) null,
                     'nofound' => 'No Record Found'
                 ];
             }
-              } 
-            
-            
-              elseif (isset($_POST['btnname'])) {
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-            $dataname = trim($_POST['patname']);
-            $searchpatient = $this->doctorModel->searchpatient($dataname);
-    
-            if ($searchpatient) {
-                $data=[
-                    'pat' =>$searchpatient,
-                    'child' =>(array) null
 
-                ];
-            }
-            else{
-                $data=[
-                    'pat' => $searchpatient,
-                    'child' =>(array) null,
-                    'nofound' => 'No Record Found'
-                ];
-            }
-              }
 
-              elseif (isset($_POST['btncname'])) {
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    
-            $dataname = trim($_POST['childname']);
-            $searchchild = $this->doctorModel->searchchild($dataname);
-    
-            if ($searchchild) {
-                $data=[
-                    'child' => $searchchild,
-                    'pat' =>(array) null
-                ];
-            }
-            else{
-                $data=[
-                    'child' => $searchchild,
-                    'pat' =>(array) null,
-                    'nofound' => 'No Record Found'
-                ];
-            }
-              }
-
-              elseif (isset($_POST['btngnic'])) {
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    
-            $dataname = trim($_POST['guardiannic']);
-            $searchchild = $this->doctorModel->searchchild($dataname);
-    
-            if ($searchchild) {
-                $data=[
-                    'child' => $searchchild,
-                    'pat' =>(array) null
-                ];
-            }
-            else{
-                $data=[
-                    'child' => $searchchild,
-                    'pat' =>(array) null,
-                    'nofound' => 'No Record Found'
-                ];
-            }
-              }
-            
-           
         }
 
         $this->view('users/Doctor/CreatePrescription',$data);
@@ -384,7 +339,38 @@ class Doctors extends Controller {
         $this->pastsingleprescription($presid);
 //        $this->view('users/Doctor/ViewPrescription');
     }
+    public function pastchildsingleprescription($presid) {
+        $patdata =$this->doctorModel->getchildprespatdata($presid);
+        $predata =$this->doctorModel->getpresdata($presid);
+        if(($patdata->pattype)=="adult"){
+            $dob =$patdata->patdob;
+        }
+        else{
+            $dob =$patdata->childelderdob;
+        }
 
+        $today = date("Y-m-d");
+        $diff = date_diff(date_create($dob), date_create($today));
+        $data = [
+            'presid' => $patdata->presid,
+            'presdate' => $patdata->presdate,
+            'prestime' => $patdata->pretime,
+            'presnote' => $patdata->specialnote,
+            'patname' => $patdata->patname,
+            'childname' => $patdata->fullname,
+            'childgen' => $patdata->childeldergen,
+            'childob' => $diff->format('%y'),
+            'pattype' => $patdata->pattype,
+            'patage' => $diff->format('%y'),
+            'patgen' => $patdata->patgen,
+            'meds'=> $predata
+//            'medgenname' => $med->medgenname,
+
+
+        ];
+
+        $this->view('users/Doctor/SinglePrescription',$data);
+    }
     public function pastsingleprescription($presid) {
         $patdata =$this->doctorModel->getprespatdata($presid);
         $predata =$this->doctorModel->getpresdata($presid);

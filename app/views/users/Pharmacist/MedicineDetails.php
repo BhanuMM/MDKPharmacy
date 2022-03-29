@@ -14,8 +14,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 Medicine Details                 <p>
                     <ul class="breadcrumb" style="margin-top: -30px;">
                         <li><a href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
-                        <li>Online Prescriptions</li>
-                        <li>Medicine Details</li>
+                        <li><a href="<?php echo URLROOT ?>/pharmacists/viewmedicineavailability">Medicine Details</a></li>
                     </ul>
                     </p>
                 </div>
@@ -46,6 +45,14 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 </ul>
 </div>
 
+<br><br>
+<span class="successadded" style="color: red; margin-left: -73.25%;">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br><br>
 
                 <table id="customers" style="width: 72%; margin-left:21%;">
                     <tr>

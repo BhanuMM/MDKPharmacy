@@ -13,7 +13,7 @@
                 <p>
                 <ul class="breadcrumb">
                     <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li>Report Generation</li>
+                    <li><a href="<?php echo URLROOT ?>/admins/viewreport">Report Generation</a></li>
                 </ul>
                 </p>
             </div>

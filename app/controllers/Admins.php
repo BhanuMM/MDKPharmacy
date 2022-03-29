@@ -74,6 +74,7 @@ class Admins extends Controller {
                 'sname' => trim($_POST['Rfname']),
                 'semail' => trim($_POST['Remail']),
                 'stelno' => trim($_POST['Rtelno']),
+                'urole' => $_POST['Rrole'],
                 'uname' => $_POST['Runame'],
                 'upswrd' => $_POST['Rpass'],
                 'urepswrd' => $_POST['Repass'],
@@ -101,56 +102,45 @@ class Admins extends Controller {
 
 
             if (empty($data['nameError']) && empty($data['telError']) && empty($data['nicError'])) {
+                if(password_verify($_POST['Rpass'],$user->upswrd)){
+                    if ($this->adminModel->updateuser($data)) {
+                        //Redirect to the view table page
+                        $recupdated = ' User Details Updated Successfully';
+                        header('location: ' . URLROOT . '/admins/viewuser?msg='.$recupdated);
+                    } else {
+                        die('Something went wrong.');
+                    }
+                }
+                else{
+                    $data['confirmPasswordError'] = 'Passwords Does Not Match';
+                }
     
     
                 //update user from model function
-                if ($this->adminModel->updateuser($data)) {
-                    //Redirect to the view table page
-                    $recupdated = ' User Details Updated Successfully';
-                    header('location: ' . URLROOT . '/admins/viewuser?msg='.$recupdated);
-                } else {
-                    die('Something went wrong.');
-                }
+
             }
      
         }
         $this->view('users/Admin/UpdateUser', $data);
     }
 //  delete the user details
-    // public function deleteuser($staffid){
-    //     $user = $this->adminModel->findUserById($staffid);
+     public function deleteuser($staffid){
 
-    //     $data = [
-    //         'staffid' => $user->staffid,
-    //         'snic' => '',
-    //         'sname' => '',
-    //         'semail' => '',
-    //         'stelno' => '',
-    //         'uname' => '',
-    //         'upswrd' => '',
-    //         'urepswrd' => '',
-    //         'urole' => '',
-    //         'nicError' => '',
-    //         'telError' => '',
-    //         'nameError' => '',
-    //         'usernameError' => '',
-    //         'passwordError' => '',
-    //         'confirmPasswordError' => ''
 
-    //     ];
+         if($_SERVER['REQUEST_METHOD'] == 'POST') {
+             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-    //     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-    //         if($this->adminModel->deleteuser($staffid)) {
-    //             header("Location: " . URLROOT . "/admins/viewuser");
-    //         } else {
-    //         die('Something went wrong!');
-    //         }
+             if($this->adminModel->deleteuser($staffid)) {
+                 $recupdated = ' User Successfully Deleted';
+//                 header('location: ' . URLROOT . '/admins/viewuser?msg='.$recupdated);
+                 header('Location: ' . URLROOT . '/admins/viewuser?msg='.$recupdated);
+             } else {
+             die('Something went wrong!');
+             }
     
     
-    //     }
-    // }
+         }
+     }
 //  Show the admin dashboard
     public function admindashboard() {
 
@@ -523,7 +513,7 @@ class Admins extends Controller {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
             $datamed= trim($_POST['UISearchbar']);
-            $searchmed = $this->adminModel->searchmed($datamed);
+            $searchmed = $this->adminModel->searchmedqty($datamed);
 
 //            Check whether there are any null values
             if ($searchmed) {

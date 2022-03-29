@@ -12,8 +12,8 @@ require APPROOT . '/views/includes/Doctorhead.php';
                  Patient Details
                 <p>
                 <ul class="breadcrumb">
-                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li>Patient Details</li>
+                    <li><a href="<?php echo URLROOT ?>/doctors/doctordashboard">Dashboard</a></li>
+                    <li><a href="<?php echo URLROOT ?>/doctors/viewpatientdetails">Patient Details</a></li>
                 </ul>
                 </p>
             </div>
@@ -137,7 +137,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                         <td><?php echo $allchild->childelderdob ?></td>
                         <td><?php echo $allchild->childeldergen ?></td>
                         <td align="center">
-                            <a class="updateBtn" href="<?php echo URLROOT ."/doctors/allprescriptions/".$allchild->childelderid ?>" >view</a>
+                            <a class="updateBtn" href="<?php echo URLROOT ."/doctors/allchildprescriptions/".$allchild->childelderid ?>" >view</a>
                         </td>
 
 

@@ -62,12 +62,12 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="admin")){
             /*.vendorListHeading th {*/
             /*    color: white !important;*/
             /*}*/
-            @page {
-                margin-top: 0;
-                margin-bottom: 0;
-                margin-left: 0;
-                margin-right: 0;
-            }
+            /*@page {*/
+            /*    margin-top: 0;*/
+            /*    margin-bottom: 0;*/
+            /*    margin-left: 0;*/
+            /*    margin-right: 0;*/
+            /*}*/
             body {
                 padding-top: 5%;
                 padding-bottom: 5% ;

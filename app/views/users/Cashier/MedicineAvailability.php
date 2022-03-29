@@ -12,8 +12,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 Medicine Availability 
                     <p>
                     <ul class="breadcrumb">
-                        <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                        <li>Medicine Availability</li>
+                        <li><a href="<?php echo URLROOT ?>/cashiers/cashierdashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URLROOT ?>/cashiers/medicineavailability">Medicine Availability</a></li>
                     </ul>
                     </p>
                 </div>
@@ -22,15 +22,15 @@ require APPROOT . '/views/includes/Cashierhead.php';
 </div>
 
             <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%;">
-
-           
-                <span class="successadded" style="color: red">
-                 <?php
-                 if(isset($data['norecord'])){
-                     echo ('No Record Found'); // print_r($_GET);
-                 }
-                 ?>
-                </span> <br>
+<!---->
+<!--           -->
+<!--                <span class="successadded" style="color: red">-->
+<!--                 --><?php
+//                 if(isset($data['norecord'])){
+//                     echo ('No Record Found'); // print_r($_GET);
+//                 }
+//                 ?>
+<!--                </span> <br>-->
 
 <ul style="padding-left: 0px; list-style-type: none;  ">
             <!-- <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin: 0px;"> User Details</h3></li> -->
@@ -50,6 +50,14 @@ require APPROOT . '/views/includes/Cashierhead.php';
             </form>
         </ul>
 
+                <br><br>
+                <span class="successadded" style="color: red; margin-left: -100%; margin-top: 5%;">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br><br>
                 <table id="customers" style="width:102%; margin-left: -3%;">
 
 

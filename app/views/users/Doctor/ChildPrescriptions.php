@@ -45,13 +45,13 @@ require APPROOT . '/views/includes/Doctorhead.php';
             <th>Date</th>
             <th></th>
         </tr>
-        <?php foreach($data['pat'] as $allpat): ?>
+        <?php foreach($data['child'] as $allchild): ?>
         <tr>
-            <td><?php echo $allpat->presid ?></td>
+            <td><?php echo $allchild->presid ?></td>
 <!--            <td>--><?php //echo $allpat->docid ?><!--</td>-->
-            <td><?php echo $allpat->pretime ?></td>
-            <td><?php echo $allpat->presdate ?></td>
-            <td><button class="button button1"><a href="<?php echo URLROOT. "/doctors/pastsingleprescription/".$allpat->presid ?>"> View</a></button></td>
+            <td><?php echo $allchild->pretime ?></td>
+            <td><?php echo $allchild->presdate ?></td>
+            <td><button class="button button1"><a href="<?php echo URLROOT. "/doctors/pastchildsingleprescription/".$allchild->presid ?>"> View</a></button></td>
         </tr>
         <?php endforeach; ?>
     </table>

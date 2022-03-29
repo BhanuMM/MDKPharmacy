@@ -26,11 +26,10 @@
     
 </div>
 
-    <div style="margin-left:27%; padding:1px 16px; width: 40%">
+    <div style="margin-left: 24%; padding:1px 16px; width: 40%">
 
 <!--Starting of the form fields--><br>
-        <form  method="post" class="data" action="<?php echo URLROOT; ?>/admins/addsupplier">
-
+        <form  style="margin-bottom: 10%;"method="post" class="data" action="<?php echo URLROOT; ?>/admins/addsupplier">
 
             <h5>
                 Supplier Agency Name
@@ -55,9 +54,20 @@
             </h5>
             <input type="email" id="supmail" name="supmail"  class="input1"  placeholder="abc@gmail.com" value="<?php echo $data['suppliermail']; ?>" >
             <br><br>
-         <div style="float: left; margin-left: 59%;">
-            <input class="button button1" type="reset" value="Refresh">
-            <button class="form-submit">Submit</button>
-        </div>
+
+            <div style="float: left; margin-left: 55%;">
+                <br><br>
+                <input class="clearBtn" type="reset" value="Refresh">
+
+                <input class="submitBtn" style="margin-left: 05px;" type="submit" name="submitbutton1"  Value="Submit" >
+
+            </div>
+
+
+<!--            <div style="float: left; margin-left: 59%;">-->
+<!--            <input class="button button1" type="reset" value="Refresh">-->
+<!--            <button class="form-submit">Submit</button>-->
+<!--        </div>-->
         </form>
     </div>
+<br><br><br>

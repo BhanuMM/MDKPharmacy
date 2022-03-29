@@ -14,7 +14,7 @@
                 <p>
                 <ul class="breadcrumb">
                     <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li>Full Stock Details</li>
+                    <li><a href="<?php echo URLROOT ?>/admins/viewstock">Full Stock Details</a></li>
 
                 </ul>
                 </p>
@@ -35,13 +35,7 @@
 <!--        </span>-->
 
         <!--    Say there is no such data-->
-        <span class="successadded" style="color: red">
-                 <?php
-                 if(isset($data['norecord'])){
-                     echo ('No Record Found'); // print_r($_GET);
-                 }
-                 ?>
-                </span> <br>
+
 
 <!--        Links to Add New Stock webpage-->
         <a href="<?php echo URLROOT ?>/Admins/addstock">
@@ -90,7 +84,14 @@
                 </table>
             </form>
         </ul>
-
+<br>
+        <span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br><br>
 <!--        Table Headings-->
         <table id="customers">
             <tr>

@@ -2,23 +2,34 @@
 require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
-
-    <div style="margin-left:23.5%; padding:1px 16px; width: 40%; margin-top:0.5%;">
-        <button class="prebtn" style="margin-right: 200px;">
-            <span>
-                <a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewuser"> << </a>
-            </span>
-        </button>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
+                User Details 
+                <p>
+                <ul class="breadcrumb">
+                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                    <li><a href="<?php echo URLROOT ?>/admins/viewuser">View Users</a></li>
+                </ul>
+                </p>
+            </div>
+        </div>
     </div>
+<div>
 
 
     <form method="post" class="data" action="<?php echo URLROOT; ?>/admins/updateuser/<?php echo $data['staffid'] ?>" method="POST" style="background-color: white; ">
         <div class="form-left">
 
             <!--        Heading goes here-->
-            <h2 style="margin-top: 3%;">
-                User Details
-            </h2>
+<!--            <h2 style="margin-top: 3%;">-->
+<!--                User Details-->
+<!--            </h2>-->
+
 
 <!--Left side of the form fields starts here-->
             <h5>
@@ -70,17 +81,13 @@ require APPROOT . '/views/includes/Adminhead.php';
                 Username
             </h5>
                 <input class="input1" type="text" id="Runame" name="Runame" size=40 placeholder="abc_78"  value="<?php echo $data['uname']; ?>"required>
-                <span class="invalidFeedback">
-                    <?php echo $data['usernameError']; ?>
-                </span>
+
 
             <h5>
                 Password
             </h5>
                 <input class="input1" type="password" id="Rpass" name="Rpass" minlength="4" placeholder="***********" required>
-                <span class="invalidFeedback">
-                    <?php echo $data['passwordError']; ?>
-                </span>
+
 
             <h5>
                 Re-enter Password
@@ -92,9 +99,13 @@ require APPROOT . '/views/includes/Adminhead.php';
             <br><br>
 
     <!--            Submit the form details-->
-            <div style="margin-left:71%;">
-                <input class="form-clear" type="reset" value=" Clear ">
-                <input class="form-submit" type="submit" name="submitbutton1" Value="Submit">
+            <div style="float: left; margin-left: 44%;">
+                <br><br>
+                <input class="clearBtn" style="  " type="reset"  value=" Clear">
+
+
+                <input class="submitBtn" style="" type="submit" name="submitbutton1"  Value="Submit" >
+
             </div>
         </div>
     </form>

@@ -9,10 +9,10 @@ require APPROOT . '/views/includes/Deliveryhead.php';
             <div class="welcome">
                     <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
                 <div class="welcome-names">
-                Past Deliveries             <p>
+                Previous Deliveries             <p>
                     <ul class="breadcrumb" style="margin-top: -30px;">
-                        <li><a href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
-                        <li>Past Deliveries </li>
+                        <li><a href="<?php echo URLROOT ?>/deliverys/deliverydashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URLROOT ?>/deliverys/viewpastdeliveries">Previous Deliveries</a></li>
                         
                        
                     </ul>
@@ -24,13 +24,13 @@ require APPROOT . '/views/includes/Deliveryhead.php';
 </div>
 <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
 
-    <span class="successadded" style="color: red">
-                 <?php
-                 if(isset($data['norecord'])){
-                     echo ('No Record Found'); // print_r($_GET);
-                 }
-                 ?>
-                </span> <br>
+<!--    <span class="successadded" style="color: red">-->
+<!--                 --><?php
+//                 if(isset($data['norecord'])){
+//                     echo ('No Record Found'); // print_r($_GET);
+//                 }
+//                 ?>
+<!--                </span> <br>-->
 
                              
         <ul style="padding-left: 0px; list-style-type: none;  ">
@@ -59,7 +59,15 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                 </table>
             </form>
         </ul>
-                
+
+    <br><br><br>
+    <span class="successadded" style="color: red; margin-left: -102.5%; margin-top: 5%;">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br><br>
                 <table id="customers" style="margin-left: -3%; width:102%;">
                     <tr>
                       <th>Prescription ID</th>

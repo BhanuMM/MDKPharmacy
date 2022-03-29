@@ -3,8 +3,22 @@ require APPROOT . '/views/includes/Doctorhead.php';
 ?>
 
 
-<div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/doctors/viewpatientdetails"> << </a> </span></button>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
+                 Prescription Details
+                <p>
+                <ul class="breadcrumb">
+                    <li><a href="<?php echo URLROOT ?>/doctors/doctordashboard">Dashboard</a></li>
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">
@@ -86,8 +100,8 @@ require APPROOT . '/views/includes/Doctorhead.php';
             <textarea name="Text1" class="input2" rows="5" readonly><?php echo $data['presnote']?></textarea>
                         <br>
                     </div>
-                    
-                    <button class="button button1" style="float: right;">Print Prescription</button>
+
+        <a href = "<?php echo URLROOT ?>/doctors/doctordashboard"><button class="button button1" style="float: right;">Print Prescription</button></a>
                 </div>
             </div>
             

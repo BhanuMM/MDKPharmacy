@@ -11,8 +11,8 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                 <div class="welcome-names">
                Current Deliveries                 <p>
                     <ul class="breadcrumb" style="margin-top: -30px;">
-                        <li><a href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
-                        <li>Current Deliveries </li>
+                        <li><a href="<?php echo URLROOT ?>/deliverys/deliverydashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URLROOT ?>/deliverys/viewcurrentdeliveries">Current Deliveries</a></li>
                        
                     </ul>
                     </p>
@@ -24,13 +24,13 @@ require APPROOT . '/views/includes/Deliveryhead.php';
 
 <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
 
-    <span class="successadded" style="color: red">
-                 <?php
-                 if(isset($data['norecord'])){
-                     echo ('No Record Found'); // print_r($_GET);
-                 }
-                 ?>
-                </span> <br>
+<!--    <span class="successadded" style="color: red">-->
+<!--                 --><?php
+//                 if(isset($data['norecord'])){
+//                     echo ('No Record Found'); // print_r($_GET);
+//                 }
+//                 ?>
+<!--                </span> <br>-->
 <!--<span class="successadded">-->
 <!--                 --><?php
 //                 if(isset($_GET['msg'])){
@@ -62,7 +62,14 @@ require APPROOT . '/views/includes/Deliveryhead.php';
     </form>
 </ul>
 </div>
-
+    <br><br>
+    <span class="successadded" style="color: red; margin-left: -102.5%; margin-top: 5%;">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br><br>
                 <table id="customers" style="width: 102%; margin-left:-3%;">
                     <tr>
                       <th>Pres ID</th>

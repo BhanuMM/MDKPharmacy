@@ -12,12 +12,12 @@
         <div class="welcome">
                 <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
             <div class="welcome-names">
-                Return Stock Details
+                Stock Reorder
                 <p>
                 <ul class="breadcrumb" style="margin-top: -30px;">
                     <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li>Full Stock Details</li>
-                    <li>Return Stock Details</li>
+                    <li><a href="<?php echo URLROOT ?>/admins/viewstock">Full Stock Details</a></li>
+                    <li><a href="<?php echo URLROOT ?>/admins/stockreorder">Stock Reorder</a></li>
 
                 </ul>
                 </p>
@@ -65,7 +65,7 @@
     </div>
 
 <!--    View Low Stock Table-->
-    <div id="one" class="w3-container w3-display-container city" style="display:none">
+    <div id="one" class="w3-container w3-display-container city" style="display:none; padding-left: 0; padding-right: 0;">
         <p>
             <table id="customers">
 <!--            Table Headings-->
