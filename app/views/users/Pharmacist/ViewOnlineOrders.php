@@ -14,7 +14,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 Online Prescriptions                   <p>
                     <ul class="breadcrumb" style="margin-top: -30px;">
                         <li><a href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
-                        <li><a href="<?php echo URLROOT?>/pharmacists/viewonlineorders">Online Prescriptions</li>
+                        <li><a href="<?php echo URLROOT?>/pharmacists/viewonlineorders">Online Prescriptions</a></li>
                     </ul>
                     </p>
                 </div>
@@ -41,7 +41,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 
 
 
-<ul style="padding-left: 0px; list-style-type: none;  ">
+<ul style="padding-left: 0px; list-style-type: none; ">
             <!-- <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin: 0px;"> User Details</h3></li> -->
             <form method="post" class="data" style="float: left; display: inline; margin-top: -5%; margin-left: 75.5%;" action="<?php echo URLROOT; ?>/pharmacists/viewonlineorders">
                 <table>
@@ -124,7 +124,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                             <td><?php echo $allrejorders->onlineoid ?></td>
                             <td><?php echo $allrejorders->onlinefname ?></td>
                             <td><?php echo $allrejorders->onlinetelno ?></td>
-                            <td><?php echo $allrejorders->reason?></td>
+                            <td><?php echo $allrejorders->reason ?></td>
 
                             <!-- <td><button class="button button1"><a href="<?php echo URLROOT. "/pharmacists/pastsingleprescription/".$allrejorders->onlineoid ?>">View</a></button></td> -->
                         </tr>

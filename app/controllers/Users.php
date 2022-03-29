@@ -189,7 +189,7 @@ class Users extends Controller {
                         'usernameError' => '',
                         'passwordError' => ''
                     ];
-                    $data['passwordError'] = '*Password or username is incorrect. Please try again.';
+                    $data['passwordError'] = '*Password or username is incorrect.';
 
 
                     $this->view('/index', $data);
