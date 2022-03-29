@@ -86,8 +86,8 @@ class Doctors extends Controller {
 
             if ($searchpatientpres || $searchchildpres) {
                 $data=[
-                    'pat' => $searchpatient,
-                    'child' =>$searchchild
+                    'pat' => $searchpatientpres,
+                    'child' =>$searchchildpres
 
                 ];
             }
@@ -227,8 +227,7 @@ class Doctors extends Controller {
 //
         $this->view('users/Doctor/AddChildPrescription',$data);
     }
-
-    public function viewprescriptions() {
+    public function viewchildprescriptions() {
         $data = [
             'genericname' => '',
             'brandname' => '',
@@ -315,28 +314,115 @@ class Doctors extends Controller {
                 }
 
             }else {
+                die('Something went wrong.');
+            }
+
+        }
+        $this->pastsingleprescription($presid);
+//        $this->view('users/Doctor/ViewPrescription');
+    }
+    public function viewprescriptions() {
+        $data = [
+            'genericname' => '',
+            'brandname' => '',
+            'importername' => '',
+            'dealer' => '',
+            'purchaseprice' => '',
+            'sellingprice' => '',
+            'profitmargin' => '',
+            'acslvl'=>'',
+            'pattype' =>'',
+            'nameError' => ''
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $count = count($_POST['medid']);
+            $medid =$_POST['medid'];
+            $meddose =$_POST['meddos'];
+            $medtime =$_POST['time'];
+            $meddur =$_POST['medduration'];
+
+            $tz = 'Asia/Colombo';
+            $timestamp = time();
+            $dt = new DateTime("now", new DateTimeZone($tz));
+            $dt->setTimestamp($timestamp);
+
+
+            $data=[
+                'patid'=>$_POST['patid'],
+                'docid' => $_POST['docid'],
+                'pattype' => $_POST['pattype'],
+                'prestime'=>$dt->format(' H:i:s'),
+                'presdate'=>date("Y/m/d"),
+                'specialnote'=>$_POST['specialnote'],
+                'billed' => "no"
+            ];
+
+            if ($this->doctorModel->createpres($data)){
+                $maxpres =$this->doctorModel->getlatestpres();
+                if ($data['pattype']=='child'){
+                    $data=[
+                        'childid' =>$_POST['childid'],
+                        'patid'=>$_POST['patid'],
+                        'presid'  =>$maxpres->maxpres,
+                        'pattype' =>''
+                    ];
+                    $this->doctorModel->addtochildpres($data);
+
+                }
+                $presid = $maxpres->maxpres;
+                for($i=0; $i< $count; $i++){
+                    if($medtime[$i]=="Bd"){
+
+                        $qty = (int)$meddose[$i]*2*(int)$meddur[$i];
+
+                    }elseif($medtime[$i]=="Tds"){
+
+                        $qty = (int)$meddose[$i]*3*(int)$meddur[$i];
+
+                    }elseif($medtime[$i]=="Nocte"){
+
+                        $qty = (int)$meddose[$i]*1*(int)$meddur[$i];
+
+                    }elseif($medtime[$i]== "Mane"){
+
+                        $qty = (int)$meddose[$i]*1*(int)$meddur[$i];
+
+                    }else{
+
+                        $qty = (int)$meddose[$i]*1*(int)$meddur[$i];
+
+                    }
+                    $data=[
+                        'medid'=> $medid [$i],
+                        'meddose'=> $meddose[$i],
+                        'medtime'=> $medtime[$i],
+                        'meddur'=> $meddur[$i],
+                        'qty'=> $qty,
+                        'presid'=>$presid,
+                        'pattype' => $_POST['pattype']
+
+                    ];
+                    $this->doctorModel->addtopres($data);
+//                echo  $medid [$i] . "-" . $meddose[$i] ."<br>";
+                }
+                if ($data['pattype']=='child'){
+                    $this->pastchildsingleprescription($presid);
+                }else{
+                    $this->pastsingleprescription($presid);
+                }
+            }else {
                    die('Something went wrong.');
               }
 
-
-
-
-//
-            // Make sure that errors are empty
-//            if (empty($data['nameError'])) {
-
-
-                //Register user from model function
-//                if ($this->adminModel->registermedicine($data)) {
-//                    //Redirect to the viewtable page
-//                    $recadded = 'New Medicine has been Successfully Added!';
-//                    header('location: ' . URLROOT . '/admins/viewmed?msg='.$recadded);
-//                } else {
-//                    die('Something went wrong.');
-//                }
-//            }
         }
-        $this->pastsingleprescription($presid);
+
+
+//        $this->pastchildsingleprescription($presid);
 //        $this->view('users/Doctor/ViewPrescription');
     }
     public function pastchildsingleprescription($presid) {

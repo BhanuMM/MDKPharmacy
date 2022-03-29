@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="admin")){
     <link rel="shortcut icon" type="MDK/jpg" href="<?php echo URLROOT ?>/public/images/MDK.jpg"/>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <title>
-        DashBoard
+        MDK Pharmacy
     </title>
 <!--    <link rel="stylesheet" href="--><?php //echo URLROOT ?><!--/public/css/StyleSheet.css">-->
 <!--    <link rel="stylesheet" href="--><?php //echo URLROOT ?><!--/public/css/csscode.css">-->
