@@ -12,8 +12,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 Medicine Availability 
                     <p>
                     <ul class="breadcrumb">
-                        <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                        <li>Medicine Availability</li>
+                        <li><a href="<?php echo URLROOT ?>/cashiers/cashierdashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URLROOT ?>/cashiers/medicineavailability">Medicine Availability</a></li>
                     </ul>
                     </p>
                 </div>
