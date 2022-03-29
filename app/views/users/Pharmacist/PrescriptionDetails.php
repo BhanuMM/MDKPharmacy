@@ -14,7 +14,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 Prescriptions                    <p>
                     <ul class="breadcrumb">
                         <li><a href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
-                        <li>Prescriptions</li>
+                        <li><a href="<?php echo URLROOT ?>/pharmacists/ prescriptiondetails">Prescriptions</a></li>
                     </ul>
                     </p>
                 </div>
