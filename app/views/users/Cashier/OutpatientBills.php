@@ -28,8 +28,10 @@ require APPROOT . '/views/includes/Cashierhead.php';
 <!--    Heading     -->
 
             <div class="row">
+
                 <!--    Section to search medicines and add them to the list     -->
                 <div class="columnBill" >
+
                     <div class="container">
                         <h3>Add Medicine</h3>
 
