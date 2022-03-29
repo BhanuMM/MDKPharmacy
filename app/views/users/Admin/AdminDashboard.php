@@ -6,9 +6,9 @@ require APPROOT . '/views/includes/Adminhead.php';
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
     <div class="welcome-card">
         <div class="welcome">
-                <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt="">
+             
             <div class="welcome-names">
-                Welcome ,<?php echo $_SESSION['username'] ?>  !
+                Welcome, <?php echo $_SESSION['username'] ?>  !
                 <p style="font-size: 14px;">Admin</p>
             </div>
         </div>
@@ -97,7 +97,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                         <div class="fn-card" style="margin-top: 150px">
 
                             <div class="welcome">
-                                <img src="<?php echo URLROOT ?>/public/images/medicine-icon.png" />
+                                <img src="<?php echo URLROOT ?>/public/images/first-aid-kit.png" />
                                 <div class="fn-names">
                                     Surgical Items
                                 </div>

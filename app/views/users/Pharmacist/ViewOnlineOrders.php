@@ -7,14 +7,14 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
-        <div class="welcome-card">
+        <div class="welcome-card" style="height:100%;">
             <div class="welcome">
                     <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
                 <div class="welcome-names">
                 Online Prescriptions                   <p>
                     <ul class="breadcrumb" style="margin-top: -30px;">
                         <li><a href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
-                        <li>Online Prescriptions</li>
+                        <li><a href="<?php echo URLROOT?>/pharmacists/viewonlineorders">Online Prescriptions</li>
                     </ul>
                     </p>
                 </div>
@@ -29,7 +29,8 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                      echo $_GET['msg']; // print_r($_GET);
                  }
                  ?>
-                </span>
+</span>
+
 </div>
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">

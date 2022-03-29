@@ -34,7 +34,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
 <ul style="padding-left: 0px; list-style-type: none;  ">
             <!-- <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin: 0px;"> User Details</h3></li> -->
-            <form method="post" class="data" style="float: left; display: inline; margin-top: 5%; margin-left: 71.5%;" action="<?php echo URLROOT; ?>/cashiers/medicineavailability">
+            <form method="post" class="data" style="float: left; display: inline; margin-top: 5%; margin-left: 69.5%;" action="<?php echo URLROOT; ?>/cashiers/medicineavailability">
                 <table>
                     <tr>
                         <th>
@@ -52,21 +52,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
                 <table id="customers" style="width:102%; margin-left: -3%;">
 
-            <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
-    <li Style="float: left; vertical-align: middle; display: inline;"><h3>Medicine Details</h3></li>
-        <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/medicineavailability">
-            <table>
-                <tr>
-                <th><li Style="float: right; vertical-align: middle; display: inline;">
-                <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 550px; height: 35px; width: 200px;" placeholder="Medicine Name"></li>
-                </th>
-                <th><button style="margin-left: 10px;" class="form-submit">SEARCH</button></th>
-                </tr>
-            </table>
-        </form>
-</ul>
 
-                <table id="customers">
 
                     <tr>
                       <th>Medicine ID</th>
