@@ -117,40 +117,40 @@ class Admins extends Controller {
         $this->view('users/Admin/UpdateUser', $data);
     }
 //  delete the user details
-    public function deleteuser($staffid){
-        $user = $this->adminModel->findUserById($staffid);
+    // public function deleteuser($staffid){
+    //     $user = $this->adminModel->findUserById($staffid);
 
-        $data = [
-            'staffid' => $user->staffid,
-            'snic' => '',
-            'sname' => '',
-            'semail' => '',
-            'stelno' => '',
-            'uname' => '',
-            'upswrd' => '',
-            'urepswrd' => '',
-            'urole' => '',
-            'nicError' => '',
-            'telError' => '',
-            'nameError' => '',
-            'usernameError' => '',
-            'passwordError' => '',
-            'confirmPasswordError' => ''
+    //     $data = [
+    //         'staffid' => $user->staffid,
+    //         'snic' => '',
+    //         'sname' => '',
+    //         'semail' => '',
+    //         'stelno' => '',
+    //         'uname' => '',
+    //         'upswrd' => '',
+    //         'urepswrd' => '',
+    //         'urole' => '',
+    //         'nicError' => '',
+    //         'telError' => '',
+    //         'nameError' => '',
+    //         'usernameError' => '',
+    //         'passwordError' => '',
+    //         'confirmPasswordError' => ''
 
-        ];
+    //     ];
 
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    //     if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            if($this->adminModel->deleteuser($staffid)) {
-                header("Location: " . URLROOT . "/admins/viewuser");
-            } else {
-            die('Something went wrong!');
-            }
+    //         if($this->adminModel->deleteuser($staffid)) {
+    //             header("Location: " . URLROOT . "/admins/viewuser");
+    //         } else {
+    //         die('Something went wrong!');
+    //         }
     
     
-        }
-    }
+    //     }
+    // }
 //  Show the admin dashboard
     public function admindashboard() {
 
