@@ -25,8 +25,25 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
             <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">
-           
+
+              
+            <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
+    <li Style="float: left; vertical-align: middle; display: inline;"><h3> Previous Bill Details</h3></li>
+</ul>
+                <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/pastbills">
+                    <table>
+                        <tr>
+                            <th><li Style="float: right; vertical-align: middle; display: inline;">
+                                    <input type="date" id="UISearchbar" name="UISearchbar" style="margin-left: 520px; height: 35px; width: 200px;" placeholder="Bill ID"></li>
+                            </th>
+                            <th><button style="margin-left: 10px;" class="form-submit" name="btndate">SEARCH</button></th>
+                        </tr>
+                    </table>
+                </form>
+
+
 
 <div class="w3-bar w3-black">
   <button class="w3-bar-item w3-button tablink w3-blue" onclick="openCity(event,'already')">Inpatients(Patients from OPD)</button>
@@ -47,16 +64,6 @@ require APPROOT . '/views/includes/Cashierhead.php';
 <!--  <span onclick="this.parentElement.style.display='none'"-->
 <!--  class="w3-button w3-large w3-display-topright">&times;</span>-->
   <p>
-  <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/pastbills">
-            <table>
-                <tr>
-                <th><li Style="float: right; vertical-align: middle; display: inline;">
-                <input type="text" id="UISearchbar" name="UISearchbar" style="margin-left: 520px; height: 35px; width: 200px;" placeholder="Bill ID"></li>
-                </th>
-                <th><button style="margin-left: 10px;" class="form-submit" name="btnin">SEARCH</button></th>
-                </tr>
-            </table>
-        </form>
 
 
   <table id="customers">
@@ -67,7 +74,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
             <!--                <th>Prescription ID</th>-->
             <!--                <th>Patient Name</th>-->
             <th>Bill Date</th>
-            <th>Chashier ID</th>
+            <th>Bill Amount</th>     
+            <th>Cashier Name</th>
             <th>View</th>
         </tr>
         <?php foreach($data['inpast'] as $inpast): ?>
@@ -75,7 +83,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
             <tr>
                 <td><?php echo $inpast->billid; ?></td>
                 <td><?php echo $inpast->billdate; ?></td>
-                <td><?php echo $inpast->cashierid; ?></td>
+                <td><?php echo $inpast->grosstotal; ?></td>
+                <td><?php echo $inpast->sname; ?></td>
                 <!--                    <td>--><?php //echo $inpast->patnic; ?><!--</td>-->
                 <!--                    <td>--><?php //echo $inpast->presdate; ?><!--</td>-->
                 <td><div style="margin-top: 10%; margin-bottom: 10%;"><a class="updateBtn" href="<?php echo URLROOT. "/cashiers/pastbillsingle/".$inpast->billid ?>"> View Bills</a></div></td>
@@ -99,21 +108,13 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
 
     <p>
-  <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/pastbills">
-            <table>
-                <tr>
-                <th><li Style="float: right; vertical-align: middle; display: inline;">
-                <input type="text" id="outUISearchbar" name="outUISearchbar" style="margin-left: 520px; height: 35px; width: 200px;" placeholder="Bill ID"></li>
-                </th>
-                <th><button style="margin-left: 10px;" class="form-submit" name="btnout">SEARCH</button></th>
-                </tr>
-            </table>
-        </form>
+
     <table id="customers">
         <tr>
             <th>Bill ID</th>
             <th>Bill Date</th>
-            <th>Cashier ID</th>
+            <th>Bill Amount</th> 
+            <th>Cashier Name</th>
             <!--                <th>Date</th>-->
             <th>View</th>
         </tr>
@@ -122,7 +123,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
             <tr>
                 <td><?php echo $outpast->billid; ?></td>
                 <td><?php echo $outpast->billdate; ?></td>
-                <td><?php echo $outpast->cashierid; ?></td>
+                <td><?php echo $inpast->grosstotal; ?></td>
+                <td><?php echo $inpast->sname; ?></td>
                 <!--                    <td>--><?php //echo $outpast->patnic; ?><!--</td>-->
                 <!--                    <td>--><?php //echo $outpast->presdate; ?><!--</td>-->
                 <td><div style="margin-top: 10%; margin-bottom: 10%;"><a class="updateBtn" href="<?php echo URLROOT. "/cashiers/pastoutbillsingle/".$outpast->billid ?>"> View Bill</a></button></td>
@@ -146,21 +148,13 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
 
     <p>
-  <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/cashiers/pastbills">
-            <table>
-                <tr>
-                <th><li Style="float: right; vertical-align: middle; display: inline;">
-                <input type="text" id="onlineUISearchbar" name="onlineUISearchbar" style="margin-left: 520px; height: 35px; width: 200px;" placeholder="Bill ID"></li>
-                </th>
-                <th><button style="margin-left: 10px;" class="form-submit" name="btnonline">SEARCH</button></th>
-                </tr>
-            </table>
-        </form>
+
   <table id="customers">
         <tr>
             <th>Bill ID</th>
             <th>Bill Date</th>
-            <th>Cashier ID</th>
+            <th>Bill Amount</th> 
+            <th>Cashier Name</th>
             <!--                <th>Date</th>-->
             <th>View</th>
         </tr>
@@ -169,7 +163,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
             <tr>
                 <td><?php echo $online->billid; ?></td>
                 <td><?php echo $online->billdate; ?></td>
-                <td><?php echo $online->cashierid; ?></td>
+                <td><?php echo $inpast->grosstotal; ?></td>
+                <td><?php echo $inpast->sname; ?></td>
                 <!--                    <td>--><?php //echo $online->onlinetelno; ?><!--</td>-->
                 <!--                    <td>--><?php //echo $online->presdate; ?><!--</td>-->
                 <td><div style="margin-top: 10%; margin-bottom: 10%;"><a class="updateBtn" href="<?php echo URLROOT. "/cashiers/pastbillsingle/".$online->billid ?>"> VIEW BILL</a></div></td>
