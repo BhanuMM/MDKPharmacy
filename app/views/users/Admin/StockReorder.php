@@ -65,7 +65,7 @@
     </div>
 
 <!--    View Low Stock Table-->
-    <div id="one" class="w3-container w3-display-container city" style="display:none">
+    <div id="one" class="w3-container w3-display-container city" style="display:none; padding-left: 0; padding-right: 0;">
         <p>
             <table id="customers">
 <!--            Table Headings-->
