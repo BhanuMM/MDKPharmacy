@@ -39,6 +39,7 @@ class myPDF extends FPDF {
         $this->SetY(-15);
         $this->Cell(0,10,'Page'.$this->PageNo().'/{nb}',0,0,'c');
     }
+
     function dailyheader(){
         $this->SetFont('Arial','B',14);
         $this->Cell(40,10,'Daily Summary',0.0,'c');
@@ -68,6 +69,37 @@ class myPDF extends FPDF {
         $this->Cell(40,10,'In Patient Income :',0.0,'c');
         $this->Cell(60,10,$count->sm,0.0,'c');
         $this->Ln();
+
+    public function InventoryDailysummary(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $datemed = $_POST['idate'];
+            $purchase=$this->reportModel->purchmed($datemed);
+            $return=$this->reportModel->returnmed($datemed);
+            $psurg=$this->reportModel->purchsurg($datemed);
+            $rsurg=$this->reportModel->returnsurg($datemed);
+
+            $data =[
+                'purchmedicine'=>$purchase,
+                'returnmedicine'=>$return,
+                'purchsurgicals'=>$psurg,
+                'returnsurgicals'=>$rsurg
+            ];
+            $this->view('users/Report/InventoryDailySummary',$data);
+//            $inbills=$this->reportModel->incount();
+//            $outbills=$this->reportModel->outcount();
+//            $onlinebills=$this->reportModel->onlinecount();
+//            $data =[
+//                'inbillcount'=>$inbills->cnt,
+//                'inbillsum'=>$inbills->sm,
+//                'outbillcount'=>$outbills->cnt,
+//                'outbillsum'=>$outbills->sm,
+//                'onlinebillcount'=>$onlinebills->cnt,
+//                'onlinebillsum'=>$onlinebills->sm,
+//                'dategen'=> $_POST['gendate']
+//            ];
+            $this->view('users/Report/InventoryDailySummary');
+        }
+
     }
 
 

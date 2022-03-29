@@ -62,7 +62,13 @@
                Stock Purchased Date
             </h5>
             <input class="input1" type="date" id="pur" name="purchdate" size=15 required>
-                
+
+
+            <h5>
+                Stock Returned Date
+            </h5>
+            <input class="input1" type="date" id="rdate" name="rdate" size=15 required>
+
             <br><br><br>
 
 <!--            Submit buttons-->

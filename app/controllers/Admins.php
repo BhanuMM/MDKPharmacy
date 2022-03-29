@@ -656,6 +656,7 @@ class Admins extends Controller {
             'returnqty' => '',
             'reason' => '',
             'purchdate' => '',
+            'returndate' => '',
             'nameError' => ''
             
         ];
@@ -673,6 +674,7 @@ class Admins extends Controller {
                 'purchdate' => trim($_POST['purchdate']),
                 'returnqty' => trim($_POST['returnqty']),
                 'reason' => trim($_POST['reason']),
+                'returndate' => trim($_POST['rdate']),
                 'newquantity' => $newquantity
             ];
             // Make sure that errors are empty
