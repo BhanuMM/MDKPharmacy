@@ -9,11 +9,11 @@ require APPROOT . '/views/includes/Counsellorhead.php';
             <div class="welcome">
                     <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
                 <div class="welcome-names">
-                Past Bills
+                View Bills
                     <p>
-                    <ul class="breadcrumb">
+                    <ul class="breadcrumb" style="margin-top: -30px;">
                         <li><a href="<?php echo URLROOT ?>/counsellors/counsellordashboard">Dashboard</a></li>
-                        <li>Past Bills</li>
+                        <li><a href="<?php echo URLROOT ?>/counsellors/pastbills">View Bills</a></li>
                     </ul>
                     </p>
                 </div>
@@ -24,10 +24,6 @@ require APPROOT . '/views/includes/Counsellorhead.php';
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">
-         
-    <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
-    <li Style="float: left; vertical-align: middle; display: inline;"><h3> Previous Bill Details</h3></li>
-    </ul>
                 <form method="post" class="data" Style="float: left;" action="<?php echo URLROOT; ?>/counsellors/pastbills">
                     <table>
                         <tr>
