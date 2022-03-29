@@ -137,7 +137,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
                         <td><?php echo $allchild->childelderdob ?></td>
                         <td><?php echo $allchild->childeldergen ?></td>
                         <td align="center">
-                            <a class="updateBtn" href="<?php echo URLROOT ."/doctors/allprescriptions/".$allchild->childelderid ?>" >view</a>
+                            <a class="updateBtn" href="<?php echo URLROOT ."/doctors/allchildprescriptions/".$allchild->childelderid ?>" >view</a>
                         </td>
 
 

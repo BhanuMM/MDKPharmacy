@@ -192,7 +192,7 @@ class Doctor {
 
     public function viewchildprescriptions($childid) {
 
-        $this->db->query('SELECT * FROM childpres WHERE childid = :childid ORDER BY presid DESC');
+        $this->db->query('SELECT * FROM childpres INNER JOIN prescription ON childpres.presid = prescription.presid WHERE childpres.childid = :childid  AND prescription.pattype="child" ORDER BY childpres.presid DESC');
             $this->db->bind(':childid',$childid);
     
             $results = $this->db->resultSet();
@@ -204,9 +204,20 @@ class Doctor {
 
     public function getprespatdata($presid) {
 
-        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid LEFT JOIN childpres ON prescription.presid = childpres.presid   LEFT JOIN childelder on childpres.childid=childelder.childelderid ORDER BY prescription.presid DESC');
+        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid LEFT JOIN childpres ON prescription.presid = childpres.presid   LEFT JOIN childelder on childpres.childid=childelder.childelderid WHERE prescription.presid = :pid AND prescription.pattype="adult"  ORDER BY prescription.presid DESC');
 
-//        $this->db->bind(':pid',$presid);
+        $this->db->bind(':pid',$presid);
+
+        $row = $this->db->single();
+
+        return $row;
+
+    }
+    public function getchildprespatdata($presid) {
+
+        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid LEFT JOIN childpres ON prescription.presid = childpres.presid   LEFT JOIN childelder on childpres.childid=childelder.childelderid WHERE prescription.presid = :pid AND prescription.pattype="child"  ORDER BY prescription.presid DESC');
+
+        $this->db->bind(':pid',$presid);
 
         $row = $this->db->single();
 
@@ -215,7 +226,7 @@ class Doctor {
     }
     public function getpresdata($presid) {
 
-        $this->db->query('SELECT * FROM presmed INNER JOIN medicine ON medicine.medid= presmed.medid  WHERE presid = :pid');
+        $this->db->query('SELECT * FROM presmed INNER JOIN medicine ON medicine.medid= presmed.medid   WHERE presid = :pid ');
         $this->db->bind(':pid',$presid);
 
         $results = $this->db->resultSet();
