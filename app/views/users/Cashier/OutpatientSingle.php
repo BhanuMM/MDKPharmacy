@@ -73,7 +73,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right">Discount</td>
-                        <td> <input  id="dis" name="dis" type="text" autocomplete="off"></td>
+                        <td> <input  id="dis" name="dis" type="number" autocomplete="off"></td>
                     </tr>
                     <tr>
                         <td colspan="3" class="text-right">Gross Total</td>
@@ -81,7 +81,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     </tr>
                 <tr>
                     <td colspan="3" class="text-right">Paid Amount</td>
-                    <td ><input id="pamount"  name="pamount" type="text" autocomplete="off"></td>
+                    <td ><input id="pamount"  name="pamount" type="number" autocomplete="off" required> </td>
                 </tr>
                 <tr>
                     <td colspan="3" class="text-right">Balance</td>
@@ -123,25 +123,30 @@ require APPROOT . '/views/includes/Cashierhead.php';
         $("#subtot").val(subtotal.toFixed(2));
         $('#grandt').val(subtotal.toFixed(2));
 
-
-
     });
+
     $(document).on("change keyup keydown blur", "#dis", function() {
 
         var grandtotal =0;
-        var dis = $("#dis").val();
+        var dis =0;
+        dis = $("#dis").val();
         var subtotal = $("#subtot").val();
-        if(dis !=0 && dis>0){
+        var pamount = $("#pamount").val();
+        if(dis !=0 && dis>0 && dis< 101){
             grandtotal =  (parseFloat(subtotal)*(100-parseFloat(dis)))/100;
-            var pamount = $("#pamount").val();
-            if (pamount != 0){
-                // grandtotal = $("#grandt").val();
-                var balance =  parseFloat(grandtotal)- parseFloat(pamount);
-                $('#balance').val( balance.toFixed(2));
-            }
-            $('#balance').val(null );
-            $('#grandt').val( grandtotal.toFixed(2));
 
+            if (pamount != 0 && pamount>0){
+                var  balance =  parseFloat(pamount )- parseFloat(grandtotal);
+                $('#balance').val( balance.toFixed(2));
+                $('#grandt').val( grandtotal.toFixed(2));
+            }else{
+                $('#balance').val(null);
+                $('#grandt').val( grandtotal.toFixed(2));
+            }
+            // $('#balance').val(null );
+
+        }else{
+            $('#grandt').val( subtotal);
         }
 
     });
@@ -149,11 +154,12 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
         var balance =0;
         var pamount = $("#pamount").val();
-        var grosstotal = $("#grandt").val();
+        var grandtotal = $("#grandt").val();
         if(pamount !=0 && pamount > 0){
-            balance =  parseFloat(pamount )- parseFloat(grosstotal);
-
+            balance =  parseFloat(pamount )- parseFloat(grandtotal);
             $('#balance').val( balance.toFixed(2));
+        }else{
+            $('#balance').val(balance);
         }
 
     });
@@ -161,5 +167,3 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
 
 </script>
-</body>
-</html>

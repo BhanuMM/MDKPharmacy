@@ -29,35 +29,35 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
             <div class="row">
                 <!--    Section to search medicines and add them to the list     -->
-                <div class="columnBill" >
-                    <div class="container">
-                        <h3>Add Medicine</h3>
-
-                        <div class="select-box">
-                            <div class="options-container">
-                                <?php
-                                foreach($data['medicines'] as $allmedicines):
-                                    {
-                                        echo ' <div class="option" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
-
-                                    }
-                                endforeach; ?>
-
-
-                            </div>
-                            <!--    Search button     -->
-                            <div class="selected" medid="test" id="1">Select Medicine</div>
-
-                            <div class="search-box">
-                                <input type="text" placeholder="Start Typing..." />
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <br>
-
-                    <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">+ </button>
-                 </div>
+<!--                <div class="columnBill" >-->
+<!--                    <div class="container">-->
+<!--                        <h3>Add Medicine</h3>-->
+<!---->
+<!--                        <div class="select-box">-->
+<!--                            <div class="options-container">-->
+<!--                                --><?php
+//                                foreach($data['medicines'] as $allmedicines):
+//                                    {
+//                                        echo ' <div class="option" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
+//
+//                                    }
+//                                endforeach; ?>
+<!---->
+<!---->
+<!--                            </div>-->
+<!--                            <!--    Search button     -->-->
+<!--                            <div class="selected" medid="test" id="1">Select Medicine</div>-->
+<!---->
+<!--                            <div class="search-box">-->
+<!--                                <input type="text" placeholder="Start Typing..." />-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <br>-->
+<!---->
+<!--                    <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">+ </button>-->
+<!--                 </div>-->
                 <br>
 <!-- TWO -->
                  <div class="row"> 
@@ -80,7 +80,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
                             </div>
                             <!--    Search button     -->
-                            <div class="selected" medid="test" id="1">Select items</div>
+                            <div class="selected2" medid="test" id="1">Select items</div>
 
                             <div class="search-box">
                                 <input type="text" placeholder="Start Typing..." />
@@ -177,29 +177,29 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 };
             </script>
     <script>
-        const selected = document.querySelector(".selected");
-        const optionsContainer = document.querySelector(".options-container");
-        const searchBox = document.querySelector(".search-box input");
+        const selected2 = document.querySelector(".selected2");
+        const optionsContainer2 = document.querySelector(".options-container");
+        const searchBox2 = document.querySelector(".search-box2 input");
 
-        const optionsList = document.querySelectorAll(".option2");
+        const optionsList2 = document.querySelectorAll(".option2");
 
-        selected.addEventListener("click", () => {
-            optionsContainer.classList.toggle("active");
+        selected2.addEventListener("click", () => {
+            optionsContainer2.classList.toggle("active");
 
             searchBox.value = "";
             filterList("");
 
-            if (optionsContainer.classList.contains("active")) {
+            if (optionsContainer2.classList.contains("active")) {
                 searchBox.focus();
             }
         });
 
-        optionsList.forEach(o => {
+        optionsList2.forEach(o => {
             o.addEventListener("click", () => {
-                selected.innerHTML = o.querySelector("label").innerHTML;
-                var id = o.querySelector("label").getAttribute('medid');
-                selected.setAttribute("medid",id);
-                optionsContainer.classList.remove("active");
+                selected2.innerHTML = o.querySelector("label").innerHTML;
+                var id = o.querySelector("label").getAttribute('surgid');
+                selected2.setAttribute("surgid",id);
+                optionsContainer2.classList.remove("active");
             });
         });
 
@@ -207,11 +207,11 @@ require APPROOT . '/views/includes/Cashierhead.php';
             filterList(e.target.value);
         });
 
-        const filterList = searchTerm => {
+        const filterList1 = searchTerm => {
             searchTerm = searchTerm.toLowerCase();
-            optionsList.forEach(option => {
-                let label = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
-                if (label.indexOf(searchTerm) != -1) {
+            optionsList2.forEach(option => {
+                let label1 = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
+                if (label1.indexOf(searchTerm) != -1) {
                     option.style.display = "block";
                 } else {
                     option.style.display = "none";
@@ -220,7 +220,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
         };
     </script>
 
-            <script>
+    <script>
                 $(document).ready(function(){
 
                     $('#addbtn').click(function(){
@@ -272,13 +272,13 @@ require APPROOT . '/views/includes/Cashierhead.php';
             $('#addsurgbtn').click(function(){
                 var alreadye = 1;
                 var label = $('.selected');
-                var medid = label.attr('medid');
-                var medname = label.text();
+                var surgid = label.attr('surgid');
+                var surgname = label.text();
                 var input = 0;
 
                 var input = document.getElementsByClassName('idclass');
                 for (var i = 0; i < input.length ; i++) {
-                    if(input[i].value===medid){
+                    if(input[i].value===surgid){
 
                         alreadye=0;
                         break;
@@ -288,16 +288,16 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     }
                 }
 
-                if(medname !== 'Select Medicine' ){
+                if(surgname !== 'Select Medicine' ){
                     if( alreadye !==0){
-                        $("#medlist tbody").append('<tr><td><input class="input1 idclass" type="text" id="medid" name="medid[]" value="'+medid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+medname+'" readonly></td><td><input class="input1" type="text" id="medqty" name="medqty[]" placeholder="Enter Quantity" required> </td>  <td align="center"><button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: #ffffff; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button></td></tr>')
+                        $("#medlist tbody").append('<tr><td><input class="input1 idclass" type="text" id="medid" name="medid[]" value="'+surgid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+surgname+'" readonly></td><td><input class="input1" type="text" id="medqty" name="medqty[]" placeholder="Enter Quantity" required> </td>  <td align="center"><button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: #ffffff; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button></td></tr>')
 
                     }else {
-                        alert("The Medicine Already Exists!");
+                        alert("The Surgical Item Already Exists!");
                     }
                 }else
                 {
-                    alert("Please Select a Medicine");
+                    alert("Please Select a Surgical Item");
                 }
             });
             $('#medlist tbody ').on('click','#removebtn' ,function (){
