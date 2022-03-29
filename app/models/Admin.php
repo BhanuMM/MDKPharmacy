@@ -57,17 +57,17 @@ class Admin {
         }
     }
 
-    public function deleteuser($staffid) {
-        $this->db->query('DELETE FROM staff WHERE staffid = :staffid');
+    // public function deleteuser($staffid) {
+    //     $this->db->query('DELETE FROM staff WHERE staffid = :staffid');
 
-        $this->db->bind(':staffid', $staffid);
+    //     $this->db->bind(':staffid', $staffid);
 
-        if ($this->db->execute()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    //     if ($this->db->execute()) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
 
     public function viewsupplier() {
@@ -245,6 +245,22 @@ class Admin {
 //            return false;
 //        }
 //    }
+
+
+
+    public function findSurgbById($surgid) {
+        $this->db->query('SELECT * FROM surgicals WHERE surgid = :surgid');
+
+        $this->db->bind(':surgid', $surgid);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
+
+
+    public function updateSurgicals($data) {
+        $this->db->query('UPDATE surgicals SET surgname = :surgname, surgbrand = :surgbrand, surgimporter = :importer, surgdealer = :dealer, surgpurchprice = :purchprice, surgsellprice = :sellprice, surgprofit = :profit, lowstockqty = :lowqty WHERE surgid = :surgid');
 
 
     public function findSurgbById($surgid) {

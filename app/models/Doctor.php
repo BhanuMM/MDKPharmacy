@@ -170,7 +170,7 @@ class Doctor {
     }
 
     public function viewchild() {
-        $this->db->query('SELECT * FROM childelder');
+        $this->db->query('SELECT * FROM childelder INNER JOIN patient ON childelder.guardianid=patient.patid');
 
         $results = $this->db->resultSet();
 
@@ -189,6 +189,19 @@ class Doctor {
         return $results;
 
     }
+
+    public function viewchildprescriptions($childid) {
+
+        $this->db->query('SELECT * FROM childpres WHERE childid = :childid ORDER BY presid DESC');
+            $this->db->bind(':childid',$childid);
+    
+            $results = $this->db->resultSet();
+            return $results;
+    
+        }
+
+
+
     public function getprespatdata($presid) {
 
         $this->db->query('SELECT * FROM prescription INNER JOIN patient ON patient.patid= prescription.patid LEFT JOIN childpres ON prescription.presid = childpres.presid   LEFT JOIN childelder on childpres.childid=childelder.childelderid ORDER BY prescription.presid DESC');

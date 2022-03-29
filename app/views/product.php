@@ -43,16 +43,32 @@ if(isset($_GET['msg'])){
 <p></p>
 
 <br>
-<div class="card" style="height: 200px;">
-<?php foreach($data['med'] as $allmed): ?>
-  <h1><?php echo $allmed->medgenname; ?></h1>
-  <p class="price">Rs.<?php echo  $allmed->medsellprice ?></p>
-  <p>Brand: <?php echo $allmed->medbrand;  ?></p>
-  <p>Importer: <?php echo $allmed->medimporter; ?></p>
-  <p>Remaining Quantity: <?php echo $allmed->quantity; ?></p>
-  <?php endforeach; ?>
-</div>
+<table style="width: 72%; margin-left:21%;">
+                    <tr>
+                    
+                      <th>Generic Name</th>
+                      <th>Selling Price</th>
+                      <th>Brand</th>
+                      <th>Importer</th>
+                      <th>Remaining Quantity</th>
+                    </tr>
+                    <?php foreach($data['med'] as $allmed): ?>
 
+                        <tr>
+                           
+                            <td><?php echo $allmed->medgenname; ?></td>
+                            <td><?php echo $allmed->medsellprice;  ?></td>
+                            <td><?php echo $allmed->medbrand; ?></td>
+                            <td><?php echo $allmed->medimporter; ?></td>
+                            <td><?php echo  $allmed->quantity ?></td>
+                           
+                        </tr>
+                        
+                        <?php endforeach; ?>
+
+</table>
+
+<br><br><br>
 
 <!-- 
 
@@ -61,33 +77,6 @@ if(isset($_GET['msg'])){
 
     <!--also include css of facilities in index page-->
 
-    <section id="products" class= "products">
-    <?php 
-      if(isset($_POST['post']))
-      {
-        $productsQuery = "SELECT medgenname,medbrand,medimporter,medsellprice FROM medicine";
-        $productsQuery_run = $conn->query($productsQuery);
-
-      if($productsQuery_run)
-      {
-        while($products = $productsQuery_run->fetch(PDO::FETCH_OBJ))
-        {
-          echo ' <tr> 
-                    <th> '.$products->medgenname.' </th>
-                    <th> '.$products->medbrand.' </th>
-                    <th> '.$products->medimporter.' </th>
-                    <th> '.$products->medsellprice.' </th>
-                </tr> ';
-                    
-        }
-
-      }
-      }
-    
-  ?>
-
-
-    </section>
 
 
 

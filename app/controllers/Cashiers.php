@@ -251,9 +251,11 @@ class Cashiers extends Controller {
     public function outpatientbills() {
 
         $med = $this->cashierModel->loadmed();
+        $surgical = $this->cashierModel->loadsurg();
 
         $data = [
             'medicines' => $med,
+            'surgicals'=>$surgical
 
         ];
         $this->view('users/Cashier/Outpatientbills',$data);
@@ -322,8 +324,8 @@ class Cashiers extends Controller {
             'qty' => '',
             'subtotal' => '',
             'discount' => '',
-            'payment' => '',
-            'balance' => '',
+//            'payment' => '',
+//            'balance' => '',
             'grosstotal' => '',
             'custype'=>'',
             'cashierid' => ''
@@ -345,8 +347,8 @@ class Cashiers extends Controller {
                 'billtime' => date("h:i:sa"),$dt->format(' H:i:s'),
                 'subtotal' => trim($_POST['subtot']),
                 'discount' => trim($_POST['dis']),
-                'payment' => trim($_POST['pamount']),
-                'balance' => trim($_POST['balance']),
+                'payment' => '',
+                'balance' => '',
                 'grosstotal' => trim($_POST['grandt']),
                 'custype'=>$_POST['custype'],
                 'cashierid' => $_POST['cashierid'],
@@ -428,95 +430,36 @@ class Cashiers extends Controller {
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (isset($_POST['btnin'])) {
-               //Sanitize post data
+
+            //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            $datainpast = trim($_POST['UISearchbar']);
-            $searchinpast = $this->cashierModel-> searchpastinbill($datainpast);
+            $datesearch = $_POST['UISearchbar'];
+            $searchinpast = $this->cashierModel->searchpastinbill($datesearch);
+            $searchoutpast = $this->cashierModel->searchpastoutbill($datesearch);
+            $searchonlinepast = $this->cashierModel->searchpastonlinebill($datesearch);
 
-            if ($searchinpast) {
-                $data=[
+
+            if ($searchinpast || $searchoutpast ||  $searchonlinepast) {
+                $data = [
+
                     'inpast' => $searchinpast,
-                    'outpast' => (array) null,
-                    'online' => (array) null
+                    'outpast' => $searchoutpast,
+                    'online' => $searchonlinepast
                 ];
             }
-            else{
-                $data=[
-                    'inpast' => $searchinpast,
-                    'outpast' => (array) null,
-                    'online' => (array) null,
-                    'nofound' => 'No Record Found'
+            else {
+                $data = [
+                    'inpast' => (array)null,
+                    'outpast' => (array)null,
+                    'online' => (array)null,
+                    'nofound' => 'No Records Found'
                 ];
             }
-              }
-
-              elseif (isset($_POST['btnout'])) {
-                //Sanitize post data
-             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
- 
-             $dataoutpast = trim($_POST['outUISearchbar']);
-             $searchoutpast = $this->cashierModel-> searchpastoutbill($dataoutpast);
- 
-             if ($searchoutpast) {
-                 $data=[
-                     'outpast' =>  $searchoutpast,
-                     'inpast' => (array) null,
-                     'online' => (array) null
-                 ];
-             }
-             else{
-                 $data=[
-                    'outpast' =>  $searchoutpast,
-                    'inpast' => (array) null,
-                    'online' => (array) null,
-                     'nofound' => 'No Record Found'
-                 ];
-             }
-               }
-
-               elseif (isset($_POST['btnonline'])) {
-                //Sanitize post data
-             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
- 
-             $dataonlinepast = trim($_POST['onlineUISearchbar']);
-             $searchonlinepast = $this->cashierModel->  searchonlinebill($dataonlinepast);
- 
-             if ($searchonlinepast) {
-                 $data=[
-                    'online' =>  $searchonlinepast,
-                     'inpast' => (array) null,
-                     'outpast' => (array) null
-                 ];
-             }
-             else{
-                 $data=[
-                    'online' =>  $searchonlinepast,
-                     'inpast' => (array) null,
-                     'outpast' => (array) null,
-                     'nofound' => 'No Record Found'
-                 ];
-             }
-               }
-
-            
-
-            }
 
 
+        }
 
-        // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //     //Sanitize post data
-        //     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        
-        //     $datainpast = trim($_POST['UISearchbar']);
-        //     $searchinpast = $this->cashierModel-> searchpastinbill($datainpast);
-
-        //     $data = [
-        //         'inpast' => $searchinpast
-        //     ];
-        // }
         $this->view('users/Cashier/PastBills',$data);
     }
 

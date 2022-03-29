@@ -77,6 +77,7 @@ class Pharmacists extends Controller {
             'patgen' => $patdata->patgen,
             'meds'=> $predata
         ];
+        
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -600,35 +601,22 @@ class Pharmacists extends Controller {
 
             $medid =$_POST['medid'];
             $qty =$_POST['qty'];
-            $data = [
-                'presid'=>$_POST['presid'],
-                'medid'=> $_POST['medid'],
-                'qty'=> $_POST['qty'],
-            ];
-//                $d= var_dump($data['arrmed']);
-//            $med = $data['arrmed'];
-//            foreach($data['medid'] as $allmeds ){
-//                $data=[
-//                    'onemedid'=> $allmeds->medid,
-//                    'oneqty'=> $allmeds->medid,
-//                    'presid'=>trim($_POST['presid']),
-//
-//                ];
-//                $this->pharmacistModel->updateMedicine($data);
-//            }
-            $count = count($_POST['medid']);
-            for($i=0; $i< $count; $i++){
+            $presid=$_POST['presid'];
+
+
+            foreach( $medid as $key => $n ) {
                 $data=[
-                    'medid'=> $medid[$i],
-                    'qty'=> $qty[$i],
+                    'onemedid'=> $n,
+                    'oneqty'=> $qty[$key],
                     'presid'=>$presid
 
                 ];
-                if($this->pharmacistModel->updateMedicine($data))
-                {
-                    header('location: ' . URLROOT . '/pharmacists/pharmacistdashboard/');
-                }
+                $this->pharmacistModel->updateMedicine($data);
+
             }
+//            header('location: ' . URLROOT . '/pharmacists/pharmacistdashboard/');
+            $this->view('users/Pharmacist/pharmacistdashboard');
+
 
         }
     }

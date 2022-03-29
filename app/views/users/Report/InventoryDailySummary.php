@@ -37,6 +37,7 @@ require APPROOT . '/views/includes/Reporthead.php';
             <tr>
                 <th>Medicine</th>
                 <th class="table-field">Quantity</th>
+
                 <th class="table-field">Purchase Price</th>
 <!--                <th class="table-field">Profit</th>-->
 <!--                <th class="table-field">Total</th>-->
@@ -50,6 +51,7 @@ require APPROOT . '/views/includes/Reporthead.php';
 <!--                <td>--><?php //echo $allpurch->medgenname; ?><!--</td>-->
             </tr>
             <?php endforeach; ?>
+
         </table>
         <h1>Returned Medicines</h1>
         <h4> Purchased Stocks : Rs.</h4>
@@ -60,6 +62,7 @@ require APPROOT . '/views/includes/Reporthead.php';
                 <th>Medicine</th>
                 <th class="table-field">Quantity</th>
                 <th class="table-field">Income</th>
+
 <!--                <th class="table-field">Profit</th>-->
 <!--                <th class="table-field">Total</th>-->
             </tr>
@@ -121,6 +124,7 @@ require APPROOT . '/views/includes/Reporthead.php';
 <!--            --><?php //endforeach; ?>
 <!---->
 <!--        </table>-->
+
     </div>
 </div>
 <!--<div class="page-number"></div>-->

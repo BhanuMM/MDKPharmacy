@@ -13,7 +13,9 @@ require APPROOT . '/views/includes/Reporthead.php';
     <div align="center">
         <h1>Daily Summary Report</h1>
         <h2>Date: <?php echo $data['dategen'] ?></h2></br>
+
         Report Generated Time: <?php $date = date('h:i:s'); echo $date;?> </br>
+
     </div>
 
     <div class="bill-body" style="margin: 5%;">
@@ -31,6 +33,7 @@ require APPROOT . '/views/includes/Reporthead.php';
         <hr>
         <h1>Cash Outflow</h1>
         <h4> Purchased Stocks : Rs.</h4>
+
         <!--        <canvas id="myChart" width="400" height="400"></canvas>-->
         <!--        <table class="table-bordered">-->
         <!--            <thead>-->
@@ -57,6 +60,7 @@ require APPROOT . '/views/includes/Reporthead.php';
         <!---->
         <!--            </tr>-->
         <!--        </table>-->
+
     </div>
 </div>
 <!--<div class="page-number"></div>-->

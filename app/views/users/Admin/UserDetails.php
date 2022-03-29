@@ -89,7 +89,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <th>Username</th>
                 <th>User Role</th>
                 <th>Update</th>
-                <th>Delete</th>
+                <!-- <th>Delete</th> -->
             </tr>
 
 <!--            Table data-->
@@ -105,11 +105,11 @@ require APPROOT . '/views/includes/Adminhead.php';
                     <td align="center">
                         <a class="updateBtn" href="<?php echo URLROOT ."/admins/updateuser/".$allusers->staffid?>" >Update</a>
                     </td>
-                    <td>
+                    <!-- <td>
                         <form action="<?php echo URLROOT . "/admins/deleteuser/"  .$allusers->staffid?>" method="POST">
                             <input class="dltBtn"  Onclick="return ConfirmDelete();" type="submit" name="delete" value="Delete">
                         </form>
-                    </td>
+                    </td> -->
 
                 </tr>
 

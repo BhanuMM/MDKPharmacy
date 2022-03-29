@@ -73,6 +73,14 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="admin")){
             padding-bottom: 3%;
             -webkit-print-color-adjust: exact;
         }
+        .page-number:before {
+            content: "Page: " counter(page);}
+        @media print {
+            .pagebreak {
+                clear: both;
+                page-break-after: always; } /* page-break-after works, as well */
+        }
     </Style>
 </head>
-<body style="font-family: poppins; margin: 0px;">
+<body style="font-family: poppins; margin: 0px;" >
+<!--onload="javascript:window.print()"-->

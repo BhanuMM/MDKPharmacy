@@ -11,32 +11,97 @@ class Doctors extends Controller {
 
     public function viewpatientdetails() {
         $pat = $this->doctorModel->viewpatient();
+        
+        $child = $this->doctorModel->viewchild();
 
         $data = [
 
-            'pat' => $pat
+            'pat' => $pat,
+            'child' => $child
+
         ];
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
             //Sanitize post data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        
-            $datanic = trim($_POST['UISearchbar']);
-            $searchpatient = $this->doctorModel->searchpatient($datanic);
 
-            $data = [
-                'pat' => $searchpatient
-            ];
-        }
+            $datanicname = trim($_POST['UISearchbar']);
+            $searchpatient = $this->doctorModel->searchpatient($datanicname);
+            $searchchild = $this->doctorModel->searchchild($datanicname);
+
+            if ($searchpatient || $searchchild) {
+                $data=[
+                    'pat' => $searchpatient,
+                    'child' =>$searchchild
+
+                ];
+            }
+            else{
+                $data=[
+
+                    'pat' =>(array) null,
+                    'child' =>(array) null,
+                    'nofound' => 'No Record Found'
+                ];
+            }
+//      ffffffffffffffff
+
+    }
+
+        // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //     //Sanitize post data
+        //     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
+        //     $datanic = trim($_POST['UISearchbar']);
+        //     $searchpatient = $this->doctorModel->searchpatient($datanic);
+
+        //     $data = [
+        //         'pat' => $searchpatient
+        //     ];
+        // }
         $this->view('users/Doctor/PatientDetails',$data);
     }
 
-    public function allprescriptions($patid) {
-        $patpres = $this->doctorModel->viewprescriptions($patid);
+    public function allprescriptions() {
+        $patpres = $this->doctorModel->viewprescriptions();
+        $childpres = $this->doctorModel->viewchildprescriptions();
+        
         $data = [
 
-            'pat' => $patpres
+            'pat' => $patpres,
+            'child' => $childpres
         ];
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+            //Sanitize post data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $datapres = trim($_POST['UISearchbar']);
+            $searchpatientpres = $this->doctorModel->searchpatientnic($datapres);
+            $searchchildpres = $this->doctorModel->searchguardiannic($datapres);
+
+            if ($searchpatientpres || $searchchildpres) {
+                $data=[
+                    'pat' => $searchpatient,
+                    'child' =>$searchchild
+
+                ];
+            }
+            else{
+                $data=[
+
+                    'pat' =>(array) null,
+                    'child' =>(array) null,
+                    'nofound' => 'No Record Found'
+                ];
+            }
+//      ffffffffffffffff
+
+    }
         $this->view('users/Doctor/Prescriptions',$data);
     }
 

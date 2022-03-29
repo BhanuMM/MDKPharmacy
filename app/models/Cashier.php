@@ -26,14 +26,14 @@ class Cashier {
 
     public function viewbill() {
 //        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid ');
-        $this->db->query('SELECT * FROM bill WHERE customertype = "in" ORDER BY bill.billid DESC');
+        $this->db->query('SELECT * FROM bill INNER JOIN staff ON bill.cashierid=staff.staffid WHERE customertype = "in" ORDER BY bill.billid DESC');
         $results = $this->db->resultSet();
         return $results;
     }
 
     public function viewonlinebill() {
 //        $this->db->query('SELECT * FROM bill INNER JOIN onlineprescription ON bill.presid= onlineprescription.onlinepresid INNER JOIN onlineorder on onlineprescription.onlineorderid=onlineorder.onlineoid WHERE bill.customertype="online"');
-        $this->db->query('SELECT * FROM bill WHERE customertype = "online" ORDER BY bill.billid DESC');
+        $this->db->query('SELECT * FROM bill INNER JOIN staff ON bill.cashierid=staff.staffid  WHERE customertype = "online" ORDER BY bill.billid DESC');
         $results = $this->db->resultSet();
         return $results;
     }
@@ -109,18 +109,25 @@ class Cashier {
 
     }
     
-    public function searchpastinbill($billid) {
-        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billid = :billid and bill.customertype="in" ');
+    public function searchpastinbill($billdate) {
+        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN staff ON bill.cashierid= staff.staffid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billdate = :billdate and bill.customertype="in"  ');
         //Bind value
-        $this->db->bind(':billid', $billid);
+        $this->db->bind(':billdate', $billdate);
         $results = $this->db->resultSet();
         return $results;
     }
 
-    public function searchpastoutbill($billid) {
-        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billid = :billid and bill.customertype="out" ');
+    public function searchpastoutbill($billdate) {
+        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN staff ON bill.cashierid= staff.staffid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billdate = :billdate and bill.customertype="out" ');
         //Bind value
-        $this->db->bind(':billid', $billid);
+        $this->db->bind(':billdate', $billdate);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+    public function searchpastonlinebill($billdate) {
+        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN staff ON bill.cashierid= staff.staffid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billdate = :billdate and bill.customertype="online" ');
+        //Bind value
+        $this->db->bind(':billdate', $billdate);
         $results = $this->db->resultSet();
         return $results;
     }
@@ -352,6 +359,15 @@ class Cashier {
         return $results;
 
     }
+    public function loadsurg() {
+
+        $this->db->query('SELECT * FROM surgicals ORDER BY surgname ASC');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+
+    }
 
     public function loadmedid($genname) {
 
@@ -438,7 +454,7 @@ class Cashier {
 //    }
 
     public function viewoutbill() {
-        $this->db->query('SELECT * FROM bill WHERE customertype = "out" ORDER BY bill.billid DESC');
+        $this->db->query('SELECT * FROM bill INNER JOIN staff ON bill.cashierid=staff.staffid  WHERE customertype = "out" ORDER BY bill.billid DESC');
         $results = $this->db->resultSet();
         return $results;
     }
