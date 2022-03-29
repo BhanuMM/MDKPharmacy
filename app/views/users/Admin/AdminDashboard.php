@@ -8,7 +8,7 @@ require APPROOT . '/views/includes/Adminhead.php';
         <div class="welcome">
              
             <div class="welcome-names">
-                Welcome, <?php echo $_SESSION['username'] ?>  !
+                Welcome , Mr.<?php echo ucwords($_SESSION['username'])  ?> !
                 <p style="font-size: 14px;">Admin</p>
             </div>
         </div>

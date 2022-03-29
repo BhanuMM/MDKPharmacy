@@ -45,6 +45,14 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 </ul>
 </div>
 
+<br><br>
+<span class="successadded" style="color: red; margin-left: -73.25%;">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br><br>
 
                 <table id="customers" style="width: 72%; margin-left:21%;">
                     <tr>

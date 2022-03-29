@@ -24,13 +24,13 @@ require APPROOT . '/views/includes/Deliveryhead.php';
 </div>
 <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
 
-    <span class="successadded" style="color: red">
-                 <?php
-                 if(isset($data['norecord'])){
-                     echo ('No Record Found'); // print_r($_GET);
-                 }
-                 ?>
-                </span> <br>
+<!--    <span class="successadded" style="color: red">-->
+<!--                 --><?php
+//                 if(isset($data['norecord'])){
+//                     echo ('No Record Found'); // print_r($_GET);
+//                 }
+//                 ?>
+<!--                </span> <br>-->
 
                              
         <ul style="padding-left: 0px; list-style-type: none;  ">
@@ -59,7 +59,15 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                 </table>
             </form>
         </ul>
-                
+
+    <br><br><br>
+    <span class="successadded" style="color: red; margin-left: -102.5%; margin-top: 5%;">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br><br>
                 <table id="customers" style="margin-left: -3%; width:102%;">
                     <tr>
                       <th>Prescription ID</th>

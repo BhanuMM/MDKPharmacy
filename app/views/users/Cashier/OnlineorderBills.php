@@ -25,15 +25,15 @@ require APPROOT . '/views/includes/Cashierhead.php';
     
 </div> 
 
-<div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%;">
+<div style="margin-left: 340px; margin-right:0%; padding:1px 16px; width: 70%;">
 
-    <span class="successadded" style="color: red">
-                 <?php
-                 if(isset($data['norecord'])){
-                     echo ('No Record Found'); // print_r($_GET);
-                 }
-                 ?>
-                </span> <br>
+<!--    <span class="successadded" style="color: red">-->
+<!--                 --><?php
+//                 if(isset($data['norecord'])){
+//                     echo ('No Record Found'); // print_r($_GET);
+//                 }
+//                 ?>
+<!--                </span> <br>-->
 <!--     <span class="successadded">-->
 <!--                 --><?php
 //                 if(isset($_GET['msg'])){
@@ -62,6 +62,14 @@ require APPROOT . '/views/includes/Cashierhead.php';
             </form>
         </ul>
 
+    <br><br>
+    <span class="successadded" style="color: red; margin-left: -100%; margin-top: 5%;">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br><br>
     <table id="customers" style="margin-left:-3%; width: 102%;">
         <tr>
             <th>Prescription ID</th>
