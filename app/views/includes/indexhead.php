@@ -45,7 +45,7 @@
            
             <ul>
 
-                <li><a href="./index/LinkId=location">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#about" onclick="return hashNoHistory(this)">About Us</a></li>
                 <!-- <li><a href="">Surgeries</a></li> -->
                 <li><a href="#fac" onclick="return hashNoHistory(this)">Facilities</a></li>

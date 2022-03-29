@@ -7,8 +7,8 @@ require APPROOT . '/views/includes/Doctorhead.php';
     <div class="welcome-card">
         <div class="welcome">
             <div class="welcome-names">
-                Welcome , Dr.<?php echo $_SESSION['username'] ?> !
-                <p style="font-size: 14px;">Doctor</p>
+                Welcome , Dr.<?php echo ucwords($_SESSION['username'])  ?> !
+                <p style="font-size: 11px;">Doctor Dashboard</p>
             </div>
         </div>
     </div>

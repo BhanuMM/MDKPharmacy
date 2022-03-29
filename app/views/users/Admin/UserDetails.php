@@ -32,12 +32,7 @@ require APPROOT . '/views/includes/Adminhead.php';
 
 
 <div style="margin-left: 21.5%; margin-top:5px; padding:1px 16px; width: 70%; ">
-<!--        <span class="successadded">-->
-<!--            --><?php //if(isset($_GET['msg'])){
-//                echo $_GET['msg']; // print_r($_GET);
-//            }
-//            ?>
-<!--        </span>-->
+
 <!--<br><br><br>-->
 <!--    Say there is no such data-->
 <!--    <span class="successadded" style="color: red; margin-left: -32%; margin-top:12px;">-->
@@ -84,7 +79,12 @@ require APPROOT . '/views/includes/Adminhead.php';
                 </span> <br>
 <br>
 
-
+    <span class="successadded">
+            <?php if(isset($_GET['msg'])){
+                echo $_GET['msg']; // print_r($_GET);
+            }
+            ?>
+        </span>
 <!--Table headers-->
         <table id="customers">
             <tr style="text-align:center;">

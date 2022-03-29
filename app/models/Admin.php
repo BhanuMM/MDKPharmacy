@@ -7,7 +7,7 @@ class Admin {
 
     public function viewusers() {
 
-        $this->db->query('SELECT * FROM staff');
+        $this->db->query('SELECT * FROM staff WHERE is_deleted !=1');
 
         $results = $this->db->resultSet();
 
@@ -57,17 +57,17 @@ class Admin {
         }
     }
 
-    // public function deleteuser($staffid) {
-    //     $this->db->query('DELETE FROM staff WHERE staffid = :staffid');
+     public function deleteuser($staffid) {
+         $this->db->query('UPDATE staff SET is_deleted = 1 WHERE staffid = :staffid');
 
-    //     $this->db->bind(':staffid', $staffid);
+         $this->db->bind(':staffid', $staffid);
 
-    //     if ($this->db->execute()) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+         if ($this->db->execute()) {
+             return true;
+         } else {
+             return false;
+         }
+     }
 
 
     public function viewsupplier() {
