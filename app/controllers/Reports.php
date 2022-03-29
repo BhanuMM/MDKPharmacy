@@ -58,23 +58,26 @@ class Reports extends Controller
         $this->Cell(40,10,'In Patient Income :',0.0,'c');
         $this->Cell(60,10,$count->sm,0.0,'c');
         $this->Ln();
+    }
 
-    public function InventoryDailysummary(){
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $datemed = $_POST['idate'];
-            $purchase=$this->reportModel->purchmed($datemed);
-            $return=$this->reportModel->returnmed($datemed);
-            $psurg=$this->reportModel->purchsurg($datemed);
-            $rsurg=$this->reportModel->returnsurg($datemed);
+    public function InventoryDailysummary()
+        {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $datemed = $_POST['idate'];
+                $purchase = $this->reportModel->purchmed($datemed);
+                $return = $this->reportModel->returnmed($datemed);
+                $psurg = $this->reportModel->purchsurg($datemed);
+                $rsurg = $this->reportModel->returnsurg($datemed);
 
-            $data =[
-                'purchmedicine'=>$purchase,
-                'returnmedicine'=>$return,
-                'purchsurgicals'=>$psurg,
-                'returnsurgicals'=>$rsurg
-            ];
-            $this->view('users/Report/InventoryDailySummary',$data);
-
+                $data = [
+                    'purchmedicine' => $purchase,
+                    'returnmedicine' => $return,
+                    'purchsurgicals' => $psurg,
+                    'returnsurgicals' => $rsurg
+                ];
+                $this->view('users/Report/InventoryDailySummary', $data);
+            }
+        }
     public function Monthlysummary(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -93,26 +96,26 @@ class Reports extends Controller
             $this->view('users/Report/MonthlySummary',$data);
         }
     }
-    public function InventoryDailysummary(){
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-
-           $inbills=$this->reportModel->incount();
-           $outbills=$this->reportModel->outcount();
-           $onlinebills=$this->reportModel->onlinecount();
-           $data =[
-               'inbillcount'=>$inbills->cnt,
-               'inbillsum'=>$inbills->sm,
-               'outbillcount'=>$outbills->cnt,
-               'outbillsum'=>$outbills->sm,
-               'onlinebillcount'=>$onlinebills->cnt,
-               'onlinebillsum'=>$onlinebills->sm,
-               'dategen'=> $_POST['gendate']
-           ];
-            $this->view('users/Report/InventoryDailySummary');
-        }
-
-    }
+//    public function InventoryDailysummary(){
+//        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//
+//
+//           $inbills=$this->reportModel->incount();
+//           $outbills=$this->reportModel->outcount();
+//           $onlinebills=$this->reportModel->onlinecount();
+//           $data =[
+//               'inbillcount'=>$inbills->cnt,
+//               'inbillsum'=>$inbills->sm,
+//               'outbillcount'=>$outbills->cnt,
+//               'outbillsum'=>$outbills->sm,
+//               'onlinebillcount'=>$onlinebills->cnt,
+//               'onlinebillsum'=>$onlinebills->sm,
+//               'dategen'=> $_POST['gendate']
+//           ];
+//            $this->view('users/Report/InventoryDailySummary');
+//        }
+//
+//    }
 
 
 
