@@ -211,14 +211,14 @@ class Pharmacist {
 
 
     public function searchprescriptionbynic($patnic) {
-//        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid WHERE patient.patnic=:pnic');
-        $this->db->query('SELECT * ,prescription.presid FROM prescription
-                                INNER JOIN patient ON prescription.patid=patient.patid 
-                            LEFT JOIN childpres ON prescription.presid = childpres.presid  
-    LEFT JOIN childelder on childpres.childid=childelder.childelderid');
-        $this->db->bind(':pnic', $patnic);
-        $results = $this->db->resultSet();
-        return $results;
+        $this->db->query('SELECT * FROM prescription INNER JOIN patient ON prescription.patid=patient.patid WHERE patient.patnic=:pnic');
+//        $this->db->query('SELECT * ,prescription.presid FROM prescription
+//                                INNER JOIN patient ON prescription.patid=patient.patid
+//                            LEFT JOIN childpres ON prescription.presid = childpres.presid
+//    LEFT JOIN childelder on childpres.childid=childelder.childelderid');
+//        $this->db->bind(':pnic', $patnic);
+//        $results = $this->db->resultSet();
+//        return $results;
     }
     public function findProfilebyId($psid) {
         $this->db->query('SELECT * FROM staff WHERE staffid = :proid');

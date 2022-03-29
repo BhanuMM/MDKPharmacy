@@ -23,13 +23,13 @@ require APPROOT . '/views/includes/Doctorhead.php';
 </div>
 
             <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%;">
-            <span class="successadded">
-            <?php
-                if(isset($_GET['msg'])){
-                echo $_GET['msg']; // print_r($_GET);
-                }
-                ?>
-            </span> <br><br><br>
+<!--            <span class="successadded">-->
+<!--            --><?php
+//                if(isset($_GET['msg'])){
+//                echo $_GET['msg']; // print_r($_GET);
+//                }
+//                ?>
+<!--            </span> <br><br><br>-->
 <!-- 
             <ul style="padding-left: 0px; list-style-type: none;  margin-top:25px;  ">
                 <li Style="float: left; vertical-align: middle; display: inline;"><h3>Medicine Details</h3></li>
@@ -46,9 +46,9 @@ require APPROOT . '/views/includes/Doctorhead.php';
              </ul> -->
 
              
- <div style="margin-left: -3.5%; margin-right: 2%;"> 
+ <div style="margin-left: -3.5%; margin-right: 2%;">
 
-      
+     <br><br>
 <ul style="padding-left: 0px; list-style-type: none;  ">
     <!-- <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin: 0px;"> User Details</h3></li> -->
     <form method="post" class="data" style="float: left; display: inline; margin-top: -5%; margin-left: 71.5%;" action="<?php echo URLROOT; ?>/doctors/viewpatientdetails">
@@ -66,7 +66,15 @@ require APPROOT . '/views/includes/Doctorhead.php';
         </table>
     </form>
 </ul>
+<!--     <br><br>-->
 
+     <span class="successadded" style="color: red; margin-left: -100%; margin-top: 5%;">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br><br>
                 <table id="customers">
                     <tr>
                       <th>Medicine ID</th>

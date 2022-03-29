@@ -119,9 +119,18 @@ class Doctors extends Controller {
             $datamed= trim($_POST['UISearchbar']);
             $searchmed = $this->doctorModel->searchmed($datamed);
 
-            $data = [
-                'med' => $searchmed
-            ];
+            if ($searchmed) {
+                $data=[
+                    'med' => $searchmed,
+
+                ];
+            } //If there are null values pass it to the span
+            else{
+                $data = [
+                    'med' =>$searchmed,
+                    'norecord' => "nofound"
+                ];
+            }
         }
         $this->view('users/Doctor/MedicineDetails',$data);
     }
