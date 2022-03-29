@@ -26,13 +26,13 @@
     <div style="margin-left: 350px; margin-top:5px; padding:1px 16px; width: 70%; ">
 
 
-        <span class="successadded" style="color: red">
-                 <?php
-                 if(isset($data['norecord'])){
-                     echo ('No Record Found'); // print_r($_GET);
-                 }
-                 ?>
-                </span> <br>
+<!--        <span class="successadded" style="color: red">-->
+<!--                 --><?php
+//                 if(isset($data['norecord'])){
+//                     echo ('No Record Found'); // print_r($_GET);
+//                 }
+//                 ?>
+<!--                </span> <br>-->
 
 
 
@@ -69,6 +69,13 @@
             </form>
         </ul>
 <br><br><br>
+     <span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br><br><br>
 <!--        Table Headings-->
         <table id="customers">
             <tr>
