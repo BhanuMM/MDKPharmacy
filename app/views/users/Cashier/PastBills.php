@@ -13,7 +13,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 Past Bills
                     <p>
                     <ul class="breadcrumb">
-                        <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URLROOT ?>/cashiers/cashierdashboard">Dashboard</a></li>
                         <li>Past Bills</li>
                     </ul>
                     </p>
@@ -123,8 +123,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
             <tr>
                 <td><?php echo $outpast->billid; ?></td>
                 <td><?php echo $outpast->billdate; ?></td>
-                <td><?php echo $inpast->grosstotal; ?></td>
-                <td><?php echo $inpast->sname; ?></td>
+                <td><?php echo $outpast->grosstotal; ?></td>
+                <td><?php echo $outpast->sname; ?></td>
                 <!--                    <td>--><?php //echo $outpast->patnic; ?><!--</td>-->
                 <!--                    <td>--><?php //echo $outpast->presdate; ?><!--</td>-->
                 <td><div style="margin-top: 10%; margin-bottom: 10%;"><a class="updateBtn" href="<?php echo URLROOT. "/cashiers/pastoutbillsingle/".$outpast->billid ?>"> View Bill</a></button></td>
@@ -163,8 +163,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
             <tr>
                 <td><?php echo $online->billid; ?></td>
                 <td><?php echo $online->billdate; ?></td>
-                <td><?php echo $inpast->grosstotal; ?></td>
-                <td><?php echo $inpast->sname; ?></td>
+                <td><?php echo $online->grosstotal; ?></td>
+                <td><?php echo $online->sname; ?></td>
                 <!--                    <td>--><?php //echo $online->onlinetelno; ?><!--</td>-->
                 <!--                    <td>--><?php //echo $online->presdate; ?><!--</td>-->
                 <td><div style="margin-top: 10%; margin-bottom: 10%;"><a class="updateBtn" href="<?php echo URLROOT. "/cashiers/pastbillsingle/".$online->billid ?>"> VIEW BILL</a></div></td>

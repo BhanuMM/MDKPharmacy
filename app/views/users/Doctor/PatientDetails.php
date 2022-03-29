@@ -21,7 +21,7 @@ require APPROOT . '/views/includes/Doctorhead.php';
     </div>
 </div>
 
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div style="margin-left: 340px; margin-top:25px; margin-right:0%; padding:1px 16px; width: 70%; ">
 
     <span class="successadded" style="color: red">
@@ -31,14 +31,6 @@ require APPROOT . '/views/includes/Doctorhead.php';
                  }
                  ?>
                 </span> <br>
-
-<!--<span class="successadded">-->
-<!--     --><?php
-//      if(isset($_GET['msg'])){
-//      echo $_GET['msg']; // print_r($_GET);
-//      }
-//     ?>
-<!--</span> <br>-->
 
 <br>
  
@@ -63,8 +55,21 @@ require APPROOT . '/views/includes/Doctorhead.php';
             </form>
         </ul>
 
-    
-               
+        <div class="w3-bar w3-black">
+        <button class="w3-bar-item w3-button tablink w3-blue" onclick="openCity(event,'already')">Elders</button>
+        <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'one')">Children</button>
+        </div>
+
+        <div id="already" class="w3-container w3-display-container city">
+                <span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['nofound'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
+                <p>
+
                 <table id="customers" style="margin-left: 1%;">
                     <tr>
                         <th>Patient ID</th>
@@ -96,11 +101,67 @@ require APPROOT . '/views/includes/Doctorhead.php';
                     </tr>
                     <?php endforeach; ?>
                   </table>
+                  </p>
+                </div>
 
-            </div>
+                <div id="one" class="w3-container w3-display-container city" style="display:none">
+                <span class="successadded" style="color: red">
+                 <?php
+                 if(isset($data['nofound'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br>
+                <p>
+                <table id="customers" style="margin-left: 1%;">
+                    <tr>
+                        <th>Child ID</th>
+                        <th>Patient Name</th>
+                        <th>Guardian NIC</th>
+                        <th>Tel.No</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                        <th>View Prescriptions</th>
 
-           
-        </div>
-<br><br>
-    </body>
-</html>
+                    </tr>
+                    <?php foreach($data['child'] as $allchild): ?>
+                    <tr>
+                        <td><?php echo $allchild->childelderid ?></td>
+                        <td><?php echo $allchild->fullname ?></td>
+                        <td><?php echo $allchild->patnic ?></td>
+                        <td><?php echo $allchild->pattelno ?></td>
+                        <td><?php echo $allchild->patadrs ?></td>
+                        <td><?php echo $allchild->patemail ?></td>
+                        <td><?php echo $allchild->childelderdob ?></td>
+                        <td><?php echo $allchild->childeldergen ?></td>
+                        <td align="center">
+                            <a class="updateBtn" href="<?php echo URLROOT ."/doctors/allprescriptions/".$allchild->childelderid ?>" >view</a>
+                        </td>
+
+
+                    </tr>
+                    <?php endforeach; ?>
+                  </table>
+                  </p>
+                </div>
+
+                <script>
+            function openCity(evt, cityName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-blue", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " w3-blue";
+        }
+        </script>
+                
+
+            

@@ -56,13 +56,13 @@ class Counsellor {
     }
 
     public function viewinbill() {
-        $this->db->query('SELECT * FROM bill WHERE customertype = "in" ORDER BY bill.billid DESC');
+        $this->db->query('SELECT * FROM bill INNER JOIN staff ON bill.cashierid=staff.staffid WHERE customertype = "in" ORDER BY bill.billid DESC');
         $results = $this->db->resultSet();
         return $results;
     }
 
     public function viewoutbill() {
-        $this->db->query('SELECT * FROM bill WHERE customertype = "out" ORDER BY bill.billid DESC');
+        $this->db->query('SELECT * FROM bill INNER JOIN staff ON bill.cashierid=staff.staffid  WHERE customertype = "out" ORDER BY bill.billid DESC');
         $results = $this->db->resultSet();
         return $results;
     }
@@ -96,16 +96,39 @@ class Counsellor {
         return $results;
     }
 
-    public function searchpastbill($billid) {
-        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billid = :billid');
+    // public function searchpastbill($billid) {
+    //     $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billid = :billid');
+    //     //Bind value
+    //     $this->db->bind(':billid', $billid);
+    //     $results = $this->db->resultSet();
+    //     return $results;
+    // }
+    public function searchpastinbill($billdate) {
+        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN staff ON bill.cashierid= staff.staffid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billdate = :billdate and bill.customertype="in"  ');
         //Bind value
-        $this->db->bind(':billid', $billid);
+        $this->db->bind(':billdate', $billdate);
         $results = $this->db->resultSet();
         return $results;
     }
 
+    public function searchpastoutbill($billdate) {
+        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN staff ON bill.cashierid= staff.staffid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billdate = :billdate and bill.customertype="out" ');
+        //Bind value
+        $this->db->bind(':billdate', $billdate);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+    public function searchpastonlinebill($billdate) {
+        $this->db->query('SELECT * FROM bill INNER JOIN prescription ON bill.presid= prescription.presid INNER JOIN staff ON bill.cashierid= staff.staffid INNER JOIN patient on prescription.patid=patient.patid WHERE bill.billdate = :billdate and bill.customertype="online" ');
+        //Bind value
+        $this->db->bind(':billdate', $billdate);
+        $results = $this->db->resultSet();
+        return $results;
+    }
+
+
     public function viewonlinebill() {
-        $this->db->query('SELECT * FROM bill WHERE customertype = "online" ORDER BY bill.billid DESC');
+        $this->db->query('SELECT * FROM bill INNER JOIN staff ON bill.cashierid=staff.staffid  WHERE customertype = "online" ORDER BY bill.billid DESC');
         $results = $this->db->resultSet();
         return $results;
     }
