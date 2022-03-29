@@ -23,7 +23,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                     <p>
                     <ul class="breadcrumb" style="margin-top: -30px;">
                         <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                        <li>Surgical Items </li>
+                        <li><a href="<?php echo URLROOT ?>/admins/viewsurgicals">Surgical Items</a> </li>
                         <li>Add New Surgical Item </li>
                     </ul>
                     </p>

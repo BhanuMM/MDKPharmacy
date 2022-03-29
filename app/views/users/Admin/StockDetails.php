@@ -26,7 +26,7 @@
 
 
 
-    <div style="margin-left: 300px; margin-top:5px; padding:1px 16px; width: 72%; ">
+    <div style="margin-left: 300px; margin-top:5px; padding:1px 16px; width: 73%; ">
 <!--        <span class="successadded">-->
 <!--            --><?php //if(isset($_GET['msg'])){
 //                echo $_GET['msg']; // print_r($_GET);
@@ -115,3 +115,4 @@
         </table>
 
     </div>
+<br><br>
