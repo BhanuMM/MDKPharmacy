@@ -139,19 +139,25 @@ require APPROOT . '/views/includes/Cashierhead.php';
     $(document).on("change keyup keydown blur", "#dis", function() {
 
         var grandtotal =0;
-        var dis = $("#dis").val();
+        var dis =0;
+        dis = $("#dis").val();
         var subtotal = $("#subtot").val();
-        if(dis !=0 && dis>0){
+        var pamount = $("#pamount").val();
+        if(dis !=0 && dis>0 && dis< 101){
             grandtotal =  (parseFloat(subtotal)*(100-parseFloat(dis)))/100;
-            var pamount = $("#pamount").val();
-            if (pamount != 0){
-                // grandtotal = $("#grandt").val();
-                var balance =  parseFloat(grandtotal)- parseFloat(pamount);
-                $('#balance').val( balance.toFixed(2));
-            }
-                $('#balance').val(null );
-                $('#grandt').val( grandtotal.toFixed(2));
 
+            if (pamount != 0 && pamount>0){
+                var  balance =  parseFloat(pamount )- parseFloat(grandtotal);
+                $('#balance').val( balance.toFixed(2));
+                $('#grandt').val( grandtotal.toFixed(2));
+            }else{
+                $('#balance').val(null);
+                $('#grandt').val( grandtotal.toFixed(2));
+            }
+            // $('#balance').val(null );
+
+        }else{
+            $('#grandt').val( subtotal);
         }
 
     });
@@ -159,11 +165,12 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
         var balance =0;
         var pamount = $("#pamount").val();
-        var grosstotal = $("#grandt").val();
+        var grandtotal = $("#grandt").val();
         if(pamount !=0 && pamount > 0){
-            balance =  parseFloat(pamount)- parseFloat(grosstotal);
-
+            balance =  parseFloat(pamount )- parseFloat(grandtotal);
             $('#balance').val( balance.toFixed(2));
+        }else{
+            $('#balance').val(balance);
         }
 
     });
