@@ -28,36 +28,36 @@ require APPROOT . '/views/includes/Cashierhead.php';
 <!--    Heading     -->
 
             <div class="row">
-                <!--    Section to search medicines and add them to the list     -->
-<!--                <div class="columnBill" >-->
-<!--                    <div class="container">-->
-<!--                        <h3>Add Medicine</h3>-->
-<!---->
-<!--                        <div class="select-box">-->
-<!--                            <div class="options-container">-->
-<!--                                --><?php
-//                                foreach($data['medicines'] as $allmedicines):
-//                                    {
-//                                        echo ' <div class="option" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
-//
-//                                    }
-//                                endforeach; ?>
-<!---->
-<!---->
-<!--                            </div>-->
-<!--                            <!--    Search button     -->-->
-<!--                            <div class="selected" medid="test" id="1">Select Medicine</div>-->
-<!---->
-<!--                            <div class="search-box">-->
-<!--                                <input type="text" placeholder="Start Typing..." />-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!---->
-<!--                    <br>-->
-<!---->
-<!--                    <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">+ </button>-->
-<!--                 </div>-->
+                    Section to search medicines and add them to the list
+                <div class="columnBill" >
+                    <div class="container">
+                        <h3>Add Medicine</h3>
+
+                        <div class="select-box">
+                            <div class="options-container">
+                                <?php
+                                foreach($data['medicines'] as $allmedicines):
+                                    {
+                                        echo ' <div class="option" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
+
+                                    }
+                                endforeach; ?>
+
+
+                            </div>
+                            <!--    Search button     -->
+                            <div class="selected" medid="test" id="1">Select Medicine</div>
+
+                            <div class="search-box">
+                                <input type="text" placeholder="Start Typing..." />
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">+ </button>
+                 </div>
                 <br>
 <!-- TWO -->
                  <div class="row"> 
