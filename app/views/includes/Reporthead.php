@@ -36,6 +36,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="admin")){
             padding-bottom: 5% ;
         }
         @media print {
+            .pagebreak { page-break-before: always; } /* page-break-after works, as well */
             /*tr.vendorListHeading {*/
             /*    background-color: #1a4567 !important;*/
             /*    -webkit-print-color-adjust: exact;*/

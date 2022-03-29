@@ -13,7 +13,9 @@ require APPROOT . '/views/includes/Reporthead.php';
     <div align="center">
         <h1>Monthly Summary Report</h1>
         <h2>Month: <?php echo $data['dategen'] ?></h2></br>
-         Report Generated Time: <?php $date = date('h:i:s'); echo $date;?> </br>
+
+        Report Generated Time: <?php $date = date('h:i:s'); echo $date;?> </br>
+
     </div>
 
     <div class="bill-body" style="margin: 5%;">
@@ -31,32 +33,34 @@ require APPROOT . '/views/includes/Reporthead.php';
         <hr>
         <h1>Cash Outflow</h1>
         <h4> Purchased Stocks : Rs.</h4>
-<!--        <canvas id="myChart" width="400" height="400"></canvas>-->
-<!--        <table class="table-bordered">-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--                <th>Medicine</th>-->
-<!--                <th class="table-field">Quantity</th>-->
-<!--                <th class="table-field">Income</th>-->
-<!--                <th class="table-field">Profit</th>-->
-<!--                        <th class="table-field">Total</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tr style="text-align: center">-->
-<!--                <td>as</td>-->
-<!--                <td>dv</td>-->
-<!--                <td>sz</td>-->
-<!--                <td>sa</td>-->
-<!--            </tr>-->
-<!--            <tr style="text-align: center">-->
-<!--                <td>as</td>-->
-<!--                <td>dv</td>-->
-<!--                <td>sz</td>-->
-<!--                <td>sa</td>-->
-<!--            </tr>-->
-<!---->
-<!--            </tr>-->
-<!--        </table>-->
+
+        <!--        <canvas id="myChart" width="400" height="400"></canvas>-->
+        <!--        <table class="table-bordered">-->
+        <!--            <thead>-->
+        <!--            <tr>-->
+        <!--                <th>Medicine</th>-->
+        <!--                <th class="table-field">Quantity</th>-->
+        <!--                <th class="table-field">Income</th>-->
+        <!--                <th class="table-field">Profit</th>-->
+        <!--                        <th class="table-field">Total</th>-->
+        <!--            </tr>-->
+        <!--            </thead>-->
+        <!--            <tr style="text-align: center">-->
+        <!--                <td>as</td>-->
+        <!--                <td>dv</td>-->
+        <!--                <td>sz</td>-->
+        <!--                <td>sa</td>-->
+        <!--            </tr>-->
+        <!--            <tr style="text-align: center">-->
+        <!--                <td>as</td>-->
+        <!--                <td>dv</td>-->
+        <!--                <td>sz</td>-->
+        <!--                <td>sa</td>-->
+        <!--            </tr>-->
+        <!---->
+        <!--            </tr>-->
+        <!--        </table>-->
+
     </div>
 </div>
 <!--<div class="page-number"></div>-->

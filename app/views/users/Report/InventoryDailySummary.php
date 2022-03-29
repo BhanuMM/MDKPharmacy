@@ -37,17 +37,20 @@ require APPROOT . '/views/includes/Reporthead.php';
             <tr>
                 <th>Medicine</th>
                 <th class="table-field">Quantity</th>
-                <th class="table-field">Income</th>
-                <th class="table-field">Profit</th>
-                        <th class="table-field">Total</th>
+
+                <th class="table-field">Purchase Price</th>
+<!--                <th class="table-field">Profit</th>-->
+<!--                <th class="table-field">Total</th>-->
             </tr>
             </thead>
+            <?php foreach($data['purchmedicine'] as $allpurch): ?>
             <tr style="text-align: center">
-                <td>as</td>
-                <td>dv</td>
-                <td>sz</td>
-                <td>sa</td>
+                <td><?php echo $allpurch->medgenname; ?></td>
+                <td><?php echo $allpurch->quantity; ?></td>
+                <td><?php echo $allpurch->purchprice; ?></td>
+<!--                <td>--><?php //echo $allpurch->medgenname; ?><!--</td>-->
             </tr>
+            <?php endforeach; ?>
 
         </table>
         <h1>Returned Medicines</h1>
@@ -59,61 +62,69 @@ require APPROOT . '/views/includes/Reporthead.php';
                 <th>Medicine</th>
                 <th class="table-field">Quantity</th>
                 <th class="table-field">Income</th>
-                <th class="table-field">Profit</th>
-                <th class="table-field">Total</th>
+
+<!--                <th class="table-field">Profit</th>-->
+<!--                <th class="table-field">Total</th>-->
             </tr>
             </thead>
-            <tr style="text-align: center">
-                <td>as</td>
-                <td>dv</td>
-                <td>sz</td>
-                <td>sa</td>
-            </tr>
+            <?php foreach($data['returnmedicine'] as $allreturn): ?>
+                <tr style="text-align: center">
+                    <td><?php echo $allreturn->medgenname; ?></td>
+                    <td><?php echo $allreturn->rquantity; ?></td>
+                    <td><?php echo $allreturn->reason; ?></td>
+                    <!--                <td>--><?php //echo $allpurch->medgenname; ?><!--</td>-->
+                </tr>
+            <?php endforeach; ?>
 
         </table>
-        <div class="pagebreak"> </div>
-        <h1 >Purchased Surgical Items</h1>
-        <h4> Purchased Stocks : Rs.</h4>
-        <!--        <canvas id="myChart" width="400" height="400"></canvas>-->
-        <table class="table-bordered">
-            <thead>
-            <tr>
-                <th>Medicine</th>
-                <th class="table-field">Quantity</th>
-                <th class="table-field">Income</th>
-                <th class="table-field">Profit</th>
-                <th class="table-field">Total</th>
-            </tr>
-            </thead>
-            <tr style="text-align: center">
-                <td>as</td>
-                <td>dv</td>
-                <td>sz</td>
-                <td>sa</td>
-            </tr>
+<!--        <div class="pagebreak"> </div>-->
+<!--        <h1 >Purchased Surgical Items</h1>-->
+<!--        <h4> Purchased Stocks : Rs.</h4>-->
+<!--        <!--        <canvas id="myChart" width="400" height="400"></canvas>-->-->
+<!--        <table class="table-bordered">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>Medicine</th>-->
+<!--                <th class="table-field">Quantity</th>-->
+<!--                <th class="table-field">Income</th>-->
+<!--<!--                <th class="table-field">Profit</th>-->-->
+<!--<!--                <th class="table-field">Total</th>-->-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            --><?php //foreach($data['purchsurgicals'] as $allreturn): ?>
+<!--                <tr style="text-align: center">-->
+<!--                    <td>--><?php //echo $allreturn->medgenname; ?><!--</td>-->
+<!--                    <td>--><?php //echo $allreturn->rquantity; ?><!--</td>-->
+<!--                    <td>--><?php //echo $allreturn->reason; ?><!--</td>-->
+<!--                    <!--                <td>-->--><?php ////echo $allpurch->medgenname; ?><!--<!--</td>-->-->
+<!--                </tr>-->
+<!--            --><?php //endforeach; ?>
+<!---->
+<!--        </table>-->
+<!--        <h1>Returned Surgical Items</h1>-->
+<!--        <h4> Purchased Stocks : Rs.</h4>-->
+<!--        <!--        <canvas id="myChart" width="400" height="400"></canvas>-->-->
+<!--        <table class="table-bordered">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>Medicine</th>-->
+<!--                <th class="table-field">Quantity</th>-->
+<!--                <th class="table-field">Income</th>-->
+<!--<!--                <th class="table-field">Profit</th>-->-->
+<!--<!--                <th class="table-field">Total</th>-->-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            --><?php //foreach($data['purchsurgicals'] as $allreturn): ?>
+<!--                <tr style="text-align: center">-->
+<!--                    <td>--><?php //echo $allreturn->medgenname; ?><!--</td>-->
+<!--                    <td>--><?php //echo $allreturn->rquantity; ?><!--</td>-->
+<!--                    <td>--><?php //echo $allreturn->reason; ?><!--</td>-->
+<!--                    <!--                <td>-->--><?php ////echo $allpurch->medgenname; ?><!--<!--</td>-->-->
+<!--                </tr>-->
+<!--            --><?php //endforeach; ?>
+<!---->
+<!--        </table>-->
 
-        </table>
-        <h1>Returned Surgical Items</h1>
-        <h4> Purchased Stocks : Rs.</h4>
-        <!--        <canvas id="myChart" width="400" height="400"></canvas>-->
-        <table class="table-bordered">
-            <thead>
-            <tr>
-                <th>Medicine</th>
-                <th class="table-field">Quantity</th>
-                <th class="table-field">Income</th>
-                <th class="table-field">Profit</th>
-                <th class="table-field">Total</th>
-            </tr>
-            </thead>
-            <tr style="text-align: center">
-                <td>as</td>
-                <td>dv</td>
-                <td>sz</td>
-                <td>sa</td>
-            </tr>
-
-        </table>
     </div>
 </div>
 <!--<div class="page-number"></div>-->

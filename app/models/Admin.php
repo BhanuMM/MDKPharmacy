@@ -247,6 +247,22 @@ class Admin {
 //    }
 
 
+
+    public function findSurgbById($surgid) {
+        $this->db->query('SELECT * FROM surgicals WHERE surgid = :surgid');
+
+        $this->db->bind(':surgid', $surgid);
+
+        $row = $this->db->single();
+
+        return $row;
+    }
+
+
+    public function updateSurgicals($data) {
+        $this->db->query('UPDATE surgicals SET surgname = :surgname, surgbrand = :surgbrand, surgimporter = :importer, surgdealer = :dealer, surgpurchprice = :purchprice, surgsellprice = :sellprice, surgprofit = :profit, lowstockqty = :lowqty WHERE surgid = :surgid');
+
+
     public function findSurgbById($surgid) {
         $this->db->query('SELECT * FROM surgicals WHERE surgid = :surgid');
 
@@ -319,7 +335,7 @@ class Admin {
 
     /*--------------------------------------------------------------------------------------------------------------------------------------------------*/
     public function returnstock($data){
-        $this->db->query('INSERT INTO returnstock(medid,purchdate,rquantity,reason) VALUES(:medid,:purchdate,:rquantity,:reason)');
+        $this->db->query('INSERT INTO returnstock(medid,purchdate,rquantity,reason,rdate) VALUES(:medid,:purchdate,:rquantity,:reason,:retdate)');
 
 
         //Bind values
@@ -327,7 +343,7 @@ class Admin {
         $this->db->bind(':purchdate', $data['purchdate']);
         $this->db->bind(':rquantity', $data['returnqty']);
         $this->db->bind(':reason', $data['reason']);
-        
+        $this->db->bind(':retdate', $data['returndate']);
 
         //Execute function
         if ($this->db->execute()) {

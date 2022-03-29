@@ -439,8 +439,10 @@ class Cashiers extends Controller {
             $searchoutpast = $this->cashierModel->searchpastoutbill($datesearch);
             $searchonlinepast = $this->cashierModel->searchpastonlinebill($datesearch);
 
+
             if ($searchinpast || $searchoutpast ||  $searchonlinepast) {
                 $data = [
+
                     'inpast' => $searchinpast,
                     'outpast' => $searchoutpast,
                     'online' => $searchonlinepast
@@ -454,6 +456,7 @@ class Cashiers extends Controller {
                     'nofound' => 'No Records Found'
                 ];
             }
+
 
         }
 

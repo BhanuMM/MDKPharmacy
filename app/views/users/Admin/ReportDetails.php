@@ -97,7 +97,7 @@
                 <h5>
                     Select Date
                 </h5>
-                <input class="input1" type="date" id="date" name="date" placeholder="2021-10-30" required><br>
+                <input class="input1" type="date" id="idate" name="idate" placeholder="2021-10-30" required><br>
                 <input class="form-submit" style="margin-top:30px;" type="submit" id="generateidaily" name="submitbutton1" Value="Generate Report" ><br><br>
                 </div>
                 
