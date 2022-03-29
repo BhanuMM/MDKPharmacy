@@ -2,38 +2,53 @@
 require APPROOT . '/views/includes/Reporthead.php';
 ?>
 
-<div class="centered" style="width: 90%;">
-    <div class="heading" align="center" style="align-content: start; background-color:#0a0a2e; ">
-        <img src="<?php echo URLROOT ?>/public/images/1.png" style="margin-left: 1%; width: 70px; float: left;"/>
-        <br>
-        <strong style="color: aliceblue; float: left;">MDK HOSPITALS</strong>
+<div class="heading" style="margin-top: -5%;"> 
+        <img src="<?php echo URLROOT ?>/public/images/1.png" style="color: white; margin-left: 47%; margin-top: -5%; width: 70px;"/><br>
+        <strong style="color: aliceblue;  margin-left: 45%; ">MDK HOSPITALS</strong>
     </div>
+<div class="centered" style="width: 90%; ">
+  <div style="z-index: 3; color: white; align-content: center;">
 
     <br><br><br><br><br>
-    <div align="center">
+    <div align="center"><br><br>
         <h1>Daily Summary Report</h1>
         <h2>Date: <?php echo $data['dategen'] ?></h2></br>
 
         Report Generated Time: <?php $date = date('h:i:s'); echo $date;?> </br>
 
     </div>
+    </div>
 
+    <button class="btn" style="margin-left: 86%; border-radius: 5px; font-size: 15px;"><i class="fa fa-download"></i>Download</button>
+
+    <br>
     <div class="bill-body" style="margin: 5%;">
         <h1>Cash Inflow</h1>
-        <h2> In Patient Bills</h2>
-        <h4>In Patient Bill Count :<?php echo $data['inbillcount'] ?> </h4>
-        <h4>In Patient Bills Income  : Rs. <?php echo $data['inbillsum'] ?> </h4>
-        <h2> Out Patient Bills</h2>
-        <h4>Out Patient Bill Count :<?php echo $data['outbillcount'] ?> </h4>
-        <h4>Out Patient Bills Income  : Rs. <?php echo $data['outbillsum'] ?> </h4>
-        <h2> Online Patient Bills</h2>
-        <h4>Online Patient Bill Count :<?php echo $data['onlinebillcount'] ?> </h4>
-        <h4>Online Patient Bills Income  : Rs. <?php echo $data['onlinebillsum'] ?> </h4>
-        <h2> Total Income : Rs. <?php echo $data['onlinebillsum'] +$data['outbillsum']+$data['inbillsum'] ?> </h2>
         <hr>
+        <h2> In Patient Bills</h2>
+        <ul>
+            <li>In Patient Bill Count :<?php echo $data['inbillcount'] ?> </li>
+            <li>In Patient Bills Income  : Rs. <?php echo $data['inbillsum'] ?> </li>
+        </ul>
+       
+        <h2> Out Patient Bills</h2>
+        <ul>
+            <li>Out Patient Bill Count :<?php echo $data['outbillcount'] ?> </li>
+            <li>Out Patient Bills Income  : Rs. <?php echo $data['outbillsum'] ?> </li>
+        </ul>
+        <h2> Online Patient Bills</h2>
+        <ul>
+            <li>Online Patient Bill Count :<?php echo $data['onlinebillcount'] ?> </li>
+            <li>Online Patient Bills Income  : Rs. <?php echo $data['onlinebillsum'] ?> </li>
+        </ul>
+       
+        <h2> Total Income : Rs. <?php echo $data['onlinebillsum'] +$data['outbillsum']+$data['inbillsum'] ?> </h2>
+            <hr>
         <h1>Cash Outflow</h1>
         <h4> Purchased Stocks : Rs.</h4>
-
+       
+        </div>
+</div>
         <!--        <canvas id="myChart" width="400" height="400"></canvas>-->
         <!--        <table class="table-bordered">-->
         <!--            <thead>-->
@@ -61,8 +76,8 @@ require APPROOT . '/views/includes/Reporthead.php';
         <!--            </tr>-->
         <!--        </table>-->
 
-    </div>
-</div>
+  
+
 <!--<div class="page-number"></div>-->
 <!--<footer>-->
 <!--    <div align="center" style="color: aliceblue;">-->

@@ -29,50 +29,16 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
             <div class="row">
                 <!--    Section to search medicines and add them to the list     -->
-<!--                <div class="columnBill" >-->
-<!--                    <div class="container">-->
-<!--                        <h3>Add Medicine</h3>-->
-<!---->
-<!--                        <div class="select-box">-->
-<!--                            <div class="options-container">-->
-<!--                                --><?php
-//                                foreach($data['medicines'] as $allmedicines):
-//                                    {
-//                                        echo ' <div class="option" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
-//
-//                                    }
-//                                endforeach; ?>
-<!---->
-<!---->
-<!--                            </div>-->
-<!--                            <!--    Search button     -->-->
-<!--                            <div class="selected" medid="test" id="1">Select Medicine</div>-->
-<!---->
-<!--                            <div class="search-box">-->
-<!--                                <input type="text" placeholder="Start Typing..." />-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!---->
-<!--                    <br>-->
-<!---->
-<!--                    <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">+ </button>-->
-<!--                 </div>-->
-                <br>
-<!-- TWO -->
-                 <div class="row"> 
-                <!--    Section to search medicines and add them to the list     -->
-                <div class="columnBill" style="margin-top: 100%;">
+                <div class="columnBill" >
                     <div class="container">
-                        <h3>Add Surgical Items</h3>
+                        <h3>Add Medicine</h3>
 
                         <div class="select-box">
                             <div class="options-container">
                                 <?php
-                                foreach($data['surgicals'] as $allsurgicals):
+                                foreach($data['medicines'] as $allmedicines):
                                     {
-                                        echo ' <div class="option2" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" surgid="'.$allsurgicals->surgid .'" surgname =" '.$allsurgicals->surgname.'">'.$allsurgicals->surgname.'</label> </div>';
-
+                                        echo ' <div class="option" > <input type="radio" class="radio" id="medl" name="category" /> <label id ="labelid" medid="'.$allmedicines->medid.'" medname =" '.$allmedicines->medgenname.'">'.$allmedicines->medgenname.'</label> </div>';
 
                                     }
                                 endforeach; ?>
@@ -80,7 +46,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
                             </div>
                             <!--    Search button     -->
-                            <div class="selected2" medid="test" id="1">Select items</div>
+                            <div class="selected" medid="test" id="1">Select Medicine</div>
 
                             <div class="search-box">
                                 <input type="text" placeholder="Start Typing..." />
@@ -89,12 +55,17 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     </div>
                     
                     <br>
-                    <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;"> + </button>
+
+                    <button id="addbtn" style="padding:8px 30px; cursor:pointer; border-radius:8px; background-color: #4BB543;  color: white;border-style:none;">+ </button>
                  </div>
+                <br>
+<!-- TWO -->
+                 <div class="row"> 
+                <!--    Section to search medicines and add them to the list     -->
+                
 
 
-
-                <div class="columnBill" style="margin-left:27%;padding:1px; margin-top:-150%;">
+                <div class="columnBill" style="margin-left:27%;padding:1px; margin-top: -10%;">
 
                     <form method="post" action="<?php echo URLROOT; ?>/Cashiers/outpatientsingle">
 
@@ -110,11 +81,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                                 </tr>
                                 </thead>
                                 <tbody>
-
-
-
-
-                                </tbody>
+                             </tbody>
                             </table>
 
 
@@ -176,51 +143,8 @@ require APPROOT . '/views/includes/Cashierhead.php';
                     });
                 };
             </script>
-    <script>
-        const selected2 = document.querySelector(".selected2");
-        const optionsContainer2 = document.querySelector(".options-container");
-        const searchBox2 = document.querySelector(".search-box2 input");
 
-        const optionsList2 = document.querySelectorAll(".option2");
-
-        selected2.addEventListener("click", () => {
-            optionsContainer2.classList.toggle("active");
-
-            searchBox.value = "";
-            filterList("");
-
-            if (optionsContainer2.classList.contains("active")) {
-                searchBox.focus();
-            }
-        });
-
-        optionsList2.forEach(o => {
-            o.addEventListener("click", () => {
-                selected2.innerHTML = o.querySelector("label").innerHTML;
-                var id = o.querySelector("label").getAttribute('surgid');
-                selected2.setAttribute("surgid",id);
-                optionsContainer2.classList.remove("active");
-            });
-        });
-
-        searchBox.addEventListener("keyup", function(e) {
-            filterList(e.target.value);
-        });
-
-        const filterList1 = searchTerm => {
-            searchTerm = searchTerm.toLowerCase();
-            optionsList2.forEach(option => {
-                let label1 = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
-                if (label1.indexOf(searchTerm) != -1) {
-                    option.style.display = "block";
-                } else {
-                    option.style.display = "none";
-                }
-            });
-        };
-    </script>
-
-    <script>
+            <script>
                 $(document).ready(function(){
 
                     $('#addbtn').click(function(){
@@ -266,52 +190,6 @@ require APPROOT . '/views/includes/Cashierhead.php';
 
                 });
             </script>
-    <script>
-        $(document).ready(function(){
-
-            $('#addsurgbtn').click(function(){
-                var alreadye = 1;
-                var label = $('.selected');
-                var surgid = label.attr('surgid');
-                var surgname = label.text();
-                var input = 0;
-
-                var input = document.getElementsByClassName('idclass');
-                for (var i = 0; i < input.length ; i++) {
-                    if(input[i].value===surgid){
-
-                        alreadye=0;
-                        break;
-
-                    } else {
-                        alreadye=1;
-                    }
-                }
-
-                if(surgname !== 'Select Medicine' ){
-                    if( alreadye !==0){
-                        $("#medlist tbody").append('<tr><td><input class="input1 idclass" type="text" id="medid" name="medid[]" value="'+surgid+'" readonly></td><td><input class="input1" type="text" id="medname" name="medname" value="'+surgname+'" readonly></td><td><input class="input1" type="text" id="medqty" name="medqty[]" placeholder="Enter Quantity" required> </td>  <td align="center"><button id="removebtn" class="button_button1" style="background-color: #d11a2a; color: #ffffff; border-style:none;border-radius: 8px; cursor:pointer; padding:7px 15px;">Remove</button></td></tr>')
-
-                    }else {
-                        alert("The Surgical Item Already Exists!");
-                    }
-                }else
-                {
-                    alert("Please Select a Surgical Item");
-                }
-            });
-            $('#medlist tbody ').on('click','#removebtn' ,function (){
-                $(this).closest('tr').remove();
-            });
-
-            // $('#removebtn').click(function(event){
-            //
-            //     tid=$(this).attr('id');
-            //     alert('#'+tid);
-            // });
-
-        });
-    </script>
 <!-- ---------------------------------------------------- -->
            
             <br>
