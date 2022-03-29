@@ -9,10 +9,10 @@ require APPROOT . '/views/includes/Deliveryhead.php';
             <div class="welcome">
                     <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
                 <div class="welcome-names">
-                Past Deliveries             <p>
+                Previous Deliveries             <p>
                     <ul class="breadcrumb" style="margin-top: -30px;">
-                        <li><a href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
-                        <li>Past Deliveries </li>
+                        <li><a href="<?php echo URLROOT ?>/deliverys/deliverydashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URLROOT ?>/deliverys/viewpastdeliveries">Previous Deliveries</a></li>
                         
                        
                     </ul>

@@ -12,9 +12,9 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                 <div class="welcome-names">
                 View Delivery Details                <p>
                     <ul class="breadcrumb" style="margin-top: -30px;">
-                        <li><a href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
-                        <li>Current Deliveries </li>
-                        <li>View Delivery Details </li>
+                        <li><a href="<?php echo URLROOT ?>/deliverys/deliverydashboard">Dashboard</a></li>
+                        <li><a href="<?php echo URLROOT ?>/deliverys/viewcurrentdeliveries">Current Deliveries</a></li>
+                        <li>Delivery Details</li>
                        
                     </ul>
                     </p>

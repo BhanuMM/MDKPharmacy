@@ -2,10 +2,24 @@
     require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
-<!--Back Button-->
-    <div style="margin-left:23.5%; padding:1px 16px; width: 40%; margin-top:1%;">
-        <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewsupplier"> << </a> </span></button>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+                <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
+                Supplier Details 
+                <p>
+                <ul class="breadcrumb">
+                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                    <li><a href="<?php echo URLROOT ?>/admins/viewsupplier">Supplier Details</a></li>
+                </ul>
+                </p>
+            </div>
+        </div>
     </div>
+<div>
 
 
     <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%;">

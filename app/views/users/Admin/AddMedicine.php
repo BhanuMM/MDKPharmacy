@@ -14,8 +14,8 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <p>
                 <ul class="breadcrumb" style="margin-top: -30px;">
                     <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Medicine Details</a></li>
-                    <li>Add New Medicine</li>
+                    <li><a href="<?php echo URLROOT ?>/admins/viewmed">Medicine Details</a></li>
+                    <li><a href="<?php echo URLROOT ?>/admins/addmed">Add New Medicine</a></li>
                     
 
                 </ul>

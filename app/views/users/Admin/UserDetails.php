@@ -22,7 +22,7 @@ require APPROOT . '/views/includes/Adminhead.php';
                 <p>
                 <ul class="breadcrumb">
                     <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li>User Management</li>
+                    <li><a href="<?php echo URLROOT ?>/admins/viewuser">View Users</a></li>
                 </ul>
                 </p>
             </div>

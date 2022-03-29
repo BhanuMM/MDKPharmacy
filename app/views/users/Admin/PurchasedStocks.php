@@ -15,9 +15,8 @@
                 <p>
                 <ul class="breadcrumb" style="margin-top: -30px;">
                     <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li>Full Stock Details</li>
-                    <li>Purchased Stock</li>
-
+                    <li><a href="<?php echo URLROOT ?>/admins/viewstock">Full Stock Details</a></li>
+                    <li><a href="<?php echo URLROOT ?>/admins/purchstock">Purchased Stock</a></li>
                 </ul>
                 </p>
             </div>
