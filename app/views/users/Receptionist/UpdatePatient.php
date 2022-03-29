@@ -2,19 +2,37 @@
 require APPROOT . '/views/includes/Reciptionisthead.php';
 ?>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <div style="box-sizing: content-box; margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+        <div class="welcome-card">
+            <div class="welcome">
+                    <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+                <div class="welcome-names">
+                   Update Patient Details 
+                    <p>
+                    <ul class="breadcrumb">
+                        <li><a href="<?php echo URLROOT ?>/receptionists/receptionistdashboard">Dashboard</a></li>
+                        <li> <a href="<?php echo URLROOT ?>/receptionists/viewpatients">Patient Details</a></li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
 
 
 <div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;"><span><a style="text-decoration: none;"href="<?php echo URLROOT ?>/receptionists/viewpatients"> << </a> </span></button>
-
 
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
             <div class="column">
                 <form method="post" class="data" action="<?php echo URLROOT; ?>/receptionists/updatepatient/<?php echo $data['patientid']?>" method="POST">
                 <div class="form-left">
-                    <h2 style="margin-top: 3%;">
-                        Update Patient Details
-                    </h2>
                     <h5>
                         Name
                     </h5>

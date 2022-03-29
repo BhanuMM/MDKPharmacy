@@ -11,11 +11,11 @@
         <div class="welcome">
                 <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
             <div class="welcome-names">
-            Add New Stock
+            Add New Patient
                 <p>
                 <ul class="breadcrumb" style="margin-top: -30px;">
                     <li><a href="<?php echo URLROOT ?>/receptionists/receptionistdashboard">Dashboard</a></li>
-                    <li>Add New Patient</li>
+                    <li><a href="<?php echo URLROOT ?>/receptionists/registerpatient">Add New Patient</a></li>
                     
                 </ul>
                 </p>
