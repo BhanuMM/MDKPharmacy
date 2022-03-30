@@ -38,7 +38,6 @@
 <div class="w3-bar" style="background-color:#0a0a2e; color:white; margin-right: 10%; width: 97.5%; padding:1px 16px;">
   <button class="w3-bar-item w3-button" onclick="openSection('Summaries')" id="defaultOpen">Summaries</button>
   <button class="w3-bar-item w3-button" onclick="openSection('Inventory')">Inventory</button>
-  <button class="w3-bar-item w3-button" onclick="openSection('Sales')">Sales</button>
   <button class="w3-bar-item w3-button" onclick="openSection('Analysis')">Analysis</button>
 </div>
 
@@ -47,7 +46,7 @@
 
             <!-- <div style="margin-left:20%; padding:1px 16px;"> -->
 
-                <h2 style="margin-top: 18%;">
+                <h2 style="margin-top: 8%;">
                     Summaries
                 </h2>
                 <!-- Daily -->
@@ -64,15 +63,16 @@
                 </div>
                 </form>
 <br>
-<form method="post" action="<?php echo URLROOT; ?>/reports/Monthlysummary"  target="_blank">
+
                 <!-- Monthly -->
                 <button id="monthlyreports" class="reportBtn">Monthly Report</button><br>
                 <div class = "formonthlyreports" style="display:none; background-color:#f2f2f2; padding:10px 70px 10px 30px;">
                 <div class="close2" style="margin-right:49.5%; margin-top:-1%;">+</div>
+                    <form method="post" action="<?php echo URLROOT; ?>/reports/Monthlysummary"  target="_blank">
                 <h5>
                     Select Month
                 </h5>
-                <input class="input1" type="month" id="date" name="date" placeholder="2021-10-30" required><br>
+                <input class="input1" type="month" id="monthsummarydate" name="monthsummarydate" placeholder="2021-10-30" required><br>
                
                 <input class="form-submit" style="margin-top:30px;" type="submit" id="generatemonthly" name="submitbutton1" Value="Generate Report" ><br><br>
                 </div>
@@ -90,24 +90,25 @@
                     Inventories
                 </h2>
                 <!-- Daily -->
-                    <form method="post" action="<?php echo URLROOT; ?>/reports/InventoryDailysummary"  target="_blank">
+
                 <button id="idailyreports" class="reportBtn">Daily Report</button><br>
                 <div class = "foridailyreports" style="display:none; background-color:#f2f2f2; padding:10px 70px 10px 30px;">
                 <div class="close3"  style="margin-right:49.5%; margin-top:-1%;">+</div>
+                    <form method="post" action="<?php echo URLROOT; ?>/reports/InventoryDailysummary"  target="_blank">
                 <h5>
                     Select Date
                 </h5>
-                <input class="input1" type="date" id="idate" name="idate" placeholder="2021-10-30" required><br>
+                <input class="input1" type="date" id="indailydate" name="indailydate" placeholder="2021-10-30" required><br>
                 <input class="form-submit" style="margin-top:30px;" type="submit" id="generateidaily" name="submitbutton1" Value="Generate Report" ><br><br>
                 </div>
                 
 </form><br>
-<form method="post" action="">
+
                 <!-- Monthly -->
                 <button id="imonthlyreports" class="reportBtn">Monthly Report</button><br>
                 <div class = "forimonthlyreports" style="display:none; background-color:#f2f2f2; padding:10px 70px 10px 30px;">
                 <div class="close4"  style="margin-right:49.5%; margin-top:-1%;">+</div>
-
+                    <form method="post" action="">
                 <h5>
                     Select Month
                 </h5>
@@ -121,49 +122,50 @@
             
 </div>
 
-<div id="Sales" class="w3-container Section">
+            </div>
+<div id="Analysis" class="w3-container Section" >
 
-<form method="post" action="">
-            <!-- <div style="margin-left:20%; padding:1px 16px;"> -->
-                <div class="column" style="width: 40%; padding:1px 16px;">
-                <h2 style="margin-top: 18%;">
-                    Sales
-                </h2>
-                <!-- Daily -->
-                <button id="sdailyreports" class="reportBtn">Daily Report</button><br>
-                <div class = "forsdailyreports" style="display:none; background-color:#f2f2f2; padding:10px 70px 10px 30px;">
-                <div class="close5" style= "margin-right:49.5%; margin-top:-1%;">+</div>
+
+    <!-- <div style="margin-left:20%; padding:1px 16px;"> -->
+    <div class="column" style="width: 40%; padding:1px 16px;">
+        <h2 style="margin-top: 18%;">
+            Inventories
+        </h2>
+        <!-- Daily -->
+
+        <button id="idailyreports" class="reportBtn">Daily Report</button><br>
+        <div class = "foridailyreports" style="display:none; background-color:#f2f2f2; padding:10px 70px 10px 30px;">
+            <div class="close3"  style="margin-right:49.5%; margin-top:-1%;">+</div>
+            <form method="post" action="<?php echo URLROOT; ?>/reports/InventoryDailysummary"  target="_blank">
                 <h5>
                     Select Date
                 </h5>
-                <input class="input1" type="date" id="date" name="date" placeholder="2021-10-30" required><br>
-                <input class="form-submit" style="margin-top:30px;" type="submit" id="generatesdaily" name="submitbutton1" Value="Generate Report" ><br><br>
-                </div>
-</form><br>
-<form method="post" action="">
-                <!-- Monthly -->
-                <button id="smonthlyreports" class="reportBtn">Monthly Report</button><br>
-                <div class = "forsmonthlyreports" style="display:none; background-color:#f2f2f2; padding:10px 70px 10px 30px;">
-                <div class="close6"  style="margin-right:49.5%; margin-top:-1%;">+</div>
+                <input class="input1" type="date" id="indailydate" name="indailydate" placeholder="2021-10-30" required><br>
+                <input class="form-submit" style="margin-top:30px;" type="submit" id="generateidaily" name="submitbutton1" Value="Generate Report" ><br><br>
+        </div>
 
+        </form><br>
+
+        <!-- Monthly -->
+        <button id="imonthlyreports" class="reportBtn">Monthly Report</button><br>
+        <div class = "forimonthlyreports" style="display:none; background-color:#f2f2f2; padding:10px 70px 10px 30px;">
+            <div class="close4"  style="margin-right:49.5%; margin-top:-1%;">+</div>
+            <form method="post" action="">
                 <h5>
                     Select Month
                 </h5>
                 <input class="input1" type="month" id="date" name="date" placeholder="2021-10-30" required><br>
-               
-                <input class="form-submit" style="margin-top:30px;" type="submit" id="generatesmonthly" name="submitbutton1" Value="Generate Report" ><br><br>
-                </div></div>
-</form>   
- 
-            
+
+                <input class="form-submit" style="margin-top:30px;" type="submit" id="generateimonthly" name="submitbutton1" Value="Generate Report" ><br><br>
+        </div></div>
+    </form>
+
+
+
 </div>
 
-            </div>
-
-<div id="Analysis" class="w3-container Section">
-
-            
 </div>
+
         </div>
 
         </div>

@@ -23,13 +23,13 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
     
 </div>
 
-<span style="margin-left:22%;" class="successadded">
-                 <?php
-                 if(isset($_GET['msg'])){
-                     echo $_GET['msg']; // print_r($_GET);
-                 }
-                 ?>
-</span>
+<!--<span style="margin-left:22%;" class="successadded">-->
+<!--                 --><?php
+//                 if(isset($_GET['msg'])){
+//                     echo $_GET['msg']; // print_r($_GET);
+//                 }
+//                 ?>
+<!--</span>-->
 
 </div>
 
@@ -58,7 +58,16 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 </table>
             </form>
         </ul>
-        <br>
+<!--        <br>-->
+
+    <br><br>
+    <span class="successadded" style="color: red; margin-left: -73.25%;">
+                 <?php
+                 if(isset($data['norecord'])){
+                     echo ('No Record Found'); // print_r($_GET);
+                 }
+                 ?>
+                </span> <br><br>
 
 
 <!-- <div class="w3-container" > -->

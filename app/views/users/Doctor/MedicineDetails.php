@@ -51,12 +51,12 @@ require APPROOT . '/views/includes/Doctorhead.php';
      <br><br>
 <ul style="padding-left: 0px; list-style-type: none;  ">
     <!-- <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin: 0px;"> User Details</h3></li> -->
-    <form method="post" class="data" style="float: left; display: inline; margin-top: -5%; margin-left: 71.5%;" action="<?php echo URLROOT; ?>/doctors/viewpatientdetails">
+    <form method="post" class="data" style="float: left; display: inline; margin-top: -5%; margin-left: 71.5%;" action="<?php echo URLROOT; ?>/doctors/viewmedicineavailability">
         <table>
             <tr>
                 <th>
                     <li>
-                        <input type="text" id="UISearchbar" name="UISearchbar" style="border-radius: 5px; height: 35px; width: 200px;" placeholder="Patient NIC or Name"> 
+                        <input type="text" id="UISearchbar" name="UISearchbar" style="border-radius: 5px; height: 35px; width: 200px;" placeholder="Medicine Name">
                     </li>
                 </th>
                 <th>

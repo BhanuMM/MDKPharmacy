@@ -45,7 +45,7 @@ require APPROOT . '/views/includes/Reporthead.php';
         <h2> Total Income : Rs. <?php echo $data['onlinebillsum'] +$data['outbillsum']+$data['inbillsum'] ?> </h2>
             <hr>
         <h1>Cash Outflow</h1>
-        <h4> Purchased Stocks : Rs.</h4>
+        <h4> Purchased Stocks : Rs. <?php echo $data['purchcount'] ?></h4>
        
         </div>
 </div>

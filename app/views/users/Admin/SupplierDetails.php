@@ -42,7 +42,7 @@
 //                 }
 //                 ?>
 <!--        </span>-->
-        <br>
+<!--        <br>-->
 
  <div style="margin-left: -4.5%; margin-right: 2%;"> 
 
@@ -75,7 +75,7 @@
                      echo ('No Record Found'); // print_r($_GET);
                  }
                  ?>
-                </span> <br><br><br>
+                </span> <br>
 <!--        Table Headings-->
         <table id="customers">
             <tr>
