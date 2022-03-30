@@ -48,6 +48,13 @@ class Report {
         $row = $this->db->single();
         return $row;
     }
+    public function returncount($datemed) {
+
+        $this->db->query("SELECT rquantity*returnprice as total, rdate FROM returnstock  WHERE rdate = :datemed GROUP BY rdate");
+        $this->db->bind(':datemed', $datemed);
+        $row = $this->db->single();
+        return $row;
+    }
 
     public function inmonthcount($reportmonth,$reportyear) {
 
@@ -82,6 +89,8 @@ class Report {
         $row = $this->db->single();
         return $row;
     }
+
+
 
 //    public function purchsurg($datemed){
 //        $this->db->query("SELECT * FROM returnstock INNER JOIN medicine ON returnstock.medid=medicine.medid WHERE returnstock.rdate = :datemed");

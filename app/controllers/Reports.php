@@ -41,17 +41,41 @@ class Reports extends Controller
                 $purchase = $this->reportModel->purchmed($datemed);
                 $return = $this->reportModel->returnmed($datemed);
                 $psurg = $this->reportModel->purchcount($datemed);
+                $rsurg = $this->reportModel->returncount($datemed);
 //                $rsurg = $this->reportModel->returnsurg($datemed);
 
                 $data = [
                     'purchmedicine' => $purchase,
                     'returnmedicine' => $return,
                     'purchcount'=> $psurg->total,
-                    'repdate'=>$datemed
+                    'repdate'=>$datemed,
+                    'rcount'=>$rsurg->total
                 ];
                 $this->view('users/Report/InventoryDailySummary', $data);
             }
         }
+    public function InventoryMonthlysummary()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $daterep=strtotime($_POST['monthdate']);
+            $repmonth=date("m", $daterep);
+            $repyear=date("Y", $daterep);
+            $inbills=$this->reportModel->inmonthcount($repmonth,$repyear);
+            $outbills=$this->reportModel->outmonthcount($repmonth,$repyear);
+            $onlinebills=$this->reportModel->onlinemonthcount($repmonth,$repyear);
+            $psurg = $this->reportModel->purchmonthcount($repmonth,$repyear);
+//                $rsurg = $this->reportModel->returnsurg($datemed);
+
+            $data = [
+                'purchmedicine' => $purchase,
+                'returnmedicine' => $return,
+                'purchcount'=> $psurg->total,
+                'repdate'=>$datemed,
+                'rcount'=>$rsurg->total
+            ];
+            $this->view('users/Report/InventoryDailySummary', $data);
+        }
+    }
     public function Monthlysummary(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $daterep=strtotime($_POST['monthsummarydate']);
