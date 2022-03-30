@@ -14,7 +14,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
                 View Online Prescription                 <p>
                     <ul class="breadcrumb" style="margin-top: -30px;">
                         <li><a href="<?php echo URLROOT ?>/pharmacists/pharmacistdashboard">Dashboard</a></li>
-                        <li>Online Prescriptions</li>
+                        <li><a href="<?php echo URLROOT ?>/pharmacists/viewprescriptions">Online Prescriptions</a></li>
                         <li>View Online Prescription</li>
                     </ul>
                     </p>

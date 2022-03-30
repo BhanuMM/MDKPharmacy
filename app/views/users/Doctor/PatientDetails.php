@@ -4,9 +4,9 @@ require APPROOT . '/views/includes/Doctorhead.php';
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
-    <div class="welcome-card" style="width: 100%">
-        <div class="welcome">
+<div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%;">
+    <div class="welcome-card" style="width: 100%;  height: 90%; ">
+        <div class="welcome" >
             <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
             <div class="welcome-names">
                 Medicine Details
