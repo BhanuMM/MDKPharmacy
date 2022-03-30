@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="admin")){
 <head>
     <link rel="shortcut icon" type="MDK/jpg" href="<?php echo URLROOT ?>/public/images/MDK.jpg"/>
     <title>
-        DashBoard
+        MDK Hospital
     </title>
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/StyleSheet.css">
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/csscode.css">
@@ -17,7 +17,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="admin")){
 
 <!-- --------------------------------------------------------------------------------------------- -->
 <div class="sidebar">
-    <header><img src="<?php echo URLROOT ?>/public/images/1.png" style="width: 70px;"/><br><br><strong>MDK HOSPITALS</strong></header>
+    <header><img src="<?php echo URLROOT ?>/public/images/1.png" style="width: 70px;"/><br><br><strong>MDK HOSPITAL</strong></header>
     
     <ul style="list-style-type: none; padding-left: 0px;">
 

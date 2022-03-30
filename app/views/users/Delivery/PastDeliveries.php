@@ -84,7 +84,7 @@ require APPROOT . '/views/includes/Deliveryhead.php';
                         <td><?php echo $allpastdel->onlinefname ?></td>
                         <td><?php echo $allpastdel->onlinetelno ?></td>
                         <td><?php echo $allpastdel->onlineadrs ?></td>
-                        <td><button class="button button1"><a href="<?php echo URLROOT. "/deliverys/viewpastsingle/".$allpastdel->onlinepresid ?>"> VIEW BILL</a></button></td>
+                        <td><div style="margin-top:10%; margin-bottom:10%;"><a class="updateBtn"  href="<?php echo URLROOT. "/deliverys/viewpastsingle/".$allpastdel->onlinepresid ?>"> VIEW BILL</a></div></td>
               </tr>
                     <?php endforeach; ?>
                   </table>

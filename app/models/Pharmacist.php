@@ -9,7 +9,7 @@ class Pharmacist {
     public function viewmed() {
 
         $this->db->query('SELECT * FROM medicine INNER JOIN fullstock ON medicine.medid=fullstock.medid');
-      $results = $this->db->resultSet();
+        $results = $this->db->resultSet();
 
         return $results;
 }

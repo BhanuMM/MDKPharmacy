@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="receptionist")){
 <head>
     <link rel="shortcut icon" type="MDK/jpg" href="<?php echo URLROOT ?>/public/images/MDK.jpg"/>
     <title>
-        Patient Details
+        MDK Hospital
     </title>
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/StyleSheet.css">
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/csscode.css">
@@ -19,7 +19,8 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="receptionist")){
 
 <!-- --------------------------------------------------------------------------------------------- -->
 <div class="sidebar">
-    <header>MDK HOSPITALS</header>
+<header><img src="<?php echo URLROOT ?>/public/images/1.png" style="width: 70px;"/><br><br><strong>MDK HOSPITAL</strong></header>
+    
     <ul style="list-style-type: none; padding-left: 0px;">
         <li><a href = "<?php echo URLROOT ?>/receptionists/receptionistdashboard">Dashboard</a></li>
         <li><a href = "<?php echo URLROOT ?>/receptionists/viewpatients">Patients </a></li>
