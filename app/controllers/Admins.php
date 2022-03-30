@@ -399,6 +399,10 @@ class Admins extends Controller {
     
                     //Register user from model function
                     if ($this->adminModel->registermedicine($data)) {
+                        $medid= $this->adminModel->getlatestmed();
+                        $medidnew = $medid->maxid;
+
+                        $this->adminModel->addtofullstock($medidnew);
                         //Redirect to the viewtable page
                         $recadded = 'New Medicine has been Successfully Added!';
                         header('location: ' . URLROOT . '/admins/viewmed?msg='.$recadded);

@@ -528,6 +528,29 @@ class Admin {
             return false;
         }
     }
+    public function addtofullstock($data) {
+        $this->db->query('INSERT INTO fullstock (medid,quantity) VALUES(:item,"0")');
+
+
+        //Bind values
+        $this->db->bind(':item', $data);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function getlatestmed() {
+
+        $this->db->query('SELECT MAX(medid) AS maxid FROM medicine');
+
+        $row = $this->db->single();
+
+        return $row;
+
+    }
 
     public function viewstock() {
 

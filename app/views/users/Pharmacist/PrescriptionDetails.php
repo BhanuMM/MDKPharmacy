@@ -37,20 +37,20 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 
 <ul style="padding-left: 0px; list-style-type: none;  ">
     <!-- <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin: 0px;"> User Details</h3></li> -->
-    <form method="post" class="data" style="float: left; display: inline; margin-top: -5%; margin-left: 71.5%;" action="<?php echo URLROOT; ?>/pharmacists/prescriptiondetails">">
-        <table>
-            <tr>
-                <th>
-                    <li>
-                        <input type="text" id="UISearchbar" name="UISearchbar" style="border-radius: 5px; height: 35px; width: 200px;" placeholder="Patient NIC""> 
-                    </li>
-                </th>
-                <th>
-                    <button style="margin-top:5px; border-radius:5px; height: 40px; border-radius: 5px; padding-bottom:-10px;" class="form-submit"><i class="fa fa-search"></i></button>
-                </th>
-            </tr>
-        </table>
-    </form>
+<!--    <form method="post" class="data" style="float: left; display: inline; margin-top: -5%; margin-left: 71.5%;" action="--><?php //echo URLROOT; ?><!--/pharmacists/prescriptiondetails">">-->
+<!--        <table>-->
+<!--            <tr>-->
+<!--                <th>-->
+<!--                    <li>-->
+<!--                        <input type="text" id="UISearchbar" name="UISearchbar" style="border-radius: 5px; height: 35px; width: 200px;" placeholder="Patient NIC""> -->
+<!--                    </li>-->
+<!--                </th>-->
+<!--                <th>-->
+<!--                    <button style="margin-top:5px; border-radius:5px; height: 40px; border-radius: 5px; padding-bottom:-10px;" class="form-submit"><i class="fa fa-search"></i></button>-->
+<!--                </th>-->
+<!--            </tr>-->
+<!--        </table>-->
+<!--    </form>-->
 </ul>
 
      <br><br>
