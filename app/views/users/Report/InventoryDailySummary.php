@@ -19,7 +19,7 @@ require APPROOT . '/views/includes/Reporthead.php';
         </div>
     </div>
 
-    <button class="btn" style="margin-top: -3%;margin-left: 86%; border-radius: 5px; font-size: 15px;"><i class="fa fa-download"></i>Download</button>
+    <button class="btn" style="margin-top: -3%;margin-left: 86%; border-radius: 5px; font-size: 15px;" onclick="window.print()"><i class="fa fa-download"></i>Download</button>
 
     <br>
     <div class="bill-body" style="margin: 5%;">
@@ -39,7 +39,7 @@ require APPROOT . '/views/includes/Reporthead.php';
             </tr>
             </thead>
             <?php foreach($data['purchmedicine'] as $allpurch): ?>
-                <tr >
+                <tr style="text-align: center">
                     <td><?php echo $allpurch->medgenname; ?></td>
                     <td><?php echo $allpurch->quantity; ?></td>
                     <td><?php echo $allpurch->purchprice; ?></td>
@@ -50,13 +50,13 @@ require APPROOT . '/views/includes/Reporthead.php';
         </table>
         <h1>Returned Medicines</h1>
         <hr>
-        <h4> Returned Medicines Value : Rs. </h4>
+        <h4> Returned Medicines Value : Rs.<?php echo $data['rcount'] ?> </h4>
         <table class="table-bordered">
             <thead>
             <tr>
                 <th>Medicine</th>
                 <th class="table-field">Quantity</th>
-<!--                <th class="table-field">Returned Price</th>-->
+                <th class="table-field">Returned Price</th>
 
                 <!--                <th class="table-field">Profit</th>-->
                 <!--                <th class="table-field">Total</th>-->
@@ -66,7 +66,7 @@ require APPROOT . '/views/includes/Reporthead.php';
                 <tr style="text-align: center">
                     <td><?php echo $allreturn->medgenname; ?></td>
                     <td><?php echo $allreturn->rquantity; ?></td>
-<!--                    <td>--><?php //echo $allreturn->reason; ?><!--</td>-->
+                    <td><?php echo $allreturn->returnprice; ?></td>
                     <!--                <td>--><?php //echo $allpurch->medgenname; ?><!--</td>-->
                 </tr>
             <?php endforeach; ?>
