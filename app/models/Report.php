@@ -43,11 +43,46 @@ class Report {
 
     public function purchcount($datemed) {
 
-        $this->db->query("SELECT SUM(quantity) AS cnt  FROM purchstock WHERE purchdate = :datemed");
+        $this->db->query("SELECT quantity*purchprice as total, purchdate FROM purchstock  WHERE purchdate = :datemed GROUP BY purchdate");
         $this->db->bind(':datemed', $datemed);
         $row = $this->db->single();
         return $row;
     }
+
+    public function inmonthcount($reportmonth,$reportyear) {
+
+        $this->db->query("SELECT COUNT(*) AS cnt ,SUM(grosstotal) AS sm FROM bill WHERE customertype ='in'  AND  month(billdate)=:bmonth AND year(billdate)= :byear ");
+        $this->db->bind(':bmonth',$reportmonth);
+        $this->db->bind(':byear',$reportyear);
+        $row = $this->db->single();
+        return $row;
+    }
+    public function outmonthcount($reportmonth,$reportyear) {
+
+        $this->db->query("SELECT COUNT(*) AS cnt ,SUM(grosstotal) AS sm FROM bill WHERE customertype ='out' AND  month(billdate)=:bmonth AND year(billdate)= :byear ");
+        $this->db->bind(':bmonth',$reportmonth);
+        $this->db->bind(':byear',$reportyear);
+        $row = $this->db->single();
+        return $row;
+    }
+    public function onlinemonthcount($reportmonth,$reportyear) {
+
+        $this->db->query("SELECT COUNT(*) AS cnt ,SUM(grosstotal) AS sm FROM bill WHERE customertype ='online' AND  month(billdate)=:bmonth AND year(billdate)= :byear ");
+        $this->db->bind(':bmonth',$reportmonth);
+        $this->db->bind(':byear',$reportyear);
+        $row = $this->db->single();
+        return $row;
+    }
+    public function purchmonthcount($reportmonth,$reportyear) {
+
+        $this->db->query("SELECT quantity*purchprice as total, purchdate FROM purchstock  WHERE month(purchdate)=:bmonth AND year(purchdate)= :byear GROUP BY purchdate");
+
+        $this->db->bind(':bmonth',$reportmonth);
+        $this->db->bind(':byear',$reportyear);
+        $row = $this->db->single();
+        return $row;
+    }
+
 //    public function purchsurg($datemed){
 //        $this->db->query("SELECT * FROM returnstock INNER JOIN medicine ON returnstock.medid=medicine.medid WHERE returnstock.rdate = :datemed");
 //        $this->db->bind(':datemed', $datemed);

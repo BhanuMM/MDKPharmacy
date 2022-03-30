@@ -16,6 +16,7 @@ class Reports extends Controller
             $inbills=$this->reportModel->incount($repdate);
             $outbills=$this->reportModel->outcount($repdate);
             $onlinebills=$this->reportModel->onlinecount($repdate);
+            $psurg = $this->reportModel->purchcount($repdate);
             $data =[
                 'inbillcount'=>$inbills->cnt,
                 'inbillsum'=>$inbills->sm,
@@ -23,7 +24,8 @@ class Reports extends Controller
                 'outbillsum'=>$outbills->sm,
                 'onlinebillcount'=>$onlinebills->cnt,
                 'onlinebillsum'=>$onlinebills->sm,
-                'dategen'=> $_POST['gendate']
+                'dategen'=> $_POST['gendate'],
+                'purchcount'=> $psurg->total,
             ];
             $this->view('users/Report/DailySummary',$data);
         }
@@ -44,7 +46,7 @@ class Reports extends Controller
                 $data = [
                     'purchmedicine' => $purchase,
                     'returnmedicine' => $return,
-                    'purchcount'=> $psurg->cnt,
+                    'purchcount'=> $psurg->total,
                     'repdate'=>$datemed
                 ];
                 $this->view('users/Report/InventoryDailySummary', $data);
@@ -52,10 +54,14 @@ class Reports extends Controller
         }
     public function Monthlysummary(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $daterep=strtotime($_POST['monthsummarydate']);
+            $repmonth=date("m", $daterep);
+            $repyear=date("Y", $daterep);
+            $inbills=$this->reportModel->inmonthcount($repmonth,$repyear);
+            $outbills=$this->reportModel->outmonthcount($repmonth,$repyear);
+            $onlinebills=$this->reportModel->onlinemonthcount($repmonth,$repyear);
+            $psurg = $this->reportModel->purchmonthcount($repmonth,$repyear);
 
-            $inbills=$this->reportModel->incount();
-            $outbills=$this->reportModel->outcount();
-            $onlinebills=$this->reportModel->onlinecount();
             $data =[
                 'inbillcount'=>$inbills->cnt,
                 'inbillsum'=>$inbills->sm,
@@ -63,7 +69,8 @@ class Reports extends Controller
                 'outbillsum'=>$outbills->sm,
                 'onlinebillcount'=>$onlinebills->cnt,
                 'onlinebillsum'=>$onlinebills->sm,
-                'dategen'=> $_POST['gendate']
+                'purchcount'=> $psurg->total,
+                'dategen'=> $_POST['monthsummarydate']
             ];
             $this->view('users/Report/MonthlySummary',$data);
         }
