@@ -335,13 +335,14 @@ class Admin {
 
     /*--------------------------------------------------------------------------------------------------------------------------------------------------*/
     public function returnstock($data){
-        $this->db->query('INSERT INTO returnstock(medid,purchdate,rquantity,reason,rdate) VALUES(:medid,:purchdate,:rquantity,:reason,:retdate)');
+        $this->db->query('INSERT INTO returnstock(medid,purchdate,returnprice,rquantity,reason,rdate) VALUES(:medid,:purchdate,:rprice,:rquantity,:reason,:retdate)');
 
 
         //Bind values
         $this->db->bind(':medid', $data['medid']);
         $this->db->bind(':purchdate', $data['purchdate']);
         $this->db->bind(':rquantity', $data['returnqty']);
+        $this->db->bind(':rprice', $data['returnp']);
         $this->db->bind(':reason', $data['reason']);
         $this->db->bind(':retdate', $data['returndate']);
 
@@ -526,6 +527,29 @@ class Admin {
         } else {
             return false;
         }
+    }
+    public function addtofullstock($data) {
+        $this->db->query('INSERT INTO fullstock (medid,quantity) VALUES(:item,"0")');
+
+
+        //Bind values
+        $this->db->bind(':item', $data);
+
+        //Execute function
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function getlatestmed() {
+
+        $this->db->query('SELECT MAX(medid) AS maxid FROM medicine');
+
+        $row = $this->db->single();
+
+        return $row;
+
     }
 
     public function viewstock() {

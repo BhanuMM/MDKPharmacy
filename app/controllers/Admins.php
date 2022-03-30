@@ -399,6 +399,10 @@ class Admins extends Controller {
     
                     //Register user from model function
                     if ($this->adminModel->registermedicine($data)) {
+                        $medid= $this->adminModel->getlatestmed();
+                        $medidnew = $medid->maxid;
+
+                        $this->adminModel->addtofullstock($medidnew);
                         //Redirect to the viewtable page
                         $recadded = 'New Medicine has been Successfully Added!';
                         header('location: ' . URLROOT . '/admins/viewmed?msg='.$recadded);
@@ -664,6 +668,7 @@ class Admins extends Controller {
                 'medid' => trim($_POST['medid']),
                 'purchdate' => trim($_POST['purchdate']),
                 'returnqty' => trim($_POST['returnqty']),
+                'returnp' => trim($_POST['returnprice']),
                 'reason' => trim($_POST['reason']),
                 'returndate' => trim($_POST['rdate']),
                 'newquantity' => $newquantity
@@ -675,7 +680,7 @@ class Admins extends Controller {
                 //Register user from model function
                 if ($this->adminModel->returnstock($data)) {
                     if($this->adminModel->updatequantity($data)){
-                        $recadded = 'New Stock has been Successfully Added!';
+                        $recadded = 'Record Saved!';
                         header('location: ' . URLROOT . '/admins/viewstock?msg='.$recadded);
                     }else{
                         die('Update error.');

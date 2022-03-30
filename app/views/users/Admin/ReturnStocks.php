@@ -48,7 +48,10 @@
                 Return Quantity
             </h5>
             <input class="input1" type="number" id="quantity" name="returnqty" placeholder="18" required>
-
+            <h5>
+                Return Price
+            </h5>
+            <input class="input1" type="number" id="quantity" name="returnprice" placeholder="23.85" required>
             <h5>
                 Reason to return the stock
             </h5>
