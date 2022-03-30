@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="doctor")){
 <head>
     <link rel="shortcut icon" type="MDK/jpg" href="<?php echo URLROOT ?>/public/images/MDK.jpg"/>
     <title>
-        Dashboard
+        MDK Hospital
     </title>
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/StyleSheet.css">
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/csscode.css">

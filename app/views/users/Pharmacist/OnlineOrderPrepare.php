@@ -2,7 +2,7 @@
 require APPROOT . '/views/includes/Pharmacisthead.php';
 ?>
 <br>
-<div style="margin-left:20%; padding:1px 16px; width: 40% ">
+<div style="margin-left:20%;  padding:1px 16px; width: 40% ">
     <button class="prebtn" style="margin-right: 200px;"><span><a style="text-decoration: none;" href="<?php echo URLROOT ?>/pharmacists/viewonlineorders"> << </a> </span></button>
 </div>  
 
@@ -12,7 +12,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 <div class="split left" style="z-index: -10;" >
 
 <div class="centered"> 
-<img src="<?php echo URLROOT ?>/public/images/OnlinePrescriptions/<?php echo $data['orderimg']?>"  alt="<?php echo $data['orderimg']?>" width="400" style="margin-left:350px;pointer-events: none; user-select: none; ">
+<img src="<?php echo URLROOT ?>/public/images/OnlinePrescriptions/<?php echo $data['orderimg']?>"  alt="<?php echo $data['orderimg']?>" width="400" style="margin-top:15%; margin-left:350px;pointer-events: none; user-select: none; ">
 </div>
   </div>
 

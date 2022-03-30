@@ -25,13 +25,17 @@ require APPROOT . '/views/includes/Deliveryhead.php';
 
 <div style="margin-left: 300px; margin-top:50px; margin-right:0%; padding:1px 16px; width: 70%; ">
             <div style="margin-left:17%; margin-right:2%; padding:1px 16px; width: ">
+            
+                
                 <ul style="margin-top: 5%; padding-left: 0px; list-style-type: none; overflow: auto;">
                     <li Style="float: left; vertical-align: middle; display: inline;"><h3>Delivery Details</h3></li>
                 </ul>
-
+                
                 <ul><li style="list-style: none;"><h4>Date: <?php echo $data['date']?></h4></li>
                     <li style="list-style: none;"><h4>Delivery ID: <?php echo $data['delid']?></h4></li>
+            
                     <li style="list-style: none;"><h4>Address:<?php echo $data['adrs']?></h4></li>
+            
                 </ul>
                <p></p>
             </div>
@@ -106,5 +110,6 @@ require APPROOT . '/views/includes/Deliveryhead.php';
         </div>       
     </div>
 </div>
+<br><br><br>
     </body>
 </html>

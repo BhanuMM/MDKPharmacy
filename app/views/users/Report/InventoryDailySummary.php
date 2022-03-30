@@ -19,7 +19,7 @@ require APPROOT . '/views/includes/Reporthead.php';
         </div>
     </div>
 
-    <button class="btn" style="margin-left: 86%; border-radius: 5px; font-size: 15px;"><i class="fa fa-download"></i>Download</button>
+    <button class="btn" style="margin-top: -3%;margin-left: 86%; border-radius: 5px; font-size: 15px;"><i class="fa fa-download"></i>Download</button>
 
     <br>
     <div class="bill-body" style="margin: 5%;">

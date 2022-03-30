@@ -99,6 +99,85 @@ if (!isset($_SESSION['user_id']) && ($_SESSION['urole']!="admin")){
                 clear: both;
                 page-break-after: always; } /* page-break-after works, as well */
         }
+        * {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 83.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Report */
+.close2{
+  position: absolute;
+  margin-top: -25px;
+  right: 14px;
+  margin-right: 320px;
+  font-size: 36px;
+  transform: rotate(45deg);
+  cursor:pointer;
+}
+
+.close3{
+  position: absolute;
+  margin-top: -25px;
+  right: 14px;
+  margin-right: 520px;
+  font-size: 36px;
+  transform: rotate(45deg);
+  cursor:pointer;
+}
+
+.close4{
+  position: absolute;
+  margin-top: -25px;
+  right: 14px;
+  margin-right: 320px;
+  font-size: 36px;
+  transform: rotate(45deg);
+  cursor:pointer;
+}
+
+.close5{
+  position: absolute;
+  margin-top: -25px;
+  right: 14px;
+  margin-right: 320px;
+  font-size: 36px;
+  transform: rotate(45deg);
+  cursor:pointer;
+}
+
+
+.close6{
+  position: absolute;
+  margin-top: -25px;
+  right: 14px;
+  margin-right: 320px;
+  font-size: 36px;
+  transform: rotate(45deg);
+  cursor:pointer;
+}
+
+.reportBtn{
+  background-color: white;
+  color:#0a0a2e;
+  padding:15px 50px;
+  text-decoration: none;
+  border-color: #0a0a2e;
+  border-radius: 8px; 
+  cursor:pointer;
+}
     </Style>
 </head>
 <body style="font-family: poppins; margin: 0px;" >

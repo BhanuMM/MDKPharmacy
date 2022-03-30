@@ -3,7 +3,7 @@
 <head>
     <link rel="shortcut icon" type="MDK/jpg" href="<?php echo URLROOT ?>/public/images/MDK.jpg"/>
     <title>
-        Reports
+    MDK Hospital
     </title>
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/StyleSheet.css">
 </head>

@@ -13,7 +13,7 @@ require APPROOT . '/views/includes/Cashierhead.php';
                 Inpatient Bill          <p>
                     <ul class="breadcrumb" style="margin-top: -30px;">
                         <li><a href="<?php echo URLROOT ?>/cashiers/cashierdashboard">Dashboard</a></li>
-                        <li> Inpatient Bills  </li>
+                        <li><a href="<?php echo URLROOT ?>/cashiers/inpatientbills"> Inpatient Bills </a> </li>
                         <li> Inpatient Bill  </li>
         
                 

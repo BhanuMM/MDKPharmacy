@@ -37,6 +37,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 
 <ul style="padding-left: 0px; list-style-type: none;  ">
     <!-- <li Style="float: left; vertical-align: middle; display: inline;"><h3 style="margin: 0px;"> User Details</h3></li> -->
+
 <!--    <form method="post" class="data" style="float: left; display: inline; margin-top: -5%; margin-left: 71.5%;" action="--><?php //echo URLROOT; ?><!--/pharmacists/prescriptiondetails">">-->
 <!--        <table>-->
 <!--            <tr>-->
@@ -51,6 +52,7 @@ require APPROOT . '/views/includes/Pharmacisthead.php';
 <!--            </tr>-->
 <!--        </table>-->
 <!--    </form>-->
+
 </ul>
 
      <br><br>
