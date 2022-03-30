@@ -3,13 +3,33 @@ require APPROOT . '/views/includes/Adminhead.php';
 ?>
 
 <!--previous button-->
-<div style="margin-left:20%;  padding:20px 26px;">
-    <button class="prebtn" style="margin-right:30%;">
-        <span>
-            <a style="text-decoration: none;" href="<?php echo URLROOT ?>/admins/viewsurgicals"> << </a>
-        </span>
-    </button>
+<!--<div style="margin-left:20%;  padding:20px 26px;">-->
+<!--    <button class="prebtn" style="margin-right:30%;">-->
+<!--        <span>-->
+<!--            <a style="text-decoration: none;" href="--><?php //echo URLROOT ?><!--/admins/viewsurgicals"> << </a>-->
+<!--        </span>-->
+<!--    </button>-->
+<!--</div>-->
+
+<div style="margin-left: 20%; margin-top:50px; margin-right:0%; padding:1px 16px; width: 72%; ">
+    <div class="welcome-card">
+        <div class="welcome">
+            <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
+            <div class="welcome-names">
+                Add New Surgical Item
+                <p>
+                <ul class="breadcrumb" style="margin-top: -30px;">
+                    <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
+                    <li><a href="<?php echo URLROOT ?>/admins/viewsurgicals">Surgical Items</a> </li>
+                    <li>Update Surgical Item </li>
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
 </div>
+
 
 <div style="margin-left:20%; padding:1px 16px; width: 40%">
 

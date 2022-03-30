@@ -16,7 +16,7 @@
                     <p>
                     <ul class="breadcrumb" style="margin-top: -30px;">
                         <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                        <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Supplier Details</a></li>
+                        <li><a href="<?php echo URLROOT ?>/admins/viewsupplier">Supplier Details</a></li>
                         <li>Add New Supplier</li>
                     </ul>
                     </p>
