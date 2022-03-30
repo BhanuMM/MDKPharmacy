@@ -67,6 +67,7 @@
                 <th>Brand Name</th>
                 <th>Generic Name</th>
                 <th>Return Quantity</th>
+                <th>Return Price</th>
                 <th>Reason to return the stock</th>
                 <th>Returned date</th>
             </tr>
@@ -80,6 +81,7 @@
                     <td><?php echo $allmedicines->medbrand; ?></td>
                     <td><?php echo $allmedicines->medgenname; ?></td>
                     <td><?php echo $allmedicines->rquantity; ?></td>
+                    <td><?php echo $allmedicines->returnprice; ?></td>
                     <td><?php echo $allmedicines->reason; ?></td>
                     <td><?php echo $allmedicines->rdate; ?></td>
                 </tr>
