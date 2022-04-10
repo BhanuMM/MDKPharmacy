@@ -56,6 +56,10 @@ class Admins extends Controller {
             'upswrd' => $user->upswrd,
             'urepswrd' => $user->upswrd,
             'urole' => $user->urole,
+            'uhomeno'=>'',
+            'ustadrs'=>'',
+            'udistrict'=>'',
+            'ugender'=>'',
             'nicError' => '',
             'telError' => '',
             'nameError' => '',
@@ -67,7 +71,14 @@ class Admins extends Controller {
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-            
+
+            $genval = $_POST['gen'];
+            if($genval=='male'){
+                $gen= "male";
+            }
+            else{
+                $gen= "female";
+            }
             $data = [
                 'staffid'=>$user->staffid,
                 'snic' => trim($_POST['Rnic']),
@@ -76,6 +87,10 @@ class Admins extends Controller {
                 'stelno' => trim($_POST['Rtelno']),
                 'urole' => $_POST['Rrole'],
                 'uname' => $_POST['Runame'],
+                'uhomeno'=>trim($_POST['Homeno']),
+                'ustadrs'=>trim($_POST['Stadrs']),
+                'udistrict'=>trim($_POST['District']),
+                'ugender'=>$gen,
                 'upswrd' => $_POST['Rpass'],
                 'urepswrd' => $_POST['Repass'],
                 // 'urole' => $_POST['']

@@ -17,7 +17,7 @@ class Pharmacist {
 
 
     public function viewpres() {
-        $this->db->query('SELECT * ,prescription.presid FROM prescription INNER JOIN patient ON prescription.patid=patient.patid LEFT JOIN childpres ON prescription.presid = childpres.presid   LEFT JOIN childelder on childpres.childid=childelder.childelderid ');
+        $this->db->query('SELECT * ,prescription.presid FROM prescription INNER JOIN patient ON prescription.patid=patient.patid LEFT JOIN childpres ON prescription.presid = childpres.presid   LEFT JOIN childelder on childpres.childid=childelder.childelderid ORDER BY prescription.presid DESC');
 
 
         $results = $this->db->resultSet();

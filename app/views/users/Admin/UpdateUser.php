@@ -67,6 +67,15 @@ require APPROOT . '/views/includes/Adminhead.php';
             <span class="invalidFeedback">
                 <?php echo $data['telError']; ?>
             </span>
+            <h5>
+                Address
+            </h5>
+            <input class="input1" type="text" id="Homeno" name="Homeno" size=10 placeholder="Home No"  required>
+            <br><br>
+            <input class="input1" type="text" id="Stadrs" name="Stadrs" size=10 placeholder="Street name"  required>
+            <br><br>
+            <input class="input1" type="text" id="District" name="District" size=10 placeholder="District" required>
+
         </div>
 
         <div class="form-right">
@@ -76,6 +85,13 @@ require APPROOT . '/views/includes/Adminhead.php';
                 Email
             </h5>
                 <input class="input1" type="text" id="Remail" name="Remail" size=40 placeholder="abc@gmail.com" value="<?php echo $data['semail']; ?>" >
+            <h5>
+                Gender
+            </h5>
+            <input type="radio" id="genmale" name="gen" value="male">
+            <label for="genmale">Male</label>
+            <input type="radio" id="genfemale" name="gen" value="female">
+            <label for="genfemale">Female</label>
 
             <h5>
                 Username
