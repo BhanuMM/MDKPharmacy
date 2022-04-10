@@ -37,13 +37,17 @@ class Admin {
     }
 
     public function updateuser($data) {
-        $this->db->query('UPDATE staff SET snic = :snic, sname = :sname, semail = :semail, stelno = :stelno, uname = :uname  WHERE staffid = :staffid');
+        $this->db->query('UPDATE staff SET snic = :snic, sname = :sname, semail = :semail, stelno = :stelno, homeno= :hno, stadrs=:streetadrs , district= :dis, ugender= :ugen,  uname = :uname  WHERE staffid = :staffid');
 
         $this->db->bind(':staffid', $data['staffid']);
         $this->db->bind(':snic', $data['snic']); 
         $this->db->bind(':sname', $data['sname']);
         $this->db->bind(':semail', $data['semail']);
         $this->db->bind(':stelno', $data['stelno']);
+        $this->db->bind(':hno', $data['uhomeno']);
+        $this->db->bind(':streetadrs', $data['ustadrs']);
+        $this->db->bind(':dis', $data['udistrict']);
+        $this->db->bind(':ugen', $data['ugender']);
         $this->db->bind(':uname', $data['uname']);
         // $this->db->bind(':upswrd', $data['upswrd']);
         // $this->db->bind(':urepswrd', $data['urepswrd']);
