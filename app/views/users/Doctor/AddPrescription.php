@@ -9,11 +9,11 @@ require APPROOT . '/views/includes/Doctorhead.php';
         <div class="welcome">
                 <!-- <img src="https://randomuser.me/api/portraits/men/20.jpg" width="100%" alt=""> -->
             <div class="welcome-names">
-                Report Generation
+                Create Prescription
                 <p>
                 <ul class="breadcrumb">
                     <li><a href="<?php echo URLROOT ?>/admins/admindashboard">Dashboard</a></li>
-                    <li>Report Generation</li>
+                    <li>Create Prescription</li>
                 </ul>
                 </p>
             </div>
